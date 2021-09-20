@@ -1,0 +1,207 @@
+<style>
+    #topframe-anchor{display: block;}
+    #topframe-img-big{
+        width: 100vw;
+        height: 110.41666666666667vw;
+    }
+</style>
+
+<img src="[%dfp_expandImage%]" id="topframe-img-big" class="topframe-img" border="0" alt="" />
+<!-- <a id="topframe-anchor" onclick="topframeGenerateDMPLP()" target="_blank" href="[%dfp_landingPage%]"> -->
+<!-- </a> -->
+
+<script>
+    
+    /*unused var from previous version*/
+    /*
+    [%dfP_topframeUseCollapse%]
+    [%dfp_expandImage%]
+    [%dfp_big_iframe_ratio%]
+    [%dfp_samllImage%]
+    */
+
+    var _klyAd = parent.kly || parent.kmklabs;
+    var _pBody = parent.document.querySelector("body");
+        
+    var topFrameImageBig = document.getElementById("topframe-img-big");
+    var dfp_topframeLandingPage = "%%CLICK_URL_UNESC%%[%dfp_landingPage%]" ;
+    var dfp_topframeDMPCat  = '[%DMPCategory%]'.trim().split(/\s*,\s*/); // optional input
+    var dfp_macro = '{"lineitemId":"%eaid!", "advertiserId":"%eadv!", "orderId":"%ebuy!", "creativeId":"%ecid!", "adunitId":"%epid!"}';
+    var topFramewrapper = parent.document.getElementById("div-gpt-ad-topfrm-parallax-wrapper");
+    var topFrameContainer = window.frameElement.parentElement.parentElement;
+    var IVSVideoContainer = parent.document.querySelector(".mdk_Nvideo");
+    var _ios = [
+                    "iPad Simulator",
+                    "iPhone Simulator",
+                    "iPod Simulator",
+                    "iPad",
+                    "iPhone",
+                    "iPod"
+                ].includes(parent.navigator.platform)
+                /*iPad on iOS 13 detection*/
+                ||
+                (parent.navigator.userAgent.includes("Mac") && "ontouchend" in parent.document);
+    
+
+    if( ( IVSVideoContainer || _klyAd.channel.name === "Planet" ) && _klyAd.site === "Merdeka" ){
+        _initParentV7(topFrameImageBig.clientHeight);
+    }else{
+        initParent(topFrameImageBig.clientHeight);
+        _menuIssue_();
+        /** WORK ARROUND TRENDING */
+        if(_klyAd.site === "Merdeka"){
+            _tweakTrendingMerdeka();
+        }
+    }
+
+    topFrameImageBig.addEventListener("click",topframeGenerateDMPLP)
+
+    parent.window.addEventListener("orientationchange", function() {
+        var isIos = navigator.platform.match(/iPhone|iPod|iPad/);
+        var orientation = (isIos) ? parent.window.orientation : parent.screen.orientation.angle;
+
+        if (orientation == 0) {
+            if(topFramewrapper) topFramewrapper.style.display = "block";
+            if(topFrameContainer) topFrameContainer.style.display = "block";
+        } else {
+            if(topFramewrapper) topFramewrapper.style.display = "none";
+            if(topFrameContainer) topFrameContainer.style.display = "none";
+        }
+    });
+    
+    function initParent(height) {      
+        _pBody.classList.add(_klyAd.site);
+        var thisframe = window.frameElement;
+        thisframe.style = "width: 100vw;height:110.41666666666667vw;"+ ( (_ios && (_klyAd.site == 'Kapanlagi' || _klyAd.site == 'Dream' ) ) ? '' : 'position: fixed;' ) + "top: 0;left: 0; display: block;";
+        thisframe.parentElement.style = `
+            transition: all ,.5s ease;
+            position: absolute;
+            width: 100vw; 
+            height:110.41666666666667vw;
+            top: 0;
+            clip-path: inset(0px 0px 0px 0px);
+        `;
+        thisframe.parentElement.parentElement.style = "height: 110.41666666666667vw;position: relative;width :100%;display : block;";
+
+        var _style_ = document.createElement("style");
+        _style_.textContent = ".Merdeka header, .Merdeka section, .Merdeka div :not(.hl-active-sticky ) :not(.navbar-menu) :not(.navbar-menu) :not(.loading) :not(.loading img) :not(.loading iframe.vidio-embed, .swiper-wrapper, .swiper-wrapper * ,.exposer-bucket, .exposer-bucket *, [id^='div-gpt-ad-merdeka-crm'], [id^='div-gpt-ad-merdeka-crm'] *, #div-gpt-ad-merdeka-dfp-exposer-slot1-oop *), .Merdeka main{position: relative;z-index:5;}.bola header,.bola  section,.bola div :not(.hl-active-sticky,#div-gpt-ad-bola-dfp-exposer-slot1-oop *,.picturefirst-widget-homepage-volume *,.slot-youtubev2 *),.bola main{position: relative;z-index:unset;}#div-gpt-ad-topfrm-parallax-wrapper{height:110.41666666666667vw !important;}"
+        thisframe.parentElement.parentElement.appendChild(_style_)
+
+        var _mHl = parent.document.querySelector("#div-gpt-ad-merdeka-hl");
+        if (_mHl) {
+          _mHl.parentElement.parentElement.style.zIndex = '99';
+        }
+    }
+
+    function topframeGenerateDMPLP(){
+        if(typeof parent.window.createDMPTracker === 'function'){
+            parent.window.createDMPTracker(dfp_topframeDMPCat,dfp_topframeLandingPage,dfp_macro);
+        }  
+    }
+
+    function _menuIssue_() {
+        if (_klyAd.site == "Merdeka") {
+
+            var _menuMerdeka_ = parent.document.querySelector("button.navbar-toggle.pull-left.btn-main-menu");
+            var _menuCloseMerdeka_ = parent.document.querySelector("a.navbar-menu--header-close.close-main-menu");
+            _menuMerdeka_.addEventListener("click", function () {
+                _pBody.classList.remove(_klyAd.site); 
+            })
+
+            _menuCloseMerdeka_.addEventListener("click", function () {
+                _pBody.classList.add(_klyAd.site); 
+            })
+        }
+
+    }
+
+    function _tweakTrendingMerdeka(){
+        let _options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.25
+        };
+        let _observer = null;
+        _observer = new IntersectionObserver(_entries => {
+            _entries.forEach(entry => {
+                let _isLoad = entry.target.classList.contains("adsIsLoad");
+                if (entry.isIntersecting && !_isLoad) {
+                entry.target.style.setProperty("padding-bottom","unset","important");
+                entry.target.classList.add("adsIsLoad");  
+                }
+            });
+        }, _options);
+
+        let _adunitElement = parent.document.querySelectorAll("figure.loading");
+        if (_adunitElement) {
+            _adunitElement.forEach((el,k)=>{
+                _observer.observe(el); 
+            });
+        }
+    }
+		
+  	/**
+     * Fixing issue IVS Video & Planet Merdeka
+     */
+    function _initParentV7(height){
+        var _style_ = document.createElement("style");
+        var _slotId = topFrameContainer.id;
+        var _styleTopframe = `
+            div#div-gpt-ad-topfrm-parallax-wrapper {
+                width: 100vw;
+                height:110.41666666666667vw !important;
+                position: relative!important;
+                box-sizing: border-box!important;
+                background: #333333;
+                background-image: url(https://preview-kly.akamaized.net/logo_placeholder_kly.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            div#div-gpt-ad-topfrm-parallax-wrapper>#${_slotId} {
+                position: absolute!important;
+                top: 0!important;
+                left: 0!important;
+                width: 100%!important;
+                height: 100%!important;
+                border: 0!important;
+                margin: 0!important;
+                padding: 0!important;
+                clip: rect(0, auto, auto, 0)!important;
+                -webkit-clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%)!important;
+                clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%)!important
+            }
+
+            div#div-gpt-ad-topfrm-parallax-wrapper>#${_slotId}>[id^="google_ads_iframe_"] {
+                position: fixed!important;
+                top: 0!important;
+                width: 100%;
+                height:100% !important;
+                -webkit-transform: translateZ(0)!important;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                -ms-flex-align: center;
+                align-items: center;
+                -ms-flex-pack: center;
+                justify-content: center
+            }
+
+            div#div-gpt-ad-topfrm-parallax-wrapper>#${_slotId}>[id^="google_ads_iframe_"]>iframe {
+                -ms-flex-item-align: stretch;
+                align-self: stretch;
+                width: 100vw;height:110.41666666666667vw;
+                position: fixed;
+                top: 0;
+                left: 0; 
+                display: block;
+            }
+        `;
+
+        _style_.textContent = _styleTopframe;
+        topFramewrapper.previousSibling ? topFramewrapper.previousSibling.previousElementSibling.remove() : '';
+        topFramewrapper.insertAdjacentElement("beforebegin",_style_);
+    }
+</script>
+[%dfp_third_party_tracker%]
