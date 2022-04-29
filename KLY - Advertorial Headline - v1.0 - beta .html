@@ -1,12 +1,15 @@
 <script>
-    var _ID = window.frameElement.parentElement.parentElement.id
+    var _ID = (window.frameElement.parentElement.parentElement.id == "div-gpt-ad-liputan6-skinad-oop") ? "div-gpt-ad-liputan6-advertorial-headline1" : (window
+            .frameElement.parentElement.parentElement.id == "div-gpt-ad-liputan6-crm-headline-oop") ? "div-gpt-ad-liputan6-advertorial-headline2" : window
+        .frameElement.parentElement.parentElement.id;
+
     var _klyAds = parent.kmklabs || parent.kly;
     var _platform = _klyAds.platform.toLowerCase();
     var _site = _klyAds.site.toLowerCase();
     var _pageType = _klyAds.pageType.toLowerCase();
     var _channelPage = _klyAds.gtm.subSubCategory.toLowerCase();
     var _subDomainPage = _klyAds.gtm.subCategory.toLowerCase();
-    var _cacheBuster = %%CACHEBUSTER%%;
+    var _cacheBuster = %%CACHEBUSTER%% ;
 
     var _mainImg = {
       "big" : "[%dfp_image_ratio_16_9%]",
@@ -25,166 +28,166 @@
 
 
     var _targetEl = {
-       "_option" : null,
-       "_advertorialHeadline" : null,
-       "_advertorialHeadlineClone" : null,
-       "_anchor" : null,
-       "_imgSize" : null,
-       "_img" : null,
-       "_source" : null,
-       "_tag" : null,
-       "_mainTitle" : null,
-       "_descTarget" : null,
-   }
+        "_option": null,
+        "_advertorialHeadline": null,
+        "_advertorialHeadlineClone": null,
+        "_anchor": null,
+        "_imgSize": null,
+        "_img": null,
+        "_source": null,
+        "_tag": null,
+        "_mainTitle": null,
+        "_descTarget": null,
+    }
 
-   var settings = {
-       "kapanlagi" : {
-           "homepage" : {
-               "_advertorialHeadline" : {
-                   "mobile" : {
-                       "name":"ul.artikel-list-img li.clearfix",
-                       "filter" : {
-                           "include" : false,
-                           "class" : "crm-wrapper"
-                       }
-                   },
-                   "desktop" : "ul.leftrecomendations-loader-list.list-berita-kl.clearfix li.clearfix"
-               },
-               "_anchor" : "a",
-               "_imgSize" : "small",
-               "_img" : {
-                   "desktop" : {
-                       "name" : "img",
-                       "style" : "object-fit : cover"
-                   },
-                   "mobile" : "img"
-               },
-               "_source" : "source",
-               "_tag" : {
-                   "mobile" : ".link-grey a",
-                   "desktop" : false,
-               },
-               "_mainTitle" : {
-                   "mobile" : "p a",
-                   "desktop" : ".deskrip-berita p",
-               },
-               "_descTarget" : false // false when no target 
-           },
-           "readpage" : {
-               "_advertorialHeadline" : {
-                   "mobile" : "div#readmore .article__column_item",
-                   "desktop" : "ul.list-stories.list-unstyled.clearfix li"
-               },
-               "_anchor" : "a",
-               "_imgSize" : "small",
-               "_img" : {
-                   "mobile" : {
-                       "name" : "img",
-                       "style" : "opacity : 1 !important;"
-                   },
-                   "desktop" : "img"
-               },
-               "_source" : "source",
-               "_tag" : {
-                   "mobile" : ".cat a",
-                   "desktop" : "a.link-kategori",
-               },
-               "_mainTitle" : {
-                   "mobile" : ".text a",
-                   "desktop" : "h2 a, p a",
-               },
-               "_descTarget" : false // false when no target 
-           },
-           "selebriti" : {
-               "_advertorialHeadline" : {
-                   "mobile" : "ul.artikel-content.artikel-bt1.list-unstyled.clearfix li.artikel-kl .artikel-box.clearfix",
-                   "desktop" : ".artikel-detail-flat ul li"
-               },
-               "_anchor" : "a",
-               "_imgSize" : "small",
-               "_img" : {
-                   "mobile" : {
-                       "name" : "img",
-                       "style" : "opacity : 1;"
-                   },
-                   "desktop" : {
-                       "name" : "img",
-                       "style" : "opacity : 1;width: 100%; height: 80px; object-fit: cover;"
-                   }
-               },
-               "_source" : "source",
-               "_tag" : false,
-               "_mainTitle" : {
-                   "mobile" : ".artikel-description span.title a",
-                   "desktop" : ".deskrip a h3",
-               },
-               "_descTarget" : {
-                   "mobile" : false,
-                   "desktop" : ".deskrip p"
-               } // false when no target 
-           },
-           "korea" : {
-               "_advertorialHeadline" : {
-                   "mobile" : "ul.klk-updates-list li.newsview.news-item .article",
-                   "desktop" : ".kl-artikel-box .klk-latest ul.klk-latest-list li"
-               },
-               "_anchor" : "a",
-               "_imgSize" : "small",
-               "_img" : {
-                   "mobile" : "img",
-                   "desktop" : {
-                       "name" : "img",
-                       "style" : "object-fit : cover; height : 86px;",
-                   }
-               },
-               "_source" : "source",
-               "_tag" : ".article-description .cat",
-               "_mainTitle" : ".article-description p a",
-               "_descTarget" : false // false when no target 
-           },
-           "dangdut" : {
-               "_option" : {
-                   "_isReplace" : "desktop", // all, mobile , desktop , by default false or non ads will apend to parent frame element
-                   "_replaceTarget" : [2,3,4], // index of target element 
-               },
-               "_advertorialHeadline" : {
-                   "mobile" : {
-                       "name" : "ul.list-default.list-default-lg.list-unstyled li",
-                       "filter" : {
-                           "include" : false,
-                           "class" : ["crm-ad", "headline"],
-                       }
-                   },
-                   "desktop" : ".wrapper-kabar-dangdut .col-kabar"
-               },
-               "_anchor" : "a",
-               "_imgSize" : "small",
-               "_img" : {
-                   "mobile" : {
-                       "name" : "img",
-                       "style" : "object-fit : cover"
-                   },
-                   "desktop" : {
-                       "name" : "img",
-                       "style" : "object-fit : cover"
-                   }
-               },
-               "_source" : "source",
-               "_tag" : {
-                   "mobile" : ".description .kategori",
-                   "desktop" : "a .tag",
-               },
-               "_mainTitle" : {
-                   "mobile" : ".description p a",
-                   "desktop" : "p a",
-               },
-               "_descTarget" : false // false when no target 
-           }
-       },
-       "liputan6" : {
-           "homepage" : {
-              "customScript" : {
-                    "script" : `
+    var settings = {
+        "kapanlagi": {
+            "homepage": {
+                "_advertorialHeadline": {
+                    "mobile": {
+                        "name": "ul.artikel-list-img li.clearfix",
+                        "filter": {
+                            "include": false,
+                            "class": "crm-wrapper"
+                        }
+                    },
+                    "desktop": "ul.leftrecomendations-loader-list.list-berita-kl.clearfix li.clearfix"
+                },
+                "_anchor": "a",
+                "_imgSize": "small",
+                "_img": {
+                    "desktop": {
+                        "name": "img",
+                        "style": "object-fit : cover"
+                    },
+                    "mobile": "img"
+                },
+                "_source": "source",
+                "_tag": {
+                    "mobile": ".link-grey a",
+                    "desktop": false,
+                },
+                "_mainTitle": {
+                    "mobile": "p a",
+                    "desktop": ".deskrip-berita p",
+                },
+                "_descTarget": false // false when no target 
+            },
+            "readpage": {
+                "_advertorialHeadline": {
+                    "mobile": "div#readmore .article__column_item",
+                    "desktop": "ul.list-stories.list-unstyled.clearfix li"
+                },
+                "_anchor": "a",
+                "_imgSize": "small",
+                "_img": {
+                    "mobile": {
+                        "name": "img",
+                        "style": "opacity : 1 !important;"
+                    },
+                    "desktop": "img"
+                },
+                "_source": "source",
+                "_tag": {
+                    "mobile": ".cat a",
+                    "desktop": "a.link-kategori",
+                },
+                "_mainTitle": {
+                    "mobile": ".text a",
+                    "desktop": "h2 a, p a",
+                },
+                "_descTarget": false // false when no target 
+            },
+            "selebriti": {
+                "_advertorialHeadline": {
+                    "mobile": "ul.artikel-content.artikel-bt1.list-unstyled.clearfix li.artikel-kl .artikel-box.clearfix",
+                    "desktop": ".artikel-detail-flat ul li"
+                },
+                "_anchor": "a",
+                "_imgSize": "small",
+                "_img": {
+                    "mobile": {
+                        "name": "img",
+                        "style": "opacity : 1;"
+                    },
+                    "desktop": {
+                        "name": "img",
+                        "style": "opacity : 1;width: 100%; height: 80px; object-fit: cover;"
+                    }
+                },
+                "_source": "source",
+                "_tag": false,
+                "_mainTitle": {
+                    "mobile": ".artikel-description span.title a",
+                    "desktop": ".deskrip a h3",
+                },
+                "_descTarget": {
+                    "mobile": false,
+                    "desktop": ".deskrip p"
+                } // false when no target 
+            },
+            "korea": {
+                "_advertorialHeadline": {
+                    "mobile": "ul.klk-updates-list li.newsview.news-item .article",
+                    "desktop": ".kl-artikel-box .klk-latest ul.klk-latest-list li"
+                },
+                "_anchor": "a",
+                "_imgSize": "small",
+                "_img": {
+                    "mobile": "img",
+                    "desktop": {
+                        "name": "img",
+                        "style": "object-fit : cover; height : 86px;",
+                    }
+                },
+                "_source": "source",
+                "_tag": ".article-description .cat",
+                "_mainTitle": ".article-description p a",
+                "_descTarget": false // false when no target 
+            },
+            "dangdut": {
+                "_option": {
+                    "_isReplace": "desktop", // all, mobile , desktop , by default false or non ads will apend to parent frame element
+                    "_replaceTarget": [2, 3, 4], // index of target element 
+                },
+                "_advertorialHeadline": {
+                    "mobile": {
+                        "name": "ul.list-default.list-default-lg.list-unstyled li",
+                        "filter": {
+                            "include": false,
+                            "class": ["crm-ad", "headline"],
+                        }
+                    },
+                    "desktop": ".wrapper-kabar-dangdut .col-kabar"
+                },
+                "_anchor": "a",
+                "_imgSize": "small",
+                "_img": {
+                    "mobile": {
+                        "name": "img",
+                        "style": "object-fit : cover"
+                    },
+                    "desktop": {
+                        "name": "img",
+                        "style": "object-fit : cover"
+                    }
+                },
+                "_source": "source",
+                "_tag": {
+                    "mobile": ".description .kategori",
+                    "desktop": "a .tag",
+                },
+                "_mainTitle": {
+                    "mobile": ".description p a",
+                    "desktop": "p a",
+                },
+                "_descTarget": false // false when no target 
+            }
+        },
+        "liputan6": {
+            "homepage": {
+                "customScript": {
+                    "script": `
                         if ("${_platform}" === "desktop") {
                             _setInitAdvHeadline${_cacheBuster}();
                         } else {
@@ -192,7 +195,7 @@
 
                         function _setInitAdvHeadline${_cacheBuster}() {
                             var a = setInterval(function(){ 
-                              console.log("adv ${_ID}")
+                              console.log("ADV_HEADLINE ${_ID}")
                                 if (document.querySelector('#${_ID}').classList.contains("adv-headline-filled") !== null) {
                                     $('.headline--bottom-slider__list').slick('unslick');
                                     clearInterval(a);
@@ -214,244 +217,290 @@
                           }, 2000)
                         }
                     `
-                 },
-              "_option" : {
-                   "_isInsert" : "desktop", 
-                   "_insertTarget" : [1,2], // index of target element 
-                   "_insertTargetEl" : ".headline--bottom-slider__wrapper .headline--bottom-slider__list"
-               },
-               "_advertorialHeadline" : {
-                   "mobile" : {
-                       "name" : ".articles__page .article-snippet.js-article-snippet",
-                       "style" : "border-top: 1px solid #EEE !important;",
-                       "filter" : {
-                           "include" : false,
-                           "data-template-name":"article-snippet-headline",
-                           "data-type" : "PhotoGallery"
-                       }
-                   },
-                   "desktop" : {
-                       "name" : ".headline--bottom-slider__wrapper .headline--bottom-slider__list .headline--bottom-slider__item",
-                       "filter" : {
-                           "include" : false,
-                           "data-type" : "PhotoGallery",
-                           "class" : "slick-cloned"
-                       }
-                   }
-               },
-               "_anchor" : "a",
-               "_imgSize" : {
-                "mobile" : "small",
-                "desktop" : "big",
-               },
-               "_img" : {
-                   "desktop" : {
-                       "name" : "img",
-                       "style" : "object-fit : cover"
-                   },
-                   "mobile" : {
-                       "name" : "img",
-                       "style" : "object-fit : cover"
-                   }
-               },
-               "_source" : "source",
-               "_tag" : {
-                   "mobile" : ".article-snippet__label",
-                   "desktop" : null,
-               },
-               "_mainTitle" : {
-                   "mobile" : ".article-snippet__title-text",
-                   "desktop" : ".headline--bottom-slider__item_title",
-               },
-               "_descTarget" :false,
-               
-           },
-           "readpage" : {
-               "_option" : {
-                   "_isReplace" : "desktop", // all, mobile , desktop , by default false or non ads will apend to parent frame element
-                   "_replaceTarget" : [4,5,6], // index of target element 
-               },
-               "_advertorialHeadline" : {
-                   "mobile" : ".related-cached__page.js-page__articles .article-snippet--related--new-style",
-                   "desktop" : ".relateds-slow--lattice .relateds-slow--lattice--item"
-               },
-               "_anchor" : "a",
-               "_imgSize" : "small",
-               "_img" : "img",
-               "_source" : "source",
-               "_tag" : false,
-               "_mainTitle" : {
-                   "mobile" : "span.article-snippet--related__title-text",
-                   "desktop" : ".relateds-slow--lattice--item__title",
-               },
-               "_descTarget" : false
-           }
-       },
-       "merdeka" : {
-          "homepage" : {
-              "_advertorialHeadline" : {
-                   "mobile" : {
-                       "name":"ul.mdk-top-stories-item li.hl-section",
-                       "style":"border-top: none; padding: 0 10px !important;"
-                   },
-                   "dekstop" : "div.mdk-left-r div.mdk-link-image"
-               },
-               "_anchor" : "a",
-               "_imgSize" : "small",
-               "_img" : {
-                   "dekstop" : {
-                       "name" : "img",
-                       "style" : "object-fit : cover"
-                   },
-                   "mobile" : "img"
-               },
-               "_source" : "source",
-               "_tag" : {
-                   "mobile" : ".time",
-                   "dekstop" : "a.kategori",
-               },
-               "_mainTitle" : {
-                   "mobile" : ".container",
-                   "dekstop" : "a.link-item",
-               },
-               "_descTarget" : false // false when no target
-          },
-          "readpage" : {
-               "_advertorialHeadline" : {
-                   "mobile" : "ul#infscroll-1 li.widereadpage-item",
-                   "dekstop" : {
-                       "name" : "ul.mdk-item-list.mdk-list-readmore li:nth-child(4)",
-                       "style" : "margin-top: 40px;"
-                   }
-               },
-               "_anchor" : "a",
-               "_imgSize" : "small",
-               "_img" : "img",
-               "_source" : "source",
-               "_tag" : {
-                   "mobile" : "span.cat",
-                   "dekstop" : false,
-               },
-               "_mainTitle" : {
-                   "mobile" : "p a",
-                   "dekstop" : "p.title-readmore a",
-               },
-               "_descTarget" : false,
-               "customScript" : {
-                   "script" : "var firstChildCRM = document.querySelector(\"ul.mdk-item-list.mdk-list-readmore li:nth-child(1) li\"); if(kly.platform == \"Dekstop\" && firstChildCRM !== null) { firstChildCRM.style.marginTop = \"0px\"; };"
-               }
-           },
-           "channelpage" : {
-               "_advertorialHeadline" : {
-                   "mobile" : {
-                       "name":"ul.list-new-article.list-unstyled.clearfix li"
-                   },
-                   "dekstop" : "div.inner-content li:nth-child(2)"
-               },
-               "_anchor" : "a",
-               "_imgSize" : "small",
-               "_img" : {
-                   "dekstop" : {
-                       "name" : "img",
-                       "style" : "max-width: 140px;"
-                   },
-                   "mobile" : "img"
-               },
-               "_source" : "source",
-               "_tag" : {
-                   "mobile" : false,
-                   "dekstop" : false,
-               },
-               "_mainTitle" : {
-                   "mobile" : ".deskrip-right p a",
-                   "dekstop" : "div h3 a",
-               },
-               "_descTarget" : false // false when no target 
-           }
-       },
-       "fimela" : {
-          "allpage" : {
-              "_advertorialHeadline" : {
-                   "mobile" : {
-                       "name" : ".fimela--articles--chunk .fimela--articles--snippet.js-related-articles",
-                       "filter" : {
-                           "data-type" : "TextTypeArticle"
-                       }
-                   },
-                   "desktop" : {
-                       "name" : ".fimela--articles--snippet",
-                       "filter" : {
-                           "data-type" : "TextTypeArticle"
-                       }
-                   }
-               },
-               "_anchor" : "a",
-               "_imgSize" : "small",
-               "_img" : {
-                   "mobile" : "img",
-                   "desktop" : {
-                       "name" : "img",
-                       "style" : "object-fit : cover"
-                   }
-               },
-               "_source" : "source",
-               "_tag" : {
-                   "mobile" : ".fimela--articles--snippet__description a",
-                   "desktop" : "div .fimela--articles--snippet__aside a.fimela--articles--snippet__category"
-               },
-               "_mainTitle" : {
-                   "mobile" : ".fimela--articles--snippet__description p a",
-                   "desktop" : "div .fimela--articles--snippet__aside a.ui--a.fimela--articles--snippet__title"
-               },
-               "_descTarget" : {
-                   "mobile" : false,
-                   "desktop" : "div .fimela--articles--snippet__aside div.fimela--articles--snippet__short-desc"
-               }
-          }
-       },
-       "dream" : {
-            "homepage" : {
-                 "_option" : {
-                     "_isReplace" : "mobile", // all, mobile , desktop , by default false or non ads will apend to parent frame element
-                     "_replaceTarget" : [4,5,6], // index of target element 
-                 },
-                 "_advertorialHeadline" : {
-                     "mobile" : "ul.article-col li",
-                     "desktop" : ".swiper-container .swiper-wrapper div:nth-child(4)"
-                 },
-                 "_anchor" : "a",
-                 "_imgSize" : "small",
-                 "_img" : {
-                     "mobile" : {
-                         "name" : "img",
-                         "style" : "object-fit: cover;"
-                     },
-                     "desktop" : {
-                         "name" : "img",
-                         "style" : "width: 227px; height: 227px; object-fit: cover;"
-                     }
-                 },
-                 "_source" : "source",
-                 "_tag" : {
-                     "mobile" : {
-                         "name" : "div.description a.link.link-kategori",
-                         "style" : "text-transform: uppercase;"
-                     },
-                     "desktop" : {
-                         "name" : "div.item__block-description a.link.link-kategori",
-                         "style" : "text-transform: uppercase; white-space: nowrap; overflow: hidden; display: block;"
-                     }
-                 },
-                 "_mainTitle" : {
-                     "mobile" : "div.description p a",
-                     "desktop" : "div.item__block-description p a"
-                 },
-                 "_descTarget" : {
-                     "mobile" : false,
-                     "desktop" : false
-                 },
-                 "customScript" : {
-                    "script" : `
+                },
+                "_option": {
+                    "_isInsert": "desktop",
+                    "_insertTarget": [1, 1], // index of target element 
+                    "_insertTargetEl": ".headline--bottom-slider__wrapper .headline--bottom-slider__list",
+                    "_insertTargetList": ".headline--bottom-slider__item"
+                },
+                "_advertorialHeadline": {
+                    "mobile": {
+                        "name": ".articles__page .article-snippet.js-article-snippet",
+                        "style": "border-top: 1px solid #EEE !important;",
+                        "filter": {
+                            "include": false,
+                            "data-template-name": "article-snippet-headline",
+                            "data-type": "PhotoGallery"
+                        }
+                    },
+                    "desktop": {
+                        "name": ".headline--bottom-slider__wrapper .headline--bottom-slider__list .headline--bottom-slider__item",
+                        "filter": {
+                            "include": false,
+                            "data-type": "PhotoGallery",
+                            "class": "slick-cloned"
+                        }
+                    }
+                },
+                "_anchor": "a",
+                "_imgSize": {
+                    "mobile": "small",
+                    "desktop": "big",
+                },
+                "_img": {
+                    "desktop": {
+                        "name": "img",
+                        "style": "object-fit : cover"
+                    },
+                    "mobile": {
+                        "name": "img",
+                        "style": "object-fit : cover"
+                    }
+                },
+                "_source": "source",
+                "_tag": {
+                    "mobile": ".article-snippet__label",
+                    "desktop": null,
+                },
+                "_mainTitle": {
+                    "mobile": ".article-snippet__title-text",
+                    "desktop": ".headline--bottom-slider__item_title",
+                },
+                "_descTarget": false,
+
+            },
+            "readpage": {
+                "_option": {
+                    "_isReplace": "desktop", // all, mobile , desktop , by default false or non ads will apend to parent frame element
+                    "_replaceTarget": [4, 5, 6], // index of target element 
+                },
+                "_advertorialHeadline": {
+                    "mobile": ".related-cached__page.js-page__articles .article-snippet--related--new-style",
+                    "desktop": ".relateds-slow--lattice .relateds-slow--lattice--item"
+                },
+                "_anchor": "a",
+                "_imgSize": "small",
+                "_img": "img",
+                "_source": "source",
+                "_tag": false,
+                "_mainTitle": {
+                    "mobile": "span.article-snippet--related__title-text",
+                    "desktop": ".relateds-slow--lattice--item__title",
+                },
+                "_descTarget": false
+            }
+        },
+        "merdeka": {
+            "homepage": {
+                "customScript": {
+                    "script": `
+                    console.log("merdeka ${_platform}")
+                        if ("${_platform}" == "dekstop") {
+                            console.log("merdeka ${_platform} ${_cacheBuster}")
+                            _setInitAdvHeadline${_cacheBuster}();
+                        } else {
+                        }
+
+                        var _MIAN_SWIPER_${_cacheBuster}_ = document.querySelector('.swiper-container-horizontal').swiper;
+
+
+                        function _setInitAdvHeadline${_cacheBuster}() {
+                            var a = setInterval(function(){ 
+                              console.log("merdeka ${_ID} set interval")
+                                if (document.querySelector('#${_ID}').classList.contains("adv-headline-filled") !== null) {
+                                    _MIAN_SWIPER_${_cacheBuster}_.destroy(false, false);
+                                    clearInterval(a);
+                                    _reinitSlickjs${_cacheBuster}();
+                                }
+                            }, 1000);
+                        } 
+
+                        function _reinitSlickjs${_cacheBuster}(){
+                            
+                            var _reinit_ = setInterval(function () {
+                                console.log('merdeka reinit ')
+                                if (!parent.window.advertorialHeadlineInjecting) {
+                                    _MIAN_SWIPER_${_cacheBuster}_.init();
+                                    clearInterval(_reinit_)
+                                }
+                            }, 100)
+
+                        }
+                    `
+                },
+                "_option": {
+                    "_isInsert": "dekstop",
+                    "_insertTarget": [0, 0], // index of target element 
+                    "_insertTargetEl": ".swiper-container-horizontal .swiper-wrapper",
+                    "_insertTargetList": ".highlight-item"
+                },
+                "_advertorialHeadline": {
+                    "mobile": {
+                        "name": "ul.mdk-top-stories-item li.hl-section",
+                        "style": "border-top: none; padding: 0 10px !important;"
+                    },
+                    "dekstop": ".swiper-container-horizontal .swiper-wrapper .highlight-item"
+                },
+                "_anchor": "a",
+                "_imgSize": {
+                    "dekstop": "big",
+                    "mobile": "big",
+                },
+                "_img": {
+                    "dekstop": {
+                        "name": ".img-highlight",
+                        "style": "background-image:url(" + _mainImg['big'] + ")"
+                    },
+                    "mobile": "img"
+                },
+                "_source": "source",
+                "_tag": {
+                    "mobile": ".time",
+                    "dekstop": false,
+                },
+                "_mainTitle": {
+                    "mobile": ".container",
+                    "dekstop": "p.text-slide",
+                },
+                "_descTarget": false // false when no target
+            },
+            "readpage": {
+                "_advertorialHeadline": {
+                    "mobile": "ul#infscroll-1 li.widereadpage-item",
+                    "dekstop": {
+                        "name": "ul.mdk-item-list.mdk-list-readmore li:nth-child(4)",
+                        "style": "margin-top: 40px;"
+                    }
+                },
+                "_anchor": "a",
+                "_imgSize": "small",
+                "_img": "img",
+                "_source": "source",
+                "_tag": {
+                    "mobile": "span.cat",
+                    "dekstop": false,
+                },
+                "_mainTitle": {
+                    "mobile": "p a",
+                    "dekstop": "p.title-readmore a",
+                },
+                "_descTarget": false,
+                "customScript": {
+                    "script": "var firstChildCRM = document.querySelector(\"ul.mdk-item-list.mdk-list-readmore li:nth-child(1) li\"); if(kly.platform == \"Dekstop\" && firstChildCRM !== null) { firstChildCRM.style.marginTop = \"0px\"; };"
+                }
+            },
+            "channelpage": {
+                "_advertorialHeadline": {
+                    "mobile": {
+                        "name": "ul.list-new-article.list-unstyled.clearfix li"
+                    },
+                    "dekstop": "div.inner-content li:nth-child(2)"
+                },
+                "_anchor": "a",
+                "_imgSize": "small",
+                "_img": {
+                    "dekstop": {
+                        "name": "img",
+                        "style": "max-width: 140px;"
+                    },
+                    "mobile": "img"
+                },
+                "_source": "source",
+                "_tag": {
+                    "mobile": false,
+                    "dekstop": false,
+                },
+                "_mainTitle": {
+                    "mobile": ".deskrip-right p a",
+                    "dekstop": "div h3 a",
+                },
+                "_descTarget": false // false when no target 
+            }
+        },
+        "fimela": {
+            "allpage": {
+                "_advertorialHeadline": {
+                    "mobile": {
+                        "name": ".fimela--articles--chunk .fimela--articles--snippet.js-related-articles",
+                        "filter": {
+                            "data-type": "TextTypeArticle"
+                        }
+                    },
+                    "desktop": {
+                        "name": ".fimela--articles--snippet",
+                        "filter": {
+                            "data-type": "TextTypeArticle"
+                        }
+                    }
+                },
+                "_anchor": "a",
+                "_imgSize": "small",
+                "_img": {
+                    "mobile": "img",
+                    "desktop": {
+                        "name": "img",
+                        "style": "object-fit : cover"
+                    }
+                },
+                "_source": "source",
+                "_tag": {
+                    "mobile": ".fimela--articles--snippet__description a",
+                    "desktop": "div .fimela--articles--snippet__aside a.fimela--articles--snippet__category"
+                },
+                "_mainTitle": {
+                    "mobile": ".fimela--articles--snippet__description p a",
+                    "desktop": "div .fimela--articles--snippet__aside a.ui--a.fimela--articles--snippet__title"
+                },
+                "_descTarget": {
+                    "mobile": false,
+                    "desktop": "div .fimela--articles--snippet__aside div.fimela--articles--snippet__short-desc"
+                }
+            }
+        },
+        "dream": {
+            "homepage": {
+                "_option": {
+                    "_isReplace": "mobile", // all, mobile , desktop , by default false or non ads will apend to parent frame element
+                    "_replaceTarget": [4, 5, 6], // index of target element 
+                },
+                "_advertorialHeadline": {
+                    "mobile": "ul.article-col li",
+                    "desktop": ".swiper-container .swiper-wrapper div:nth-child(4)"
+                },
+                "_anchor": "a",
+                "_imgSize": "small",
+                "_img": {
+                    "mobile": {
+                        "name": "img",
+                        "style": "object-fit: cover;"
+                    },
+                    "desktop": {
+                        "name": "img",
+                        "style": "width: 227px; height: 227px; object-fit: cover;"
+                    }
+                },
+                "_source": "source",
+                "_tag": {
+                    "mobile": {
+                        "name": "div.description a.link.link-kategori",
+                        "style": "text-transform: uppercase;"
+                    },
+                    "desktop": {
+                        "name": "div.item__block-description a.link.link-kategori",
+                        "style": "text-transform: uppercase; white-space: nowrap; overflow: hidden; display: block;"
+                    }
+                },
+                "_mainTitle": {
+                    "mobile": "div.description p a",
+                    "desktop": "div.item__block-description p a"
+                },
+                "_descTarget": {
+                    "mobile": false,
+                    "desktop": false
+                },
+                "customScript": {
+                    "script": `
                         if ("${_platform}" === "desktop") {
                             _checkCrmDesktop${_cacheBuster}();
                         } else {
@@ -500,121 +549,121 @@
                             }
                         }
                     `
-                 }
-            }, 
-            "readpage" : {
-                  "_advertorialHeadline" : {
-                     "mobile" : "#terkait.detail-box__tab-content-item div.infscroll li.widereadpage-item",
-                     "desktop" : ".detail-box__article-list div:nth-child(4)"
-                 },
-                 "_anchor" : "a",
-                 "_imgSize" : "small",
-                 "_img" : {
-                     "mobile" : {
-                         "name" : "img",
-                         "style" : "object-fit: cover;"
-                     },
-                     "desktop" : {
-                         "name" : "img",
-                         "style" : "width: 181px; object-fit: cover;"
-                     }
-                 },
-                 "_source" : "source",
-                 "_tag" : {
-                     "mobile" : {
-                         "name" : "div.article-description span.cat a",
-                         "style" : "text-transform: capitalize;"
-                     },
-                     "desktop" : {
-                         "name" : "a.link.link-kategori",
-                         "style" : "text-transform: uppercase;"
-                     }
-                 },
-                 "_mainTitle" : {
-                     "mobile" : "div.article-description p.impression_title_1 a",
-                     "desktop" : "div.item__right p a"
-                 },
-                 "_descTarget" : {
-                     "mobile" : false,
-                     "desktop" : false
-                 }
-            }, 
-            "readpageSubDomain" : {
-                  "_advertorialHeadline" : {
-                     "mobile" : ".list-article-berita.list-article-related.list-unstyled li",
-                     "desktop" : ".list-article-dont-miss.list-unstyled li"
-                 },
-                 "_anchor" : "a",
-                 "_imgSize" : "small",
-                 "_img" : {
-                     "mobile" : {
-                         "name" : "img",
-                         "style" : "width: 120px; height: 60px; object-fit: cover;"
-                     },
-                     "desktop" : {
-                         "name" : "img",
-                         "style" : "width: 200px; height: 100px; opacity: 1; object-fit: cover;"
-                     }
-                 },
-                 "_source" : "source",
-                 "_tag" : {
-                     "mobile" : {
-                         "name" : "div a",
-                         "style" : "text-transform: capitalize; color: #008da7; font-size: 11px; font-weight: 500; display: block; overflow: hidden; max-height: 11px;"
-                     },
-                     "desktop" : {
-                         "name" : "div.cat-name a",
-                         "style" : "text-transform: uppercase;"
-                     }
-                 },
-                 "_mainTitle" : {
-                     "mobile" : {
-                         "name" : "div p a",
-                         "style" : "display: block; overflow: hidden; max-height: 66px;"
-                     },
-                     "desktop" : "p.title a"
-                 },
-                 "_descTarget" : {
-                     "mobile" : false,
-                     "desktop" : false
-                 }
+                }
             },
-            "channelpage" : {
-                 "_option" : {
-                     "_isReplace" : "all", // all, mobile , desktop , by default false or non ads will apend to parent frame element
-                     "_replaceTarget" : [2,3,6], // index of target element 
-                 },
-                  "_advertorialHeadline" : {
-                     "mobile" : ".col-index__list ul.article-col li",
-                     "desktop" : ".col-index__list div.item"
-                 },
-                 "_anchor" : "a",
-                 "_imgSize" : "small",
-                 "_img" : {
-                     "mobile" : {
-                         "name" : "img",
-                         "style" : "object-fit: cover;"
-                     },
-                     "desktop" : {
-                         "name" : "img",
-                         "style" : "max-height: 149px; object-fit: cover;"
-                     }
-                 },
-                 "_source" : "source",
-                 "_tag" : {
-                     "mobile" : false,
-                     "desktop" : false
-                 },
-                 "_mainTitle" : {
-                     "mobile" : "div.description h6 a",
-                     "desktop" : "div.item__block-description h6 a"
-                 },
-                 "_descTarget" : {
-                     "mobile" : "div.description p",
-                     "desktop" : "div.item__block-description p"
-                 },
-                 "customScript" : {
-                    "script" : `
+            "readpage": {
+                "_advertorialHeadline": {
+                    "mobile": "#terkait.detail-box__tab-content-item div.infscroll li.widereadpage-item",
+                    "desktop": ".detail-box__article-list div:nth-child(4)"
+                },
+                "_anchor": "a",
+                "_imgSize": "small",
+                "_img": {
+                    "mobile": {
+                        "name": "img",
+                        "style": "object-fit: cover;"
+                    },
+                    "desktop": {
+                        "name": "img",
+                        "style": "width: 181px; object-fit: cover;"
+                    }
+                },
+                "_source": "source",
+                "_tag": {
+                    "mobile": {
+                        "name": "div.article-description span.cat a",
+                        "style": "text-transform: capitalize;"
+                    },
+                    "desktop": {
+                        "name": "a.link.link-kategori",
+                        "style": "text-transform: uppercase;"
+                    }
+                },
+                "_mainTitle": {
+                    "mobile": "div.article-description p.impression_title_1 a",
+                    "desktop": "div.item__right p a"
+                },
+                "_descTarget": {
+                    "mobile": false,
+                    "desktop": false
+                }
+            },
+            "readpageSubDomain": {
+                "_advertorialHeadline": {
+                    "mobile": ".list-article-berita.list-article-related.list-unstyled li",
+                    "desktop": ".list-article-dont-miss.list-unstyled li"
+                },
+                "_anchor": "a",
+                "_imgSize": "small",
+                "_img": {
+                    "mobile": {
+                        "name": "img",
+                        "style": "width: 120px; height: 60px; object-fit: cover;"
+                    },
+                    "desktop": {
+                        "name": "img",
+                        "style": "width: 200px; height: 100px; opacity: 1; object-fit: cover;"
+                    }
+                },
+                "_source": "source",
+                "_tag": {
+                    "mobile": {
+                        "name": "div a",
+                        "style": "text-transform: capitalize; color: #008da7; font-size: 11px; font-weight: 500; display: block; overflow: hidden; max-height: 11px;"
+                    },
+                    "desktop": {
+                        "name": "div.cat-name a",
+                        "style": "text-transform: uppercase;"
+                    }
+                },
+                "_mainTitle": {
+                    "mobile": {
+                        "name": "div p a",
+                        "style": "display: block; overflow: hidden; max-height: 66px;"
+                    },
+                    "desktop": "p.title a"
+                },
+                "_descTarget": {
+                    "mobile": false,
+                    "desktop": false
+                }
+            },
+            "channelpage": {
+                "_option": {
+                    "_isReplace": "all", // all, mobile , desktop , by default false or non ads will apend to parent frame element
+                    "_replaceTarget": [2, 3, 6], // index of target element 
+                },
+                "_advertorialHeadline": {
+                    "mobile": ".col-index__list ul.article-col li",
+                    "desktop": ".col-index__list div.item"
+                },
+                "_anchor": "a",
+                "_imgSize": "small",
+                "_img": {
+                    "mobile": {
+                        "name": "img",
+                        "style": "object-fit: cover;"
+                    },
+                    "desktop": {
+                        "name": "img",
+                        "style": "max-height: 149px; object-fit: cover;"
+                    }
+                },
+                "_source": "source",
+                "_tag": {
+                    "mobile": false,
+                    "desktop": false
+                },
+                "_mainTitle": {
+                    "mobile": "div.description h6 a",
+                    "desktop": "div.item__block-description h6 a"
+                },
+                "_descTarget": {
+                    "mobile": "div.description p",
+                    "desktop": "div.item__block-description p"
+                },
+                "customScript": {
+                    "script": `
                         _setImgCrm${_cacheBuster}();
                         window.addEventListener("resize", _setImgCrm${_cacheBuster});
                         function _setImgCrm${_cacheBuster}() {
@@ -629,520 +678,547 @@
                             }
                         }
                     `
-                 }
+                }
             }
-       },
-       "bola" : {
-            "homepage" : {
-                 "_option" : {
-                     "_isReplace" : "all", // all, mobile , desktop , by default false or non ads will apend to parent frame element
-                     "_replaceTarget" : {
-                        "mobile" : [1,2,3], // index of target element
-                        "desktop" : [6,7,8] // index of target element
-                     }
-                 },
-                 "_advertorialHeadline" : {
-                     "mobile" : "#main_mid_headline_sub_topic #headlines-box div.home_hl_item",
-                     "desktop" : ".list-highlight li"
-                 },
-                 "_anchor" : "a",
-                 "_imgSize" : "small",
-                 "_img" : {
-                     "mobile" : {
-                         "name" : ".hl_img a img",
-                         "style" : "object-fit: cover;"
-                     },
-                     "desktop" : {
-                         "name" : "img",
-                         "style" : "object-fit: cover;"
-                     }
-                 },
-                 "_source" : "source",
-                 "_tag" : {
-                     "mobile" : ".hl_content span.hl_cat a",
-                     "desktop" : false
-                 },
-                 "_mainTitle" : {
-                     "mobile" : ".hl_content div.hl_title a",
-                     "desktop" : {
-                         "name" : "p",
-                         "style" : "height: 42px; margin-bottom: 15px;display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;"
-                     }
-                 },
-                 "_descTarget" : {
-                     "mobile" : false,
-                     "desktop" : false
-                 }
-            },
-            "readpage" : {
-                 "_option" : {
-                     "_isReplace" : "all", // all, mobile , desktop , by default false or non ads will apend to parent frame element
-                     "_replaceTarget" : [1,2,3], // index of target element 
-                 },
-                 "_advertorialHeadline" : {
-                     "mobile" : "#main_mid_headline_sub_topic .related_news_item",
-                     "desktop" : ".list-block li"
-                 },
-                 "_anchor" : "a",
-                 "_imgSize" : "small",
-                 "_img" : {
-                     "mobile" : {
-                         "name" : ".rel_img a img",
-                         "style" : "object-fit: cover;"
-                     },
-                     "desktop" : {
-                         "name" : ".img-left img",
-                         "style" : "object-fit: cover;"
-                     }
-                 },
-                 "_source" : "source",
-                 "_tag" : {
-                     "mobile" : ".rel_content span",
-                     "desktop" : ".deskrip-right a"
-                 },
-                 "_mainTitle" : {
-                     "mobile" : ".rel_content .rel_title a",
-                     "desktop" : {
-                         "name" : ".deskrip-right p a span",
-                         "style" : "overflow: hidden; display: -webkit-box; max-height: 42px;"
-                     }
-                 },
-                 "_descTarget" : {
-                     "mobile" : false,
-                     "desktop" : false
-                 }
-            },
-            "channelpage" : {
-                 "_option" : {
-                     "_isReplace" : "all", // all, mobile , desktop , by default false or non ads will apend to parent frame element
-                     "_replaceTarget" : [2,4,6], // index of target element 
-                 },
-                 "_advertorialHeadline" : {
-                     "mobile" : "#main_mid_headline_sub_topic .main_mid_headline_topic",
-                     "desktop" : ".newslist .item"
-                 },
-                 "_anchor" : "a",
-                 "_imgSize" : "small",
-                 "_img" : {
-                    "mobile" : {
-                        "name" : "img",
-                        "style" : "object-fit: cover;"
+        },
+        "bola": {
+            "homepage": {
+                "_option": {
+                    "_isReplace": "all", // all, mobile , desktop , by default false or non ads will apend to parent frame element
+                    "_replaceTarget": {
+                        "mobile": [1, 2, 3], // index of target element
+                        "desktop": [6, 7, 8] // index of target element
+                    }
+                },
+                "_advertorialHeadline": {
+                    "mobile": "#main_mid_headline_sub_topic #headlines-box div.home_hl_item",
+                    "desktop": ".list-highlight li"
+                },
+                "_anchor": "a",
+                "_imgSize": "small",
+                "_img": {
+                    "mobile": {
+                        "name": ".hl_img a img",
+                        "style": "object-fit: cover;"
                     },
-                    "desktop" : {
-                        "name" : "img",
-                        "style" : "object-fit: cover;"
-                    }
-                 },
-                 "_source" : "source",
-                 "_tag" : {
-                     "mobile" : false,
-                     "desktop" : ".info span"
-                 },
-                 "_mainTitle" : {
-                     "mobile" : ".main_mid_headline_topic_text a",
-                     "desktop" : ".text a"
-                 },
-                 "_descTarget" : false
-            }
-       },
-        "bola.com" : {
-            "homepage" : {
-                "_option" : {
-                    "_isReplace" : "all", // all, mobile , desktop , by default false or non ads will apend to parent frame element
-                    "_replaceTarget" : {
-                        "mobile" : [1,2,3], // index of target element
-                        "desktop" : [6,7,8] // index of target element
+                    "desktop": {
+                        "name": "img",
+                        "style": "object-fit: cover;"
                     }
                 },
-                "_advertorialHeadline" : {
-                    "mobile" : "#main_mid_headline_sub_topic #headlines-box div.home_hl_item",
-                    "desktop" : ".list-highlight li"
+                "_source": "source",
+                "_tag": {
+                    "mobile": ".hl_content span.hl_cat a",
+                    "desktop": false
                 },
-                "_anchor" : "a",
-                "_imgSize" : "small",
-                "_img" : {
-                    "mobile" : {
-                        "name" : ".hl_img a img",
-                        "style" : "object-fit: cover;"
-                    },
-                    "desktop" : {
-                        "name" : "img",
-                        "style" : "object-fit: cover;"
+                "_mainTitle": {
+                    "mobile": ".hl_content div.hl_title a",
+                    "desktop": {
+                        "name": "p",
+                        "style": "height: 42px; margin-bottom: 15px;display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;"
                     }
                 },
-                "_source" : "source",
-                "_tag" : {
-                    "mobile" : ".hl_content span.hl_cat a",
-                    "desktop" : false
-                },
-                "_mainTitle" : {
-                    "mobile" : ".hl_content div.hl_title a",
-                    "desktop" : {
-                        "name" : "p",
-                        "style" : "height: 42px; margin-bottom: 15px;display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;"
-                    }
-                },
-                "_descTarget" : {
-                    "mobile" : false,
-                    "desktop" : false
+                "_descTarget": {
+                    "mobile": false,
+                    "desktop": false
                 }
             },
-            "readpage" : {
-                "_option" : {
-                    "_isReplace" : "desktop", // all, mobile , desktop , by default false or non ads will apend to parent frame element
-                    "_replaceTarget" : [2,4,6], // index of target element 
+            "readpage": {
+                "_option": {
+                    "_isReplace": "all", // all, mobile , desktop , by default false or non ads will apend to parent frame element
+                    "_replaceTarget": [1, 2, 3], // index of target element 
                 },
-                "_advertorialHeadline" : {
-                    "mobile" : ".tabs__content #tab-related .relateds--async #related-news div.article-snippet--related",
-                    "desktop" : "article .popular .popular__item"
+                "_advertorialHeadline": {
+                    "mobile": "#main_mid_headline_sub_topic .related_news_item",
+                    "desktop": ".list-block li"
                 },
-                "_anchor" : "a",
-                "_imgSize" : "small",
-                "_img" : {
-                    "mobile" : {
-                        "name" : ".article-snippet--related__image a span picture img",
-                        "style" : "object-fit: cover; width: 100%;"
+                "_anchor": "a",
+                "_imgSize": "small",
+                "_img": {
+                    "mobile": {
+                        "name": ".rel_img a img",
+                        "style": "object-fit: cover;"
                     },
-                    "desktop" : {
-                        "name" : ".popular--video__figure a picture img",
-                        "style" : "object-fit: cover;"
+                    "desktop": {
+                        "name": ".img-left img",
+                        "style": "object-fit: cover;"
                     }
                 },
-                "_source" : "source",
-                "_tag" : {
-                    "mobile" : false,
-                    "desktop" : false
+                "_source": "source",
+                "_tag": {
+                    "mobile": ".rel_content span",
+                    "desktop": ".deskrip-right a"
                 },
-                "_mainTitle" : {
-                    "mobile" : {
-                        "name" : ".article-snippet--related__content a span",
-                        "style" : "    max-height: 66px; display: block; overflow: hidden;"
-                    },
-                    "desktop" : "p.popular--video__title a"
+                "_mainTitle": {
+                    "mobile": ".rel_content .rel_title a",
+                    "desktop": {
+                        "name": ".deskrip-right p a span",
+                        "style": "overflow: hidden; display: -webkit-box; max-height: 42px;"
+                    }
                 },
-                "_descTarget" : {
-                    "mobile" : false,
-                    "desktop" : false
+                "_descTarget": {
+                    "mobile": false,
+                    "desktop": false
                 }
             },
-            "channelpage" : {
-                "_advertorialHeadline" : {
-                    "mobile" : {
-                        "name" : ".article-snippet.js-article-snippet",
-                        "filter" : {
-                            "include" : false,
-                            "data-template-name" : "article-snippet-headline",
-                            "data-type" : "PhotoGallery"
+            "channelpage": {
+                "_option": {
+                    "_isReplace": "all", // all, mobile , desktop , by default false or non ads will apend to parent frame element
+                    "_replaceTarget": [2, 4, 6], // index of target element 
+                },
+                "_advertorialHeadline": {
+                    "mobile": "#main_mid_headline_sub_topic .main_mid_headline_topic",
+                    "desktop": ".newslist .item"
+                },
+                "_anchor": "a",
+                "_imgSize": "small",
+                "_img": {
+                    "mobile": {
+                        "name": "img",
+                        "style": "object-fit: cover;"
+                    },
+                    "desktop": {
+                        "name": "img",
+                        "style": "object-fit: cover;"
+                    }
+                },
+                "_source": "source",
+                "_tag": {
+                    "mobile": false,
+                    "desktop": ".info span"
+                },
+                "_mainTitle": {
+                    "mobile": ".main_mid_headline_topic_text a",
+                    "desktop": ".text a"
+                },
+                "_descTarget": false
+            }
+        },
+        "bola.com": {
+            "homepage": {
+                "_option": {
+                    "_isReplace": "all", // all, mobile , desktop , by default false or non ads will apend to parent frame element
+                    "_replaceTarget": {
+                        "mobile": [1, 2, 3], // index of target element
+                        "desktop": [6, 7, 8] // index of target element
+                    }
+                },
+                "_advertorialHeadline": {
+                    "mobile": "#main_mid_headline_sub_topic #headlines-box div.home_hl_item",
+                    "desktop": ".list-highlight li"
+                },
+                "_anchor": "a",
+                "_imgSize": "small",
+                "_img": {
+                    "mobile": {
+                        "name": ".hl_img a img",
+                        "style": "object-fit: cover;"
+                    },
+                    "desktop": {
+                        "name": "img",
+                        "style": "object-fit: cover;"
+                    }
+                },
+                "_source": "source",
+                "_tag": {
+                    "mobile": ".hl_content span.hl_cat a",
+                    "desktop": false
+                },
+                "_mainTitle": {
+                    "mobile": ".hl_content div.hl_title a",
+                    "desktop": {
+                        "name": "p",
+                        "style": "height: 42px; margin-bottom: 15px;display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;"
+                    }
+                },
+                "_descTarget": {
+                    "mobile": false,
+                    "desktop": false
+                }
+            },
+            "readpage": {
+                "_option": {
+                    "_isReplace": "desktop", // all, mobile , desktop , by default false or non ads will apend to parent frame element
+                    "_replaceTarget": [2, 4, 6], // index of target element 
+                },
+                "_advertorialHeadline": {
+                    "mobile": ".tabs__content #tab-related .relateds--async #related-news div.article-snippet--related",
+                    "desktop": "article .popular .popular__item"
+                },
+                "_anchor": "a",
+                "_imgSize": "small",
+                "_img": {
+                    "mobile": {
+                        "name": ".article-snippet--related__image a span picture img",
+                        "style": "object-fit: cover; width: 100%;"
+                    },
+                    "desktop": {
+                        "name": ".popular--video__figure a picture img",
+                        "style": "object-fit: cover;"
+                    }
+                },
+                "_source": "source",
+                "_tag": {
+                    "mobile": false,
+                    "desktop": false
+                },
+                "_mainTitle": {
+                    "mobile": {
+                        "name": ".article-snippet--related__content a span",
+                        "style": "    max-height: 66px; display: block; overflow: hidden;"
+                    },
+                    "desktop": "p.popular--video__title a"
+                },
+                "_descTarget": {
+                    "mobile": false,
+                    "desktop": false
+                }
+            },
+            "channelpage": {
+                "_advertorialHeadline": {
+                    "mobile": {
+                        "name": ".article-snippet.js-article-snippet",
+                        "filter": {
+                            "include": false,
+                            "data-template-name": "article-snippet-headline",
+                            "data-type": "PhotoGallery"
                         }
                     },
-                    "desktop" : ".articles .articles--iridescent-list .articles--iridescent-list--item.articles--iridescent-list--text-item"
+                    "desktop": ".articles .articles--iridescent-list .articles--iridescent-list--item.articles--iridescent-list--text-item"
                 },
-                "_anchor" : "a",
-                "_imgSize" : "small",
-                "_img" : {
-                    "mobile" : {
-                        "name" : "img",
-                        "style" : "object-fit: cover;"
+                "_anchor": "a",
+                "_imgSize": "small",
+                "_img": {
+                    "mobile": {
+                        "name": "img",
+                        "style": "object-fit: cover;"
                     },
-                    "desktop" : {
-                        "name" : "img",
-                        "style" : "object-fit: cover;"
+                    "desktop": {
+                        "name": "img",
+                        "style": "object-fit: cover;"
                     }
                 },
-                "_source" : "source",
-                "_tag" : {
-                    "mobile" : false,
-                    "desktop" : "a.articles--iridescent-list--text-item__category"
+                "_source": "source",
+                "_tag": {
+                    "mobile": false,
+                    "desktop": "a.articles--iridescent-list--text-item__category"
                 },
-                "_mainTitle" : {
-                    "mobile" : "span.article-snippet__title-text",
-                    "desktop" : "h4.articles--iridescent-list--text-item__title span.articles--iridescent-list--text-item__title-link-text"
+                "_mainTitle": {
+                    "mobile": "span.article-snippet__title-text",
+                    "desktop": "h4.articles--iridescent-list--text-item__title span.articles--iridescent-list--text-item__title-link-text"
                 },
-                "_descTarget" : {
-                    "mobile" : false,
-                    "desktop" : ".articles--iridescent-list--text-item__summary"
+                "_descTarget": {
+                    "mobile": false,
+                    "desktop": ".articles--iridescent-list--text-item__summary"
                 }
             },
         }
-   }
+    }
 
-   parent.window.advertorialHeadlineInjecting = false;
-   _bootads();
+    parent.window.advertorialHeadlineInjecting = false;
+    _settingUpEnv_();
 
-   function _bootads() {
-       
-       _indexPage = "homepage";
-       if (_pageType === "channelpage") {
-           for(_key in settings[_site]){
-               if (_key === _channelPage) {
-                   _indexPage = _channelPage;
-               }
-           }
-           if (_site === "merdeka" || _site === "dream" || _site === "bola" || _site === "bola.com") {
-             _indexPage = _pageType;
-           }
-       } else if (_pageType === "readpage") { 
-          for(_key in settings[_site]){
-              if (_key === _pageType) {
-                  _indexPage = _pageType;
-              }
-           }
-           if (_platform === "desktop" && _site === "dream") {
-             if (_subDomainPage === "hijab" || _subDomainPage === "parenting" || _subDomainPage === "travel") {
-               _indexPage = "readpageSubDomain";
-             }
-           }
-       }
-     
+    function _settingUpEnv_() {
+
+        _indexPage = "homepage";
+        if (_pageType === "channelpage") {
+            for (_key in settings[_site]) {
+                if (_key === _channelPage) {
+                    _indexPage = _channelPage;
+                }
+            }
+            if (_site === "merdeka" || _site === "dream" || _site === "bola" || _site === "bola.com") {
+                _indexPage = _pageType;
+            }
+        } else if (_pageType === "readpage") {
+            for (_key in settings[_site]) {
+                if (_key === _pageType) {
+                    _indexPage = _pageType;
+                }
+            }
+            if (_platform === "desktop" && _site === "dream") {
+                if (_subDomainPage === "hijab" || _subDomainPage === "parenting" || _subDomainPage === "travel") {
+                    _indexPage = "readpageSubDomain";
+                }
+            }
+        }
+
         if (_site === "fimela") {
-          _indexPage = "allpage";
+            _indexPage = "allpage";
         }
-       
-       var __X__ = setInterval(function () {
-        console.log(`adv ${_ID} waiting....`)
-        if (!parent.window.advertorialHeadlineInjecting) {
-          parent.window.advertorialHeadlineInjecting = true;
-            clearInterval(__X__)
-           setTimeout(function () {
-            _findTargetEl(settings[_site][_indexPage]);
-             setTimeout(function () {
-              _injectAds();
-             }, 1000)
-           }, 1000)
+
+        if (settings[_site][_indexPage].customScript.script) {
+            _createCustomScript(settings[_site][_indexPage].customScript)
+            console.log('ADV_HEADLINE BOOTDAS')
+            _bootads("script");
+        } else {
+            _bootads();
         }
-       }, 500)
-   }
-
-   function _findTargetEl(_targetObject) {
-       for (_key in _targetObject) {
-           var _target = (typeof _targetObject[_key] != "string") ? _targetObject[_key][_platform] : _targetObject[_key];
-
-           if (_key != "_option") {
-               if (_key == "customScript") {
-                   _createCustomScript(_targetObject[_key]);
-               }else{
-
-                   _setTargetElement(_key, _target);
-               }
-           }else{
-               _targetEl[_key] = _targetObject[_key];
-           }
-       }
-   }
-
-   function _setTargetElement(_key, _target) {
-       if (!_target) return
-       var _wrapper = (_key == "_advertorialHeadline") ? parent.document : _targetEl._advertorialHeadlineClone;
-       var _targetTag = (typeof _target == "object") ? _target.name : _target;
-       _targetEl[_key] = (typeof _target.filter == "object" ) ? _targetElFilter(_target , _wrapper.querySelectorAll(_targetTag)) :  _wrapper.querySelectorAll(_targetTag);
-
-       if (typeof _target == "object") {
-           if (_target.style != undefined) {
-               _targetEl[_key][0].style = _target.style;      
-           }
-       }
-
-       if (_key == "_advertorialHeadline") {
-           var _thisParent = window.frameElement.parentElement.parentElement;
-
-           if (_isReplaceTarget(_thisParent) == null) {
-               _targetEl._advertorialHeadlineClone = _targetEl[_key][0].cloneNode(true);    
-           }else{
-               _targetEl._advertorialHeadlineClone = _targetEl._advertorialHeadline[_isReplaceTarget(_thisParent)];
-           }
-       }
-
-   }
-
-   function _targetElFilter(_target, _qrObj) {
-       // do filter target element
-       var _mainTarget = _qrObj;
-       var _isInclude = true; // filter setting is not some class or atribut 
-                               // exclude element 
-       for(_filter in _target.filter){
-
-           _isInclude = (_filter == "include") ? _target.filter[_filter] : _isInclude;
-           var _filteredTarget = [];
-
-           if (typeof _target.filter[_filter] == "object") {
-               _mainTarget = _filterArrayValue(_isInclude, _target.filter[_filter], _mainTarget);
-           }else if (typeof _target.filter[_filter] == "string"){
-               _mainTarget = _filterStringValue(_isInclude, _target.filter[_filter], _mainTarget);
-           }
-
-       }
-       
-       return _mainTarget;
-   }
-
-   function _filterArrayValue(filterType, filterValue, targetEls) {
-       var _tempTarget = [];
-       var _targetEls = targetEls;
-
-       filterValue.forEach( function(element, index) {
-           _tempTarget = [];
-
-           _targetEls.forEach(function (el, i) {
-       
-               var _filterAtribute = el.getAttribute(_filter);
-               var _preCon = (_filterAtribute == null) ? false : _filterAtribute.includes(element);
-               var _condition = (filterType) ? _preCon  : !_preCon;
-               if (_condition ) {
-                   _tempTarget.push(el);
-               }
-           })
-           
-           _targetEls = _tempTarget;
-
-       });
-
-       return _tempTarget;
-       
-   }
-
-   function _filterStringValue(filterType, filterValue, targetEls) {
-       // body...
-       var _tempTarget = []
-       targetEls.forEach(function (el, i) {
-                   
-           var _filterAtribute = el.getAttribute(_filter);
-           // var _condition = (filterType) ? _filterAtribute == filterValue : _filterAtribute !== filterValue;
-           var _preCon = (_filterAtribute == null) ? false : _filterAtribute.includes(filterValue);
-           var _condition = (filterType) ? _preCon  : !_preCon;
-           if (_condition) {
-               _tempTarget.push(el);
-           }
-       })
-
-       return _tempTarget;
-   }
-
-   function _injectAds() {
-       var _thisParent = window.frameElement.parentElement.parentElement;
-       var _targetInsert = true;
-       if (_isReplaceTarget(_thisParent) != null) {
-           _targetInsert = false;
-       }
-
-       //replace landing page
-       _replaceAttribute(_targetEl._anchor, "href", _landingPage);
-       _replaceAttribute(_targetEl._anchor, "target", "_blank");
-       //repalce img
-       _replaceAttribute(_targetEl._img, "src", _mainImg[settings[_site][_indexPage]._imgSize[_platform]]);
-       _replaceAttribute(_targetEl._img, "data-src", _mainImg[settings[_site][_indexPage]._imgSize[_platform]]);
-       _replaceAttribute(_targetEl._img, "alt", _title);
-       _replaceAttribute(_targetEl._source, "srcset", _mainImg[settings[_site][_indexPage]._imgSize[_platform]]);
-       _replaceAttribute(_targetEl._source, "data-src", _mainImg[settings[_site][_indexPage]._imgSize[_platform]]);
-       _replaceAttribute(_targetEl._source, "data-srcset", _mainImg[settings[_site][_indexPage]._imgSize[_platform]]);
-       // replace title
-       _targetEl._mainTitle[0].lastChild.textContent = _title;
-
-       if (_targetEl._tag !== null) {
-           _targetEl._tag[0].textContent = _customTag;
-       }
-       if (_targetEl._descTarget !== null) {
-           _targetEl._descTarget[0].textContent = _desc;
-       } 
-       
-         /** TWEAK FOR LAZY CLASS IN KL */
-       if(_el=_targetEl._advertorialHeadlineClone.querySelector('img.lazy')){
-           _el.classList.remove('lazy');
-       }
-     
-       // for live template 
-       if (!_thisParent.classList.contains("adv-headline-filled") && _targetInsert) {
-        if (_isInsertTarget(_thisParent)) {
-          var _targetParent_ = parent.document.querySelector(settings[_site][_indexPage]._option._insertTargetEl)
-
-            console.log("adv ", _targetParent_ , _targetEl._advertorialHeadlineClone, _targetParent_.querySelectorAll(".headline--bottom-slider__item")[_isInsertTarget(_thisParent)])
-
-          _targetParent_.insertBefore(_targetEl._advertorialHeadlineClone, _targetParent_.querySelectorAll(".headline--bottom-slider__item")[_isInsertTarget(_thisParent)])
-            _thisParent.classList.add("adv-headline-filled");
-
-            _targetEl._advertorialHeadlineClone.classList.add("adv-headline-"+ _ID)
-            parent.window.advertorialHeadlineInjecting = false;
 
 
+    }
 
-        }else{
-           _thisParent.appendChild(_targetEl._advertorialHeadlineClone);
-           _thisParent.setAttribute("class", "adv-headline-filled");
+    function _bootads(_skipInjectCustomScript_) {
+        console.log('ADV_HEADLINE BOOTDAS')
+        var __X__ = setInterval(function() {
+            console.log(`ADV_HEADLINE ${_ID} waiting....`)
+            if (!parent.window.advertorialHeadlineInjecting) {
+                parent.window.advertorialHeadlineInjecting = true;
+                clearInterval(__X__)
+                setTimeout(function() {
+                    _findTargetEl(settings[_site][_indexPage], _skipInjectCustomScript_);
+                    setTimeout(function() {
+                        _injectAds();
+                    }, 1000)
+                }, 1000)
+            }
+        }, 500)
+    }
+
+    function _findTargetEl(_targetObject, _skipInjectCustomScript_) {
+        for (_key in _targetObject) {
+            var _target = (typeof _targetObject[_key] != "string") ? _targetObject[_key][_platform] : _targetObject[_key];
+
+            if (_key != "_option") {
+                if (_key == "customScript") {
+                    _createCustomScript(_targetObject[_key], _skipInjectCustomScript_);
+                } else {
+
+                    _setTargetElement(_key, _target);
+                }
+            } else {
+                _targetEl[_key] = _targetObject[_key];
+            }
         }
-       }
-       
-       window.frameElement.parentElement.style.display = 'none';
+    }
+
+    function _setTargetElement(_key, _target) {
+        if (!_target) return
+        var _wrapper = (_key == "_advertorialHeadline") ? parent.document : _targetEl._advertorialHeadlineClone;
+        var _targetTag = (typeof _target == "object") ? _target.name : _target;
+        _targetEl[_key] = (typeof _target.filter == "object") ? _targetElFilter(_target, _wrapper.querySelectorAll(_targetTag)) : _wrapper
+            .querySelectorAll(_targetTag);
+
+        if (typeof _target == "object") {
+            if (_target.style != undefined) {
+                _targetEl[_key][0].style = _target.style;
+            }
+        }
+
+        if (_key == "_advertorialHeadline") {
+            var _thisParent = parent.document.getElementById(_ID);
+
+            if (_isReplaceTarget(_thisParent) == null) {
+                _targetEl._advertorialHeadlineClone = _targetEl[_key][0].cloneNode(true);
+            } else {
+                _targetEl._advertorialHeadlineClone = _targetEl._advertorialHeadline[_isReplaceTarget(_thisParent)];
+            }
+        }
+    }
+
+    function _targetElFilter(_target, _qrObj) {
+        // do filter target element
+        var _mainTarget = _qrObj;
+        var _isInclude = true; // filter setting is not some class or atribut 
+        // exclude element 
+        for (_filter in _target.filter) {
+
+            _isInclude = (_filter == "include") ? _target.filter[_filter] : _isInclude;
+            var _filteredTarget = [];
+
+            if (typeof _target.filter[_filter] == "object") {
+                _mainTarget = _filterArrayValue(_isInclude, _target.filter[_filter], _mainTarget);
+            } else if (typeof _target.filter[_filter] == "string") {
+                _mainTarget = _filterStringValue(_isInclude, _target.filter[_filter], _mainTarget);
+            }
+
+        }
+
+        return _mainTarget;
+    }
+
+    function _filterArrayValue(filterType, filterValue, targetEls) {
+        var _tempTarget = [];
+        var _targetEls = targetEls;
+
+        filterValue.forEach(function(element, index) {
+            _tempTarget = [];
+
+            _targetEls.forEach(function(el, i) {
+
+                var _filterAtribute = el.getAttribute(_filter);
+                var _preCon = (_filterAtribute == null) ? false : _filterAtribute.includes(element);
+                var _condition = (filterType) ? _preCon : !_preCon;
+                if (_condition) {
+                    _tempTarget.push(el);
+                }
+            })
+
+            _targetEls = _tempTarget;
+
+        });
+
+        return _tempTarget;
+    }
+
+    function _filterStringValue(filterType, filterValue, targetEls) {
+        var _tempTarget = []
+        targetEls.forEach(function(el, i) {
+
+            var _filterAtribute = el.getAttribute(_filter);
+            // var _condition = (filterType) ? _filterAtribute == filterValue : _filterAtribute !== filterValue;
+            var _preCon = (_filterAtribute == null) ? false : _filterAtribute.includes(filterValue);
+            var _condition = (filterType) ? _preCon : !_preCon;
+            if (_condition) {
+                _tempTarget.push(el);
+            }
+        })
+
+        return _tempTarget;
+    }
+
+    function _injectAds() {
+        console.log('ADV_HEADLINE INJECT ADS '+_ID)
+        var _thisParent = parent.document.getElementById(_ID);
+        var _targetInsert = true;
+        if (_isReplaceTarget(_thisParent) != null) {
+            _targetInsert = false;
+        }
+
+        //replace landing page
+        _replaceAttribute(_targetEl._anchor, "href", _landingPage);
+        _replaceAttribute(_targetEl._anchor, "target", "_blank");
+        //repalce img
+        _replaceAttribute(_targetEl._img, "src", _mainImg[settings[_site][_indexPage]._imgSize[_platform]]);
+        _replaceAttribute(_targetEl._img, "data-src", _mainImg[settings[_site][_indexPage]._imgSize[_platform]]);
+        _replaceAttribute(_targetEl._img, "alt", _title);
+        _replaceAttribute(_targetEl._source, "srcset", _mainImg[settings[_site][_indexPage]._imgSize[_platform]]);
+        _replaceAttribute(_targetEl._source, "data-src", _mainImg[settings[_site][_indexPage]._imgSize[_platform]]);
+        _replaceAttribute(_targetEl._source, "data-srcset", _mainImg[settings[_site][_indexPage]._imgSize[_platform]]);
+        // replace title
+        _targetEl._mainTitle[0].lastChild.textContent = _title;
+
+        if (_targetEl._tag !== null) {
+            _targetEl._tag[0].textContent = _customTag;
+        }
+        if (_targetEl._descTarget !== null) {
+            _targetEl._descTarget[0].textContent = _desc;
+        }
+
+        /** TWEAK FOR LAZY CLASS IN KL */
+        if (_el = _targetEl._advertorialHeadlineClone.querySelector('img.lazy')) {
+            _el.classList.remove('lazy');
+        }
+
+        // for live template 
+        if (!_thisParent.classList.contains("adv-headline-filled") && _targetInsert) {
+            console.log("ADV_HEADLINE TARGET ", _isInsertTarget(_thisParent))
+            if (_isInsertTarget(_thisParent) >=  0) {
+                var _targetParent_ = parent.document.querySelector(settings[_site][_indexPage]._option._insertTargetEl)
+
+                // _targetParent_.insertBefore(_targetEl._advertorialHeadlineClone, _targetParent_.querySelectorAll(".headline--bottom-slider__item")[_isInsertTarget(_thisParent)])
+                _targetParent_.insertBefore(_targetEl._advertorialHeadlineClone, _targetParent_.querySelectorAll(_targetEl._option._insertTargetList)[
+                    _isInsertTarget(_thisParent)])
+
+                _thisParent.classList.add("adv-headline-filled");
+
+                _targetEl._advertorialHeadlineClone.classList.add("adv-headline-" + _ID)
+
+
+
+            } else {
+                console.log("ADV_HEADLINE in insert targe else")
+                _thisParent.appendChild(_targetEl._advertorialHeadlineClone);
+                _thisParent.setAttribute("class", "adv-headline-filled");
+            }
+        }
+
+        window.frameElement.parentElement.style.display = 'none';
+        parent.window.advertorialHeadlineInjecting = false;
+
     }
 
 
     function _isInsertTarget(_thisParent) {
-       var _return = null;
-       var _option_ = _targetEl._option;
-       var _parentId = _thisParent.id;
+        var _return = null;
+        var _option_ = _targetEl._option;
+        var _parentId = _thisParent.id;
 
-       if (_option_ !== null) {
-           var _check = Array.isArray(_option_._insertTarget);
-           // conver crm number to array index key 0 1 2 
-           var _index = parseInt(_parentId.split("advertorial-headline")[1])- 1; 
-           if(_check == true){
-                if(_option_._isInsert == _platform  || _option_._isInsert == "all"){
+        if (_option_ !== null) {
+            var _check = Array.isArray(_option_._insertTarget);
+            // conver crm number to array index key 0 1 2 
+            var _index = parseInt(_parentId.split("advertorial-headline")[1]) - 1;
+            if (_check == true) {
+                if (_option_._isInsert == _platform || _option_._isInsert == "all") {
                     // convert number target to index array from 2 3 4 (order number ) to 1 2 3 ( array index );
                     var _indexInsert = _option_._insertTarget[_index];
                 }
-           } else {
-               if(_platform == "mobile"){
+            } else {
+                if (_platform == "mobile") {
                     var _indexInsert = _option_._insertTarget.mobile[_index];
-               } else {
+                } else {
                     var _indexInsert = _option_._insertTarget.desktop[_index];
-               }
-           }
-           _return = _indexInsert;
-       }
-       return _return;
-   }
-   function _isReplaceTarget(_thisParent) {
-       var _return = null;
-       var _option_ = _targetEl._option;
-       var _parentId = _thisParent.id;
-
-       if (_option_ !== null) {
-        if (_option_._isReplace == null) {
-          return
+                }
+            }
+            _return = _indexInsert;
         }
-           var _check = Array.isArray(_option_._replaceTarget);
-           // conver crm number to array index key 0 1 2 
-           var _index = parseInt(_parentId.split("-")[4].split("crm")[1]) - 1; 
-           if(_check == true){
-                if(_option_._isReplace == _platform  || _option_._isReplace == "all"){
+        return _return;
+    }
+
+    function _isReplaceTarget(_thisParent) {
+        var _return = null;
+        var _option_ = _targetEl._option;
+        var _parentId = _thisParent.id;
+
+        if (_option_ !== null) {
+            if (_option_._isReplace == null) {
+                return
+            }
+            var _check = Array.isArray(_option_._replaceTarget);
+            // conver crm number to array index key 0 1 2 
+            var _index = parseInt(_parentId.split("-")[4].split("crm")[1]) - 1;
+            if (_check == true) {
+                if (_option_._isReplace == _platform || _option_._isReplace == "all") {
                     // convert number target to index array from 2 3 4 (order number ) to 1 2 3 ( array index );
                     var _indexReplace = _option_._replaceTarget[_index] - 1;
                 }
-           } else {
-               if(_platform == "mobile"){
+            } else {
+                if (_platform == "mobile") {
                     var _indexReplace = _option_._replaceTarget.mobile[_index] - 1;
-               } else {
+                } else {
                     var _indexReplace = _option_._replaceTarget.desktop[_index] - 1;
-               }
-           }
-           _return = _indexReplace;
-       }
-       return _return;
-   }
+                }
+            }
+            _return = _indexReplace;
+        }
+        return _return;
+    }
 
-   function _replaceAttribute(_targetArray, _attrName, _attr) {
-       _targetArray.forEach( function(element, index) {
-           element.setAttribute(_attrName, "")
-           element.setAttribute(_attrName, _attr)
-       });
-   }
+    function _replaceAttribute(_targetArray, _attrName, _attr) {
+        _targetArray.forEach(function(element, index) {
+            element.setAttribute(_attrName, "")
+            element.setAttribute(_attrName, _attr)
+        });
+    }
 
-   function _createCustomScript(obj) {
-         for(_key in obj){
-             var _el = document.createElement(_key.toString());
-             _el.textContent = obj[_key];
-             parent.document.body.appendChild(_el)
-         }
-   }
+    function _createCustomScript(obj, _skipInjectCustomScript_) {
+        console.log("ADV_HEADLINE CUSTOM SCRIPT" + _skipInjectCustomScript_)
+        for (_key in obj) {
+            if (_skipInjectCustomScript_ != _key) {
 
+                var _el = document.createElement(_key.toString());
+                _el.textContent = obj[_key];
+                parent.document.body.appendChild(_el)
+                console.log("ADV_HEADLINE CUSTOM SCRIPT", _el)
+
+            }
+        }
+    }
+    //%%VIEW_URL_UNESC%%
 </script>
 
 [%dfp_third_party_tracker%]
+
+<div style="display: none">
+    <img src="%%VIEW_URL_UNESC%%https://cdns.klimg.com/d.kapanlaginetwork.com/banner/asset/img/pixel.png" alt="">
+</div>
