@@ -1,7 +1,11 @@
 <script>
-    var _ID = (window.frameElement.parentElement.parentElement.id == "div-gpt-ad-liputan6-skinad-oop") ? "div-gpt-ad-liputan6-advertorial-headline1" : (window
-            .frameElement.parentElement.parentElement.id == "div-gpt-ad-liputan6-crm-headline-oop") ? "div-gpt-ad-liputan6-advertorial-headline2" : window
+    var _ID = (window.frameElement.parentElement.parentElement.id == "div-gpt-ad-merdeka-newsTag1-oop") ?
+        "div-gpt-ad-merdeka-advertorial-headline1" : (window
+            .frameElement.parentElement.parentElement.id == "div-gpt-ad-merdeka-newsTag2-oop") ?
+        "div-gpt-ad-merdeka-advertorial-headline2" : window
         .frameElement.parentElement.parentElement.id;
+    var _NUMBER_ = _ID.split("advertorial-headline")[1]
+    // var _ID = window.frameElement.parentElement.parentElement.id;
 
     var _klyAds = parent.kmklabs || parent.kly;
     var _platform = _klyAds.platform.toLowerCase();
@@ -43,6 +47,12 @@
     var settings = {
         "kapanlagi": {
             "homepage": {
+                "_option": {
+                    "_isInsert": "desktop",
+                    "_insertTarget": [1, 1], // index of target element 
+                    "_insertTargetEl": "ul.leftrecomendations-loader-list.list-berita-kl.clearfix",
+                    "_insertTargetList": "li.clearfix"
+                },
                 "_advertorialHeadline": {
                     "mobile": {
                         "name": "ul.artikel-list-img li.clearfix",
@@ -54,7 +64,10 @@
                     "desktop": "ul.leftrecomendations-loader-list.list-berita-kl.clearfix li.clearfix"
                 },
                 "_anchor": "a",
-                "_imgSize": "small",
+                "_imgSize": {
+                    "mobile": "small",
+                    "desktop": "small",
+                },
                 "_img": {
                     "desktop": {
                         "name": "img",
@@ -194,26 +207,34 @@
                         }
 
                         function _setInitAdvHeadline${_cacheBuster}() {
-                            var a = setInterval(function(){ 
-                              console.log("ADV_HEADLINE ${_ID}")
+                            var a${_cacheBuster} = setInterval(function(){ 
+                                console.log("ADV_HEADLINE ${_NUMBER_} ", parent.window.advertorialHeadlineInjecting)
                                 if (document.querySelector('#${_ID}').classList.contains("adv-headline-filled") !== null) {
                                     $('.headline--bottom-slider__list').slick('unslick');
-                                    clearInterval(a);
-                                    _reinitSlickjs${_cacheBuster}();
+                                    clearInterval(a${_cacheBuster});
+                                    setTimeout(function () {
+                                        _reinitSlickjs${_cacheBuster}();
+                                    }, 1200)
                                 }
                             }, 1000);
                         } 
 
                         function _reinitSlickjs${_cacheBuster}(){
+                            var _reinit_${_cacheBuster} = setInterval(function () {
+                                if (!parent.window.advertorialHeadlineInjecting) {
+                                    clearInterval(_reinit_${_cacheBuster})
+                                    $('.headline--bottom-slider__list').slick({
+                                    slidesToShow: 3,
+                                    slidesToScroll: 1,
+                                    autoplay: false,
+                                    nextArrow : '<i class="i-sl-right-circle content-promotion--stm__icon-right js-slick-next" style="display: block;"></i>',
+                                    prevArrow : '<i class="i-sl-left-circle content-promotion--stm__icon-left js-slick-prev" style="display: block;"></i>',
+                                    autoplaySpeed: 2000,
+                                  });
+                                }
+                            }, 200)
                           setTimeout(function () {
-                            $('.headline--bottom-slider__list').slick({
-                            slidesToShow: 3,
-                            slidesToScroll: 1,
-                            autoplay: false,
-                            nextArrow : '<i class="i-sl-right-circle content-promotion--stm__icon-right js-slick-next" style="display: block;"></i>',
-                            prevArrow : '<i class="i-sl-left-circle content-promotion--stm__icon-left js-slick-prev" style="display: block;"></i>',
-                            autoplaySpeed: 2000,
-                          });
+                            
                           }, 2000)
                         }
                     `
@@ -295,34 +316,36 @@
             "homepage": {
                 "customScript": {
                     "script": `
-                    console.log("merdeka ${_platform}")
+                        // console.log("merdeka ${_platform}")
                         if ("${_platform}" == "dekstop") {
-                            console.log("merdeka ${_platform} ${_cacheBuster}")
+                            // console.log("merdeka ${_platform} ${_cacheBuster}")
                             _setInitAdvHeadline${_cacheBuster}();
-                        } else {
                         }
 
                         var _MIAN_SWIPER_${_cacheBuster}_ = document.querySelector('.swiper-container-horizontal').swiper;
 
 
                         function _setInitAdvHeadline${_cacheBuster}() {
-                            var a = setInterval(function(){ 
-                              console.log("merdeka ${_ID} set interval")
-                                if (document.querySelector('#${_ID}').classList.contains("adv-headline-filled") !== null) {
+                            var a${_cacheBuster} = setInterval(function(){ 
+                              // console.log("merdeka ${_NUMBER_} set interval")
+                                if (document.querySelector('#${_ID}').classList.contains("adv-headline-filled") !== null && document.querySelector(".swiper-container-horizontal .swiper-wrapper .highlight-item")) {
                                     _MIAN_SWIPER_${_cacheBuster}_.destroy(false, false);
-                                    clearInterval(a);
+                                    clearInterval(a${_cacheBuster});
+                                    setTimeout(function () {
                                     _reinitSlickjs${_cacheBuster}();
+                                    }, 1200)
                                 }
                             }, 1000);
                         } 
 
                         function _reinitSlickjs${_cacheBuster}(){
                             
-                            var _reinit_ = setInterval(function () {
-                                console.log('merdeka reinit ')
+                            var _reinit_${_cacheBuster} = setInterval(function () {
+                                // console.log('merdeka waiting reinit ${_NUMBER_}')
                                 if (!parent.window.advertorialHeadlineInjecting) {
+                                    // console.log('merdeka REINIT ')
                                     _MIAN_SWIPER_${_cacheBuster}_.init();
-                                    clearInterval(_reinit_)
+                                    clearInterval(_reinit_${_cacheBuster})
                                 }
                             }, 100)
 
@@ -340,7 +363,13 @@
                         "name": "ul.mdk-top-stories-item li.hl-section",
                         "style": "border-top: none; padding: 0 10px !important;"
                     },
-                    "dekstop": ".swiper-container-horizontal .swiper-wrapper .highlight-item"
+                    "dekstop": {
+                        "name": ".swiper-container-horizontal .swiper-wrapper .highlight-item",
+                        "filter": {
+                                "include": false,
+                                "class": "swiper-slide-duplicate"
+                            }
+                    }
                 },
                 "_anchor": "a",
                 "_imgSize": {
@@ -915,8 +944,15 @@
         }
     }
 
-    parent.window.advertorialHeadlineInjecting = false;
-    _settingUpEnv_();
+    parent.window.advertorialHeadlineInjecting = (parent.window.advertorialHeadlineInjecting == undefined) ? false : parent.window.advertorialHeadlineInjecting;
+    if (_ID.split("advertorial-headline")[1] == 2) {
+        setTimeout(function () {
+            console.log('ADV HEADLINE 2')
+            _settingUpEnv_();
+        }, 1200)
+    }else{
+            _settingUpEnv_();
+    }
 
     function _settingUpEnv_() {
 
@@ -947,21 +983,27 @@
             _indexPage = "allpage";
         }
 
-        if (settings[_site][_indexPage].customScript.script) {
-            _createCustomScript(settings[_site][_indexPage].customScript)
-            console.log('ADV_HEADLINE BOOTDAS')
-            _bootads("script");
-        } else {
-            _bootads();
-        }
+        var _X_ = setInterval(function () {
+            if (!parent.window.advertorialHeadlineInjecting) {
+
+                clearInterval(_X_)
+                if (typeof settings[_site][_indexPage].customScript != undefined) {
+                    _createCustomScript(settings[_site][_indexPage].customScript)
+                    console.log('ADV_HEADLINE BOOTDAS ' + _NUMBER_)
+                    _bootads("script");
+                } else {
+                    _bootads();
+                }
+
+            }
+        }, 100)
 
 
     }
 
     function _bootads(_skipInjectCustomScript_) {
-        console.log('ADV_HEADLINE BOOTDAS')
         var __X__ = setInterval(function() {
-            console.log(`ADV_HEADLINE ${_ID} waiting....`)
+            console.log(`ADV_HEADLINE ${_NUMBER_} waiting.... ${parent.window.advertorialHeadlineInjecting}`)
             if (!parent.window.advertorialHeadlineInjecting) {
                 parent.window.advertorialHeadlineInjecting = true;
                 clearInterval(__X__)
@@ -996,7 +1038,8 @@
         if (!_target) return
         var _wrapper = (_key == "_advertorialHeadline") ? parent.document : _targetEl._advertorialHeadlineClone;
         var _targetTag = (typeof _target == "object") ? _target.name : _target;
-        _targetEl[_key] = (typeof _target.filter == "object") ? _targetElFilter(_target, _wrapper.querySelectorAll(_targetTag)) : _wrapper
+        _targetEl[_key] = (typeof _target.filter == "object") ? _targetElFilter(_target, _wrapper.querySelectorAll(_targetTag)) :
+            _wrapper
             .querySelectorAll(_targetTag);
 
         if (typeof _target == "object") {
@@ -1047,7 +1090,8 @@
             _targetEls.forEach(function(el, i) {
 
                 var _filterAtribute = el.getAttribute(_filter);
-                var _preCon = (_filterAtribute == null) ? false : _filterAtribute.includes(element);
+                var _preCon = (_filterAtribute == null) ? false : _filterAtribute.includes(
+                    element);
                 var _condition = (filterType) ? _preCon : !_preCon;
                 if (_condition) {
                     _tempTarget.push(el);
@@ -1078,16 +1122,26 @@
     }
 
     function _injectAds() {
-        console.log('ADV_HEADLINE INJECT ADS '+_ID)
-        var _thisParent = parent.document.getElementById(_ID);
+        parent.window.advertorialHeadlineInjecting = false;
+        console.log('ADV_HEADLINE INJECT ADS ' + _NUMBER_)
+        var _thisParent = window.frameElement.parentElement.parentElement;
         var _targetInsert = true;
         if (_isReplaceTarget(_thisParent) != null) {
             _targetInsert = false;
         }
 
-        //replace landing page
-        _replaceAttribute(_targetEl._anchor, "href", _landingPage);
-        _replaceAttribute(_targetEl._anchor, "target", "_blank");
+        _targetEl._advertorialHeadlineClone.classList.add("adv-headline")
+        if (_targetEl._advertorialHeadlineClone.tagName.toLowerCase() == 'a') {
+
+            _targetEl._advertorialHeadlineClone.setAttribute("href", _landingPage)
+            _targetEl._advertorialHeadlineClone.setAttribute("target", "_blank")
+        }else{
+            //replace landing page
+            _replaceAttribute(_targetEl._anchor, "href", _landingPage);
+            _replaceAttribute(_targetEl._anchor, "target", "_blank");
+
+        }
+
         //repalce img
         _replaceAttribute(_targetEl._img, "src", _mainImg[settings[_site][_indexPage]._imgSize[_platform]]);
         _replaceAttribute(_targetEl._img, "data-src", _mainImg[settings[_site][_indexPage]._imgSize[_platform]]);
@@ -1112,29 +1166,33 @@
 
         // for live template 
         if (!_thisParent.classList.contains("adv-headline-filled") && _targetInsert) {
-            console.log("ADV_HEADLINE TARGET ", _isInsertTarget(_thisParent))
-            if (_isInsertTarget(_thisParent) >=  0) {
+            // console.log("ADV_HEADLINE TARGET ", _isInsertTarget(_thisParent))
+            _thisParent.setAttribute("class", "adv-headline-filled");
+
+            if (_isInsertTarget(_thisParent) >= 0) {
+                // console.log('ADV HEADLINE ', settings[_site][_indexPage]._option._insertTargetEl)
                 var _targetParent_ = parent.document.querySelector(settings[_site][_indexPage]._option._insertTargetEl)
+                var _targetList_ =  []
+                _targetParent_.querySelectorAll(_targetEl._option._insertTargetList).forEach(function (el, i) {
+                    if (!el.classList.contains("adv-headline")) {
+                        _targetList_.push(el)
+                    }
+                })
 
-                // _targetParent_.insertBefore(_targetEl._advertorialHeadlineClone, _targetParent_.querySelectorAll(".headline--bottom-slider__item")[_isInsertTarget(_thisParent)])
-                _targetParent_.insertBefore(_targetEl._advertorialHeadlineClone, _targetParent_.querySelectorAll(_targetEl._option._insertTargetList)[
-                    _isInsertTarget(_thisParent)])
-
-                _thisParent.classList.add("adv-headline-filled");
+                // console.log("ADV HEADLINE ",_targetEl._advertorialHeadlineClone, _targetList_[_isInsertTarget(_thisParent)])
+                _targetParent_.insertBefore(_targetEl._advertorialHeadlineClone, _targetList_[_isInsertTarget(_thisParent)])
 
                 _targetEl._advertorialHeadlineClone.classList.add("adv-headline-" + _ID)
 
 
 
             } else {
-                console.log("ADV_HEADLINE in insert targe else")
+                // console.log("ADV_HEADLINE in insert targe else")
                 _thisParent.appendChild(_targetEl._advertorialHeadlineClone);
-                _thisParent.setAttribute("class", "adv-headline-filled");
             }
         }
 
         window.frameElement.parentElement.style.display = 'none';
-        parent.window.advertorialHeadlineInjecting = false;
 
     }
 
@@ -1142,12 +1200,13 @@
     function _isInsertTarget(_thisParent) {
         var _return = null;
         var _option_ = _targetEl._option;
-        var _parentId = _thisParent.id;
+        var _parentId = _ID;
 
         if (_option_ !== null) {
             var _check = Array.isArray(_option_._insertTarget);
             // conver crm number to array index key 0 1 2 
             var _index = parseInt(_parentId.split("advertorial-headline")[1]) - 1;
+            // console.log('ADV HEADLINE '+ _index)
             if (_check == true) {
                 if (_option_._isInsert == _platform || _option_._isInsert == "all") {
                     // convert number target to index array from 2 3 4 (order number ) to 1 2 3 ( array index );
@@ -1202,21 +1261,19 @@
     }
 
     function _createCustomScript(obj, _skipInjectCustomScript_) {
-        console.log("ADV_HEADLINE CUSTOM SCRIPT" + _skipInjectCustomScript_)
+        // console.log("ADV_HEADLINE CUSTOM SCRIPT" + _skipInjectCustomScript_)
         for (_key in obj) {
             if (_skipInjectCustomScript_ != _key) {
 
                 var _el = document.createElement(_key.toString());
                 _el.textContent = obj[_key];
                 parent.document.body.appendChild(_el)
-                console.log("ADV_HEADLINE CUSTOM SCRIPT", _el)
+                // console.log("ADV_HEADLINE CUSTOM SCRIPT", _el)
 
             }
         }
     }
-    //%%VIEW_URL_UNESC%%
 </script>
-
 [%dfp_third_party_tracker%]
 
 <div style="display: none">
