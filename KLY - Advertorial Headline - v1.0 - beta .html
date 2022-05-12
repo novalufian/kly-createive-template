@@ -1,14 +1,17 @@
 <script>
-    var _ID = (window.frameElement.parentElement.parentElement.id == "div-gpt-ad-merdeka-newsTag1-oop") ?
-        "div-gpt-ad-merdeka-advertorial-headline1" : (window
-            .frameElement.parentElement.parentElement.id == "div-gpt-ad-merdeka-newsTag2-oop") ?
-        "div-gpt-ad-merdeka-advertorial-headline2" : window
-        .frameElement.parentElement.parentElement.id;
+    var _THIS_PARENT_ID_ = window.frameElement.parentElement.parentElement.id
+    var _ID = ( _THIS_PARENT_ID_ == "div-gpt-ad-merdeka-newsTag1-oop") ? "div-gpt-ad-merdeka-advertorial-headline1" : 
+            (_THIS_PARENT_ID_ == "div-gpt-ad-merdeka-newsTag2-oop") ?  "div-gpt-ad-merdeka-advertorial-headline2" : 
+            (_THIS_PARENT_ID_ == "div-gpt-ad-merdeka-crm1-oop") ?  "div-gpt-ad-merdeka-advertorial-headline1" : 
+            (_THIS_PARENT_ID_ == "div-gpt-ad-merdeka-crm2-oop") ?  "div-gpt-ad-merdeka-advertorial-headline2" : 
+            (_THIS_PARENT_ID_ == "div-gpt-ad-kapanlagi-dfp-newsTag1-oop") ?  "div-gpt-ad-kapanlagi-advertorial-headline1" : 
+            (_THIS_PARENT_ID_ == "div-gpt-ad-kapanlagi-dfp-newsTag2-oop") ?  "div-gpt-ad-kapanlagi-advertorial-headline2" : 
+            window.frameElement.parentElement.parentElement.id;
     var _NUMBER_ = _ID.split("advertorial-headline")[1]
     // var _ID = window.frameElement.parentElement.parentElement.id;
 
     var _klyAds = parent.kmklabs || parent.kly;
-    var _platform = _klyAds.platform.toLowerCase();
+    var _platform = (_klyAds.platform.toLowerCase() == "dekstop") ? "desktop" : _klyAds.platform.toLowerCase()
     var _site = _klyAds.site.toLowerCase();
     var _pageType = _klyAds.pageType.toLowerCase();
     var _channelPage = _klyAds.gtm.subSubCategory.toLowerCase();
@@ -47,15 +50,65 @@
     var settings = {
         "kapanlagi": {
             "homepage": {
+                "customScript": {
+                    "script": `
+                        var _MAIN_SWIPER_${_cacheBuster}_ = null;
+
+                        if ("${_platform}" == "mobile") {
+                            _setInitAdvHeadline${_cacheBuster}();
+                            _MAIN_SWIPER_${_cacheBuster}_ = new Swiper('.swiper-highlight.swiper-container', {
+                                slidesPerView: 'auto',
+                                grabCursor: true,
+                                spaceBetween:15,
+                                slideToClickedSlide: true,
+                                pagination: '.swiper-pagination',
+                                paginationClickable: true,
+                            });
+
+                        }
+
+                        function _setInitAdvHeadline${_cacheBuster}() {
+                            var a${_cacheBuster} = setInterval(function(){ 
+                                if (document.querySelector('#${_ID}').classList.contains("adv-headline-filled") !== null ) {
+                                    _MAIN_SWIPER_${_cacheBuster}_.destroy(false, false);
+                                    clearInterval(a${_cacheBuster});
+                                    setTimeout(function () {
+                                    _reinitSlickjs${_cacheBuster}();
+                                    }, 1200)
+                                }
+                            }, 1000);
+                        } 
+
+                        function _reinitSlickjs${_cacheBuster}(){
+                            
+                            var _reinit_${_cacheBuster} = setInterval(function () {
+                                if (!parent.window.advertorialHeadlineInjecting) {
+                                    _MAIN_SWIPER_${_cacheBuster}_.init();
+                                    clearInterval(_reinit_${_cacheBuster})
+                                }
+                            }, 100)
+
+                        }
+                    `
+                },
                 "_option": {
-                    "_isInsert": "desktop",
-                    "_insertTarget": [1, 1], // index of target element 
-                    "_insertTargetEl": "ul.leftrecomendations-loader-list.list-berita-kl.clearfix",
-                    "_insertTargetList": "li.clearfix"
+                    "_isInsert": "all",
+                    "_insertTarget": {
+                        "desktop" : [1, 1],
+                        "mobile" : [0, 0],
+                    }, // index of target element 
+                    "_insertTargetEl": {
+                        "desktop" : "ul.leftrecomendations-loader-list.list-berita-kl.clearfix",
+                        "mobile" : "ul.artikel-list-img.artikel-border-list.clearfix",
+                    },
+                    "_insertTargetList": {
+                        "desktop" : "li.clearfix",
+                        "mobile" : ".clearfix"
+                    }
                 },
                 "_advertorialHeadline": {
                     "mobile": {
-                        "name": "ul.artikel-list-img li.clearfix",
+                        "name": "ul.artikel-list-img.artikel-border-list.clearfix .clearfix",
                         "filter": {
                             "include": false,
                             "class": "crm-wrapper"
@@ -65,7 +118,7 @@
                 },
                 "_anchor": "a",
                 "_imgSize": {
-                    "mobile": "small",
+                    "mobile": "big",
                     "desktop": "small",
                 },
                 "_img": {
@@ -73,7 +126,10 @@
                         "name": "img",
                         "style": "object-fit : cover"
                     },
-                    "mobile": "img"
+                    "mobile":  {
+                        "name": "img",
+                        "style": "object-fit : cover"
+                    }
                 },
                 "_source": "source",
                 "_tag": {
@@ -203,7 +259,6 @@
                     "script": `
                         if ("${_platform}" === "desktop") {
                             _setInitAdvHeadline${_cacheBuster}();
-                        } else {
                         }
 
                         function _setInitAdvHeadline${_cacheBuster}() {
@@ -316,20 +371,18 @@
             "homepage": {
                 "customScript": {
                     "script": `
-                        // console.log("merdeka ${_platform}")
-                        if ("${_platform}" == "dekstop") {
-                            // console.log("merdeka ${_platform} ${_cacheBuster}")
+                        var _MAIN_SWIPER_${_cacheBuster}_ = null;
+
+                        if ("${_platform}" == "desktop") {
+                            _MAIN_SWIPER_${_cacheBuster}_ = document.querySelector('.swiper-container-horizontal').swiper;
                             _setInitAdvHeadline${_cacheBuster}();
                         }
-
-                        var _MIAN_SWIPER_${_cacheBuster}_ = document.querySelector('.swiper-container-horizontal').swiper;
-
 
                         function _setInitAdvHeadline${_cacheBuster}() {
                             var a${_cacheBuster} = setInterval(function(){ 
                               // console.log("merdeka ${_NUMBER_} set interval")
                                 if (document.querySelector('#${_ID}').classList.contains("adv-headline-filled") !== null && document.querySelector(".swiper-container-horizontal .swiper-wrapper .highlight-item")) {
-                                    _MIAN_SWIPER_${_cacheBuster}_.destroy(false, false);
+                                    _MAIN_SWIPER_${_cacheBuster}_.destroy(false, false);
                                     clearInterval(a${_cacheBuster});
                                     setTimeout(function () {
                                     _reinitSlickjs${_cacheBuster}();
@@ -344,7 +397,7 @@
                                 // console.log('merdeka waiting reinit ${_NUMBER_}')
                                 if (!parent.window.advertorialHeadlineInjecting) {
                                     // console.log('merdeka REINIT ')
-                                    _MIAN_SWIPER_${_cacheBuster}_.init();
+                                    _MAIN_SWIPER_${_cacheBuster}_.init();
                                     clearInterval(_reinit_${_cacheBuster})
                                 }
                             }, 100)
@@ -353,17 +406,25 @@
                     `
                 },
                 "_option": {
-                    "_isInsert": "dekstop",
-                    "_insertTarget": [0, 0], // index of target element 
-                    "_insertTargetEl": ".swiper-container-horizontal .swiper-wrapper",
-                    "_insertTargetList": ".highlight-item"
+                    "_isInsert": "desktop",
+                    "_insertTarget": {
+                        "desktop" : [0, 0],
+                        "mobile" : [0, 0],
+                    }, // index of target element 
+                    "_insertTargetEl": {
+                        "desktop" : ".swiper-container-horizontal .swiper-wrapper",
+                        "mobile" : ".mdk-top-stories-item"
+                    },
+                    "_insertTargetList": {
+                        "desktop" : ".highlight-item",
+                        "mobile" : ".hl-section"
+                    }
                 },
                 "_advertorialHeadline": {
                     "mobile": {
-                        "name": "ul.mdk-top-stories-item li.hl-section",
-                        "style": "border-top: none; padding: 0 10px !important;"
+                        "name": ".mdk-top-stories-item .hl-section",
                     },
-                    "dekstop": {
+                    "desktop": {
                         "name": ".swiper-container-horizontal .swiper-wrapper .highlight-item",
                         "filter": {
                                 "include": false,
@@ -373,11 +434,11 @@
                 },
                 "_anchor": "a",
                 "_imgSize": {
-                    "dekstop": "big",
+                    "desktop": "big",
                     "mobile": "big",
                 },
                 "_img": {
-                    "dekstop": {
+                    "desktop": {
                         "name": ".img-highlight",
                         "style": "background-image:url(" + _mainImg['big'] + ")"
                     },
@@ -385,19 +446,19 @@
                 },
                 "_source": "source",
                 "_tag": {
-                    "mobile": ".time",
-                    "dekstop": false,
+                    // "mobile": ".time",
+                    "desktop": false,
                 },
                 "_mainTitle": {
                     "mobile": ".container",
-                    "dekstop": "p.text-slide",
+                    "desktop": "p.text-slide",
                 },
                 "_descTarget": false // false when no target
             },
             "readpage": {
                 "_advertorialHeadline": {
                     "mobile": "ul#infscroll-1 li.widereadpage-item",
-                    "dekstop": {
+                    "desktop": {
                         "name": "ul.mdk-item-list.mdk-list-readmore li:nth-child(4)",
                         "style": "margin-top: 40px;"
                     }
@@ -408,15 +469,15 @@
                 "_source": "source",
                 "_tag": {
                     "mobile": "span.cat",
-                    "dekstop": false,
+                    "desktop": false,
                 },
                 "_mainTitle": {
                     "mobile": "p a",
-                    "dekstop": "p.title-readmore a",
+                    "desktop": "p.title-readmore a",
                 },
                 "_descTarget": false,
                 "customScript": {
-                    "script": "var firstChildCRM = document.querySelector(\"ul.mdk-item-list.mdk-list-readmore li:nth-child(1) li\"); if(kly.platform == \"Dekstop\" && firstChildCRM !== null) { firstChildCRM.style.marginTop = \"0px\"; };"
+                    "script": "var firstChildCRM = document.querySelector(\"ul.mdk-item-list.mdk-list-readmore li:nth-child(1) li\"); if(kly.platform == \"desktop\" && firstChildCRM !== null) { firstChildCRM.style.marginTop = \"0px\"; };"
                 }
             },
             "channelpage": {
@@ -424,12 +485,12 @@
                     "mobile": {
                         "name": "ul.list-new-article.list-unstyled.clearfix li"
                     },
-                    "dekstop": "div.inner-content li:nth-child(2)"
+                    "desktop": "div.inner-content li:nth-child(2)"
                 },
                 "_anchor": "a",
                 "_imgSize": "small",
                 "_img": {
-                    "dekstop": {
+                    "desktop": {
                         "name": "img",
                         "style": "max-width: 140px;"
                     },
@@ -438,11 +499,11 @@
                 "_source": "source",
                 "_tag": {
                     "mobile": false,
-                    "dekstop": false,
+                    "desktop": false,
                 },
                 "_mainTitle": {
                     "mobile": ".deskrip-right p a",
-                    "dekstop": "div h3 a",
+                    "desktop": "div h3 a",
                 },
                 "_descTarget": false // false when no target 
             }
@@ -1009,6 +1070,7 @@
                 clearInterval(__X__)
                 setTimeout(function() {
                     _findTargetEl(settings[_site][_indexPage], _skipInjectCustomScript_);
+                    console.log(`ADV_HEADLINE ${_NUMBER_} FIND TARGET.... ${parent.window.advertorialHeadlineInjecting}`)
                     setTimeout(function() {
                         _injectAds();
                     }, 1000)
@@ -1170,16 +1232,14 @@
             _thisParent.setAttribute("class", "adv-headline-filled");
 
             if (_isInsertTarget(_thisParent) >= 0) {
-                // console.log('ADV HEADLINE ', settings[_site][_indexPage]._option._insertTargetEl)
-                var _targetParent_ = parent.document.querySelector(settings[_site][_indexPage]._option._insertTargetEl)
+                var _targetParent_ = parent.document.querySelector(settings[_site][_indexPage]._option._insertTargetEl[_platform])
                 var _targetList_ =  []
-                _targetParent_.querySelectorAll(_targetEl._option._insertTargetList).forEach(function (el, i) {
+                _targetParent_.querySelectorAll(_targetEl._option._insertTargetList[_platform]).forEach(function (el, i) {
                     if (!el.classList.contains("adv-headline")) {
                         _targetList_.push(el)
                     }
                 })
 
-                // console.log("ADV HEADLINE ",_targetEl._advertorialHeadlineClone, _targetList_[_isInsertTarget(_thisParent)])
                 _targetParent_.insertBefore(_targetEl._advertorialHeadlineClone, _targetList_[_isInsertTarget(_thisParent)])
 
                 _targetEl._advertorialHeadlineClone.classList.add("adv-headline-" + _ID)
@@ -1201,6 +1261,7 @@
         var _return = null;
         var _option_ = _targetEl._option;
         var _parentId = _ID;
+        console.log(_option_)
 
         if (_option_ !== null) {
             var _check = Array.isArray(_option_._insertTarget);
