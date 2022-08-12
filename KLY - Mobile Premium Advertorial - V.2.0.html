@@ -1,0 +1,610 @@
+<style>
+    div#iframe-wrapper {
+        height: 100%;
+        width: 100%;
+        display: inline;
+    }
+    
+    #kly-sticky-adv {
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        z-index: 999;
+        transition: bottom .4s ease;
+    }
+    
+    div#kly-sticky-adv.expand {
+        bottom: 0px;
+    }
+    
+    #kly-sticky-adv .hidden {
+        opacity: 0;
+    }
+    
+    #kly-sticky-adv div#kly-sticky-adv-header {
+        position: relative;
+        width: 100vw;
+        height: calc(100vw / 3.6);
+        background-image: url("[%dfp_img_header%]");
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 0px;
+        transition: all .35s ease;
+    }
+    
+    #kly-sticky-adv.expand div#kly-sticky-adv-header {
+        background: white;
+        border-radius: 15px 15px 0 0;
+        height: 60px;
+        margin-top: 40px;
+        box-shadow: 0px 2px 5px 0px #21212120;
+        background-image: unset;
+    }
+    
+    #kly-sticky-adv div#kly-sticky-adv-header img#minimize-main-img {
+        position: absolute;
+        width: 100vw;
+        height: calc(100vw / 3.6);
+        top: 0;
+        bottom: 0;
+    }
+    
+    #kly-sticky-adv div#kly-sticky-adv-header div#kly-sticky-adv-title {
+        position: absolute;
+        top: 0;
+        background: #00000099;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: all .7s ease;
+    }
+    
+    #kly-sticky-adv div#kly-sticky-adv-header div#kly-sticky-adv-title::before {
+        content: "";
+        display: block;
+        position: relative;
+        height: 3px;
+        width: 44px;
+        background: white;
+        border-radius: 10px;
+        left: 50%;
+        top: 7px;
+        overflow: hidden;
+        transform: translateX(-50%);
+    }
+    
+    #kly-sticky-adv.expand div#kly-sticky-adv-header div#kly-sticky-adv-title {
+        opacity: 1;
+        margin-top: -40px;
+    }
+    
+    #kly-sticky-adv div#kly-sticky-adv-header div#kly-sticky-adv-title .title {
+        height: 21px;
+        font-family: Poppins;
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 1.3;
+        text-align: center;
+        color: white;
+        display: block;
+        margin-top: 15px;
+        text-transform: uppercase;
+    }
+    
+    #kly-sticky-adv div#kly-sticky-adv-close {
+        position: absolute;
+        top: calc((100vw / 3.6) / 2.1);
+        right: 2vw;
+        width: 12%;
+        z-index: 9;
+    }
+    
+    #kly-sticky-adv img.kly-img-asset {
+        width: 100%;
+        transition: opacity .3s ease;
+    }
+    
+    #kly-sticky-adv div#kly-sticky-adv-close img.kly-img-asset.kly-sticky-adv-menu {
+        box-sizing: border-box;
+        padding: 30%;
+        position: absolute;
+        opacity: 0;
+    }
+    
+    #kly-sticky-adv.expand div#kly-sticky-adv-close img.kly-img-asset.kly-sticky-adv-menu {
+        opacity: 1;
+        margin-top: -7px;
+    }
+    
+    #kly-sticky-adv div#kly-sticky-adv-close img.kly-img-asset.kly-sticky-adv-arrowup {
+        opacity: 1;
+    }
+    
+    #kly-sticky-adv.expand div#kly-sticky-adv-close img.kly-img-asset.kly-sticky-adv-arrowup {
+        opacity: 0;
+    }
+    
+    #kly-sticky-adv div#kly-sticky-adv-header div#kly-sticky-adv-logo-brand {
+        position: relative;
+        width: 84px;
+        height: 44px;
+        opacity: 0;
+        left: 10px;
+        top: 10px;
+    }
+    
+    #kly-sticky-adv.expand div#kly-sticky-adv-header div#kly-sticky-adv-logo-brand {
+        opacity: 1;
+    }
+    
+    div#kly-sticky-adv div#kly-sticky-adv-container {
+        height: calc(100vh - 100px);
+        background: white;
+        overflow-y: scroll;
+    }
+    
+    div#kly-sticky-adv div#kly-sticky-adv-container.loader::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        position: absolute;
+        z-index: 5;
+        top: 115px;
+    }
+    
+    div#kly-sticky-adv div#kly-sticky-adv-container.loader::before {
+        content: "";
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        z-index: 9;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        border: 8px solid #f3f3f3;
+        /* Light grey */
+        border-top: 8px solid #f09f3f;
+        /*box-sizing: border-box;*/
+        text-align: center;
+        vertical-align: middle;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: sans-serif;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+    }
+    
+    #kly-sticky-adv-container #kly-sticky-adv-iframe {
+        height: 100%;
+        width: 100%;
+    }
+    
+    #kly-sticky-adv-container .sticky-inner-ads {
+        display: block;
+        margin: 20px auto;
+    }
+    
+    #kly-sticky-adv-container .sticky-inner-ads.sc {
+        margin-bottom: 100px !important;
+        width: 300px;
+    }
+    
+    @keyframes spin {
+        0% {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+</style>
+
+<div id="kly-sticky-adv" class="minimize show">
+
+    <div id="kly-sticky-adv-header">
+        <div id="kly-sticky-adv-logo-brand">
+            <img src="[%dfp_logo_brand%]" alt="" class="kly-img-asset">
+        </div>
+        <div id="kly-sticky-adv-title">
+            <h1 class="title">[%dfp_caption%]</h1>
+        </div>
+    </div>
+
+    <div id="kly-sticky-adv-close">
+        <img src="https://novalufian.github.io/kly-ads/v5/Menu%20mobile.svg" alt="" class="kly-img-asset kly-center-vh kly-sticky-adv-menu">
+        <img src="https://novalufian.github.io/kly-ads/v5/swipe-up.gif" alt="" class="kly-img-asset kly-center-vh kly-sticky-adv-arrowup">
+    </div>
+
+    <div id="kly-sticky-adv-container" class="loader">
+        <img src="[%dfp_hl_banner%]" alt="" class="sticky-inner-ads">
+        <div id="iframe-wrapper"></div>
+        <!-- <iframe id="kly-sticky-adv-iframe" src="" frameborder="0"></iframe> -->
+        <img src="[%dfp_sc_banner%]" alt="" class="sticky-inner-ads sc">
+    </div>
+</div>
+<script src="https://d.infeed.id/resources/js/v.2.1/iframeResizer.min.js"></script>
+<script type="text/javascript">
+    var _klyad = parent.kly || parent.kmklabs;
+    var _cachebuster = Math.floor(Date.now() + Math.random() * 100000);
+    var _lastScrollTop = 0;
+    var isIos = parent.navigator.platform.match(/iPhone|iPod|iPad/);
+    var _stickyAdvMian = document.getElementById("kly-sticky-adv");
+    var _stickyAdvHeader = document.getElementById("kly-sticky-adv-header");
+    var _stickyAdvClose = document.getElementById("kly-sticky-adv-close");
+    var _stickyAdvIframe = null;
+    // var _stickyAdvIframe = document.getElementById("kly-sticky-adv-iframe");
+    var _stickyAdvContainer = document.getElementById("kly-sticky-adv-container");
+    var _parntIframe = window.frameElement;
+    var _parentDivWrapper = _parntIframe.parentElement.parentElement;
+    var _expandTrackerTriggered = false;
+    var _contentSource = "[%dfp_type_source%]";
+    var _stickyAdvSource = "[%dfp_iframe_source%]";
+
+    _bootAds();
+
+    function _bootAds() {
+        _resizeEmbededIframe();
+        _contentSourceEnv();
+        _injectStyle();
+        _parentDivWrapper.classList.remove("expand");
+        _parentDivWrapper.setAttribute("data-status", "")
+        _orientationChange();
+        parent.window.addEventListener("resize", _resizeIframe);
+        parent.window.GAMLibrary.setGamBFInterval(false);
+        _stickyAdvClose.addEventListener("click", _stickyAdvCloseTrigger);
+        parent.window.addEventListener("orientationchange", _orientationChange);
+        parent.window.addEventListener("scroll", _scrollTrigger);
+
+        swipedetect(_stickyAdvHeader, function(swipedir, distance, evnt) {
+            if (swipedir == "up") {
+
+                if (Math.abs(distance) >= 150) {
+                    _parentDivWrapper.style.bottom = `0`;
+                    setTimeout(function() {
+                        _stickyAdvExpandEvent();
+                        _parentDivWrapper.style.bottom = ``;
+                    }, 200)
+                } else {
+                    _parentDivWrapper.style.bottom = `calc( ((100vw / 3.6) + ${Math.abs(distance)}px) - ${_parentSize().height}px)`;
+                    if (evnt == "end") {
+                        setTimeout(function() {
+                            if (_isStickyExpand()) {
+                                _parentDivWrapper.style.bottom = ``;
+                            } else {
+                                _resizeIframe();
+                            }
+                        }, 100)
+                        console.log("end")
+                            // _stickyAdvCloseEvent();
+                    }
+                }
+
+
+            } else if (swipedir == "down") {
+                _parentDivWrapper.style.bottom = `calc( (100vw / 3.6)  - ((100vw / 3.6)  + ${Math.abs(distance)}px))`;
+
+                if (Math.abs(distance) >= 120) {
+                    setTimeout(function() {
+                            if (_isStickyExpand()) {
+                                _parentDivWrapper.style.bottom = ``;
+                            } else {
+                                _resizeIframe();
+                            }
+                        }, 100)
+                        // _stickyAdvCloseEvent();
+
+                } else {
+                    setTimeout(function() {
+                        if (_isStickyExpand()) {
+                            _parentDivWrapper.style.bottom = ``;
+                        } else {
+                            _resizeIframe();
+                        }
+                    }, 100)
+                }
+            } else {
+                _parentDivWrapper.style.bottom = ``;
+            }
+        })
+
+        // _stickyAdvHeader.addEventListener("click", _stickyAdvExpandEvent);
+        _resizeIframe();
+    }
+
+    function _resizeEmbededIframe() {
+        window.addEventListener('message', message => {
+            var _targetIframe = document.getElementById('kly-sticky-adv-iframe');
+            if (_targetIframe) {
+
+                var childWindow = _targetIframe.contentWindow;
+                if (childWindow) {
+
+                    if (message.source !== childWindow) {
+                        return; // Skip message in this event listener
+                    }
+                    console.log(JSON.parse(message.data).height)
+                    _targetIframe.style.height = `${JSON.parse(message.data).height}px`;
+
+                }
+
+            }
+        });
+    }
+
+    function _parentSize() {
+        var orientation = (isIos) ? parent.window.orientation : parent.screen.orientation.angle;
+        var _size = {
+            "width": 0,
+            "height": 0
+        }
+
+        if (isIos) {
+            _size.width = parent.screen.width;
+            _size.height = parent.window.innerHeight;
+        } else {
+            if (orientation == 0) {
+                _size.width = parent.screen.width;
+                _size.height = parent.window.innerHeight;
+            } else {
+                _size.width = parent.window.innerHeight;
+                _size.height = parent.screen.width;
+            }
+        }
+
+        return _size;
+    }
+
+    function _resizeIframe() {
+        var orientation = (isIos) ? parent.window.orientation : parent.screen.orientation.angle;
+        if (orientation == 0) {
+            var _btnCloseBF = _parentDivWrapper.parentElement.querySelector("a#dfp-bframe-close");
+            var _pSize = _parentSize();
+            var _btm = (_isStickyExpand()) ? 0 : ((_pSize.width / 3.6) - _pSize.height);
+            console.log("from bottom ", _btm)
+            _parntIframe.style = `width : ${_pSize.width}px !important; height: ${_pSize.height}px`;
+            _stickyAdvMian.style = `height: ${_pSize.height}px`;
+            _parentDivWrapper.style = `position: fixed;width : ${_pSize.width}px !important; height: ${_pSize.height}px ; bottom : ${_btm}px; transition: bottom .3s ease;background-color:transparent;`;
+            (_btnCloseBF) ? _btnCloseBF.remove(): '';
+
+            if (_parentDivWrapper.parentElement.nodeName.toLowerCase() !== "body") {
+                _parentDivWrapper.parentElement.style = `bottom: 0px; position: fixed; z-index: 99999; width: 100%`;
+            }
+        }
+    }
+
+    function _scrollTrigger() {
+        var st = window.pageYOffset || document.documentElement.scrollTop;
+        _lastScrollTop = st <= 0 ? 0 : st;
+    }
+
+    function _stickyAdvExpandEvent() {
+        if (_contentSource == "infeed") {
+            _createIframe(_stickyAdvSource + "/dGl0bGUsIHdyaXRlciwgZGF0ZSwgaW1hZ2UsIHNvY2lhbF9idG4sIGNvbnRlbnQ=/eyJwdWJsaXNoZXJJZCI6IjUwNzE1NzcwIiwiZG9tYWluU2l0ZSI6Im0ua2FwYW5sYWdpLmNvbSIsImNvbnRlbnRTdHlsZSI6Imh0dHBzOi8vZC5rYXBhbmxhZ2luZXR3b3JrLmNvbS9iYW5uZXIvcHJldmlldy8yMDE4LzA5LzE5L2luZmVlZC9tLWFydGljbGUuY3NzIiwiY3VycmVudFVybCI6Imh0dHBzOi8vbS5rYXBhbmxhZ2kuY29tL2luZmVlZC9teS10cmlwLXN0b3J5LXNldGlhcC1wZXJqYWxhbmFuLXNlbGFsdS1tZW1pbGlraS1jZXJpdGEtMzQ1Ni5odG1sIn0=");
+        }
+        _parentDivWrapper.setAttribute("data-status", "expand");
+        _stickyAdvMian.classList.add("expand");
+        _parentDivWrapper.classList.add("expand");
+        _parentDivWrapper.style.height = '' + parent.window.innerHeight + 'px';
+        _parentDivWrapper.style.bottom = '0px';
+        _locScreen(true);
+
+        if (!_expandTrackerTriggered) {
+
+            if (_contentSource == "infeed") {
+                // var _iframeDoc = _stickyAdvIframe.contentDocument || _stickyAdvIframe.contentWindow.document;
+                // if (  _iframeDoc.readyState  == 'complete' ) {
+                //     _createTrackerImg("%%CLICK_URL_UNESC%%[%dfp_expand_tracker%]");
+                // } 
+                _stickyAdvIframe.addEventListener("load", function() {
+                    console.log('sticky adv loaded event');
+                    _createTrackerImg("%%CLICK_URL_UNESC%%[%dfp_expand_tracker%]");
+                })
+
+                _createTrackerImg("https://adserver.kl-youniverse.com/ck.php?oaparams=2__bannerid=180__zoneid=74__cb=" + _cachebuster);
+
+            } else {
+                _createTrackerImg("%%CLICK_URL_UNESC%%[%dfp_expand_tracker%]");
+            }
+
+            _expandTrackerTriggered = !_expandTrackerTriggered;
+        }
+
+        if (_klyad.site == "bola.com") {
+            parent.document.querySelector(".layout__nav-content").style.zIndex = "2";
+        }
+
+        setTimeout(function() {
+            _stickyAdvContainer.classList.remove("loader");
+        }, 3000)
+
+        _resizeIframe();
+    }
+
+    function _createTrackerImg(_urltracker) {
+        var _img = document.createElement("img");
+        _img.setAttribute("src", _urltracker);
+        _img.style = 'display:none; height:1px;width:1px;';
+        document.querySelector("body").appendChild(_img)
+    }
+
+    function _stickyAdvCloseEvent() {
+        _parentDivWrapper.setAttribute("data-status", "close");
+        _parentDivWrapper.style.bottom = '-110vh';
+        setTimeout(function() {
+            // _parentDivWrapper.remove();
+            _parentDivWrapper.classList.remove("expand");
+            _parntIframe.remove();
+        }, 1000);
+        _locScreen(false);
+
+        if (_klyad.site == "bola.com") {
+            parent.document.querySelector(".layout__nav-content").style.zIndex = "";
+        }
+
+    }
+
+    function _stickyAdvCloseTrigger() {
+        if (_isStickyExpand()) {
+            _stickyAdvCloseEvent();
+        } else {
+            _stickyAdvExpandEvent();
+        }
+    }
+
+    function _isStickyExpand() {
+        var _isExpand = (_parentDivWrapper.getAttribute("data-status") == "expand") ? true : false;
+        return _isExpand;
+    }
+
+    function _orientationChange() {
+        var orientation = (isIos) ? parent.window.orientation : parent.screen.orientation.angle;
+        console.log(orientation)
+        if (orientation == 0) {
+            _parentDivWrapper.style.display = '';
+            if (_isStickyExpand()) {
+                _locScreen(true);
+            }
+        } else {
+            _parentDivWrapper.style.display = 'none';
+            if (_isStickyExpand()) {
+                _locScreen(false);
+            }
+        }
+        console.log(_parentDivWrapper)
+
+    }
+
+    function _locScreen(status) {
+        if (status) {
+            parent.window.document.body.style = `top : -${_lastScrollTop}px; position: fixed !important;`;
+        } else {
+            var _scTop = parent.window.document.body.style.top;
+            parent.document.documentElement.scrollTop = Math.abs(_scTop.split("px")[0]);
+            setTimeout(function() {
+                parent.window.document.body.style = ``;
+            }, 200)
+        }
+    }
+
+
+
+    function swipedetect(el, callback) {
+        var touchsurface = el,
+            swipedir,
+            startX,
+            startY,
+            distX,
+            distY,
+            threshold = 0,
+            restraint = 15,
+            allowedTime = 300,
+            elapsedTime,
+            startTime,
+            isTouchMove = false,
+            handleswipe = callback || function(swipedir) {}
+
+        touchsurface.addEventListener('touchstart', function(e) {
+            console.log('touch ')
+            _parentDivWrapper.style.transition = 'none';
+            var touchobj = e.changedTouches[0]
+            swipedir = 'none'
+            dist = 0
+            startX = touchobj.pageX
+            startY = touchobj.pageY
+            startTime = new Date().getTime()
+        }, false)
+
+        touchsurface.addEventListener('touchmove', function(e) {
+            isTouchMove = true;
+            var touchobj = e.changedTouches[0]
+            distX = touchobj.pageX - startX;
+            distY = touchobj.pageY - startY;
+            if (Math.abs(distX) >= threshold && Math.abs(distY) <= restraint) {
+                swipedir = (distX < 0) ? 'left' : 'right';
+            } else if (Math.abs(distY) >= threshold && Math.abs(distX) <= restraint) {
+                swipedir = (distY < 0) ? 'up' : 'down';
+            }
+            handleswipe(swipedir, distY, 'move');
+            e.preventDefault();
+        }, false)
+
+        touchsurface.addEventListener('touchend', function(e) {
+            if (!isTouchMove) {
+                _stickyAdvExpandEvent();
+            }
+            _parentDivWrapper.style.transition = '';
+            handleswipe(swipedir, distY, 'end');
+            isTouchMove = false;
+            e.preventDefault()
+        }, false)
+    }
+
+    function _injectStyle() {
+        var _style = document.createElement("style");
+        var _mystyle = `#${_parentDivWrapper.id}.expand{bottom: 0px; transition : bottom .4s ease;}`;
+        _style.textContent = _mystyle;
+        parent.document.querySelector("body").appendChild(_style);
+
+    }
+
+    function _mesgListener(evnt) {
+        if (evnt.data.split(" ")[0] == "height") {
+            //console.log(evnt.data, evnt.origin)
+            document.querySelector("#kly-sticky-adv-iframe").style.height = evnt.data.split(" ")[1];
+            // window.removeEventListener("message", _mesgListener)
+        }
+    }
+
+    function _contentSourceEnv() {
+        var _innerAds = document.querySelectorAll(".sticky-inner-ads");
+        if (_contentSource == "infeed") {
+            // _stickyAdvIframe.setAttribute("src", "https://d.kapanlaginetwork.com/banner/preview/2021/03/22/infeed/infeed-wrapper.html?utm_domain=m.nerdeka.com&utm_url="+_stickyAdvSource);
+            _showPreloader();
+            // _stickyAdvIframe.setAttribute("scrolling","no");
+            window.addEventListener("message", _mesgListener);
+            _innerAds[0].addEventListener("click", function() {
+                window.open("[%dfp_banner_hl_landing_page%]", "_blank");
+            })
+            _innerAds[1].addEventListener("click", function() {
+                window.open("[%dfp_banner_sc_landing_page%]", "_blank");
+            })
+
+            _innerAds.forEach(function(el, i) {
+                if (el.getAttribute("src") == "" || el.getAttribute("src") == null) {
+                    el.remove();
+                }
+            })
+
+        } else {
+            // _stickyAdvIframe.setAttribute("src", _stickyAdvSource);
+            _createIframe(_stickyAdvSource);
+            _innerAds.forEach(function(el, i) {
+                el.remove();
+            })
+
+        }
+    }
+
+    function _showPreloader() {
+
+    }
+
+    function _createIframe(_iframesrc) {
+        _stickyAdvIframe = document.createElement("iframe");
+        _stickyAdvIframe.setAttribute("frameborder", 0);
+        if (_contentSource == "infeed") {
+            _stickyAdvIframe.setAttribute("scrolling", "no");
+        }
+        _stickyAdvIframe.setAttribute("id", "kly-sticky-adv-iframe");
+        _stickyAdvIframe.setAttribute("src", _iframesrc);
+        _stickyAdvContainer.querySelector("#iframe-wrapper").appendChild(_stickyAdvIframe);
+    }
+
+    //https://d.kapanlaginetwork.com/banner/preview/2021/03/22/infeed/infeed-wrapper.html?utm_domain=m.nerdeka.com&utm_url=
+</script>
+
+[%dfp_third_party_tracker%]
