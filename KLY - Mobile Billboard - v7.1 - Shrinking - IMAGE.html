@@ -1,0 +1,144 @@
+<style>
+    .GoogleActiveViewElement{position:absolute !important;}
+    #topframe-anchor{display: block;}
+    #topframe-img-big{
+        width: 100vw;
+        height: 110.41666666666667vw;
+    }
+</style>
+
+<div>
+<img src="[%dfp_expandImage%]" id="topframe-img-big" class="topframe-img" border="0" alt="" width="480" height="530"/>
+[%dfp_third_party_tracker%]
+</div>
+
+<script>
+    var _klyAd = parent.kly || parent.kmklabs;
+  
+  	if( ['liputan6','fimela','bola.com','Merdeka','Dream','Kapanlagi','bola'].indexOf(_klyAd.site) > -1 ){
+        parent._TOPFRAME_STICKY_ = true;
+    }
+  
+    var _pBody = parent.document.querySelector("body");
+        
+    var topFrameImageBig = document.getElementById("topframe-img-big");
+    var dfp_topframeLandingPage = "%%CLICK_URL_UNESC%%[%dfp_landingPage%]" ;
+    var dfp_topframeDMPCat  = '[%DMPCategory%]'.trim().split(/\s*,\s*/); // optional input
+    var dfp_macro = '{"lineitemId":"%eaid!", "advertiserId":"%eadv!", "orderId":"%ebuy!", "creativeId":"%ecid!", "adunitId":"%epid!"}';
+    var topFramewrapper = parent.document.getElementById("div-gpt-ad-topfrm-parallax-wrapper");
+    var topFrameContainer = window.frameElement.parentElement.parentElement;
+    
+    initParent(topFrameImageBig.clientHeight);
+    topFrameImageBig.addEventListener("click",topframeGenerateDMPLP)
+
+    parent.window.addEventListener("orientationchange", function() {
+        var isIos = navigator.platform.match(/iPhone|iPod|iPad/);
+        var orientation = (isIos) ? parent.window.orientation : parent.screen.orientation.angle;
+
+        if (orientation == 0) {
+            if(topFramewrapper) topFramewrapper.style.display = "block";
+            if(topFrameContainer) topFrameContainer.style.display = "block";
+        } else {
+            if(topFramewrapper) topFramewrapper.style.display = "none";
+            if(topFrameContainer) topFrameContainer.style.display = "none";
+        }
+    });
+    
+    function initParent(height) {      
+        var _style_ = document.createElement("style");
+        var _slotId = topFrameContainer.id;
+        var _styleTopframe = `
+            div#div-gpt-ad-topfrm-parallax-wrapper {
+                width: 100vw;
+                height:110.41666666666667vw !important;
+                position: relative!important;
+                box-sizing: border-box!important;
+                background: #333333;
+                background-image: url(https://preview-kly.akamaized.net/logo_placeholder_kly.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+                max-width: 720px;
+            }
+
+            div#div-gpt-ad-topfrm-parallax-wrapper>#${_slotId} {
+                position: absolute!important;
+                top: 0!important;
+                left: 0!important;
+                width: 100%!important;
+                height: 100%!important;
+                border: 0!important;
+                margin: 0!important;
+                padding: 0!important;
+                clip: rect(0, auto, auto, 0)!important;
+                -webkit-clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%)!important;
+                clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%)!important
+            }
+
+            div#div-gpt-ad-topfrm-parallax-wrapper>#${_slotId}>[id^="google_ads_iframe_"] {
+                position: fixed!important;
+                top: 0!important;
+                width: 100%;
+                height:100% !important;
+                -webkit-transform: translateZ(0)!important;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                -ms-flex-align: center;
+                align-items: center;
+                -ms-flex-pack: center;
+                justify-content: center
+            }
+
+            div#div-gpt-ad-topfrm-parallax-wrapper>#${_slotId}>[id^="google_ads_iframe_"]>iframe {
+                -ms-flex-item-align: stretch;
+                align-self: stretch;
+                width: 100vw;height:110.41666666666667vw;
+                position: fixed;
+                top: 0;
+                left: 0; 
+                display: block;
+            }
+            .ivs-floating-widget.ivs-content-mediaready.ivs-content-loaded { z-index: 999 !important; }
+        `;
+
+        _style_.textContent = _styleTopframe;
+        topFramewrapper && topFramewrapper.previousElementSibling ? topFramewrapper.previousElementSibling.remove() : '';
+        topFramewrapper && topFramewrapper.insertAdjacentElement("beforebegin", _style_);
+        
+        var paralaxWrapper = parent.document.querySelector('#div-gpt-ad-topfrm-parallax-wrapper');
+        var w = 480, h = 530;			
+        var iw = parent.window.innerWidth, ih=parent.window.innerHeight;			
+        var pRatio = parent.window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;	
+        sRatio = Math.min(xRatio, yRatio);
+        
+        if(parent.window.innerWidth > 720){
+            paralaxWrapper.style.setProperty("height",( h * pRatio * sRatio ) + "px", "important");
+            paralaxWrapper.style.setProperty("width","auto", "important");
+            paralaxWrapper.style.setProperty("background","unset", "important");
+            paralaxWrapper.style.setProperty("margin-left","auto", "important");
+            paralaxWrapper.style.setProperty("margin-right","auto", "important");
+            topFrameImageBig.style.width =  paralaxWrapper.clientWidth + "px";
+            topFrameImageBig.style.height = "auto"
+            parent._TOPFRAME_STICKY_ = false;
+        }
+    }
+
+    function topframeGenerateDMPLP(){
+        if(typeof parent.window.createDMPTracker === 'function'){
+            parent.window.createDMPTracker(dfp_topframeDMPCat,dfp_topframeLandingPage,dfp_macro);
+        }  
+    }
+
+</script>
+
+
+
+<!-- <script>
+    if( '[ % UseCDPImpression%]' === 'yes' && dfp_topframeDMPCat.join('').length > 0 ){
+                    var dmpImpressionScript = `parent.window.createCDPTracker(   ["`+ dfp_topframeDMPCat.join('","') +`"],     '{       "action":"ads_impression",      "lineitemId":"%eaid!",        "advertiserId":"%eadv!",        "orderId":"%ebuy!",       "creativeId":"%ecid!",        "adunitId":"%epid!"       }'   );`,
+            dmpTrackerScript = document.createElement("script");
+            dmpTrackerScript.innerHTML = dmpImpressionScript;
+            /*document.querySelector("#tracker-container").insertAdjacentElement("beforeend",dmpTrackerScript); */
+    }
+</script> -->
