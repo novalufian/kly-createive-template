@@ -1,0 +1,202 @@
+{
+  "name": "KLY - Desktop Time Signal",
+  "description": "",
+  "variables": [
+    {
+      "mimeTypes": [
+        "PNG",
+        "JPG",
+        "GIF"
+      ],
+      "label": "dfp_image",
+      "uniqueName": "dfp_image",
+      "description": "",
+      "isRequired": true,
+      "variableType": "ASSET"
+    },
+    {
+      "label": "jadwal",
+      "uniqueName": "jadwal",
+      "description": "json",
+      "isRequired": true,
+      "variableType": "STRING"
+    },
+    {
+      "isTrackingUrl": false,
+      "urlType": "STANDARD_HTTP",
+      "label": "dfp_landingPage",
+      "uniqueName": "dfp_landingPage",
+      "description": "",
+      "isRequired": true,
+      "variableType": "URL"
+    },
+    {
+      "mimeTypes": [
+        "PNG",
+        "JPG",
+        "GIF"
+      ],
+      "label": "imsak",
+      "uniqueName": "imsak",
+      "description": "",
+      "isRequired": false,
+      "variableType": "ASSET"
+    },
+    {
+      "mimeTypes": [
+        "PNG",
+        "JPG",
+        "GIF"
+      ],
+      "label": "subuh",
+      "uniqueName": "subuh",
+      "description": "",
+      "isRequired": false,
+      "variableType": "ASSET"
+    },
+    {
+      "mimeTypes": [
+        "PNG",
+        "JPG",
+        "GIF"
+      ],
+      "label": "dzuhur",
+      "uniqueName": "dzuhur",
+      "description": "",
+      "isRequired": false,
+      "variableType": "ASSET"
+    },
+    {
+      "mimeTypes": [
+        "PNG",
+        "JPG",
+        "GIF"
+      ],
+      "label": "asar",
+      "uniqueName": "asar",
+      "description": "",
+      "isRequired": false,
+      "variableType": "ASSET"
+    },
+    {
+      "mimeTypes": [
+        "PNG",
+        "JPG",
+        "GIF"
+      ],
+      "label": "magrib",
+      "uniqueName": "magrib",
+      "description": "",
+      "isRequired": false,
+      "variableType": "ASSET"
+    },
+    {
+      "mimeTypes": [
+        "PNG",
+        "JPG",
+        "GIF"
+      ],
+      "label": "isya",
+      "uniqueName": "isya",
+      "description": "",
+      "isRequired": false,
+      "variableType": "ASSET"
+    },
+    {
+      "label": "dfp_thirdparty_tracker",
+      "uniqueName": "dfp_thirdparty_tracker",
+      "description": "",
+      "isRequired": false,
+      "variableType": "STRING"
+    },
+    {
+      "defaultValue": "https://cdns.klimg.com/d.kapanlaginetwork.com/banner/asset/spinads_ramadhan/azan.mp3",
+      "sampleValue": "https://cdns.klimg.com/d.kapanlaginetwork.com/banner/asset/spinads_ramadhan/azan.mp3",
+      "isTrackingUrl": false,
+      "urlType": "STANDARD_HTTP",
+      "label": "sound_imsak",
+      "uniqueName": "sound_imsak",
+      "description": "",
+      "isRequired": false,
+      "variableType": "URL"
+    },
+    {
+      "defaultValue": "https://cdns.klimg.com/d.kapanlaginetwork.com/banner/preview/2018/12/15/dev/timesignal/spin/azan.mp3",
+      "sampleValue": "https://cdns.klimg.com/d.kapanlaginetwork.com/banner/preview/2018/12/15/dev/timesignal/spin/azan.mp3",
+      "isTrackingUrl": false,
+      "urlType": "STANDARD_HTTP",
+      "label": "sound_subuh",
+      "uniqueName": "sound_subuh",
+      "description": "",
+      "isRequired": false,
+      "variableType": "URL"
+    },
+    {
+      "defaultValue": "https://cdns.klimg.com/d.kapanlaginetwork.com/banner/preview/2018/12/15/dev/timesignal/spin/azan.mp3",
+      "sampleValue": "https://cdns.klimg.com/d.kapanlaginetwork.com/banner/preview/2018/12/15/dev/timesignal/spin/azan.mp3",
+      "isTrackingUrl": false,
+      "urlType": "STANDARD_HTTP",
+      "label": "sound_dzuhur",
+      "uniqueName": "sound_dzuhur",
+      "description": "",
+      "isRequired": false,
+      "variableType": "URL"
+    },
+    {
+      "defaultValue": "https://cdns.klimg.com/d.kapanlaginetwork.com/banner/preview/2018/12/15/dev/timesignal/spin/azan.mp3",
+      "sampleValue": "https://cdns.klimg.com/d.kapanlaginetwork.com/banner/preview/2018/12/15/dev/timesignal/spin/azan.mp3",
+      "isTrackingUrl": false,
+      "urlType": "STANDARD_HTTP",
+      "label": "sound_ashar",
+      "uniqueName": "sound_ashar",
+      "description": "",
+      "isRequired": false,
+      "variableType": "URL"
+    },
+    {
+      "defaultValue": "https://cdns.klimg.com/d.kapanlaginetwork.com/banner/preview/2018/12/15/dev/timesignal/spin/azan.mp3",
+      "sampleValue": "https://cdns.klimg.com/d.kapanlaginetwork.com/banner/preview/2018/12/15/dev/timesignal/spin/azan.mp3",
+      "isTrackingUrl": false,
+      "urlType": "STANDARD_HTTP",
+      "label": "sound_maghrib",
+      "uniqueName": "sound_maghrib",
+      "description": "",
+      "isRequired": false,
+      "variableType": "URL"
+    },
+    {
+      "defaultValue": "https://cdns.klimg.com/d.kapanlaginetwork.com/banner/preview/2018/12/15/dev/timesignal/spin/azan.mp3",
+      "sampleValue": "https://cdns.klimg.com/d.kapanlaginetwork.com/banner/preview/2018/12/15/dev/timesignal/spin/azan.mp3",
+      "isTrackingUrl": false,
+      "urlType": "STANDARD_HTTP",
+      "label": "sound_isya",
+      "uniqueName": "sound_isya",
+      "description": "",
+      "isRequired": false,
+      "variableType": "URL"
+    },
+    {
+      "label": "DMPCategory",
+      "uniqueName": "DMPCategory",
+      "description": "",
+      "isRequired": false,
+      "variableType": "STRING"
+    },
+    {
+      "defaultValue": 10,
+      "sampleValue": 0,
+      "label": "duration",
+      "uniqueName": "duration",
+      "description": "",
+      "isRequired": true,
+      "variableType": "LONG"
+    }
+  ],
+  "formatter": "\u003cscript\u003e\n  \n    var dfp_imageBalloon \u003d \"[%dfp_image%]\";\n    var css \u003d `\n        #div-gpt-ad-liputan6-topfrm-oop #dfp-topframe-main-cont{\n            z-index:998 !important;\n        }\n\n        div#background_overlay_popup {\n            display : none;\n            position: fixed;\n            top: 0;\n            left: 0;\n            width: 100%;\n            height: 100vh;\n            background: rgba(0,0,0, .85);\n            z-index: 99999999;\n        }\n    \n        div#background_overlay_popup.active{\n            display : block;\n        }\n    \n        #popup_banner {\n            position: absolute;\n            top: 50%;\n            left: 50%;\n            transform: translate(-50%, -50%);\n        }\n    \n        a#trigger_play {\n            position: absolute;\n            width: auto;\n            right: 0px;\n            transform: translate(50%, -50%);\n        }\n    \n        a#trigger_play img {\n            width: 30px;\n            background: white;\n            border-radius: 100%;\n        }\n    \n        #div-gpt-ad-bolacom-balloon-oop{\n            z-index:1002 !important;\n        }\n        #dfp-lfloat-container {\n            width: 300px;\n            height: 300px;\n            position: fixed;\n            z-index:1234456;\n            bottom:0;\n            background-color: #fff;\n            border-radius: 0 10px 0 0;\n            display:none;\n                    left:0;\n        }\n        \n        #dfp-lfloat-container img{\n            margin:0 auto;\n            cursor:pointer;\n        }\n        \n       \n        \n        #dfp-lfloat-video{\n            float: left;\n            position: relative;\n            width: 300px;\n            height: 200px;\n            margin: 55px 0;\n            position: fixed;\n        }\n        \n        #lfloat-link{\n            display : block;\n        }\n        .open-lfloat{\n            animation-name: slide-right;\n            animation-duration: 2s;\n            display:block !important;\n        }\n        .close-lfloat{\n            left:-300px !important;\n            animation-name: slide-left !important;\n            animation-duration: 2s !important;\n        }\n        .close-lfloat-btn{\n            display:none !important;\n            animation-name: slide-left !important;\n            animation-duration: 2s !important;\n        }\n    \n        .abs_action{\n            position: absolute;\n            width: 100%;\n            text-align: right;\n            left: 0;\n            top: -30px;\n        }\n        .block_action{\n            display: inline-block;\n            padding: 2px 5px;\n            background: #fff;\n            border-radius: 20px;\n        }\n        .button_ads{\n            display: inline-block;\n            margin-left: 5px;\n            max-width: 25px;\n            position: relative;\n        }\n        .button_ads img{\n            width: 100%;\n        }\n\n        #muted_unmuted img.sound_icons{\n            width: 25px;\n            height: 25px; \n            background: transparent;\n        }\n        \n    \n        a#muted_unmuted {\n            display: none;\n        }\n\n        /* NEW.07022022 */\n        .mute {\n            background: transparent url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAATCAYAAAB7u5a2AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAD/SURBVHgBrVSBDYIwEHwMAzBCR2ADZQIdwQ1kA9xAnQQ2gA1wA9hAN3jvpQ3YWCNtL7k8+dD7y/+3RH+AmU/gAywpFiCWgTXPaNecT38I5wg1qMgTqbhDzK38FpQWZBQAcd6TpzsxliTJ05XfBAgPCDLkaimq5/Iefkr+MC07Q0jiDRRh02JFvA7twmWu19NgsL79xR0FZmFgQ2EYwc7KNRjmaKp7OedpeL3jvypU/LLIS5Edf7aoDGnLUcc7WKAVnUTQ7H3QthzAK083nBZ5Bcp6qoSnl25vuVL0/XJ1cFhQKLQrp/MYBUprSPHEdQHp4aDFG4oNnnZaBqjWnHsBsOASkA3QefAAAAAASUVORK5CYII\u003d\")\n        }\n    \n        .unmute {\n            background: transparent url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAATCAYAAACKsM07AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEdSURBVHgBtVRtEcIwDM04/jMUUAlzwCSAAiYBByABBxwKwAFzsDkoKNgchOQuPXKl3efx7rKuL69J12QFGAhETMlMxGfILFnFOhgLWnQgazhIxJ/jF1cYA1pwUouxQ3dRsnxIYD6SO3roWWNFZvuCGyUOJqDXQjSZ4vLerxBRgxEo3VmoZ+QrHo6ocAS8I3QbSRXvatHwfEGWwQQkSdLScJNpoVyljLyBzQLmoZbRBDjGem6Cl4yriD+dmyAEoyecoIXpcPV7RxLUS3rsyXJPcIBhcLpScVsXXBrhF6rHu9p0J5RVnG7d7jtJAjQdCdxfWyjupKQG+oCBK8PzZ5522O4DSapQAk9nR+0+EIDrcoz4UhX8CP8AHxfXzec/blD1LVtTHuIAAAAASUVORK5CYII\u003d\")\n        }\n        #audio-container{\n            position: absolute;\n            width: 500px;\n            left: 0;\n            display: flex;\n            flex-direction: row;\n        }\n        #popup-mute-btn{\n            width: 1.5vw;\n            height: 1.5vw;\n            background-repeat: no-repeat;\n            background-size: 1.5vw;\n            background-position: center;\n            position: absolute;\n            bottom: 6px;\n            opacity: 0;\n            transition: opacity 0.6s linear;\n        }\n        .balloon-ads-wave-container {\n            position: absolute;\n            left: 2.5vw;\n            opacity: 0;\n            transition: opacity 0.6s linear;\n            bottom: 0;\n        }\n\n        .showPopupSound{\n            opacity:1 !important;\n        }\n\n        .balloon-ads-wave-container .wave-bar {\n            display: inline-block;\n            width: 5px;\n            height: 21px;\n            background-color: #fff;\n            animation: beat1 1s infinite;\n            transform-origin: 0 100%;\n            transform: scaleY(0.1);\n        }\n        .balloon-ads-wave-container .wave-bar:nth-child(2n) {\n            animation-name: beat2;\n            animation-delay: 0.2s;\n            background-color: #eee;\n        }\n        .balloon-ads-wave-container .wave-bar:nth-child(3n) {\n            animation-name: beat3;\n            animation-delay: 0.5s;\n            animation-duration: 0.5s;\n            background-color: #ccc;\n        }\n        .balloon-ads-wave-container .wave-bar:nth-child(4n) {\n            animation-name: beat2;\n            animation-delay: 0.4s;\n            animation-duration: 0.8s;\n        }\n        .balloon-ads-wave-container .wave-bar:nth-child(5n) {\n            animation-delay: 0.6s;\n        }\n        .balloon-ads-wave-container .wave-bar:nth-child(6n) {\n            animation-delay: 0.2s;\n            background-color: #ddd;\n        }\n\n        @keyframes beat1 {\n            0% {\n            transform: scaleY(0);\n            }\n            50% {\n            transform: scaleY(0.7);\n            }\n            100% {\n            transform: scaleY(0);\n            }\n        }\n        @keyframes beat2 {\n            0% {\n            transform: scaleY(0);\n            }\n            50% {\n            transform: scaleY(0.5);\n            }\n            100% {\n            transform: scaleY(0);\n            }\n        }\n        @keyframes beat3 {\n            0% {\n            transform: scaleY(0);\n            }\n            50% {\n            transform: scaleY(0.3);\n            }\n            100% {\n            transform: scaleY(0);\n            }\n        }\n        /* NEW.07022022 */\n    \n        @keyframes slide-right {\n            0%   {opacity: 0; -webkit-transform: translateX(-100%);}\n            100% {opacity: 1; -webkit-transform: translateX(0);}\n        }\n        @keyframes slide-left {\n            0%   {opacity: 1; -webkit-transform: translateX(100%);}\n            100% {opacity: 0; -webkit-transform: translateX(0);}\n        }`;\n    \n    var template \u003d `\n        \u003cdiv id\u003d\"background_overlay_popup\"\u003e\n            \u003cdiv id\u003d\"popup_banner\" class\u003d\"popup_banner\"\u003e\n            \u003cdiv style\u003d\"position: relative;\"\u003e\n                \u003cdiv id\u003d\"audio-container\"\u003e\n                    \u003cdiv id\u003d\"popup-mute-btn\" data-sound\u003d\"unmute\"\u003e\u003c/div\u003e\n                    \u003c!-- NEW.07022022 --\u003e\n                    \u003cdiv class\u003d\"balloon-ads-wave-container\"\u003e\n                        \u003cdiv class\u003d\"wave-bar\"\u003e\u003c/div\u003e\n                        \u003cdiv class\u003d\"wave-bar\"\u003e\u003c/div\u003e\n                        \u003cdiv class\u003d\"wave-bar\"\u003e\u003c/div\u003e\n                        \u003cdiv class\u003d\"wave-bar\"\u003e\u003c/div\u003e\n                        \u003cdiv class\u003d\"wave-bar\"\u003e\u003c/div\u003e\n                        \u003cdiv class\u003d\"wave-bar\"\u003e\u003c/div\u003e\n                        \u003cdiv class\u003d\"wave-bar\"\u003e\u003c/div\u003e\n                        \u003cdiv class\u003d\"wave-bar\"\u003e\u003c/div\u003e\n                        \u003cdiv class\u003d\"wave-bar\"\u003e\u003c/div\u003e\n                        \u003cdiv class\u003d\"wave-bar\"\u003e\u003c/div\u003e\n                        \u003cdiv class\u003d\"wave-bar\"\u003e\u003c/div\u003e\n                        \u003cdiv class\u003d\"wave-bar\"\u003e\u003c/div\u003e\n                        \u003cdiv class\u003d\"wave-bar\"\u003e\u003c/div\u003e\n                        \u003cdiv class\u003d\"wave-bar\"\u003e\u003c/div\u003e\n                        \u003cdiv class\u003d\"wave-bar\"\u003e\u003c/div\u003e\n                        \u003cdiv class\u003d\"wave-bar\"\u003e\u003c/div\u003e\n                        \u003cdiv class\u003d\"wave-bar\"\u003e\u003c/div\u003e\n                        \u003cdiv class\u003d\"wave-bar\"\u003e\u003c/div\u003e\n                        \u003cdiv class\u003d\"wave-bar\"\u003e\u003c/div\u003e\n                        \u003cdiv class\u003d\"wave-bar\"\u003e\u003c/div\u003e\n                    \u003c/div\u003e\n                    \u003c!-- NEW.07022022 --\u003e\n                \u003c/div\u003e\n                \u003ca class\u003d\"close_trigger\" id\u003d\"trigger_play\"\u003e\u003cimg src\u003d\"https://preview-kmkonline.akamaized.net/banners/images/close-btn2.png\"\u003e\u003c/a\u003e\n                \u003cdiv class\u003d\"images_content\"\u003e\n                    \u003cimg/\u003e\n                \u003c/div\u003e\n            \u003c/div\u003e\n            \u003c/div\u003e\n        \u003c/div\u003e\n        \u003cdiv id\u003d\"dfp-lfloat-container\"\u003e\n            \u003cdiv class\u003d\"abs_action\"\u003e\n                \u003cdiv class\u003d\"block_action\"\u003e\n                    \u003ca id\u003d\"muted_unmuted\" class\u003d\"button_ads a_muted\" data-sound\u003d\"unmute\"\u003e\n                        \u003cimg class\u003d\"sound_icons\" src\u003d\"https://cdns.klimg.com/d.kapanlaginetwork.com/banner/asset/balloon/unmute-icon.png\"\u003e\n                    \u003c/a\u003e\n                    \u003ca id\u003d\"close_button\" class\u003d\"button_ads dfp-lfloat-close-button\"\u003e\n                        \u003cimg src\u003d\"https://cdns.klimg.com/d.kapanlaginetwork.com/banner/asset/balloon/close-icon.png\"\u003e\n                    \u003c/a\u003e                \n                \u003c/div\u003e\n            \u003c/div\u003e\n            \n            \u003cimg id\u003d\"dfp-lfloat-img\" src\u003d\"${dfp_imageBalloon}\" /\u003e\n         \n            \u003cdiv id\u003d\"beacon_%%CACHEBUSTER%%\" style\u003d\"position: absolute; left: 0px; top: 0px; visibility: hidden;\"\u003e\n                \u003cimg src\u003d\"%%VIEW_URL_ESC%%https://cdns.klimg.com/d.kapanlaginetwork.com/banner/asset/img/pixel.png\" style\u003d\"visibility:hidden;\" width\u003d\"0\" height\u003d\"0\" /\u003e            \n            \u003cdiv\u003e\n            \u003caudio id\u003d\"adzanAudio\"\u003e\u003c/audio\u003e\n        \u003c/div\u003e\n        \u003cdiv id\u003d\"tracker-container\"\u003e\n        [%dfp_thirdparty_tracker%]\n        \u003c/div\u003e`;\n    \n    var script \u003d `\n        var ballonDuration \u003d [%duration%] \u003e 10 ? [%duration%] : 10;\n        var SPACookieName \u003d \"gam_timeSignal_desktop\";\n        var SPACookieNotSet \u003d  !SPAGetCookieValue(SPACookieName);\n        var dfpLfloatContainer \u003d document.getElementById(\"dfp-lfloat-container\");\n        var muted_unmuted \u003d document.getElementById(\"muted_unmuted\");\n        var popupMuteBtn \u003d document.getElementById(\"popup-mute-btn\");\n\n        var dfpLfloatballonadsAudio \u003d document.getElementById(\"ballonadsAudio\");\n        var dfpLfloatImage \u003d document.getElementById(\"dfp-lfloat-img\");\n        var dfpLfloatCloseBtn \u003d document.querySelector(\".dfp-lfloat-close-button\");\n        var dfpLFloatMasukWaktuSolat \u003d true;\n        var LFRamadhanCurrentDate \u003dnew Date();\n    \n\n        var LFPopup \u003d document.getElementById(\"background_overlay_popup\");\n        var LFClosePopup \u003d document.getElementById(\"trigger_play\");\n        var adzanAudio \u003d document.getElementById(\"adzanAudio\");\n        var soundIcons \u003d document.querySelector(\".sound_icons\");\n        var audioPlayed \u003d false;\n        var isMuted \u003d true;\n        var waveContainer \u003d document.querySelector(\u0027.balloon-ads-wave-container\u0027);\n\n        var expandImsak \u003d \"[%imsak%]\";\n        var expandShubuh \u003d \"[%subuh%]\";\n        var expandZhuhr \u003d \"[%dzuhur%]\";\n        var expandAshr \u003d \"[%asar%]\";\n        var expandMaghrib \u003d \"[%magrib%]\";\n        var expandIsya \u003d \"[%isya%]\";\n        var popupContainer \u003d document.querySelector(\"#popup_banner\");\n        var popupImage \u003d document.querySelector(\"#popup_banner .images_content img\");\n        var audioContainer \u003d document.querySelector(\"#background_overlay_popup #audio-container\");\n        var SPADEFAULTSOUND;\n\n        var LFRamadhanWaktuSholatJSON \u003d [%jadwal%];\n        var isSholat \u003d LFRamadhanMatchDate(LFRamadhanWaktuSholatJSON,false);\n        var ballonRamadhanLP \u003d \"%%CLICK_URL_ESC%%[%dfp_landingPage%]\";\n        var ballonRamadhanDMPCat \u003d \u0027[%DMPCategory%]\u0027.trim().split(/\\s*,\\s*/);\n        var ballonRamadhanGAMMacro \u003d \u0027{\"lineitemId\":\"%eaid!\", \"advertiserId\":\"%eadv!\", \"orderId\":\"%ebuy!\", \"creativeId\":\"%ecid!\", \"adunitId\":\"%epid!\"}\u0027;\n            \n        \n        LFClosePopup.addEventListener(\"click\", LFClosePopupTrigger);\n        muted_unmuted.addEventListener(\"click\", LFSound);\n        popupMuteBtn.addEventListener(\"click\", LFSound);\n\n        dfpLfloatImage.addEventListener(\"click\", LFGenerateDMPLP);\n\n        function LFGenerateDMPLP(){\n        if(typeof parent.window.createDMPTracker \u003d\u003d\u003d \u0027function\u0027){\n            parent.window.createDMPTracker(ballonRamadhanDMPCat,ballonRamadhanLP,ballonRamadhanGAMMacro);\n        }else{\n            parent.window.open(ballonRamadhanLP, \u0027_blank\u0027);\n        }  \n    }\n    \n        initLfloat();\n    \n        function LFTriggerPopup(){\n            var scrolltop \u003d document.documentElement.scrollTop || document.body.scrollTop;\n            if(scrolltop \u003e 200){\n                LFPopup.classList.add(\"active\");\n                waveContainer.classList.add(\"showPopupSound\");\n                popupMuteBtn.classList.add(\"showPopupSound\",\"mute\");\n                window.removeEventListener(\"scroll\", LFTriggerPopup);\n            }\n        }\n\n        function setPosition(){\n            var popupTop \u003d Math.ceil(popupContainer.getBoundingClientRect().top - 40);\n            audioContainer \u0026\u0026 audioContainer.style.setProperty(\u0027top\u0027,popupTop + \"px\" , \"important\");\n        }\n    \n        function LFClosePopupTrigger(){\n            LFPopup.classList.remove(\"active\");\n\n            LFPlayAdzan();\n        }\n    \n        dfpLfloatCloseBtn.addEventListener(\"click\",closeLfloat);\n            \n        function initLfloat(){\n            LFRamadhanInit();\n        }\n    \n        function openLfloat(){\n            dfpLfloatContainer.classList.add(\"open-lfloat\");\n        }\n        \n        function closeLfloat(){\n            LFPauseAdzan();\n            dfpLfloatContainer.classList.add(\"close-lfloat\");\n        }\n    \n        function LFPlayAdzan(){\n            adzanAudio.play();\n        }\n    \n        function LFPauseAdzan(){\n            adzanAudio.pause();\n        }\n\n        function SPAGetDomainName() {\n            hostName \u003d window.location.hostname;\n            return rHN \u003d hostName.substring(hostName.lastIndexOf(\".\", hostName.lastIndexOf(\".\") - 1) + 1);\n           }\n\n        function SPASetCookie(cookieName, cookieValue, cookiePath, cookieExpires) {\n         var cookieValue \u003d escape(cookieValue);\n         var banner_cookieDomain \u003d SPAGetDomainName();\n        \n         if (cookiePath !\u003d \"\") {\n             cookiePath \u003d \";Path\u003d\" + cookiePath;\n         }\n         document.cookie \u003d cookieName + \"\u003d\" + cookieValue + \";expires\u003d\" + cookieExpires + cookiePath + \";Domain\u003d\" + banner_cookieDomain;\n        }\n        \n        function SPAGetCookieValue(cookieName) {\n          var cookieValue \u003d document.cookie;\n          var cookieStartsAt \u003d cookieValue.indexOf(\" \" + cookieName + \"\u003d\");\n          if (cookieStartsAt \u003d\u003d -1) {\n              cookieStartsAt \u003d cookieValue.indexOf(cookieName + \"\u003d\");\n          }\n          if (cookieStartsAt \u003d\u003d -1) {\n              cookieValue \u003d null;\n          } else {\n              cookieStartsAt \u003d cookieValue.indexOf(\"\u003d\", cookieStartsAt) + 1;\n              var cookieEndsAt \u003d cookieValue.indexOf(\";\", cookieStartsAt);\n              if (cookieEndsAt \u003d\u003d -1) {\n                  cookieEndsAt \u003d cookieValue.length;\n              }\n              cookieValue \u003d unescape(cookieValue.substring(cookieStartsAt, cookieEndsAt));\n          }\n          return cookieValue;\n        }\n\n        function LFRamadhanInit() {\n            let dateNow \u003d new Date();\n            if( SPACookieNotSet ){\n                /* SET SPA COOKIES */\n                dateNow.setMinutes(dateNow.getMinutes() + 5 );\n                cookieExpires \u003d dateNow.toGMTString();\n                SPASetCookie(SPACookieName, false, \"/\", cookieExpires);\n\n                let matchDate \u003d LFRamadhanMatchDate(LFRamadhanWaktuSholatJSON, true);\n                if ( matchDate ) {\n                    window.addEventListener(\"scroll\", LFTriggerPopup);\n                    muted_unmuted.style.display \u003d \"inherit\";\n                }\n            }\n            openLfloat();\n        }\n    \n        function LFRamadhanGetCurentDateTime() {\n            var monthName \u003d [\"Januari\",\"Februari\",\"Maret\",\"April\",\"Mei\",\"Juni\",\"Juli\",\"Agustus\",\"September\",\"Oktober\",\"November\",\"Desember\"];\n    \n            var thisDate \u003d \\`\\${LFRamadhanCurrentDate.getDate()} \\${monthName[LFRamadhanCurrentDate.getUTCMonth()]}\\`;\n            var thisTime \u003d \\`\\${LFRamadhanCurrentDate.getHours()}:\\${LFRamadhanCurrentDate.getMinutes()}\\`;\n            var rs \u003d {\n                \"date\" : thisDate,\n                \"time\" : thisTime\n            };\n    \n            return rs;\n        }\n    \n        function LFRamadhanMatchDate(rawData, generate) {\n            var rs \u003d false;\n            var curentDateTime \u003d LFRamadhanGetCurentDateTime();\n    \n            rawData.forEach(function (el, i) {\n                if (curentDateTime.date \u003d\u003d el.Masehi) {\n                    rs \u003d LFRamadhanMatchTime(el.data, curentDateTime.time, generate);\n                }\n            });\n    \n            return rs;\n        }\n    \n        function LFRamadhanMatchTime(elRawData, curentTime, generate) {\n            var rsStatus \u003d false;\n    \n            Object.entries(elRawData).some(function (value, key) {\n    \n                var dTime \u003d value[1].split(\":\");\n                var maxRangeDateTime \u003d new Date();\n                var minRangeDateTime \u003d new Date();\n    \n                minRangeDateTime.setHours(parseInt(dTime[0]));\n                minRangeDateTime.setMinutes(parseInt(dTime[1]));\n    \n                maxRangeDateTime.setHours(parseInt(dTime[0]));\n                maxRangeDateTime.setMinutes(parseInt(dTime[1]) + ballonDuration);\n    \n                rsStatus \u003d (LFRamadhanCurrentDate.getTime() \u003e\u003d minRangeDateTime.getTime() \u0026\u0026 LFRamadhanCurrentDate.getTime() \u003c\u003d maxRangeDateTime.getTime());\n\n\n                if( generate ){\n                    dfpLFloatMasukWaktuSolat \u003d true;\n                    var popupimgWaktuSholat \u003d null;\n    \n                    switch(value[0]){\n                        case \"Imsak\":\n                            popupimgWaktuSholat \u003d expandImsak;\n                            SPADEFAULTSOUND \u003d \u0027[%sound_imsak%]\u0027;\n                        break;\n                        case \"Shubuh\":\n                            popupimgWaktuSholat \u003d expandShubuh;\n                            SPADEFAULTSOUND \u003d \u0027[%sound_subuh%]\u0027;\n                        break;\n                        case \"Zhuhr\":\n                            popupimgWaktuSholat \u003d expandZhuhr;\n                            SPADEFAULTSOUND \u003d \u0027[%sound_dzuhur%]\u0027;\n                        break;\n                        case \"Ashr\":\n                            popupimgWaktuSholat \u003d expandAshr;\n                            SPADEFAULTSOUND \u003d \u0027[%sound_ashar%]\u0027;\n                        break;\n                        case \"Maghrib\":\n                            popupimgWaktuSholat \u003d expandMaghrib;\n                            SPADEFAULTSOUND \u003d \u0027[%sound_maghrib%]\u0027;\n                        break;\n                        case \"Isya\u0027\":\n                            popupimgWaktuSholat \u003d expandIsya;\n                            SPADEFAULTSOUND \u003d \u0027[%sound_isya%]\u0027;\n                        break;\n                    }\n\n    \n                    popupImage.setAttribute(\"src\", popupimgWaktuSholat);\n                }\n                adzanAudio.setAttribute(\"src\",SPADEFAULTSOUND);\n                return rsStatus \u003d\u003d\u003d true;\n            });\n    \n            return rsStatus;\n        }\n    \n    \n        function LFSound(){\n            if(!audioPlayed){\n                LFPlayAdzan();\n                audioPlayed \u003d true;\n            }\n            adzanAudio.muted \u003d !isMuted;\n            muted_unmuted.setAttribute(\"class\",( !isMuted ) ? \u0027a_muted\u0027 : \u0027a_unmuted\u0027 );\n            soundIcons.setAttribute(\"src\",( !isMuted ) ? \u0027https://cdns.klimg.com/d.kapanlaginetwork.com/banner/asset/balloon/mute-icoin.png\u0027 : \u0027https://cdns.klimg.com/d.kapanlaginetwork.com/banner/asset/balloon/unmute-icon.png\u0027 );\n            popupMuteBtn.setAttribute(\"class\",( !isMuted ) ? \u0027mute showPopupSound\u0027 : \u0027unmute showPopupSound\u0027 );\n            isMuted \u003d !isMuted;\n        }\n        // if( \u0027[ % UseCDPImpression%]\u0027 \u003d\u003d\u003d \u0027yes\u0027 \u0026\u0026 ballonRamadhanDMPCat.join(\u0027\u0027).length \u003e 0 ){\n        //     var dmpImpressionScript \u003d \\`console.log(\u0027-- TRIGGER ADS IMPREESION --\u0027);    parent.window.createCDPTracker(   [\"\\`+ ballonRamadhanDMPCat.join(\u0027\",\"\u0027) +\\`\"],     \u0027{       \"action\":\"ads_impression\",      \"lineitemId\":\"%eaid!\",          \"advertiserId\":\"%eadv!\",        \"orderId\":\"%ebuy!\",         \"creativeId\":\"%ecid!\",          \"adunitId\":\"%epid!\"         }\u0027   ); console.log(\u0027-- TRIGGER ADS IMPREESION --\u0027);\\`,\n        //     dmpTrackerScript \u003d document.createElement(\"script\");\n        //     dmpTrackerScript.innerHTML \u003d dmpImpressionScript;\n        //     document.querySelector(\"#tracker-container\").insertAdjacentElement(\"beforeend\",dmpTrackerScript); \n        // }\n        `;\n    \n    var iframeEl \u003d window.frameElement;\n    \n    if(iframeEl !\u003d null) {\n        var iframeParentEl \u003d iframeEl.parentElement;\n    } else {\n        var iframeParentEl \u003d document.getElementById(\"div-gpt-ad-kapanlagi-lFloating-oop\");\n    }\n    \n    console.log(iframeParentEl);\n    \n    iframeParentEl.style.textAlign \u003d \"initial\";\n    \n    \n    var containerCSS \u003d document.createElement(\u0027style\u0027);\n    containerCSS.innerHTML \u003d css;\n    \n    iframeParentEl.appendChild(containerCSS);\n    \n    //create popup element to containing popup template\n    var containerEl \u003d document.createElement(\u0027div\u0027);\n    containerEl.setAttribute(\u0027data-info\u0027, \u0027ad\u0027);\n    containerEl.innerHTML \u003d template;\n    \n    //add element to parent frame\n    iframeParentEl.appendChild(containerEl);\n    \n    var containerScript \u003d document.createElement(\u0027script\u0027);\n    containerScript.setAttribute(\u0027type\u0027, \u0027text/javascript\u0027);\n    \n    //assign script to script container, note in firefox innerText not available so use textContent instead\n    if (typeof containerScript.innerText \u003d\u003d \u0027undefined\u0027) {\n    \n        containerScript.textContent \u003d script;\n    \n    } else {\n        containerScript.innerText \u003d script;\n    }\n        \n    \n    //add popup script  container to skinad element\n    containerEl.appendChild(containerScript);\n    \u003c/script\u003e",
+  "omidPartnerName": "",
+  "type": "USER_DEFINED",
+  "isInterstitial": true,
+  "isNativeEligible": false,
+  "isNativeVideoEligible": false,
+  "isSafeFrameCompatible": false
+}
