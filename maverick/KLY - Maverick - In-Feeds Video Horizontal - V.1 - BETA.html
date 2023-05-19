@@ -1,0 +1,194 @@
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Nunito+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" />
+<link href="https://cdns.klimg.com/d.kapanlaginetwork.com/banner/asset/maverick/main.min.css" rel="stylesheet">
+<link href="https://cdns.klimg.com/d.kapanlaginetwork.com/banner/asset/maverick/color.min.css" rel="stylesheet">
+<style>
+    a.btn--unmute span.sound-wrapper {
+        position: absolute;
+        height: 40px;
+        width: 150px;
+        flex-shrink: 0;
+        left: 40px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    a.btn--unmute .text-mute ,
+    a.btn--unmute .text-sound{
+        color: #fff;
+        width: auto;
+        position: absolute;
+        left: -100px;
+        opacity: 0;
+    }
+
+    a.btn--unmute.unmuted .text-sound{
+        animation: 6s ease slideout .5s ;
+    }
+
+    a.btn--unmute.muted .text-mute {
+        animation: 6s ease slideout .5s ;
+    }
+
+    a.btn--unmute {
+        position: relative;
+    }
+
+    @keyframes slideout {
+        0%{left : -100px; opacity : 0;}
+        15%{left : 0px; opacity : 1;}
+        85%{left : 0px; opacity : 1;}
+        100%{left : -100px; opacity : 0;}
+    }
+</style>
+
+<div class="section-body relative overflow-hidden flex-1 container max-w-full h-screen is-visible bg-cover bg-center bg-no-repeat" style="--bgcolor-adsActive: #EE1C29;--color-adsActive: #FFFFFF;background-image: url('[%dfp_image_bg%]')">
+
+    <video class="absolute top-1/2 -mt-40 inset-x-0 w-full object-cover bg-cover bg-center bg-no-repeat z-0" style="background-image: url('[%dfp_image_cover%]'); aspect-ratio: 16/9; max-height: 240px;" loop playsinline muted autoplay>
+        <source src="[%dfp_video_source%]">
+    </video>
+
+    <article class="article flex flex-col justify-end w-full h-full pointer-events-none bg-center bg-no-repeat relative z-10" >  
+        <span class="article-name absolute top-6 right-6 vh-text-sm z-20 text-white">Sponsored</span>  
+        <div class="article-desc relative flex items-center justify-center z-20 p-6">
+            <!--default delayBtn: 1000ms-->
+            <div class="btn btn--ads flex items-center mx-auto justify-center px-6 py-2 vh-text-sm vh-h-btn rounded-full font-inter font-medium text-white bg-red" style="--delayBtn: 0ms">Pelajari Selengkapnya</div>
+        </div>
+    </article>
+
+    
+</div>
+
+<div class="overlay-sound fixed top-6 left-4 md:left-md md:ml-4 z-20">
+        <a href="#" class="btn--unmute flex items-center justify-center rounded-full h-8 w-8 bg-black/40 dark:bg-white/40 unmuted">
+
+            <svg class="btn--unmute-up" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 8.33334V11.6667C2.5 12.125 2.875 12.5 3.33333 12.5H5.83333L8.575 15.2417C9.1 15.7667 10 15.3917 10 14.65V5.34168C10 4.60001 9.1 4.22501 8.575 4.75001L5.83333 7.50001H3.33333C2.875 7.50001 2.5 7.87501 2.5 8.33334ZM13.75 10C13.7498 9.30178 13.5547 8.61746 13.1866 8.02413C12.8186 7.43079 12.2921 6.952 11.6667 6.64168V13.35C12.9 12.7417 13.75 11.475 13.75 10ZM11.6667 3.70834V3.87501C11.6667 4.19168 11.875 4.46668 12.1667 4.58334C14.3167 5.44168 15.8333 7.55001 15.8333 10C15.8333 12.45 14.3167 14.5583 12.1667 15.4167C11.8667 15.5333 11.6667 15.8083 11.6667 16.125V16.2917C11.6667 16.8167 12.1917 17.1833 12.675 17C15.5 15.925 17.5 13.2 17.5 10C17.5 6.80001 15.5 4.07501 12.675 3.00001C12.1917 2.80834 11.6667 3.18334 11.6667 3.70834Z" fill="white"/>
+            </svg>
+            <svg class="btn--unmute-down" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3.025 3.025C2.94775 3.10209 2.88646 3.19367 2.84464 3.29448C2.80282 3.39529 2.7813 3.50336 2.7813 3.6125C2.7813 3.72164 2.80282 3.82971 2.84464 3.93052C2.88646 4.03133 2.94775 4.12291 3.025 4.2L6.075 7.25L5.83333 7.5H3.33333C2.875 7.5 2.5 7.875 2.5 8.33333V11.6667C2.5 12.125 2.875 12.5 3.33333 12.5H5.83333L8.575 15.2417C9.1 15.7667 10 15.3917 10 14.65V11.175L13.4833 14.6583C13.075 14.9667 12.6333 15.225 12.15 15.4167C11.85 15.5417 11.6667 15.8583 11.6667 16.1833C11.6667 16.7833 12.275 17.1667 12.825 16.9417C13.4917 16.6667 14.1167 16.3 14.675 15.85L15.7917 16.9667C15.8688 17.0438 15.9604 17.105 16.0612 17.1468C16.162 17.1885 16.2701 17.21 16.3792 17.21C16.4883 17.21 16.5963 17.1885 16.6971 17.1468C16.7979 17.105 16.8895 17.0438 16.9667 16.9667C17.0438 16.8895 17.105 16.7979 17.1468 16.6971C17.1885 16.5963 17.21 16.4883 17.21 16.3792C17.21 16.2701 17.1885 16.162 17.1468 16.0612C17.105 15.9604 17.0438 15.8688 16.9667 15.7917L4.20833 3.025C3.88333 2.7 3.35833 2.7 3.025 3.025ZM15.8333 10C15.8333 10.6833 15.7083 11.3417 15.4917 11.95L16.7667 13.225C17.2333 12.25 17.5 11.1583 17.5 10C17.5 6.80833 15.5 4.075 12.6833 3C12.1917 2.80833 11.6667 3.19167 11.6667 3.71667V3.875C11.6667 4.19167 11.875 4.46667 12.175 4.58333C14.3167 5.45 15.8333 7.55 15.8333 10ZM8.575 4.75833L8.43333 4.9L10 6.46667V5.34167C10 4.6 9.1 4.23333 8.575 4.75833ZM13.75 10C13.7498 9.30177 13.5547 8.61745 13.1866 8.02412C12.8186 7.43078 12.2921 6.95199 11.6667 6.64167V8.13333L13.7333 10.2C13.7417 10.1333 13.75 10.0667 13.75 10Z" fill="white"/>
+            </svg>
+
+            <span class="sound-wrapper">
+                <span class="text-sound vh-text-sm">Tap for sound</span>
+                <span class="text-mute vh-text-sm">Tap to mute</span>
+            </span>
+        </a>
+    </div>
+
+<script>
+    // resize iframe 
+    var _adIframe_ = window.frameElement;
+    var _parentSection_ = _adIframe_.parentElement.parentElement.parentElement.parentElement;
+    var _mainWrapper_ = document.querySelector(".section-body");
+    var _parentName_ = _parentSection_.querySelector(".article-name");
+
+    _adIframe_.style.width = "100vw";
+    _adIframe_.style.height = window.frameElement.parentElement.parentElement.parentElement.clientHeight + "px";
+    
+
+    //set section name
+    _parentSection_.setAttribute("data-section", "RMB-Video-Hor");
+    
+    // remove parent text sponsore
+    var _searchTextSponsored = setInterval(() => {
+        if(_parentName_){
+            _parentName_.remove();
+            clearInterval(_searchTextSponsored)
+        }
+    }, 100);
+    
+    _mainWrapper_.addEventListener("click", _CLICKLP_)
+
+    function _CLICKLP_() {
+        window.open("%%CLICK_URL_UNESC%%[%dfp_landing_page%]","_blank")
+    }
+
+     // video sound
+    var vidDefer = document.getElementsByTagName('iframe');
+    for (var i=0; i<vidDefer.length; i++) {
+        if(vidDefer[i].getAttribute('data-src')) {
+            vidDefer[i].setAttribute('src',vidDefer[i].getAttribute('data-src'));
+        } 
+    } 
+    let btnUnmute = document.querySelectorAll('.btn--unmute');
+    let videoYt = document.querySelectorAll('iframe[src^="https://www.youtube.com/embed/"]');
+    let videos = document.querySelectorAll('video');
+    let videoIframe = document.querySelectorAll('iframe');
+    videoYt.forEach(function(item) {
+        if(!item.src.includes('?enablejsapi=1')){
+            var embedSection =  item.closest('.embed-yt')
+            item.src += '?enablejsapi=1&mute=1';
+            if(embedSection){
+                embedSection.querySelector('iframe').src += '&controls=0';
+            }
+        } 
+    })
+    videoIframe.forEach(function(item) {
+        item.contentWindow.postMessage('ads.pause', "*");
+        item.contentWindow.postMessage('{"event":"command", "func":"mute", "args":""}', '*');
+        item.contentWindow.postMessage('vidio.playback.pause', '*');
+        item.contentWindow.postMessage('enamplus.playback.pause', '*');
+    })
+    if(btnUnmute){
+        btnUnmute.forEach(function(item) {
+            item.addEventListener("click", function(e){
+                this.closest('body').querySelectorAll('.btn--unmute').forEach(function(item) {
+                    item.classList.toggle('muted');
+                    item.classList.toggle('unmuted');
+                });
+                if(this.classList.contains('muted')){
+                    videoIframe.forEach(function(item) { 
+                        item.contentWindow.postMessage('{"event":"command", "func":"unMute", "args":""}', '*');
+                        item.contentWindow.postMessage('ads.unMute', "*");
+                        item.contentWindow.postMessage('vidio.playback.unmute', '*');
+                        item.contentWindow.postMessage('enamplus.playback.unmute', '*');
+                    });
+                    Array.prototype.forEach.call(videos, function(video){
+                        video.muted = false;
+                    });
+                }else{
+                    
+                    videoIframe.forEach(function(item) { 
+                        item.contentWindow.postMessage( '{"event":"command", "func":"mute", "args":""}', '*');
+                        item.contentWindow.postMessage('ads.mute', "*");
+                        item.contentWindow.postMessage('vidio.playback.mute', '*');
+                        item.contentWindow.postMessage('enamplus.playback.mute', '*');
+                    });
+                    Array.prototype.forEach.call(videos, function(video){
+                        video.muted = true;
+                    });
+                }
+                e.preventDefault();
+            });
+        });
+    }
+
+    // parent.document.querySelector("body").addEventListener('DOMSubtreeModified', _checkingViewport_);
+    var targetNode = _parentSection_
+    var config = { attributes: true};
+
+    var callback = (mutationList, observer) => {
+    for (var mutation of mutationList) {
+        if (mutation.type === "attributes") {
+        _checkingViewport_()
+        }
+    }
+    };
+
+    var observer = new MutationObserver(callback);
+    observer.observe(targetNode, config);
+
+    function _checkingViewport_() {
+        if(_parentSection_.classList.contains("is-visible")){
+            setTimeout(function () {
+                videos[0].play();
+            }, 300)
+        }else{
+            setTimeout(function () {
+                videos[0].pause()
+            }, 300)
+        }
+    }
+</script>
