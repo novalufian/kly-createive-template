@@ -1,0 +1,51 @@
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Nunito+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" />
+<link href="https://cdns.klimg.com/d.kapanlaginetwork.com/banner/preview/2023/02/06/mvk/assets/main.min.css" rel="stylesheet">
+<link href="https://cdns.klimg.com/d.kapanlaginetwork.com/banner/preview/2023/02/06/mvk/assets/color.min.css" rel="stylesheet">
+
+<section class="section snap-always snap-start w-full h-full flex flex-col shrink-0 transition bg-dark-0 text-white is-visible">
+  <div class="section-body relative overflow-hidden flex-1 container max-w-full">
+      <article class="article relative w-full h-full pointer-events-none">  
+        <div class="absolute w-full h-12 z-20 bg-gradient-to-b from-black to-transparent opacity-50"></div>
+        <span class="article-name absolute top-3 right-6 vh-text-sm z-20">Sponsored</span>
+        <figure class="article-asset relative w-full h-full bg-cover bg-center  bg-no-repeat z-0">
+          <img class="w-full h-screen object-cover" src="[%dfp_image%]">
+      </figure>
+      <div class="article-desc absolute inset-0 z-20 p-6 flex flex-col justify-end">
+          <!--default delayBtn: 1000ms-->
+          <div class="btn btn--ads flex items-center px-6 py-2 justify-between vh-h-btn rounded-full font-inter font-medium" style="--delayBtn: 0ms"> 
+            Learn More
+            <svg class="ml-4" width="23" height="16" viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 8.99998H18.67L13.79 13.88C13.4 14.27 13.4 14.91 13.79 15.3C14.18 15.69 14.81 15.69 15.2 15.3L21.79 8.70998C21.8827 8.61747 21.9563 8.50758 22.0064 8.3866C22.0566 8.26563 22.0824 8.13595 22.0824 8.00498C22.0824 7.87401 22.0566 7.74433 22.0064 7.62336C21.9563 7.50238 21.8827 7.39249 21.79 7.29998L15.21 0.699979C15.1174 0.607397 15.0075 0.533957 14.8865 0.483852C14.7656 0.433747 14.6359 0.407959 14.505 0.407959C14.3741 0.407959 14.2444 0.433747 14.1235 0.483852C14.0025 0.533957 13.8926 0.607397 13.8 0.699979C13.7074 0.792561 13.634 0.902472 13.5839 1.02344C13.5338 1.1444 13.508 1.27405 13.508 1.40498C13.508 1.53591 13.5338 1.66556 13.5839 1.78652C13.634 1.90749 13.7074 2.0174 13.8 2.10998L18.67 6.99998H1C0.45 6.99998 0 7.44998 0 7.99998C0 8.54998 0.45 8.99998 1 8.99998Z" fill="currentColor"></path>
+          </svg> 
+      </div>
+  </div>
+</article>
+</div>
+</section>
+<script>
+    var _adIframe_ = window.frameElement;
+    var _parentSection_ = _adIframe_.parentElement.parentElement.parentElement.parentElement;
+    var _mainWrapper_ = document.querySelector(".section-body");
+    var _parentName_ = _parentSection_.querySelector(".article-name");
+
+    _adIframe_.style.width = "100vw";
+    _adIframe_.style.height = window.frameElement.parentElement.parentElement.parentElement.clientHeight + "px";
+    //set section name
+    _parentSection_.setAttribute("data-section", "RMB-Image");
+    
+    // remove parent text sponsore
+    var _searchTextSponsored = setInterval(() => {
+        if(_parentName_){
+            _parentName_.remove();
+            clearInterval(_searchTextSponsored)
+        }
+    }, 100);
+    
+    _mainWrapper_.addEventListener("click", _CLICKLP_)
+
+    function _CLICKLP_() {
+        window.open("%%CLICK_URL_UNESC%%[%dfp_landing_page%]", "_blank")
+    }
+  
+</script>
