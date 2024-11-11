@@ -1,0 +1,63 @@
+Ringkasan Konsep-Konsep Utama dalam Perilaku Organisasi
+
+Perilaku Organisasi
+Perilaku organisasi (PO) adalah studi tentang bagaimana individu dan kelompok bertindak dalam organisasi. Ini mencakup berbagai faktor yang mempengaruhi perilaku, termasuk budaya, struktur, dan proses. Memahami PO sangat penting untuk meningkatkan dinamika kerja dan meningkatkan efektivitas organisasi secara keseluruhan.
+
+Organisasi
+Organisasi adalah sekelompok individu terstruktur yang bekerja sama untuk mencapai tujuan bersama. Organisasi dapat bervariasi dalam ukuran, tujuan, dan struktur, dan dipengaruhi oleh lingkungan internal dan eksternal. Efektivitas suatu organisasi seringkali bergantung pada seberapa baik ia menyelaraskan sumber daya dan strateginya dengan tujuannya.
+
+Kinerja Terkendali
+Kinerja terkendali mengacu pada kemampuan suatu organisasi untuk mengelola dan mengarahkan sumber dayanya secara efektif untuk mencapai hasil yang diinginkan. Ini melibatkan pengaturan standar kinerja, memantau kemajuan, dan melakukan penyesuaian yang diperlukan untuk memastikan bahwa tujuan organisasi tercapai.
+
+Dilema Organisasi
+Dilema organisasi melibatkan menyeimbangkan kebutuhan dan aspirasi individu dengan tujuan kolektif organisasi. Ketegangan ini dapat menyebabkan konflik dan tantangan dalam pengambilan keputusan, mengharuskan para pemimpin untuk menemukan solusi yang memenuhi kepentingan individu dan organisasi.
+
+Kesalahan Atribusi Fundamental
+Kesalahan atribusi fundamental adalah bias kognitif yang membuat individu terlalu menekankan karakteristik pribadi dan meremehkan faktor situasional saat mengevaluasi perilaku orang lain. Bias ini dapat mempengaruhi hubungan interpersonal dan pengambilan keputusan dalam organisasi.
+
+Efektivitas Organisasi
+Efektivitas organisasi mengacu pada sejauh mana suatu organisasi mencapai tujuan dan sasarannya. Ini dipengaruhi oleh berbagai faktor, termasuk kepemimpinan, budaya, dan keterlibatan karyawan. Mengukur efektivitas seringkali melibatkan penilaian hasil kuantitatif dan kualitatif.
+
+Balanced Scorecard
+Balanced scorecard adalah alat manajemen strategis yang menyediakan kerangka kerja untuk menerjemahkan tujuan strategis suatu organisasi menjadi serangkaian ukuran kinerja. Ini mempertimbangkan berbagai perspektif, termasuk keuangan, pelanggan, proses internal, dan pembelajaran dan pertumbuhan, untuk memberikan pandangan komprehensif tentang kinerja organisasi.
+
+Kualitas Hidup Kerja
+Kualitas hidup kerja mengacu pada kepuasan dan kesejahteraan keseluruhan karyawan dalam lingkungan kerja mereka. Faktor-faktor yang mempengaruhi kualitas hidup kerja termasuk desain pekerjaan, keseimbangan kerja-hidup, dan budaya organisasi. Meningkatkan kualitas ini dapat meningkatkan keterlibatan dan produktivitas karyawan.
+
+Positivisme
+Positivisme adalah pendekatan filosofis yang menekankan penggunaan metode ilmiah dan bukti empiris untuk mempelajari fenomena sosial. Dalam konteks perilaku organisasi, positivisme menganjurkan analisis objektif dan pengambilan keputusan berbasis data.
+
+Definisi Operasional
+Definisi operasional menentukan prosedur atau ukuran yang digunakan untuk mendefinisikan suatu konsep dalam penelitian. Dalam perilaku organisasi, definisi operasional sangat penting untuk memastikan kejelasan dan konsistensi dalam pengukuran variabel seperti kepuasan karyawan atau kinerja.
+
+Teori Varians
+Teori varians berfokus pada memahami perbedaan dalam hasil berdasarkan berbagai faktor yang mempengaruhi. Dalam perilaku organisasi, ini membantu mengidentifikasi hubungan antara variabel independen (misalnya, praktik HR) dan variabel dependen (misalnya, kinerja karyawan).
+
+Konstruktivisme
+Konstruktivisme adalah perspektif teoretis yang menyatakan bahwa pengetahuan dan makna dibangun melalui interaksi sosial dan pengalaman. Dalam perilaku organisasi, perspektif ini menekankan pentingnya konteks dan interpretasi individu dalam memahami perilaku.
+
+Teori Proses
+Teori proses meneliti sifat dinamis dan berkembang dari perilaku organisasi. Ini berfokus pada urutan peristiwa dan interaksi yang mengarah pada hasil tertentu, menyoroti pentingnya memahami proses yang mendasari perilaku dalam organisasi.
+
+Manajemen Berbasis Bukti
+Manajemen berbasis bukti melibatkan pengambilan keputusan berdasarkan bukti terbaik yang tersedia dari penelitian dan praktik. Ini mendorong para manajer untuk mengandalkan data dan temuan empiris daripada asumsi atau bukti anekdotal, menjembatani kesenjangan antara penelitian dan praktik.
+
+Manajemen Sumber Daya Manusia
+Manajemen sumber daya manusia (SDM) adalah fungsi yang bertanggung jawab untuk mengelola tenaga kerja suatu organisasi. Ini melibatkan merekrut, melatih, dan mengembangkan karyawan, serta menerapkan kebijakan yang meningkatkan keterlibatan karyawan dan kinerja organisasi.
+
+Siklus Pekerjaan
+Siklus pekerjaan mengacu pada tahapan yang dilalui karyawan dalam hubungan mereka dengan suatu organisasi, mulai dari perekrutan dan seleksi hingga pemutusan hubungan kerja. Memahami siklus ini sangat penting untuk SDM yang efektif dan memastikan pengalaman karyawan yang positif.
+
+Perilaku Diskresioner
+Perilaku diskresioner mengacu pada tindakan yang diambil oleh karyawan yang melampaui persyaratan pekerjaan formal mereka. Perilaku ini dapat secara signifikan memengaruhi kinerja organisasi dan sering dipengaruhi oleh faktor-faktor seperti motivasi, keterlibatan, dan budaya organisasi.
+
+Big Data
+Big data mengacu pada kumpulan data yang luas dan kompleks yang dihasilkan oleh organisasi. Kemampuan untuk menangkap, menyimpan, dan menganalisis big data telah mengubah proses pengambilan keputusan, memungkinkan organisasi untuk memperoleh wawasan tentang perilaku karyawan, tren pasar, dan efisiensi operasional.
+
+Analisis Data
+Analisis data melibatkan analisis komputasional data secara sistematis untuk mengungkap pola, korelasi, dan wawasan. Dalam perilaku organisasi, analisis data dapat menginformasikan praktik HR, meningkatkan pengambilan keputusan, dan meningkatkan efektivitas organisasi secara keseluruhan.
+
+Analisis Modal Manusia
+Analisis modal manusia berfokus pada menganalisis data karyawan untuk meningkatkan manajemen tenaga kerja dan kinerja organisasi. Ini melibatkan mengukur faktor-faktor seperti keterlibatan karyawan, tingkat turnover, dan produktivitas untuk membuat keputusan HR yang informatif.
+
+Ringkasan ini merangkum konsep-konsep utama terkait perilaku organisasi sebagaimana diuraikan dalam PDF, memberikan gambaran yang jelas dan ringkas tentang setiap istilah dan relevansinya terhadap bidang ini. Jika Anda memerlukan penjelasan lebih lanjut tentang konsep tertentu, jangan ragu untuk bertanya!
