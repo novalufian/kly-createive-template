@@ -1,0 +1,1572 @@
+<!-- GPT ADS START BODY v2.0.0 DESKTOP -->
+<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+<script async src="https://micro.rubiconproject.com/prebid/dynamic/12534.js"></script>
+<script>
+console.log("115 - Body (html inside <section> tag)");
+    var pageKlyObj = typeof window.kly !== 'undefined' ? window.kly : window.kmklabs;
+    var isFirstLoad = true;
+    var nextIndex = 0;
+    var indexMulti = 1;
+    var lastPageOrder = 0; 
+    var nextAdsId = []; 
+    console.log("Desktop V.2.1 - NEW");
+    const qUrl = new URLSearchParams(window.location.search);
+    const pOrder = qUrl.get('o');
+    const multiply = qUrl.get('m');
+    const multiplied = multiply ? +multiply : 2; 
+    const order = pOrder ? pOrder.split(",") : [1]; 
+    const PREBID_TIMEOUT = 1000;
+
+    window.googletag = window.googletag || {
+        cmd: []
+    };
+
+    var pbjs = pbjs || {};
+    pbjs.que = pbjs.que || [];
+
+    var adsConfig = {
+        /* Don. - remove
+        'feeds': {
+            2: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/FEEDADS-1",
+                sizes: [
+                    [300, 600],
+                    [300, 250],
+                    [320, 480],
+                    [120, 600],
+                    [160, 600]
+                ],
+                placeholder: "gpt-ad-div-section-2-placeholder",
+                isLazyLoading : true,
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            4: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/FEEDADS-2",
+                sizes: [
+                    [300, 600],
+                    [300, 250],
+                    [320, 480],
+                    [120, 600],
+                    [160, 600]
+                ],
+                placeholder: "gpt-ad-div-section-4-placeholder",
+                isLazyLoading : true,
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            6: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/FEEDADS-3",
+                sizes: [
+                    [300, 600],
+                    [300, 250],
+                    [320, 480],
+                    [120, 600],
+                    [160, 600]
+                ],
+                placeholder: "gpt-ad-div-section-6-placeholder",
+                isLazyLoading : true,
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            8: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/FEEDADS-4",
+                sizes: [
+                    [300, 600],
+                    [300, 250],
+                    [320, 480],
+                    [120, 600],
+                    [160, 600]
+                ],
+                placeholder: "gpt-ad-div-section-8-placeholder",
+                isLazyLoading : true,
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            10: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/FEEDADS-5",
+                sizes: [
+                    [300, 600],
+                    [300, 250],
+                    [320, 480],
+                    [120, 600],
+                    [160, 600]
+                ],
+                placeholder: "gpt-ad-div-section-10-placeholder",
+                isLazyLoading : true,
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            12: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/FEEDADS-6",
+                sizes: [
+                    [300, 600],
+                    [300, 250],
+                    [320, 480],
+                    [120, 600],
+                    [160, 600]
+                ],
+                placeholder: "gpt-ad-div-section-12-placeholder",
+                isLazyLoading : true,
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            14: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/FEEDADS-7",
+                sizes: [
+                    [300, 600],
+                    [300, 250],
+                    [320, 480],
+                    [120, 600],
+                    [160, 600]
+                ],
+                placeholder: "gpt-ad-div-section-14-placeholder",
+                isLazyLoading : true,
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            16: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/FEEDADS-8",
+                sizes: [
+                    [300, 600],
+                    [300, 250],
+                    [320, 480],
+                    [120, 600],
+                    [160, 600]
+                ],
+                placeholder: "gpt-ad-div-section-16-placeholder",
+                isLazyLoading : true,
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            18: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/FEEDADS-9",
+                sizes: [
+                    [300, 600],
+                    [300, 250],
+                    [320, 480],
+                    [120, 600],
+                    [160, 600]
+                ],
+                placeholder: "gpt-ad-div-section-18-placeholder",
+                isLazyLoading : true,
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            20: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/FEEDADS-10",
+                sizes: [
+                    [300, 600],
+                    [300, 250],
+                    [320, 480],
+                    [120, 600],
+                    [160, 600]
+                ],
+                placeholder: "gpt-ad-div-section-20-placeholder",
+                isLazyLoading : true,
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            22: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/FEEDADS-11",
+                sizes: [
+                    [300, 600],
+                    [300, 250],
+                    [320, 480],
+                    [120, 600],
+                    [160, 600]
+                ],
+                placeholder: "gpt-ad-div-section-22-placeholder",
+                isLazyLoading : true,
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            24: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/FEEDADS-12",
+                sizes: [
+                    [300, 600],
+                    [300, 250],
+                    [320, 480],
+                    [120, 600],
+                    [160, 600]
+                ],
+                placeholder: "gpt-ad-div-section-24-placeholder",
+                isLazyLoading : true,
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            26: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/FEEDADS-13",
+                sizes: [
+                    [300, 600],
+                    [300, 250],
+                    [320, 480],
+                    [120, 600],
+                    [160, 600]
+                ],
+                placeholder: "gpt-ad-div-section-26-placeholder",
+                isLazyLoading : true,
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            28: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/FEEDADS-14",
+                sizes: [
+                    [300, 600],
+                    [300, 250],
+                    [320, 480],
+                    [120, 600],
+                    [160, 600]
+                ],
+                placeholder: "gpt-ad-div-section-28-placeholder",
+                isLazyLoading : true,
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            30: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/FEEDADS-15",
+                sizes: [
+                    [300, 600],
+                    [300, 250],
+                    [320, 480],
+                    [120, 600],
+                    [160, 600]
+                ],
+                placeholder: "gpt-ad-div-section-30-placeholder",
+                isLazyLoading : true,
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+
+        },
+        */
+        'hse': {
+            0: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/LEADERBOARD",
+                sizes: [
+                    [728, 90],
+                    [970, 90],
+                    [970, 250]
+                ],
+                placeholder: "gpt-ad-div-leaderboard-placeholder",
+                slotCreated: false,
+                requested: false,
+                isPrebidSlot: true
+            },
+            1: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/SHOWCASE",
+                sizes: [
+                    [200, 200],
+                    [250, 250],
+                    [300, 250]
+                ],
+                placeholder: "gpt-ad-div-showcase-desktop-placeholder",
+                slotCreated: false,
+                requested: false,
+                isPrebidSlot: true
+            },
+            2: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/HALFPAGE_1",
+                sizes: [
+                    [160, 600],
+                    [250, 250],
+                    [300, 600],
+                    [300, 250],
+                    [320, 480]
+                ],
+                placeholder: "gpt-ad-div-halfpage-1-placeholder",
+                slotCreated: false,
+                requested: false,
+                isPrebidSlot: true
+            },
+            3: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/HALFPAGE_2",
+                sizes: [
+                    [160, 600],
+                    [250, 250],
+                    [300, 600],
+                    [300, 250],
+                    [320, 480]
+                ],
+                placeholder: "gpt-ad-div-halfpage-2-placeholder",
+                slotCreated: false,
+                requested: false,
+                isPrebidSlot: true
+            },
+            4: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/BOTTOM_FRAME",
+                sizes: [
+                    [468, 60],
+                    [728, 90],
+                    [970, 90]
+                ],
+                placeholder: "gpt-ad-div-bottom-frame-placeholder",
+                slotCreated: false,
+                requested: false,
+                isPrebidSlot: true,
+                immersiveBlock: true
+            },
+        },
+        'oop': {
+            0: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/IMMERSIVE",
+                sizes: "OOP",
+                placeholder: "gpt-ad-div-immersive-placeholder",
+                slotCreated: false,
+                requested: false
+            },
+            1: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/SKINAD",
+                sizes: "OOP",
+                placeholder: "gpt-ad-div-skinad-placeholder",
+                slotCreated: false,
+                requested: false,
+                immersiveBlock: true
+            },
+            2: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/TOP_FRAME",
+                sizes: "OOP",
+                placeholder: "gpt-ad-div-topframe-placeholder",
+                slotCreated: false,
+                requested: false,
+                immersiveBlock: true
+            },
+            3: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/MASTHEAD",
+                sizes: "OOP",
+                placeholder: "gpt-ad-div-masthead-mvk",
+                slotCreated: false,
+                requested: false,
+                immersiveBlock: true
+            },
+            4: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/BALLOON",
+                sizes: "OOP",
+                placeholder: "gpt-ad-div-balloon-placeholder",
+                slotCreated: false,
+                requested: false,
+                immersiveBlock: true
+            },
+            5: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/ADVERTORIAL_HEADLINE_1",
+                sizes: "OOP",
+                placeholder: "gpt-ad-div-advertorial-headline-1-placeholder",
+                slotCreated: false,
+                requested: false
+            },
+            6: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/ADVERTORIAL_HEADLINE_2",
+                sizes: "OOP",
+                placeholder: "gpt-ad-div-advertorial-headline-2-placeholder",
+                slotCreated: false,
+                requested: false
+            },
+            7: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/HEADLINE_CRM",
+                sizes: "OOP",
+                placeholder: "gpt-ad-div-headline-crm-placeholder",
+                slotCreated: false,
+                requested: false
+            },
+            8: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/ORGANIC_FEED_CRM_1",
+                sizes: "OOP",
+                placeholder: "gpt-ad-div-organic-feed-crm-1-placeholder",
+                slotCreated: false,
+                requested: false
+            },
+            9: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/ORGANIC_FEED_CRM_2",
+                sizes: "OOP",
+                placeholder: "gpt-ad-div-organic-feed-crm-2-placeholder",
+                slotCreated: false,
+                requested: false
+            },
+            10: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/ORGANIC_FEED_CRM_3",
+                sizes: "OOP",
+                placeholder: "gpt-ad-div-organic-feed-crm-3-placeholder",
+                slotCreated: false,
+                requested: false
+            },
+            11: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/NEWS_TAG_1",
+                sizes: "OOP",
+                placeholder: "gpt-ad-div-news-tag-1-placeholder",
+                slotCreated: false,
+                requested: false
+            },
+            12: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/NEWS_TAG_2",
+                sizes: "OOP",
+                placeholder: "gpt-ad-div-news-tag-2-placeholder",
+                slotCreated: false,
+                requested: false
+            },
+            13: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/CONTENT_CAROUSEL",
+                sizes: "OOP",
+                placeholder: "gpt-ad-div-content-carousel-placeholder",
+                slotCreated: false,
+                requested: false
+            },
+            14: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/IN-READ_NATIVE",
+                sizes: "OOP",
+                placeholder: "gpt-ad-div-in-read-native-placeholder",
+                slotCreated: false,
+                requested: false
+            },
+            15: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/INSERTION",
+                sizes: [1, 1],
+                placeholder: "gpt-ad-div-insertion-placeholder",
+                slotCreated: false,
+                requested: false
+            },
+            16: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/SLIDE_UP",
+                sizes: [1, 1],
+                placeholder: "gpt-ad-div-slide-up-placeholder",
+                slotCreated: false,
+                requested: false
+            },
+            17: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/WIDGET",
+                sizes: "OOP",
+                placeholder: "gpt-ad-div-widget-placeholder",
+                slotCreated: false,
+                requested: false
+            },
+        },
+        /* Don. - remove
+        'multi': {
+            1: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/MULTIADS-1",
+                sizes: [
+                    [300, 250],
+                    [320, 100],
+                    [320, 50]
+                ],
+                placeholder: "gpt-ad-div-multiads-1-placeholder",
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            2: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/MULTIADS-2",
+                sizes: [
+                    [300, 250],
+                    [320, 100],
+                    [320, 50]
+                ],
+                placeholder: "gpt-ad-div-multiads-2-placeholder",
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            3: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/MULTIADS-3",
+                sizes: [
+                    [300, 250],
+                    [320, 100],
+                    [320, 50]
+                ],
+                placeholder: "gpt-ad-div-multiads-3-placeholder",
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            4: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/MULTIADS-4",
+                sizes: [
+                    [300, 250],
+                    [320, 100],
+                    [320, 50]
+                ],
+                placeholder: "gpt-ad-div-multiads-4-placeholder",
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            5: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/MULTIADS-5",
+                sizes: [
+                    [300, 250],
+                    [320, 100],
+                    [320, 50]
+                ],
+                placeholder: "gpt-ad-div-multiads-5-placeholder",
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            6: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/MULTIADS-6",
+                sizes: [
+                    [300, 250],
+                    [320, 100],
+                    [320, 50]
+                ],
+                placeholder: "gpt-ad-div-multiads-6-placeholder",
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            7: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/MULTIADS-7",
+                sizes: [
+                    [300, 250],
+                    [320, 100],
+                    [320, 50]
+                ],
+                placeholder: "gpt-ad-div-multiads-7-placeholder",
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            8: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/MULTIADS-8",
+                sizes: [
+                    [300, 250],
+                    [320, 100],
+                    [320, 50]
+                ],
+                placeholder: "gpt-ad-div-multiads-8-placeholder",
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            9: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/MULTIADS-9",
+                sizes: [
+                    [300, 250],
+                    [320, 100],
+                    [320, 50]
+                ],
+                placeholder: "gpt-ad-div-multiads-9-placeholder",
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            10: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/MULTIADS-10",
+                sizes: [
+                    [300, 250],
+                    [320, 100],
+                    [320, 50]
+                ],
+                placeholder: "gpt-ad-div-multiads-10-placeholder",
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            11: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/MULTIADS-11",
+                sizes: [
+                    [300, 250],
+                    [320, 100],
+                    [320, 50]
+                ],
+                placeholder: "gpt-ad-div-multiads-11-placeholder",
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            12: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/MULTIADS-12",
+                sizes: [
+                    [300, 250],
+                    [320, 100],
+                    [320, 50]
+                ],
+                placeholder: "gpt-ad-div-multiads-12-placeholder",
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            13: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/MULTIADS-13",
+                sizes: [
+                    [300, 250],
+                    [320, 100],
+                    [320, 50]
+                ],
+                placeholder: "gpt-ad-div-multiads-13-placeholder",
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            14: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/MULTIADS-14",
+                sizes: [
+                    [300, 250],
+                    [320, 100],
+                    [320, 50]
+                ],
+                placeholder: "gpt-ad-div-multiads-14-placeholder",
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+            15: {
+                adunit: "/36504930/KLY/DESKTOP/{{SITE_DOMAIN}}/MULTIADS-15",
+                sizes: [
+                    [300, 250],
+                    [320, 100],
+                    [320, 50]
+                ],
+                placeholder: "gpt-ad-div-multiads-15-placeholder",
+                slotCreated: false,
+                requested: false,
+                viewable: false,
+                isPrebidSlot: true
+            },
+
+        },
+        */
+    };
+
+    if ("trstdly.com" === pageKlyObj.site) {
+        for (const conf in adsConfig) {
+            //if (['feeds', 'oop'].indexOf(conf) > -1) { Don. - remove
+            if (['oop'].indexOf(conf) > -1) {
+                var config = adsConfig[conf];
+                for (const prop in config) {
+                    if ((conf === "hse" && prop == 0) || (conf === "oop" && prop == 3)) continue;
+                    config[prop].requested = true;
+                    config[prop].slotCreated = true;
+                }
+            }
+        }
+        adsConfig['sponsored-text'] = 'Advertisement - Swipe up to continue';
+    }
+
+    mavInitPrebidAdunits();
+    /* Don. - remove
+    var definedFeedSlot = function(prop, render) {
+        var config = adsConfig['feeds'];
+        googletag.cmd.push(function() {
+            if (config[prop]['sizes'] == 'OOP') {
+                config[prop]['slot'] = googletag.defineOutOfPageSlot(config[prop]['adunit'], config[prop]['placeholder']).addService(googletag.pubads());
+            } else {
+                config[prop]['slot'] = googletag.defineSlot(config[prop]['adunit'], config[prop]['sizes'], config[prop]['placeholder']).addService(googletag.pubads());
+            }
+
+            window.GAMLibrary.addEventLazyLoading('feeds',prop);
+
+            if(!config[prop]['isLazyLoading']){
+                googletag.display(config[prop]['placeholder']);
+                if (render && config[prop]['slot']) {
+                    mavRefreshBid(config[prop]['adunit'], config[prop]['slot']);
+                    config[prop]['requested'] = true;
+                }
+            }
+        });
+    },
+    minusOneConfig = Object.entries(adsConfig['feeds']).slice(order[0], adsConfig['feeds'].length).map((entry) => entry[0]);
+    */
+
+    window.GAMLibrary = {
+        adsLazyLoading : [],
+        gamSlotRenderEnded: function(event) {
+            var containerId = event.slot.getSlotElementId();
+            var containerEl = document.getElementById(containerId);
+            // nova add ==
+            if(containerId.includes("immersive")){
+                if(event.isEmpty){
+                    Object.keys(adsConfig['hse']).forEach(index => {
+                        if(adsConfig['hse'][index]['immersiveBlock']){
+                            adsConfig['hse'][index]['immersiveBlock'] = false
+                        }
+                    });
+                    Object.keys(adsConfig['oop']).forEach(index => {
+                        if(adsConfig['oop'][index]['immersiveBlock']){
+                            adsConfig['oop'][index]['immersiveBlock'] = false
+                        }
+                    });
+                    MavRenderedOOPandHSE();
+                }else{
+                    var style = document.createElement("style");
+                    style.textContent = `.gpt-ads.skinads { display: none; }. .gpt-ads.masthead { display: none; }.gpt-ads.masthead {display: none;}`;
+                    document.querySelector("body").appendChild(style);
+                    MavRenderedOOPandHSE(true);
+                }
+            }
+            // nova add ==
+            /* Don. - remove
+            if (event.size !== null) {
+                var [width, height] = event.size;
+                var config = adsConfig['multi'];
+                var prop = 0;
+
+                if (width == 300 && height == 250 && !containerEl.id.match(/(gpt-ad-div-multiads-|gpt-ad-div-showcase-desktop-placeholder|gpt-ad-div-halfpage-1-placeholder|gpt-ad-div-halfpage-2-placeholder|gpt-ad-div-showcase-placeholder)/ig)) {
+                    let position = containerEl.parentElement && containerEl.parentElement.dataset.adsPosition ? containerEl.parentElement.dataset.adsPosition : indexMulti;
+                    let containerId = config[position]['placeholder'];
+                    let divAdsCont = containerEl.querySelector("div[id^='google_ads_iframe_']");
+                    let divMavInfeeds = containerEl.querySelector("div[class^='maverick-in-feeds']");
+                    let divMavInfeedInner = divMavInfeeds && divMavInfeeds.querySelector("#iframe-wrapper");
+                    let articleDesc = containerEl.querySelector(".article-desc");
+                    let template = `<div class="flex flex-col justify-start section-body h-full max-w-xs"><div class="flex justify-center"><div id="${containerId}" class="py-2 px-2 bg-black/10 rounded-md"></div></div></div>`;
+
+                    if (divMavInfeeds) {
+                        let feedAdsImage = divMavInfeeds.querySelector("img");
+                        divMavInfeeds.classList.add("flex", "flex-col", "h-full", "justify-end");
+                        feedAdsImage && feedAdsImage.style.setProperty("padding", "unset", "important");
+                        divMavInfeedInner && divMavInfeedInner.setAttribute("class", "py-2 px-2 bg-black/10 rounded-md relative items-center z-10");
+                    } else {
+                        divAdsCont && divAdsCont.classList.add("flex", "flex-col", "justify-end", "section-body", "h-full", "max-w-xs");
+                        if (divAdsCont && divAdsCont.firstChild) {
+                            divAdsCont.firstChild.classList.add("py-2", "px-2", "bg-black/10", "rounded-md");
+                            divAdsCont.firstChild.style.setProperty("width", "316px");
+                            divAdsCont.firstChild.style.setProperty("height", "266px");
+                            divAdsCont.setAttribute("style", "border: 0pt none;margin: auto;text-align: center;");
+                        }
+                    }
+
+                    if (containerEl.insertAdjacentHTML("beforeend", template) !== null && !config[position]['slotCreated']) {
+                        config[position]['slot'] = googletag.defineSlot(config[position]['adunit'], config[position]['sizes'], containerId).setTargeting("prevCampaign", `${event.lineItemId}`).addService(googletag.pubads());
+                        if (config[position]['slot'] && !config[position]['requested']) {
+                            googletag.display(containerId);
+                            mavRefreshBid(config[position]['adunit'], config[position]['slot']);
+                            config[position]['requested'] = true;
+                        }
+                        config[position]['slotCreated'] = true;
+                    }
+
+                    containerEl.setAttribute("style", "gap: 1.5rem;");
+
+                    indexMulti++;
+                }
+            }
+            */
+        },
+        /* ============ SC IN PAGING ============ */
+        scInPaging: function() {
+            /**
+             * DEPENDEND CLASS, TAG AND ID
+             * Class : article-content-body__item--hidden
+             * Tag : -
+             * ID : gpt-ad-liputan6-sc-[n]
+             **/
+              const SCREENHEIGHT = window.screen.height;
+              const OPTIONS = {
+                   root: null, // Observes relative to viewport
+                   rootMargin: `${SCREENHEIGHT}px`, // Trigger when ad is 100px before it enters
+                   threshold: 0
+              };
+              const SHOWCASE = adsConfig["hse"][1];
+              const ELEMENTS = document.querySelectorAll("div[id^='gpt-ad-div-showcase-placeholder-']");
+              const ELEMENTS_ARRAY = Array.from(ELEMENTS);
+
+             if (!ELEMENTS.length) return;
+              
+              let observer = new IntersectionObserver( (entries, observer) => {
+                  entries.forEach(entry => {
+                      if (entry.isIntersecting) {
+                          /* DEFINE AND FETCH SC */
+                          try {
+                              const index = ELEMENTS_ARRAY.indexOf(entry.target);
+                              let definedSc = null;
+                              if(!(index % 2)){
+                                if("gpt-ad-div-showcase-placeholder-observer" !== entry.target.id){
+                                    definedSc = googletag.defineSlot(SHOWCASE.adunit, SHOWCASE.sizes, entry.target.id);
+                                    definedSc.addService(googletag.pubads()).setTargeting("position", (index / 2));
+                                    googletag.display(entry.target.id);
+                                    googletag.pubads().refresh([definedSc]);
+                                }
+                              }else{
+                                  document.querySelector(`#${entry.target.id}`).parentElement.remove();
+                              }
+                          } catch (err) {
+                              console.log("error!", err);
+                          }
+                          observer.unobserve(entry.target);
+                      }
+                  }
+                  );
+              }
+              ,OPTIONS);
+              // Observe each element
+              ELEMENTS_ARRAY.forEach((element) => observer.observe(element));    
+        },
+        /* ============ SC IN PAGING ============ */
+        pageLogger: {},
+        set consoleToggle(stat) {
+            document.cookie = `gamlibLogger=${stat}`;
+        },
+        set showConsole(msg) {
+            this.pageLogger = msg;
+        },
+        get showConsole() {
+            var getLog = document.cookie.split("gamlibLogger")[1] ? document.cookie.split("gamlibLogger")[1] : ';';
+            var loggerCookies = getLog.split(';')[0].match(/(true)/ig) !== null ? true : false;
+            if (loggerCookies) {
+                console.log(this.pageLogger.text, this.pageLogger.variable);
+            }
+        },
+        consoleLog: function(msg) {
+            this.showConsole = msg;
+            this.showConsole;
+        },
+        addEventLazyLoading : function (type ,prop) {
+            var adtarget = adsConfig[type][prop];
+            if(adtarget['isLazyLoading']){
+                var trget = document.querySelector(`#${adtarget['placeholder']}`);
+                if(trget && !window.GAMLibrary.adsLazyLoading[adtarget['placeholder']]){
+                    var observerEl = document.createElement("div");
+                    observerEl.setAttribute("id", `${adtarget['placeholder']}-observer`);
+                    observerEl.setAttribute("class", `ads-el-observer`);
+                    trget.parentElement.classList.add("relative");
+                    trget.parentElement.appendChild(observerEl);
+
+                    this.adObserver.observe(observerEl);
+                    window.GAMLibrary.adsLazyLoading[adtarget['placeholder']] = {type : type, index : prop};
+                }
+            }
+        },
+        adObserver : new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.intersectionRatio >= 0.05) {
+                    var targetId = entry.target.id.split("-observer");
+                    var adtarget = window.GAMLibrary.adsLazyLoading[targetId[0]];
+                    var ads = adsConfig[adtarget['type']][adtarget['index']];
+                    if(ads['isLazyLoading']){
+                        ads['isLazyLoading'] = false;
+                        googletag.display(ads['placeholder']);
+                        mavRefreshBid(ads['adunit'], ads['slot']);
+                        ads['requested'] = true;
+                    }
+                } 
+            });
+        }, { threshold: 0.05 }),
+        HeavyAdsResolver: class {
+            constructor() {
+                this.checkCount = 0;
+                this.checkInterval = null;
+                this.player = null;
+                this.volumeButton = null;
+                this.playButton = null;
+                this.init();
+            }
+
+            init() {
+                this.checkInterval = setInterval(() => this.checkForVideo(), 100);
+            }
+
+            checkForVideo() {
+                this.checkCount++;
+                const videoWrapper = document.querySelector("div[id^='kly-masthead-video-ouststream-'], div[id^='kly-masthead-desktop-video-ouststream-']");
+                const videoFrame =  videoWrapper && videoWrapper.querySelector("iframe");
+                if (videoWrapper && videoFrame) {
+                    this.setupPlayer(videoWrapper);
+                    clearInterval(this.checkInterval);
+                } else if (this.checkCount > 500) {
+                    clearInterval(this.checkInterval);
+                }
+            }
+
+            setupPlayer(videoWrapper) {
+                const container = videoWrapper.querySelector("#video-wrapper");
+                const uniqId = videoWrapper.id;
+                const currentVideo = container.querySelector("iframe");
+                const videoType = container.dataset.videoType;
+                const videoId = container.dataset.videoId;
+
+
+                switch (videoType) {
+                    case "youtube":
+                        currentVideo.remove();
+                        const playerDiv = document.createElement("div");
+                        playerDiv.id = "youtube-player";
+                        container.appendChild(playerDiv);
+                        if (!window.YT || !YT.Player) {
+                            const tag = document.createElement("script");
+                            tag.src = "https://www.youtube.com/iframe_api";
+                            document.body.appendChild(tag);
+                        }
+
+                        window.onYouTubeIframeAPIReady = () => {
+                            this.player = new YT.Player("youtube-player", {
+                                width: "320",
+                                height: "180",
+                                videoId: videoId,
+                                playerVars: {
+                                    autoplay: 1,
+                                    mute: 1,
+                                    controls: 0,
+                                    playsinline: 1,
+                                    enablejsapi: 1,
+                                },
+                                events: {
+                                    onReady: (event) => this.onPlayerReady(event),
+                                },
+                            });
+                        };
+                        break;
+                    case "vidiocom":
+                        const cloneIframe = currentVideo.cloneNode(true);
+                        Object.entries({
+                            src: videoId,
+                            scrolling: 'no',
+                            frameborder: '0',
+                            width: '320',
+                            height: '180',
+                            id: 'embed-' + uniqId,
+                            class: 'embed-vidiocom',
+                            name: 'embed-' + uniqId
+                        }).forEach(([k, v]) => cloneIframe.setAttribute(k, v));
+                        currentVideo.remove();
+                        container.querySelector("#player-wrapper").remove();
+                        this.player = cloneIframe;
+                        container.appendChild(cloneIframe);
+                        break;
+                }
+
+            }
+
+            onPlayerReady(event) {
+                this.volumeButton = parent.document.querySelector("div#player-wrapper div#btn-volume");
+                this.playButton = parent.document.querySelector("div#player-wrapper div#btn-play");
+
+                this.volumeButton.addEventListener("click", () => this.volumeAction());
+                this.playButton.addEventListener("click", () => this.playAction());
+            }
+
+            volumeAction(state) {
+                const currentState = typeof state === "string" ?
+                    state :
+                    this.volumeButton.classList.contains("mute") ? "mute" : "unmute";
+
+                if (currentState === "mute") {
+                    this.player.unMute();
+                    this.volumeButton.setAttribute("class", "unmute");
+                } else {
+                    this.player.mute();
+                    this.volumeButton.setAttribute("class", "mute");
+                }
+            }
+
+            playAction(state) {
+                const currentState = typeof state === "string" ?
+                    state :
+                    this.playButton.classList.contains("play") ? "play" : "pause";
+
+                if (currentState === "pause") {
+                    this.player.pauseVideo();
+                    this.playButton.setAttribute("class", "play");
+                } else {
+                    this.player.playVideo();
+                    this.playButton.setAttribute("class", "pause");
+                }
+            }
+        },
+    };
+
+    var HeavyAdsResolver = new GAMLibrary.HeavyAdsResolver();
+    
+    window.addEventListener("DOMContentLoaded", function () {
+        var findGAM = setInterval(function () {
+            if(typeof googletag == 'object'){
+                MavInitiateAds();
+                clearInterval(findGAM);
+            }
+        }, 50);
+
+        var topFrameEl = document.querySelector('.topFrame');
+        var topFrameLoopCount = 0;
+        var findTopFrame = setInterval(function() {
+            if (topFrameEl.offsetHeight >= 1) {
+                document.querySelector('.navbar').style.top = topFrameEl.offsetHeight + "px"
+                document.querySelector('.aside .box-popular').style.top = document.querySelector('.navbar').offsetHeight + topFrameEl.offsetHeight + 16 + "px";
+                clearInterval(findTopFrame);
+            } else if (topFrameLoopCount >= 100) {
+                clearInterval(findTopFrame);
+            }
+            topFrameLoopCount++;
+        }, 50);
+    });
+
+    function MavInitiateAds() {
+        googletag.cmd.push(function() {
+            var immersive = adsConfig['oop'][0];
+            MavPopulateTargetting();
+    
+            //Create and define immersive slot to trigger slotRenderEnded - Don.        
+            if (document.getElementById(immersive['placeholder']) == null) {
+                let div = document.createElement("div");
+                    div.id = immersive['placeholder'];
+                if(document.body.insertAdjacentElement("beforeend", div)){
+                    immersive['slot'] = googletag.defineOutOfPageSlot(immersive['adunit'], immersive['placeholder']).addService(googletag.pubads());
+                    immersive['slotCreated'] = true;
+                }
+            }
+            
+            /* Dok. 26032025 */
+            GAMLibrary.scInPaging();
+
+            googletag.pubads().addEventListener('slotRenderEnded', GAMLibrary.gamSlotRenderEnded.bind(GAMLibrary));
+
+            googletag.pubads().setCentering(true);
+            googletag.pubads().enableSingleRequest();
+            googletag.pubads().collapseEmptyDivs();
+            googletag.pubads().disableInitialLoad();
+            googletag.enableServices();
+            
+            // Refesh Immersive Slot after enable services - Don.
+            googletag.pubads().refresh([immersive['slot']]); 
+            immersive['requested'] = true;
+        });
+    }
+
+    function MavRenderedOOPandHSE(isImmersive=false){
+        var config = null;
+            isQuran = pageKlyObj.gtm.subCategory == 'quran'; //exclude in quran pages
+        for( type in adsConfig ){
+            if(['hse','oop'].includes(type)){
+                config = adsConfig[type];
+                for( prop in config){
+                    // crate all oop config slot container - Don.
+                    let targetElement = document.body;
+                    let injectPos = "beforeend";
+
+                    if (document.getElementById(config[prop]['placeholder']) == null && type == 'oop') {
+                        let div = document.createElement("div");
+                            div.id = config[prop]['placeholder'];
+
+                            /*
+                            	exclude insertion and slideup in homepage
+                            	set targetelemnt = null
+                            */
+                            if(['HomePage', 'ChannelPage', 'TagPage'].includes(kly.pageType)){
+	                            if (config[prop]['placeholder'].includes('insertion') || config[prop]['placeholder'].includes('slide-up')) {
+	                                    targetElement = null;
+	                            }
+	                        }
+
+                            if(config[prop]['placeholder'].includes('insertion') || config[prop]['placeholder'].includes('slide-up')){
+                                injectPos = "beforebegin";
+                                let insertionWrapper = document.createElement("div");
+                                insertionWrapper.id = (config[prop]['placeholder'].includes('insertion')) ? "div-gpt-ad-mgid-underarticle-placeholder" : "div-gpt-ad-mgid-inarticle-placeholder";
+                                
+                                var spanText = document.createElement("span");
+                                spanText.textContent = "ADVERTISEMENT";
+                                spanText.setAttribute("class", "text-center upperase block py-1")
+                                insertionWrapper.appendChild(spanText);
+                                
+                                insertionWrapper.appendChild(div);
+                                insertionWrapper.setAttribute("class", "banner bg-gray-50 dark:bg-black dark:text-white mb-10 text-[10px] text-gray-600")
+                                div = insertionWrapper;
+                            }
+
+                            if(['ReadPage3', 'ReadPage2'].includes(kly.pageType)){
+                                if(config[prop]['placeholder'].includes('slide-up')){
+                                    targetElement = document.querySelector(".section.section--infopage").querySelectorAll("p")[3];
+                                }
+                                if(config[prop]['placeholder'].includes('insertion')){
+                                    targetElement = document.querySelector("section.section.section--postcredit");
+                                }
+                            }
+
+                            if(targetElement != null){
+                                targetElement.insertAdjacentElement(injectPos, div);
+                            }
+                    }
+
+                    // Exclude slot if immersive ads request exists - Don.
+                    if(isImmersive && config[prop]['immersiveBlock']){
+                        continue;
+                    }
+
+                    if (!config[prop]['slotCreated'] && !config[prop]['requested'] && targetElement) {
+                        
+                        if (config[prop]['sizes'] == 'OOP') {
+                            if(!isQuran){ //exclude in quran pages
+                                config[prop]['slot'] = googletag.defineOutOfPageSlot(config[prop]['adunit'], config[prop]['placeholder']).setTargeting('position', (+prop + 1)).addService(googletag.pubads());
+                            }
+                        } else {
+                            config[prop]['slot'] = googletag.defineSlot(config[prop]['adunit'], config[prop]['sizes'], config[prop]['placeholder']).setTargeting('position', (+prop + 1)).addService(googletag.pubads());
+                        }
+
+                        googletag.display(config[prop]['placeholder']);
+                        mavRefreshBid(config[prop]['adunit'], config[prop]['slot']);
+                        config[prop]['requested'] = true;
+                        config[prop]['slotCreated'] = true;
+                    }
+                }
+            }
+        }  
+    }
+    function showHSEAds() {
+        var config = adsConfig['hse'];
+        var containerExists = false;
+        for (prop in config) {
+            containerExists = document.querySelector(`#${config[prop]['placeholder']}`) !== null;
+            if (!config[prop]['requested'] && containerExists) {
+                googletag.display(config[prop]['placeholder']);
+                mavRefreshBid(config[prop]['adunit'], config[prop]['slot']);
+                config[prop]['requested'] = true;
+            }
+        }
+    }
+
+    function MavPopulateTargetting() {
+        var articlePages = pageKlyObj && pageKlyObj.article,
+            gtmPages = pageKlyObj && pageKlyObj.gtm,
+            readSection = document.querySelector(`section[data-template-id='73'], section[data-template-id='55'], section[data-template-id='110']`),
+            siteContentText = "",
+            isMatcont = "0",
+            isViolateBrandSafety = "0",
+            bsKeyword = [],
+            pageTitles = '',
+            pageKeyword = '',
+            pageDesc = '',
+            pageTag = '',
+            pageTags = '',
+            getLog = document.cookie.split("gamlibLogger")[1] ? document.cookie.split("gamlibLogger")[1] : ';',
+            loggerCookies = getLog.split(';')[0].match(/(true)/ig) !== null ? true : false;
+
+        if (articlePages) {
+            pageTitles = gfnFilterString(articlePages.title ? articlePages.title : '', ' ');
+            pageKeyword = gfnFilterString(articlePages.keywords ? articlePages.keywords : '', ' ');
+            pageDesc = gfnFilterString(articlePages.shortDescription ? articlePages.shortDescription : '', ' ');
+        } else {
+            pageTitles = gfnFilterString(gtmPages.pageTitle ? gtmPages.pageTitle : '', ' ');
+            pageKeyword = gfnFilterString(gtmPages.keyword ? gtmPages.keyword : '', ' ');
+            pageDesc = gfnFilterString(gtmPages.shortDescription ? gtmPages.shortDescription : '', ' ');
+        }
+
+
+        if (readSection !== null) {
+            var siteContentObject = readSection.querySelectorAll('.dt-para p');
+            if (siteContentObject.length) {
+                siteContentText = Object.entries(siteContentObject).map((v) => {
+                    return v[1] && v[1].innerText;
+                }).join("");
+            }
+        }
+
+        pageKeyword = pageKeyword.concat(pageDocumentMeta("keywords"));
+        pageDesc = pageDesc.concat(pageDocumentMeta("description"));
+        pageTag = pageKlyObj.gtm.tag ? pageKlyObj.gtm.tag : '';
+        pageTags = gfnFilterString(pageTag, "|");
+        siteContentText = gfnFilterString(siteContentText, ' ');
+
+        const BS_KEYWORD_LIST = {
+            'adult': ['adegan erotis', 'adegan seks', 'aduhai', 'adult', 'affair', 'air mani', 'alat bantu seks', 'alat kelamin', 'alat kontrasepsi', 'alat vital pria', 'alergi', 'anal', 'anatomi vagina', 'anjeng', 'anjing', 'anjlng', 'anjrit', 'anus', 'anying', 'apa itu kondom', 'artis indonesia bugil', 'artis porno', 'ass', 'asu', 'ayam hitam', 'babi', 'bahaya masturbasi', 'bajingan', 'bandar ceme', 'bangsat', 'bdsm', 'bego', 'belahan', 'bentuk kelamin', 'bentuk payudara', 'bercinta', 'bercinta saat hamil', 'bergairah', 'berhubungan intim', 'berhubungan seks', 'berhubungan seksual', 'bersetubuh', 'bikini', 'bintang film porno', 'bintang porno', 'biseksual', 'bitch', 'bocah sd foto mesum', 'body shaming', 'bokne', 'bokong', 'bom surabaya 2018', 'boneka seks', 'boob', 'bra', 'bugil', 'bullshit', 'bulshit', 'bulu kemaluan', 'bunuh diri', 'cabul', 'cara berhubungan intim', 'cara membuat suami bergairah', 'cara memperbesar penis', 'cara mengatasi ejakulasi dini', 'cara seksual', 'celana', 'cemani', 'cemen', 'chat firza-rizieq', 'ciuman', 'cleavage', 'cock', 'cok', 'cukur bulu kemaluan', 'cum', 'dada', 'death', 'dewasa', 'di bawah umur', 'dick', 'dildo', 'diremas', 'disfungsi ereksi', 'doggie', 'doll', 'drunk', 'ejakulasi', 'ejakulasi dini', 'ejakulasi wanita', 'eksotik', 'elo', 'entot', 'ereksi', 'erotic', 'erotis', 'ewe', 'exotic', 'fakta seks', 'fase menstruasi', 'fenomena kelainan seksual', 'fetish', 'film dewasa', 'film porno', 'foreplay', 'foto berhubungan intim', 'foto intim', 'foto telanjang', 'fuck', 'gairah', 'gairah seks', 'gairah seksual', 'gangbang', 'gangguan jiwa', 'gangguan seks', 'ganguan jiwa', 'ganguan seksual', 'ganja', 'gay', 'gaya bercinta', 'gaya bercinta dalam islam', 'gaya bercinta yang disukai pria', 'gaya seks', 'gejala penyakit', 'gemar368', 'germo', 'goblok', 'gue', 'gwe', 'hardcore', 'hasrat seksual', 'henceut', 'hindu', 'hitam mafia', 'homoseks', 'horny', 'hot', 'hubungan', 'hubungan intim', 'hubungan seksual', 'ibu hamil', 'implan payudara', 'industri film porno', 'intim', 'itil', 'jancok', 'jancuk', 'jenis alat kontrasepsi', 'jerawat', 'jual beli sperma', 'kacau', 'kakek cabul', 'kamasutra', 'kanibal', 'kanibalisme', 'kanker payudara', 'kapalan', 'kasus asusila', 'kebencian', 'kecanduan seks', 'kehidupan seks', 'kekerasan seksual', 'kelainan seks', 'kelamin', 'kelamin wanita', 'kemaluan', 'kemaluan wanita', 'kencing', 'keperawanan', 'keriting', 'kesehatan kulit dan kelamin', 'kesehatan payudara', 'kesehatan penis', 'kesehatan reproduksi', 'kesehatan wanita', 'khusus deewasa', 'kimpet', 'kisah perselingkuhan', 'kiss', 'klitoris', 'komunitas swinger', 'kondom', 'kondom pria', 'kontol', 'kontolnya', 'kontrasepsi', 'kontroversi hukuman mati', 'kontroversi lgbt', 'kotor', 'kotoran', 'kristen', 'kumuh', 'kursi tantra seks', 'legalisasi ganja', 'lemari es', 'lendir', 'lesbian', 'lgbt', 'libido', 'lingerie', 'lolita', 'lonte', 'm3m3k', 'mabuk', 'mahasiswi', 'mainan dewasa', 'mainan perangsang gairah', 'makanan berbahaya', 'makanan sehat', 'masa subur pria', 'masturbasi', 'matcont', 'mature', 'meki', 'melakukan hubungan intim', 'memek', 'memerkosa', 'mencukur bulu kemaluan', 'menggairahkan', 'menggoda', 'mengupas', 'menstruasi', 'menyiangi', 'meraba-raba', 'mesra', 'mesum', 'mimpi seks', 'mimpi telanjang', 'miss-v', 'mitos seks', 'model hot', 'model seksi', 'monyet', 'mr-p', 'mucikari siswi smp', 'nakal', 'naked', 'naughty', 'ngentot', 'ngewe', 'nipple', 'nipples', 'nonok', 'nude', 'obat ejakulasi dini', 'obat kuat', 'obat pembesar', 'obat pembesar penis terbaik', 'onani', 'oral', 'oral seks', 'organ', 'organ intim wanita', 'orgasme', 'orgasme wanita', 'overdose', 'overdosis', 'paha', 'pakistan', 'pamer', 'pantat', 'panties', 'payudara', 'payudara kecil', 'payudara wanita', 'pelacur', 'pelecehan', 'pelecehan seksual', 'pembesar penis', 'pembunuh', 'pembunuhan', 'pemerkosaan', 'pemerkosaan anak', 'pemuda', 'pencabulan', 'penetrasi', 'penetratif', 'pengetahuan seks', 'pengobatan alternatif', 'penis', 'penis bengkok', 'penis besar', 'penis kecil', 'penis pria', 'penyakit sipilis', 'penyakit vagina', 'penyimpangan seks', 'perawan', 'perawatan vagina', 'perbudakan', 'perek', 'perguruan tinggi', 'perkosa', 'perkosaan', 'permen', 'perselingkuhan', 'piss', 'play boy', 'pole', 'porn', 'porno', 'pornoaksi', 'pornografi', 'posisi bercinta', 'posisi hubungan intim suami istri menurut islam', 'posisi seks', 'posisi seksual', 'pria dewasa', 'pria idaman', 'prostitusi', 'provokatif', 'pukang', 'puki', 'puting', 'puting payudara', 'putting', 'radikal', 'raksasa', 'rangsang payudara', 'ranjang', 'rasis', 'rasisme', 'razia pasangan mesum', 'rokok', 'rudapaksa', 'rumah bordil', 'sbobet', 'seks', 'seks bebas', 'seks dalam islam', 'seks dan agama', 'seks dan kriminal', 'seks dan pasutri', 'seks oral', 'seks pria dan wanita', 'seks toy', 'seksi', 'seksual', 'seksual lelaki dan perempuan', 'seksualitas', 'seksualitas pria', 'seksualitas wanita', 'semen', 'sensual', 'seronok', 'sex', 'sex toy', 'sexy', 'shit', 'siklus menstruasi', 'situs poker terpercaya', 'situs porno', 'skandal', 'sperma', 'stres dan depresi', 'strip', 'striptease', 'striptis', 'suicide', 'sundulan', 'swinger', 'syur', 'tai', 'taik', 'tamparan', 'tante seksi', 'taruhan online', 'telanjang', 'telentang', 'terangsang', 'teroris', 'terorisme', 'tes keperawanan', 'test pack', 'testis', 'tiduri', 'tips bercinta', 'tips seks', 'titik rangsang', 'titit', 'toket', 'tolol', 'topless', 'toys', 'ujian', 'ukuran normal penis', 'ukuran penis', 'ukuran penis normal', 'ukuran penis orang indonesia', 'ukuran vagina', 'vagina', 'vagina gatal', 'vagina wanita', 'vakum pembesar penis', 'viagra', 'vibrator', 'video bercinta dengan pasangan', 'video porno', 'video seks', 'virus corona', 'vital', 'wanita telanjang', 'waria', 'woman on top', 'xxx', 'xxxx online', 'angry', 'bastard', 'blow job', 'bordil', 'college', 'crush', 'dirty', 'education', 'escort', 'furious', 'hiburan dewasa', 'homoseksual', 'household', 'lose', 'meraung', 'pahlawan wanita', 'pedofil', 'pedofilia', 'rises', 'rush', 'Sensitive', 'sexual', 'sialan', 'situs dewasa', 'spray', 'tanah amp', 'teen'],
+            'war_politics': ['ahed tamimi', 'ahok gugat cerai veronica tan', 'aliran sesat', 'anarkis', 'anarkisme suporter sepakbola', 'begal motor', 'bentrok suporter', 'bentrokan', 'bentrokan warga', 'berita hoax', 'capres jokowi', 'capres prabowo', 'fanatik', 'ferdy sambo', 'fpi', 'g30s', 'invasi rusia', 'jemaah ansharut daulah', 'kebohongan ratna sarumpaet', 'kediktatoran arab saudi', 'kekerasan pada wartawan', 'killing', 'kisah mualaf', 'koalisi jokowi', 'koalisi pilpres 2019', 'koalisi prabowo', 'konflik palestina israel', 'konflik palestina-israel', 'konflik rusia ukraina', 'konflik suriah', 'lia eden', 'luwu timur', 'nato', 'penembakan', 'penganiayaan', 'pengawal', 'pengeroyokan', 'penistaan agama', 'perang', 'perang di ukraina', 'perang dunia', 'perang dunia 3', 'perang rusia', 'peristiwa', 'pilpres 2019', 'polisi', 'prabowo subianto', 'prabowo-sandiaga', 'presiden rusia', 'presiden ukraina', 'propaganda rusia', 'ratna sarumpaet', 'rokok elektrik', 'rusia', 'rusia dan ukraina', 'rusia serang ukraina', 'senjata rusia', 'serang ukraina', 'serangan', 'suporter tewas', 'taliban', 'tentara', 'ternyata hoax', 'ujaran kebencian', 'ukraina', 'vladimir putin', 'tni', 'jenderal', 'korupsi', 'politik', 'politikus', 'kpk', 'kkb', 'penjajah', 'berduka', 'army', 'corpse', 'demo', 'dilempar', 'ferdi sambo', 'news', 'news foto', 'news readers', 'politic', 'politics', 'polri', 'Palestina', 'israel', 'boikot', 'yahudi', 'ajudan', 'gaza', 'hamas', 'perwira', 'sianida', 'capres', 'cawapres', 'pemilu', 'ganjar pranowo', 'mahfud md', 'gibran rakabuming', 'anies baswedan', 'muhaimin iskandar', 'cak imin', 'politik', 'mirna', 'jessica wongso', 'makam', 'ganjar', 'anies', 'gibran', 'anis', 'presiden', 'bacapres', 'prabowo', 'mahfud', 'megawati', 'mk', 'mahkamah', 'iriana', 'firaun', 'mesir', 'ham', 'hak asasi manusia', 'cpns', 'militer', 'amunisi', 'senjata', 'senpi', 'kpu', 'partai', 'wapres', 'menteri', 'dpr', 'mrp', 'mpr', 'caleg', 'calon legislatif', 'anggota dpr', 'anggota mpr', 'bupati', 'wakil bupati', 'walikota', 'walkot', 'anggota dprd', 'dprd', 'bawaslu', 'komcad', 'cacar', 'gubernur', 'wakil gubernur', 'partai politik', 'parpol'],
+            'drugs_tobacco_alcohol': ['adiktif', 'akibat merokok', 'alcohol', 'alkohol', 'artis narkoba', 'asap rokok', 'bahaya berhenti merokok', 'bahaya merokok', 'bahaya narkoba', 'bahaya rokok', 'bahaya rokok elektrik', 'berhenti merokok', 'bnn', 'cancer', 'candy', 'cara berhenti merokok', 'cbd', 'ciri ciri pengguna narkoba', 'dampak merokok', 'djarum', 'drugs', 'efek berhenti merokok', 'ganja', 'hash', 'impotensi', 'jantung', 'jenis alkohol', 'jenis alkohol dalam minuman keras', 'jenis jenis narkoba', 'jenis narkotika', 'kanker', 'kartel narkoa', 'kasus narkoba', 'kecanduan', 'kesehatan paru', 'larangan merokok', 'mafia narkoba', 'manfaat berhenti merokok', 'merokok', 'minuman beralkohol', 'minuman keras', 'narkoba', 'narkoba artis', 'obat psikotropika', 'overdosis', 'pelanggaran', 'penyalahgunaan narkoba', 'penyeludupan narkoba', 'perokok', 'pot', 'pppa', 'rehabilitasi narkoba', 'remaja narkoba', 'rokok', 'rokok elektrik', 'ruu minuman beralkohol', 'sabu', 'selebriti narkoba', 'sidang narkoba', 'stroke', 'tablet', 'tembakau', 'tips berhenti merokok', 'cukai rokok', 'kokain', 'puntung'],
+            'disaster': ['10 macam pencemaran lingkungan', 'autopsi', 'bahaya pencemaran udara', 'bahaya polusi', 'belasungkawa', 'bencana', 'bencana besar', 'bola', 'bom', 'bom atom', 'bom bali', 'bom bunuh diri', 'bom gereja', 'bom meledak', 'bom nuklir', 'bom panci', 'bom sarinah', 'bom seks', 'bunuh orang', 'cara mencegah global warming', 'cara mencegah pemanasan global', 'cara mengatasi pemanasan global', 'cara mengatasi pemanasan global sebagai pelajar', 'cara mengatasi pencemaran udara', 'climate change', 'contoh pencemaran lingkungan', 'dampak pencemaran lingkungan', 'dampak pencemaran udara', 'darurat bencana', 'dilaporkan tewas', 'dimakamkan', 'dinyatakan meninggal', 'dipastikan tewas', 'ditemukan mati', 'ditemukan tewas', 'efek rumah kaca', 'efek rumah kaca adalah', 'fenomena alam', 'gas', 'gas rumah kaca', 'gempa donggala', 'gempa palu', 'gempa sulawesi tengah', 'global warming', 'global warming adalah', 'hilangkan nyawa', 'hilangnya nyawa', 'identitas korban', 'inalillahi', 'isis', 'jasad', 'jasad korban', 'jasadnya', 'jenasah wanita', 'jenazah', 'jenazah pria', 'jenazah teridentifikasi', 'jenis pencemaran lingkungan', 'kapal tenggelam', 'kapal tenggelam di danau toba', 'kasus penebangan pohon', 'kasus tabrak lari', 'keadaan kritis', 'kecelakaan', 'kecelakaan bus', 'kehilangan darah', 'kehilangan hidupnya', 'kehilangan nyawa', 'kehilangan nyawanya', 'kematian', 'korban', 'korban jiwa', 'korban meninggal', 'korban tewas', 'kota paling berpolusi', 'kota paling berpolusi didunia', 'krisis iklim', 'kualitas udara', 'ledakan bom', 'liga', 'limbah', 'limbah pabrik', 'lion air hilang kontak', 'lion air jatuh', 'lion air jatuh di karawang', 'macam pencemaran lingkungan', 'mati', 'mayat', 'mayat korban', 'meledak', 'memakan nyawa', 'membakar', 'membunuh', 'membunuh istrinya', 'membunuh mereka', 'membunuh suaminya', 'menelan nyawa', 'menemui ajal', 'menewaskan', 'menewaskan orang', 'mengalami koma', 'mengamuk', 'mengancam nyawa', 'menghembuskan nafas terakhir', 'menimbulkan korban', 'meninggal', 'meninggal akibat sakit', 'meninggal dunia', 'menyebabkan kematian', 'meregang nyawa', 'meregggut nyawa', 'merenggut jiwa', 'merenggut nyawa', 'modar', 'nyawa hilang', 'nyawa melayang', 'nyawa tak tertolong', 'orang mati', 'orang tewas', 'pelayat', 'pemakaman', 'pemanasan global', 'pemanasan global adalah', 'pembunuhan', 'pembunuhan sadis', 'pencemaran', 'pencemaran air', 'pencemaran air bersih', 'pencemaran air laut', 'pencemaran limbah', 'pencemaran lingkungan', 'pencemaran minyak', 'pencemaran sungai', 'pencemaran sungai brantas', 'pencemaran udara', 'penemuan mayat', 'pengertian efek rumah kaca', 'pengertian efek rumah kaca menurut para ahli', 'pengertian pemanasan global', 'penyakit polusi udara', 'penyakit yang disebabkan oleh polusi udara', 'penyebab efek rumah kaca', 'penyebab global warming', 'penyebab kematian', 'penyebab kerusakan lingkungan', 'penyebab pemanasan global', 'penyebab pemanasan global akibat aktivitas manusia', 'penyebab pencemaran air', 'penyebab pencemaran udara', 'penyebab perubahan iklim', 'penyebab perubahan iklim global', 'penyebab polusi udara', 'penyebab terjadinya efek rumah kaca', 'penyebab terjadinya pemanasan global', 'penyebab terjadinya pemanasan global dan efek rumah kaca', 'permintaan maaf', 'pertandingan', 'perubahan iklim', 'perubahan iklim global', 'pesawat hilang kontak', 'pesawat jatuh', 'petugas penyelamat', 'piala dunia', 'pollution', 'polusi', 'polusi jakarta', 'polusi udara', 'polusi udara di jakarta', 'polutan', 'renggut nyawa', 'sampah plastik', 'sepak', 'stadion', 'tak bernyawa', 'tak sadarkan diri', 'telah meninggal', 'telan nyawa', 'terbunuh', 'terkapar', 'teror bom', 'tewas', 'tewaskan', 'tidak bernyawa', 'timnas', 'tim penyelamat', 'trauma', 'tsunami palu', 'tutup usia', 'udara bersih', 'udara jakarta', 'wafat', 'wanita meninggal', 'won'],
+            'epidemic_desease': ['corona', 'corona di indonesia', 'covid', 'covid 19', 'covid-19', 'doctor', 'dokter', 'health', 'healthy', 'hospital', 'infeksi saluran kencing', 'insomnia dan tidur', 'kematian', 'kematian virus', 'kematian wabah', 'kesehatan', 'korban terinfeksi', 'korona', 'obesitas', 'odp', 'osteoporosis', 'pdp', 'penyakit', 'positif korona', 'rsud', 'rumah sakit', 'sakit pernapasan', 'sedih', 'sehat', 'sesak', 'terinfeksi virus corona', 'terjangkit covid-19', 'terkena', 'virus', 'virus corona', 'virus korona', 'virus menyerang', 'virus-corona', 'wabah', 'wabah corona', 'crowd', 'dead', 'die', 'fail', 'fatal', 'fire', 'flu', 'illness', 'kanjuruhan', 'kanker paru paru', 'kerusuhan', 'murder', 'pneumonia', 'pulau sampah', 'stampede', 'tembak', 'tergeletak', 'terinjak', 'tragedi', 'trigger'],
+            'religion': ['15lam', 'abu bakar al-baghdadi', 'al quran', 'al-quran', 'buda', 'budha', 'ibrahim al-hashimi al-qurayshi,', 'injil', 'isl4m', 'islam', 'ismi aisyah', 'jimat', 'kafir', 'katolik', 'muh4mmad', 'muhammad', 'muhammad saw', 'nabi', 'yesus', 'idul fitri', 'puasa', 'ramadan', 'ramadhan'],
+            'gambling': ['agen poker', 'agen sbobet', 'bonus deposit', 'bonus refferal', 'bonus rollingan', 'cashtree', 'game', 'judi', 'minimal deposit', 'poker', 'poker online'],
+            'parenting': ['anak', 'anak artis', 'anak cerdas', 'anak dan balita', 'anak mandiri', 'anak selebritis', 'anak selebritis indonesia', 'arti nama anak', 'arti nama bayi', 'artis bercerai', 'artis hamil', 'asi anak', 'ayah', 'baby', 'baby ameena', 'baby arsy', 'baby bump', 'baby bump artis', 'baby dan balita', 'baby face', 'baby gempi', 'baby leslar', 'baby shower', 'baby shower selebritis', 'baby sitter', 'baby spa', 'baby walker', 'babymoon', 'babymoon artis', 'babyologist', 'baru lahir', 'bayi', 'bayi 6 bulan', 'bayi artis', 'bayi dan anak', 'bayi kembar', 'bayi muntah', 'bayi pilek', 'bayi seleb', 'bayi selebritis', 'bayi selebritis indonesia', 'bayi tabung', 'camilan bayi', 'cara mengeluarkan dahak pada bayi', 'child', 'children', 'family', 'father', 'gaya baby', 'ibu', 'ibu anak', 'induk', 'jadwal makan bayi', 'jam tidur bayi', 'kehamilan', 'keibuan', 'kelahiran anak', 'kelahiran bayi', 'keluarga', 'keluarga artis', 'keluarga bahagia', 'keluarga dan anak', 'keluarga harmonis', 'keluarga penjabat', 'keluarga seleb', 'kesehatan bayi', 'kesehatan bayi dan balita', 'kesehatan keluarga', 'kid', 'masalah anak', 'mendidik anak', 'menyusui', 'mother', 'mpasi', 'nama anak', 'nama anak islam', 'nama anak kristen', 'nama anak laki laki', 'nama anak perempuan', 'nama anak sansekerta', 'nama bayi', 'nama bayi islam', 'nama bayi kristen', 'nama bayi laki laki', 'nama bayi laki laki unik', 'nama bayi perempuan', 'nama bayi perempuan unik', 'nama bayi sansekerta', 'newborn', 'orang tua', 'parent', 'parenting', 'pendidikan', 'penyakit bayi', 'penyebab bayi muntah', 'perawatan bayi', 'perceraian artis', 'perkembangan janin', 'perlengkapan bayi', 'pertumbuhan anak', 'pijat bayi', 'remaja', 'resep mpasi', 'rumah tangga', 'school', 'sekolah', 'spa baby', 'tips parenting', 'ucapan kelahiran', 'youth'],
+            'custom_keys': ['ahed tamimi', 'aliran sesat', 'anarkis', 'anarkisme suporter sepakbola', 'begal motor', 'bentrok suporter', 'bentrokan', 'bentrokan warga', 'berita hoax', 'capres jokowi', 'capres prabowo', 'fanatik', 'ferdy sambo', 'fpi', 'g30s', 'invasi rusia', 'jemaah ansharut daulah', 'kediktatoran arab saudi', 'kekerasan pada wartawan', 'killing', 'kisah mualaf', 'koalisi jokowi', 'koalisi pilpres 2024', 'koalisi prabowo', 'konflik palestina israel', 'konflik palestina-israel', 'konflik rusia ukraina', 'konflik suriah', 'luwu timur', 'nato', 'penembakan', 'penganiayaan', 'pengawal', 'pengeroyokan', 'penistaan agama', 'perang', 'perang di ukraina', 'perang dunia', 'perang dunia 3', 'perang rusia', 'peristiwa', 'pilpres 2024', 'prabowo subianto', 'prabowo-sandiaga', 'presiden rusia', 'presiden ukraina', 'propaganda rusia', 'ratna sarumpaet', 'rusia', 'rusia dan ukraina', 'rusia serang ukraina', 'senjata rusia', 'serang ukraina', 'serangan', 'suporter tewas', 'taliban', 'tentara', 'ternyata hoax', 'ujaran kebencian', 'ukraina', 'vladimir putin', 'korupsi', 'kpk', 'kkb', 'penjajah', 'berduka', 'army', 'corpse', 'demo', 'dilempar', 'ferdi sambo', 'Palestina', 'israel', 'boikot', 'yahudi', 'ajudan', 'gaza', 'hamas', 'perwira', 'sianida', 'capres', 'cawapres', 'pemilu', 'ganjar pranowo', 'mahfud md', 'gibran rakabuming', 'anies baswedan', 'muhaimin iskandar', 'cak imin', 'mirna', 'jessica wongso', 'makam', 'ganjar', 'anies', 'gibran', 'anis', 'presiden', 'bacapres', 'prabowo', 'mahfud', 'megawati', 'mk', 'mahkamah', 'iriana', 'ham', 'hak asasi manusia', 'cpns', 'militer', 'amunisi', 'senjata', 'senpi', 'kpu', 'partai', 'caleg', 'calon legislatif', 'bawaslu', 'cacar', 'gubernur', 'wakil gubernur', 'partai politik', 'parpol', 'calon wakil presiden', 'calon presiden', 'amin', 'pemilihan umum', 'calon anggota dpr', 'calon anggota mpr', 'calon anggota dprd', 'bacaleg', 'genosida', 'genocide', 'kampanye', 'blusukan', 'safari politik', 'gagal ginjal akut', 'gas air mata', 'pregnancy', 'smoker', 'tragedi kanjuruhan', 'tween']
+
+        };
+
+        siteContentText = [...new Set(pageKeyword.concat(pageTitles, ' ', pageDesc, ' ', pageTags, ' ', siteContentText))].join(" ");
+        if (loggerCookies) {
+            console.log("siteContentText : ", siteContentText);
+        }
+
+        for (var bsKey in BS_KEYWORD_LIST) {
+            var subKeywordList = BS_KEYWORD_LIST[bsKey];
+            if (subKeywordList.length > 0) {
+                if (matchString = new RegExp("\\b(" + subKeywordList.join("|") + ")\\b", "ig").exec(siteContentText)) {
+                    bsKeyword.push(bsKey);
+                }
+            }
+        }
+        if (loggerCookies) {
+            console.log("bsKeyword : ", bsKeyword);
+        }
+
+        if (bsKeyword.length > 0) {
+            googletag.pubads().setTargeting("bsKeyword", bsKeyword);
+            googletag.pubads().setTargeting("brandsafety", isViolateBrandSafety);
+        }
+
+        googletag.pubads().setTargeting("isMatcont", (typeof pageKlyObj !== 'undefined' && typeof pageKlyObj.article !== 'undefined' && pageKlyObj.article.isAdultContent === true) ? "1" : isMatcont);
+        googletag.pubads().setTargeting("tags", pageTags);
+        googletag.pubads().setTargeting("articleTitle", pageKlyObj.gtm.articleTitle);
+        googletag.pubads().setTargeting("articlePath", window.location.pathname);
+        googletag.pubads().setTargeting("platform", pageKlyObj.platform);
+        googletag.pubads().setTargeting("type", pageKlyObj.gtm.type);
+        googletag.pubads().setTargeting("pageType", (pageKlyObj.pageType ? pageKlyObj.pageType : 'Maverick'));
+        googletag.pubads().setTargeting("channel", pageKlyObj.gtm.subCategory);
+        googletag.pubads().setTargeting("audience", typeof(audience = pageKlyObj.gtm.audience && pageKlyObj.gtm.audience.split("|")) === "undefined" ? "false" : audience);
+        googletag.pubads().setTargeting("isAdvertorial", typeof(isAdvertorial = pageKlyObj.article && pageKlyObj.article.isAdvertorial.toString()) === "undefined" ? "false" : isAdvertorial);
+        googletag.pubads().setTargeting("articleId", pageKlyObj.gtm.articleId.toString());
+        googletag.pubads().setTargeting("site", pageKlyObj.site);
+        googletag.pubads().setTargeting("age", typeof(age = pageKlyObj.gtm.age) === "undefined" ? "false" : pageKlyObj.gtm.age.toString());
+        googletag.pubads().setTargeting("gender", typeof(gender = pageKlyObj.gtm.gender) === "undefined" ? "false" : pageKlyObj.gtm.gender.toString());
+        googletag.pubads().setTargeting("subcategory", pageKlyObj.gtm.subCategory);
+
+    }
+
+    /* Don. - remove
+    function observeSection() {
+        const targetNode = document.querySelector(".main");
+
+        const config = {
+            childList: true
+        };
+        const callback = (mutationList, observer) => {
+            for (const mutation of mutationList) {
+                if (mutation.type === "childList") {
+                    let section = document.querySelectorAll(".main section.snap-always");
+                    let pageCount = section.length;
+
+                    if (mutation.nextSibling && ["feed-paging", "mvk-feed-early-ajax"].indexOf(mutation.nextSibling.id) > -1) {
+                        mavDefineFeedAdsHatches();
+                    }
+
+                }
+
+            }
+            typeof observer !== "undefined" && typeof observer.unobserve === "function" && observer.unobserve(document.querySelectorAll("section[data-section=mobile-billboard], section[data-section=bottom-feedads]"));
+        };
+
+        const observer = new MutationObserver(callback);
+
+        observer.observe(targetNode, config);
+    }
+
+    function mavDefineFeedAdsHatches() {
+        const config = adsConfig['feeds']; 
+        const hatches = document.querySelectorAll('[data-template="Info-Listing-Image-Vertical-L3"]:not(.section--masthead):not(.ins)');
+
+        let splitKey = 0;
+        let container = [];
+
+        for (var key in hatches) {
+            if (hatches[key].id === "mvk-feed-early-ajax") {
+                splitKey = key;
+                break;
+            }
+        }
+
+        if (+splitKey > 1) {
+            container = Array.prototype.slice.call(hatches, 0, +splitKey);
+        } else {
+            container = hatches;
+        }
+
+        var oId = 0,
+            screen = 1,
+            injectId = 0, 
+            length = container.length;
+
+        while (length--) { 
+            if (length < 0) {
+                length = 1;
+            }
+            if (container[length].id.match(/gpt-ad-div-section-/ig)) {
+                injectId = length;
+                length = 1;
+            }
+        }
+
+        if (injectId > 0) {
+            container = Array.prototype.slice.call(hatches, injectId + 1, hatches.length);
+        }
+
+        Array.prototype.forEach.call(container, (v, k) => {
+            v.classList.add("ins");
+            if (!((k + 1) % multiplied)) { 
+                let injectedElement = v.nextElementSibling;
+                let i = 0;
+                for (const prop in config) {
+                    if (config.hasOwnProperty(prop)) {
+                        if (!config[prop]['slotCreated']) { 
+                            MavCreateContainerAds(prop, injectedElement);
+                            definedFeedSlot(prop, (screen === 1)); 
+                            config[prop]['slotCreated'] = true;
+                            i++;
+                        }
+                        if (i == order[oId]) { 
+                            let next = oId + 1; 
+                            next = !order[next] ? order[0] : order[next];
+                            nextAdsId = minusOneConfig.slice(0, next);
+                            for (let shift = 0; shift < next; shift++) { 
+                                minusOneConfig.shift();
+                            }
+                            
+                            if(injectedElement){
+                                if (injectedElement.dataset.section === "content-break") {
+                                    injectedElement.nextElementSibling && (injectedElement.nextElementSibling.dataset.nextId = nextAdsId.join("|"));
+                                } else {
+                                    injectedElement.dataset.nextId = nextAdsId.join("|");
+                                }
+                            }
+
+                            break;
+                        };
+                    }
+                }
+
+                oId++;
+                screen++;
+            }
+            lastPageOrder = oId;
+            oId = (oId == order.length) ? 0 : oId;
+        })
+    }
+
+    function MavCreateContainerAds(index, currentEl) {
+        targetElID = "gpt-ad-div-section-" + index;
+        targetAdsID = targetElID + "-placeholder";
+        var targetEl = document.getElementById(targetElID);
+        if (typeof(targetEl) == 'undefined' || targetEl == null) {
+            let div = document.createElement('section');
+            div.id = targetElID;
+            div.dataset.section = "IAB";
+            div.dataset.theme = "ads";
+            div.style = "aspect-ratio: 360/640;overflow:unset;max-height:640px";
+            div.dataset.adsPosition = Math.floor(index / multiplied);
+            div.className = 'section w-full max-w-[640px] ads-section bg-gray-50 dark:bg-black dark:text-white mb-6';
+            div.innerHTML = `
+                <div id="${targetElID}-loader" class="hidden" style="width:24px;height:24px;position:fixed;top:10px;z-index:1;left:50%">
+                    <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+                        <path fill="#fff" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                            <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+                        </path>
+                    </svg>
+                </div>
+                <div class="banner text-gray-400 text-xs p-2 pb-4 mb-6">
+                    <span class="text-center upperase block mb-2">ADVERTISEMENT</span>
+                    <div id="${targetAdsID}" class="placeholder justify-center items-center section-body flex flex-col h-full relative sasa mb-8" style="--content:'${adsConfig['sponsored-text']}'; "></div>
+                </div>
+            `;
+
+            if (currentEl) {
+                if (currentEl.nextElementSibling && currentEl.nextElementSibling.id === "mvk-feed-early-ajax") {
+                    currentEl.nextElementSibling.insertAdjacentElement("beforebegin", div);
+                } else {
+                    currentEl.insertAdjacentElement("beforebegin", div);
+                }
+
+                setTimeout(() => {
+                    window.io.observe(div);
+                }, 100);
+            }
+        }
+    }
+    */
+
+    function MavMakingAdsRequest(currentEl, i) {
+        if (isFirstLoad) {
+            document.querySelector('.main') && document.querySelector('.main').addEventListener('scroll', mainBodyScroller);
+            //mavDefineFeedAdsHatches(); Don. - remove
+            //observeSection(); Don. - remove
+            isFirstLoad = false;
+        }
+
+        /* Don. - remove
+        googletag.cmd.push(function() {
+            const config = adsConfig['feeds'];
+            var nextId = currentEl.dataset.nextId,
+                nextIds = [],
+                adsContainer = currentEl.id.match(/gpt-ad-div-section/ig);
+
+            if (nextId) {
+                nextIds = currentEl.dataset.nextId.split("|");
+                for (nextIndex of nextIds) {
+                    nextIndex = +nextIndex;
+                    if (config[nextIndex]) {
+                        if (!config[nextIndex]['requested'] && !config[nextIndex]['isLazyLoading'] ) {
+                            if (document.querySelector(`#${config[nextIndex]['placeholder']}`)) {
+                                mavRefreshBid(config[nextIndex]['adunit'], config[nextIndex]['slot']);
+                                config[nextIndex]['requested'] = true;
+                            }
+                        }
+                    }
+                }
+            }
+        });*/
+    }
+
+    function gfnFilterString(str, delimiter) {
+        let arr = str.replace(/[^A-Za-z0-9]+/ig, " ").trim().split(delimiter).map(function(t) {
+            return t.trim().toLowerCase();
+        });
+        return [...new Set(arr)];
+    }
+
+    function pageDocumentMeta(metaName) {
+        var metaResult = '';
+        var metas = document.getElementsByTagName('meta');
+        if (metas) {
+            for (var x = 0, y = metas.length; x < y; x++) {
+                if (metas[x].name.toLowerCase() == metaName) {
+                    metaResult += metas[x].content;
+                }
+            }
+        }
+        return gfnFilterString(metaResult != '' ? metaResult : '', ' ');
+    }
+
+    function mainBodyScroller() {
+        var adsRMBVisible = document.querySelector('[data-section="RMB-shrink"].is-visible'),
+            mainBody = document.querySelector('.main'),
+            getLog = document.cookie.split("gamlibLogger")[1] ? document.cookie.split("gamlibLogger")[1] : ';',
+            loggerCookies = getLog.split(';')[0].match(/(true)/ig) !== null ? true : false;
+
+        if (adsRMBVisible) {
+            if (mainBody.scrollTop > (adsRMBVisible.offsetTop + 45)) {
+                adsRMBVisible.classList.add('shrink');
+            } else {
+                adsRMBVisible.classList.remove('shrink');
+            }
+        }
+    }
+
+    function mavInitPrebidAdunits() {
+        const configs = adsConfig;
+        const site = pageKlyObj.site;
+
+        if (!['dream.co.id', 'merdeka.com'].includes(site)) return;
+
+        var bidders = [];
+        var adUnits = [];
+
+        switch (site) {
+            case 'merdeka.com':
+                bidders = [{
+                    bidder: 'rubicon',
+                    params: {
+                        accountId: 12534,
+                        siteId: 377458,
+                        zoneId: 2082388,
+                        dealId: 3772766
+                    }
+                }];
+                break;
+            case 'dream.co.id':
+                bidders = [{
+                    bidder: 'rubicon',
+                    params: {
+                        accountId: 12534,
+                        siteId: 377456,
+                        zoneId: 2082386
+                    }
+                }];
+                break;
+        }
+
+        for (name in configs) {
+            if (['feeds', 'hse', 'multi'].indexOf(name) > -1) {
+                let config = configs[name];
+                for (key in config) {
+                    let val = config[key];
+                    if (val.isPrebidSlot) {
+                        adUnits.push({
+                            code: val.adunit,
+                            mediaTypes: {
+                                banner: {
+                                    sizes: val.sizes,
+                                },
+                            },
+                            bids: bidders,
+                        })
+                    }
+                }
+            }
+        }
+
+        pbjs.que.push(function() {
+            pbjs.addAdUnits(adUnits);
+        });
+    }
+    
+
+    function mavRefreshBid(code, slot) {
+        const site = pageKlyObj.site;
+
+        //googletag.pubads().refresh([slot]);
+ 
+        if (!['dream.co.id', 'merdeka.com'].includes(site)) {
+            googletag.pubads().refresh([slot]);
+            return;
+        } 
+
+        pbjs.que.push(function() {
+            pbjs.rp.requestBids({
+                callback: function() {
+                    googletag.pubads().refresh([slot]);
+                },
+                gptSlotObjects: [slot]
+            });
+        });
+        
+    }
+</script>
+<style>
+    .placeholder:empty::before {
+        background-color: dimgrey;
+        border-radius: 5px;
+        color: lightgrey;
+        content: "Ad";
+        font: 12px sans-serif;
+        padding: 3px;
+        text-align: center;
+        width: 20px;
+    }
+
+    /*style observer*/
+    .ads-el-observer {
+        position: absolute;
+        top: -20vh;
+        width: 25px;
+        height: 25px;
+        background-color: transparent;
+        z-index: 999;
+        pointer-events: none;
+    }
+</style>
+<!-- GPT ADS END -->
