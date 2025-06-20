@@ -1,0 +1,994 @@
+<script type="module">
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+    import {getAnalytics, logEvent} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+    import {getRemoteConfig, fetchAndActivate, getValue} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-remote-config.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDGt_EBulRPrTRA5fyA8mTJy4oyu-bxXYE",
+        authDomain: "kly-all-vertical.firebaseapp.com",
+        projectId: "kly-all-vertical",
+        storageBucket: "kly-all-vertical.appspot.com",
+        messagingSenderId: "1031270433652",
+        appId: "1:1031270433652:web:ecaa223f7397c59bca6221",
+        measurementId: "G-YV9LXF9F74"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const remoteConfig = getRemoteConfig(app);
+
+    //load modul to window object
+    window.fbase = {
+        app: app,
+        analytics: analytics,
+        remoteConfig: remoteConfig,
+        logEvent: (key, val) => {
+            return logEvent(analytics, key, val)
+        },
+        fetchAndActivate: fetchAndActivate,
+        getValue: (key) => {
+            return getValue(key)
+        }
+    } 
+</script>
+
+<script>
+    // TOPFRAME SHRINKING V2
+    var _adsvisible_ = {
+        "topframe" : false,
+        "topframeClassTweak" : false,
+        "topframeScrollBackToTop" : false,
+    }
+    var _PARENT_BODY_ = null;
+    var _PARENT_BODY_TARGET_ = null;
+    var _TOPFRAME_PARENT_WRAPPER_ = null;
+    var _TOPFRAME_STICKY_TYPE_ = null;
+    var _TOPFRAME_WRAPPER_ = null;
+    var _TOPFRAME_STICKY_ = false;
+    var _TOPFRAME_STICKY_END_ = false;
+    var _TOPFRAME_STICKY_LAST_SCROLL_ = 0;
+    var _TOPFRAME_STICKY_LAST_SCROLL_END_ = 0;
+    var _TOPFRAME_STICKY_SCROLL_SPEED_ = 10;
+    var _TOPFRAME_STICKY_TIME_ = 7;
+    var _TOPFRAME_STICKY_IS_READY_ = false;
+    var _turnOff_ = false;
+    var _IS_IOS_ = parent.window.navigator.platform.match(/iPhone|iPod|iPad/);
+    var _ORINETATION_ = (_IS_IOS_) ? parent.window.orientation : parent.screen.orientation.angle;
+
+    var _NAVBAR_ = null;
+    var _MAIN_ = null;
+    var _LAYOUT_ADS_ = null;
+
+    var _TOPFRAME_STICKY_CUSTOM_STYLE_ = document.createElement("style");
+
+    // END TOPFRAME SHRINKING V2
+
+    /*PROTOTYPE CUSTOM FILTERING*/
+    String.prototype.klyFiltering = function(delimiter) {
+        return this.trim().split(delimiter).map(function(t) {
+            return t.trim().toLowerCase()
+        }).filter(x => x != "");
+    };
+    
+    /*TTD SETTINGS - START*/
+    window.uid2_settings={UID2_BASE_URL:"https://sg.prod.uidapi.com",SERVER_PUBLIC_KEY:"UID2-X-P-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAErJteoXafwuvaFfhbPyHrM28q1ndSq4z4ozoTTo10K7LUPq2BaD6I548x8in/hNwEV6JvCaofdFOJtsV3WGrV2g==",SUBSCRIPTION_ID:"gk8wCgxku5"};const GET_UID2_COOKIE=document.cookie.split(";").find(a=>a.match(/(kly_uidmail|kly_uidphone)=/ig)),KLY_UID2=!!GET_UID2_COOKIE&&GET_UID2_COOKIE.trim().split(/(kly_uidmail|kly_uidphone)=/ig).filter(a=>a);
+    window.getUid2AdvertisingToken=async()=>{let a;try{a=JSON.parse(localStorage.getItem("__uid2_advertising_token")).latestToken.advertising_token}catch(a){console.log(a)}return a};
+    /*TTD SETTINGS - END */
+
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+
+    window.GAMLibrary = {};
+    window.GAMLibrary = {
+        dfpSlideup: '/36504930/KLY/MOBILE/LIPUTAN6.COM/SLIDE_UP',
+        dfpExposer: '/36504930/KLY/MOBILE/LIPUTAN6.COM/EXPOSER',
+        dfpBottomFrame: '/36504930/KLY/MOBILE/LIPUTAN6.COM/BOTTOM_FRAME',
+        dfpFloatingPin: '/36504930/KLY/MOBILE/LIPUTAN6.COM/FLOATING_PIN',
+        dfpTopFrame: '/36504930/KLY/MOBILE/LIPUTAN6.COM/MASTHEAD',
+        dfpHeadline: '/36504930/KLY/MOBILE/LIPUTAN6.COM/HEADLINE',
+        dfpInterstitial: '/36504930/KLY/MOBILE/LIPUTAN6.COM/INTERSTITIAL',
+        dfpWidget: '/36504930/KLY/MOBILE/LIPUTAN6.COM/WIDGET',
+        timedBottomFrm: null,
+        timedFloatingPin: null,
+        dfpPageNum: 1,
+        tags: '',
+        infiniteSCId: 1,
+        topFrameFixedSize: 1,
+        articleType: {
+            "TextTypeArticle": {
+                'scroll': 50
+            },
+            "VideoGallery": {
+                'scroll': 50
+            },
+            "PhotoGallery": {
+                'scroll': 0
+            },
+            "photoObjectLoader": {
+                'scroll': 50
+            },
+            "default": {
+                'scroll': 50
+            },
+        },
+        setGamBFInterval: function(active = true) {
+            if (!active) {
+                clearInterval(window.GAMLibrary.gamBFInterval);
+                return;
+            }
+            window.GAMLibrary.gamBFInterval = setInterval(function() {
+                document.querySelector(".banner--bottomframe").style.display = "block";
+                document.querySelector("#dfp-spinads") && document.querySelector("#dfp-spinads").parentElement.remove();
+                
+                googletag.pubads().refresh([window.GAMLibrary.refreshSlot]);
+                
+                typeof SPAFreezeBody == 'function' ? SPAFreezeBody(false) : '';
+            }, 60000);
+        },
+        setGamBFCloseBtn: function() {
+            let buttonCloseBframeClick = document.createElement("a");
+            buttonCloseBframeClick.setAttribute("href", "#");
+            buttonCloseBframeClick.setAttribute("id", "dfp-bframe-close");
+            buttonCloseBframeClick.setAttribute("onclick", "document.querySelector('.banner.banner--bottomframe').style.display='none'; return false;");
+            buttonCloseBframeClick.setAttribute("style", "width: 20px; position: absolute; margin-left: 150px; top: -20px; z-index: 99999;");
+            let buttonCloseBframeImg = document.createElement("img");
+            buttonCloseBframeImg.setAttribute("src", "https://cdns.klimg.com/d.kapanlaginetwork.com/banner/preview/2019/08/20/close.png");
+            buttonCloseBframeImg.setAttribute("style", "width: 20px; border: none;");
+            buttonCloseBframeClick.appendChild(buttonCloseBframeImg);
+            let checkBframeContainer = setInterval(function() {
+                if (document.querySelector(".banner.banner--bottomframe") !== null) {
+                    document.querySelector(".banner.banner--bottomframe").style.textAlign = "center";
+                    document.querySelector(".banner.banner--bottomframe").style.display = "block";
+                    document.querySelector(".banner.banner--bottomframe").insertAdjacentElement("afterBegin", buttonCloseBframeClick);
+                    clearInterval(checkBframeContainer);
+                }
+            }, 500);
+        },
+        documentMeta: function(metaName) {
+            var metaResult = '';
+            var metas = document.getElementsByTagName('meta');
+            if (metas) {
+                for (var x = 0, y = metas.length; x < y; x++) {
+                    if (metas[x].name.toLowerCase() == metaName) {
+                        metaResult += metas[x].content;
+                    }
+                }
+            }
+            return metaResult != '' ? metaResult : '';
+        },
+        scrollBottomFrame: function() {
+            this.scroll = function() {
+                var scrollNode = document.scrollingElement || document.documentElement;
+                var scrollTop = scrollNode.scrollTop;
+                var pageType = kmklabs.gtm.type == '' ? 'default' : kmklabs.gtm.type;
+                if (scrollTop >= this.articleType[pageType].scroll) {
+                    if (!this.timedBottomFrm) {
+                        this.timedBottomFrm = googletag.defineSlot(this.dfpBottomFrame, [
+                            [320, 50],
+                            [320, 100]
+                        ], 'div-gpt-ad-liputan6-bottomfrm').addService(googletag.pubads()).setTargeting('pagingNum', '1');
+                        
+                        googletag.pubads().refresh([this.timedBottomFrm]);
+                        
+                        this.refreshSlot = this.timedBottomFrm;
+                        this.setGamBFInterval();
+                        this.setGamBFCloseBtn();
+                    } else {
+                        window.removeEventListener("scroll", this.scroll);
+                    }
+
+                }
+            };
+            this.scrollHandler = this.scroll.bind(this);
+            window.addEventListener("scroll", this.scrollHandler);
+        },
+        scrollFloatingPin: function() {
+            this.scroll = function() {
+                var scrollNode = document.scrollingElement || document.documentElement;
+                var scrollTop = scrollNode.scrollTop;
+                var pageType = kmklabs.gtm.type == '' ? 'default' : kmklabs.gtm.type;
+                if (scrollTop >= this.articleType[pageType].scroll) {
+                    if (!this.timedFloatingPin) {
+                        this.timedFloatingPin = googletag.defineSlot(this.dfpFloatingPin, [
+                            [1, 1],
+                            ['fluid']
+                        ], 'div-gpt-ad-liputan6-floating-pin').addService(googletag.pubads()).setTargeting('pagingNum', '1');
+                        googletag.pubads().refresh([this.timedFloatingPin]);
+                    } else {
+                        window.removeEventListener("scroll", this.scroll);
+                    }
+                }
+            };
+            this.scrollHandler = this.scroll.bind(this);
+            window.addEventListener("scroll", this.scrollHandler);
+        },
+        exposerInterscroller: function(event) {
+            var _domId_ = event.slot.getSlotId().getDomId();
+
+            var _domTarget_ = document.getElementById(_domId_)
+            var _is300x250_ = JSON.stringify(event.size) == '[300,250]'
+            if (_is300x250_ && _domId_.includes("exposer")) {
+                var interscrollerStyle = document.createElement("style");
+                interscrollerStyle.textContent = ".interscroller-wrapper{min-height: 600px;background: #F5F5F5;} .interscroller{position: sticky !important; top: 0;} .interscroller div{min-height: 250px !important;}";
+
+                _domTarget_.classList.add("interscroller");
+                _domTarget_.parentElement.classList.add("interscroller-wrapper");
+
+                if (document.querySelectorAll(".interscroller-wrapper").length <= 1) {
+                    document.head.appendChild(interscrollerStyle);
+                }
+            }
+        },
+        brandSafetyChecker: function() {
+            var _klyObject = typeof window.kly !== 'undefined' ? window.kly : window.kmklabs,
+                _articlePages = _klyObject && _klyObject.article,
+                _isAdultContent = _articlePages && _articlePages.isAdultContent,
+                isMatcont = "0",
+                isViolateBrandSafety = "0",
+
+                /*POPULATE META DATA*/
+                bsKeyword = [],
+                dfp_pageTitle = _articlePages && _articlePages.title.klyFiltering(' '),
+                dfp_titles = (typeof dfp_pageTitle !== 'undefined') ? dfp_pageTitle : '',
+                dfp_keyword = this.documentMeta("keywords"),
+                dfp_desc = this.documentMeta("description"),
+                /*tagForAds = _klyObject.gtm.tag.replace(/[^A-Za-z0-9|\- ]/ig, "").klyFiltering("|");*/
+                dfp_tag = _klyObject.gtm.tag || _klyObject.tag && _klyObject.tag.name,
+tagForAds = typeof dfp_tag === 'undefined' ? [] :  dfp_tag.replace(/[^A-Za-z0-9|\- ]/ig, "").klyFiltering("|");
+            this.tags = tagForAds;
+            const bsKeywordList = {
+    'adult': ['adegan erotis', 'adegan seks', 'aduhai', 'adult', 'affair', 'air mani', 'alat bantu seks', 'alat kelamin', 'alat kontrasepsi', 'alat vital pria', 'alergi', 'anal', 'anatomi vagina', 'anjeng', 'anjing', 'anjlng', 'anjrit', 'anus', 'anying', 'apa itu kondom', 'artis indonesia bugil', 'artis porno', 'ass', 'asu', 'ayam hitam', 'babi', 'bahaya masturbasi', 'bajingan', 'bandar ceme', 'bangsat', 'bdsm', 'bego', 'belahan', 'bentuk kelamin', 'bentuk payudara', 'bercinta', 'bercinta saat hamil', 'bergairah', 'berhubungan intim', 'berhubungan seks', 'berhubungan seksual', 'bersetubuh', 'bikini', 'bintang film porno', 'bintang porno', 'biseksual', 'bitch', 'bocah sd foto mesum', 'body shaming', 'bokne', 'bokong', 'bom surabaya 2018', 'boneka seks', 'boob', 'bra', 'bugil', 'bullshit', 'bulshit', 'bulu kemaluan', 'bunuh diri', 'cabul', 'cara berhubungan intim', 'cara membuat suami bergairah', 'cara memperbesar penis', 'cara mengatasi ejakulasi dini', 'cara seksual', 'celana', 'cemani', 'cemen', 'chat firza-rizieq', 'ciuman', 'cleavage', 'cock', 'cok', 'cukur bulu kemaluan', 'cum', 'dada', 'death', 'dewasa', 'di bawah umur', 'dick', 'dildo', 'diremas', 'disfungsi ereksi', 'doggie', 'doll', 'drunk', 'ejakulasi', 'ejakulasi dini', 'ejakulasi wanita', 'eksotik', 'elo', 'entot', 'ereksi', 'erotic', 'erotis', 'ewe', 'exotic', 'fakta seks', 'fase menstruasi', 'fenomena kelainan seksual', 'fetish', 'film dewasa', 'film porno', 'foreplay', 'foto berhubungan intim', 'foto intim', 'foto telanjang', 'fuck', 'gairah', 'gairah seks', 'gairah seksual', 'gangbang', 'gangguan jiwa', 'gangguan seks', 'ganguan jiwa', 'ganguan seksual', 'ganja', 'gay', 'gaya bercinta', 'gaya bercinta dalam islam', 'gaya bercinta yang disukai pria', 'gaya seks', 'gejala penyakit', 'gemar368', 'germo', 'goblok', 'gue', 'gwe', 'hardcore', 'hasrat seksual', 'henceut', 'hindu', 'hitam mafia', 'homoseks', 'horny', 'hot', 'hubungan', 'hubungan intim', 'hubungan seksual', 'ibu hamil', 'implan payudara', 'industri film porno', 'intim', 'itil', 'jancok', 'jancuk', 'jenis alat kontrasepsi', 'jerawat', 'jual beli sperma', 'kacau', 'kakek cabul', 'kamasutra', 'kanibal', 'kanibalisme', 'kanker payudara', 'kapalan', 'kasus asusila', 'kebencian', 'kecanduan seks', 'kehidupan seks', 'kekerasan seksual', 'kelainan seks', 'kelamin', 'kelamin wanita', 'kemaluan', 'kemaluan wanita', 'kencing', 'keperawanan', 'keriting', 'kesehatan kulit dan kelamin', 'kesehatan payudara', 'kesehatan penis', 'kesehatan reproduksi', 'kesehatan wanita', 'khusus deewasa', 'kimpet', 'kisah perselingkuhan', 'kiss', 'klitoris', 'komunitas swinger', 'kondom', 'kondom pria', 'kontol', 'kontolnya', 'kontrasepsi', 'kontroversi hukuman mati', 'kontroversi lgbt', 'kotor', 'kotoran', 'kristen', 'kumuh', 'kursi tantra seks', 'legalisasi ganja', 'lemari es', 'lendir', 'lesbian', 'lgbt', 'libido', 'lingerie', 'lolita', 'lonte', 'm3m3k', 'mabuk', 'mahasiswi', 'mainan dewasa', 'mainan perangsang gairah', 'makanan berbahaya', 'makanan sehat', 'masa subur pria', 'masturbasi', 'matcont', 'mature', 'meki', 'melakukan hubungan intim', 'memek', 'memerkosa', 'mencukur bulu kemaluan', 'menggairahkan', 'menggoda', 'mengupas', 'menstruasi', 'menyiangi', 'meraba-raba', 'mesra', 'mesum', 'mimpi seks', 'mimpi telanjang', 'miss-v', 'mitos seks', 'model hot', 'model seksi', 'monyet', 'mr-p', 'mucikari siswi smp', 'nakal', 'naked', 'naughty', 'ngentot', 'ngewe', 'nipple', 'nipples', 'nonok', 'nude', 'obat ejakulasi dini', 'obat kuat', 'obat pembesar', 'obat pembesar penis terbaik', 'onani', 'oral', 'oral seks', 'organ', 'organ intim wanita', 'orgasme', 'orgasme wanita', 'overdose', 'overdosis', 'paha', 'pakistan', 'pamer', 'pantat', 'panties', 'payudara', 'payudara kecil', 'payudara wanita', 'pelacur', 'pelecehan', 'pelecehan seksual', 'pembesar penis', 'pembunuh', 'pembunuhan', 'pemerkosaan', 'pemerkosaan anak', 'pemuda', 'pencabulan', 'penetrasi', 'penetratif', 'pengetahuan seks', 'pengobatan alternatif', 'penis', 'penis bengkok', 'penis besar', 'penis kecil', 'penis pria', 'penyakit sipilis', 'penyakit vagina', 'penyimpangan seks', 'perawan', 'perawatan vagina', 'perbudakan', 'perek', 'perguruan tinggi', 'perkosa', 'perkosaan', 'permen', 'perselingkuhan', 'piss', 'play boy', 'pole', 'porn', 'porno', 'pornoaksi', 'pornografi', 'posisi bercinta', 'posisi hubungan intim suami istri menurut islam', 'posisi seks', 'posisi seksual', 'pria dewasa', 'pria idaman', 'prostitusi', 'provokatif', 'pukang', 'puki', 'puting', 'puting payudara', 'putting', 'radikal', 'raksasa', 'rangsang payudara', 'ranjang', 'rasis', 'rasisme', 'razia pasangan mesum', 'rokok', 'rudapaksa', 'rumah bordil', 'sbobet', 'seks', 'seks bebas', 'seks dalam islam', 'seks dan agama', 'seks dan kriminal', 'seks dan pasutri', 'seks oral', 'seks pria dan wanita', 'seks toy', 'seksi', 'seksual', 'seksual lelaki dan perempuan', 'seksualitas', 'seksualitas pria', 'seksualitas wanita', 'semen', 'sensual', 'seronok', 'sex', 'sex toy', 'sexy', 'shit', 'siklus menstruasi', 'situs poker terpercaya', 'situs porno', 'skandal', 'sperma', 'stres dan depresi', 'strip', 'striptease', 'striptis', 'suicide', 'sundulan', 'swinger', 'syur', 'tai', 'taik', 'tamparan', 'tante seksi', 'taruhan online', 'telanjang', 'telentang', 'terangsang', 'teroris', 'terorisme', 'tes keperawanan', 'test pack', 'testis', 'tiduri', 'tips bercinta', 'tips seks', 'titik rangsang', 'titit', 'toket', 'tolol', 'topless', 'toys', 'ujian', 'ukuran normal penis', 'ukuran penis', 'ukuran penis normal', 'ukuran penis orang indonesia', 'ukuran vagina', 'vagina', 'vagina gatal', 'vagina wanita', 'vakum pembesar penis', 'viagra', 'vibrator', 'video bercinta dengan pasangan', 'video porno', 'video seks', 'virus corona', 'vital', 'wanita telanjang', 'waria', 'woman on top', 'xxx', 'xxxx online', 'angry', 'bastard', 'blow job', 'bordil', 'college', 'crush', 'dirty', 'education', 'escort', 'furious', 'hiburan dewasa', 'homoseksual', 'household', 'lose', 'meraung', 'pahlawan wanita', 'pedofil', 'pedofilia', 'rises', 'rush', 'Sensitive', 'sexual', 'sialan', 'situs dewasa', 'spray', 'tanah amp', 'teen'],
+    'war_politics': ['ahed tamimi', 'ahok gugat cerai veronica tan', 'aliran sesat', 'anarkis', 'anarkisme suporter sepakbola', 'begal motor', 'bentrok suporter', 'bentrokan', 'bentrokan warga', 'berita hoax', 'capres jokowi', 'capres prabowo', 'fanatik', 'ferdy sambo', 'fpi', 'g30s', 'invasi rusia', 'jemaah ansharut daulah', 'kebohongan ratna sarumpaet', 'kediktatoran arab saudi', 'kekerasan pada wartawan', 'killing', 'kisah mualaf', 'koalisi jokowi', 'koalisi pilpres 2019', 'koalisi prabowo', 'konflik palestina israel', 'konflik palestina-israel', 'konflik rusia ukraina', 'konflik suriah', 'lia eden', 'luwu timur', 'nato', 'penembakan', 'penganiayaan', 'pengawal', 'pengeroyokan', 'penistaan agama', 'perang', 'perang di ukraina', 'perang dunia', 'perang dunia 3', 'perang rusia', 'peristiwa', 'pilpres 2019', 'polisi', 'prabowo subianto', 'prabowo-sandiaga', 'presiden rusia', 'presiden ukraina', 'propaganda rusia', 'ratna sarumpaet', 'rokok elektrik', 'rusia', 'rusia dan ukraina', 'rusia serang ukraina', 'senjata rusia', 'serang ukraina', 'serangan', 'suporter tewas', 'taliban', 'tentara', 'ternyata hoax', 'ujaran kebencian', 'ukraina', 'vladimir putin', 'tni', 'jenderal', 'korupsi', 'politik', 'politikus', 'kpk', 'kkb', 'penjajah', 'berduka', 'army', 'corpse', 'demo', 'dilempar', 'ferdi sambo', 'news', 'news foto', 'news readers', 'politic', 'politics', 'polri', 'Palestina', 'israel', 'boikot', 'yahudi', 'ajudan', 'gaza', 'hamas', 'perwira', 'sianida', 'capres', 'cawapres', 'pemilu', 'ganjar pranowo', 'mahfud md', 'gibran rakabuming', 'anies baswedan', 'muhaimin iskandar', 'cak imin', 'politik', 'mirna', 'jessica wongso', 'makam', 'ganjar', 'anies', 'gibran', 'anis', 'presiden', 'bacapres', 'prabowo', 'mahfud', 'megawati', 'mk', 'mahkamah', 'iriana', 'firaun', 'mesir', 'ham', 'hak asasi manusia', 'cpns', 'militer', 'amunisi', 'senjata', 'senpi','kpu', 'partai', 'wapres', 'menteri', 'dpr', 'mrp', 'mpr', 'caleg', 'calon legislatif', 'anggota dpr', 'anggota mpr', 'bupati', 'wakil bupati', 'walikota', 'walkot', 'anggota dprd', 'dprd', 'bawaslu', 'komcad', 'cacar', 'gubernur', 'wakil gubernur', 'partai politik', 'parpol'],
+    'drugs_tobacco_alcohol': ['adiktif', 'akibat merokok', 'alcohol', 'alkohol', 'artis narkoba', 'asap rokok', 'bahaya berhenti merokok', 'bahaya merokok', 'bahaya narkoba', 'bahaya rokok', 'bahaya rokok elektrik', 'berhenti merokok', 'bnn', 'cancer', 'candy', 'cara berhenti merokok', 'cbd', 'ciri ciri pengguna narkoba', 'dampak merokok', 'djarum', 'drugs', 'efek berhenti merokok', 'ganja', 'hash', 'impotensi', 'jantung', 'jenis alkohol', 'jenis alkohol dalam minuman keras', 'jenis jenis narkoba', 'jenis narkotika', 'kanker', 'kartel narkoa', 'kasus narkoba', 'kecanduan', 'kesehatan paru', 'larangan merokok', 'mafia narkoba', 'manfaat berhenti merokok', 'merokok', 'minuman beralkohol', 'minuman keras', 'narkoba', 'narkoba artis', 'obat psikotropika', 'overdosis', 'pelanggaran', 'penyalahgunaan narkoba', 'penyeludupan narkoba', 'perokok', 'pot', 'pppa', 'rehabilitasi narkoba', 'remaja narkoba', 'rokok', 'rokok elektrik', 'ruu minuman beralkohol', 'sabu', 'selebriti narkoba', 'sidang narkoba', 'stroke', 'tablet', 'tembakau', 'tips berhenti merokok', 'cukai rokok', 'kokain', 'puntung'],
+    'disaster': ['10 macam pencemaran lingkungan', 'autopsi', 'bahaya pencemaran udara', 'bahaya polusi', 'belasungkawa', 'bencana', 'bencana besar', 'bola', 'bom', 'bom atom', 'bom bali', 'bom bunuh diri', 'bom gereja', 'bom meledak', 'bom nuklir', 'bom panci', 'bom sarinah', 'bom seks', 'bunuh orang', 'cara mencegah global warming', 'cara mencegah pemanasan global', 'cara mengatasi pemanasan global', 'cara mengatasi pemanasan global sebagai pelajar', 'cara mengatasi pencemaran udara', 'climate change', 'contoh pencemaran lingkungan', 'dampak pencemaran lingkungan', 'dampak pencemaran udara', 'darurat bencana', 'dilaporkan tewas', 'dimakamkan', 'dinyatakan meninggal', 'dipastikan tewas', 'ditemukan mati', 'ditemukan tewas', 'efek rumah kaca', 'efek rumah kaca adalah', 'fenomena alam', 'gas', 'gas rumah kaca', 'gempa donggala', 'gempa palu', 'gempa sulawesi tengah', 'global warming', 'global warming adalah', 'hilangkan nyawa', 'hilangnya nyawa', 'identitas korban', 'inalillahi', 'isis', 'jasad', 'jasad korban', 'jasadnya', 'jenasah wanita', 'jenazah', 'jenazah pria', 'jenazah teridentifikasi', 'jenis pencemaran lingkungan', 'kapal tenggelam', 'kapal tenggelam di danau toba', 'kasus penebangan pohon', 'kasus tabrak lari', 'keadaan kritis', 'kecelakaan', 'kecelakaan bus', 'kehilangan darah', 'kehilangan hidupnya', 'kehilangan nyawa', 'kehilangan nyawanya', 'kematian', 'korban', 'korban jiwa', 'korban meninggal', 'korban tewas', 'kota paling berpolusi', 'kota paling berpolusi didunia', 'krisis iklim', 'kualitas udara', 'ledakan bom', 'liga', 'limbah', 'limbah pabrik', 'lion air hilang kontak', 'lion air jatuh', 'lion air jatuh di karawang', 'macam pencemaran lingkungan', 'mati', 'mayat', 'mayat korban', 'meledak', 'memakan nyawa', 'membakar', 'membunuh', 'membunuh istrinya', 'membunuh mereka', 'membunuh suaminya', 'menelan nyawa', 'menemui ajal', 'menewaskan', 'menewaskan orang', 'mengalami koma', 'mengamuk', 'mengancam nyawa', 'menghembuskan nafas terakhir', 'menimbulkan korban', 'meninggal', 'meninggal akibat sakit', 'meninggal dunia', 'menyebabkan kematian', 'meregang nyawa', 'meregggut nyawa', 'merenggut jiwa', 'merenggut nyawa', 'modar', 'nyawa hilang', 'nyawa melayang', 'nyawa tak tertolong', 'orang mati', 'orang tewas', 'pelayat', 'pemakaman', 'pemanasan global', 'pemanasan global adalah', 'pembunuhan', 'pembunuhan sadis', 'pencemaran', 'pencemaran air', 'pencemaran air bersih', 'pencemaran air laut', 'pencemaran limbah', 'pencemaran lingkungan', 'pencemaran minyak', 'pencemaran sungai', 'pencemaran sungai brantas', 'pencemaran udara', 'penemuan mayat', 'pengertian efek rumah kaca', 'pengertian efek rumah kaca menurut para ahli', 'pengertian pemanasan global', 'penyakit polusi udara', 'penyakit yang disebabkan oleh polusi udara', 'penyebab efek rumah kaca', 'penyebab global warming', 'penyebab kematian', 'penyebab kerusakan lingkungan', 'penyebab pemanasan global', 'penyebab pemanasan global akibat aktivitas manusia', 'penyebab pencemaran air', 'penyebab pencemaran udara', 'penyebab perubahan iklim', 'penyebab perubahan iklim global', 'penyebab polusi udara', 'penyebab terjadinya efek rumah kaca', 'penyebab terjadinya pemanasan global', 'penyebab terjadinya pemanasan global dan efek rumah kaca', 'permintaan maaf', 'pertandingan', 'perubahan iklim', 'perubahan iklim global', 'pesawat hilang kontak', 'pesawat jatuh', 'petugas penyelamat', 'piala dunia', 'pollution', 'polusi', 'polusi jakarta', 'polusi udara', 'polusi udara di jakarta', 'polutan', 'renggut nyawa', 'sampah plastik', 'sepak', 'stadion', 'tak bernyawa', 'tak sadarkan diri', 'telah meninggal', 'telan nyawa', 'terbunuh', 'terkapar', 'teror bom', 'tewas', 'tewaskan', 'tidak bernyawa', 'timnas', 'tim penyelamat', 'trauma', 'tsunami palu', 'tutup usia', 'udara bersih', 'udara jakarta', 'wafat', 'wanita meninggal', 'won'],
+    'epidemic_desease': ['corona', 'corona di indonesia', 'covid', 'covid 19', 'covid-19', 'doctor', 'dokter', 'health', 'healthy', 'hospital', 'infeksi saluran kencing', 'insomnia dan tidur', 'kematian', 'kematian virus', 'kematian wabah', 'kesehatan', 'korban terinfeksi', 'korona', 'obesitas', 'odp', 'osteoporosis', 'pdp', 'penyakit', 'positif korona', 'rsud', 'rumah sakit', 'sakit pernapasan', 'sedih', 'sehat', 'sesak', 'terinfeksi virus corona', 'terjangkit covid-19', 'terkena', 'virus', 'virus corona', 'virus korona', 'virus menyerang', 'virus-corona', 'wabah', 'wabah corona', 'crowd', 'dead', 'die', 'fail', 'fatal', 'fire', 'flu', 'illness', 'kanjuruhan', 'kanker paru paru', 'kerusuhan', 'murder', 'pneumonia', 'pulau sampah', 'stampede', 'tembak', 'tergeletak', 'terinjak', 'tragedi', 'trigger'],
+    'religion': ['15lam', 'abu bakar al-baghdadi', 'al quran', 'al-quran', 'buda', 'budha', 'ibrahim al-hashimi al-qurayshi,', 'injil', 'isl4m', 'islam', 'ismi aisyah', 'jimat', 'kafir', 'katolik', 'muh4mmad', 'muhammad', 'muhammad saw', 'nabi', 'yesus', 'idul fitri', 'puasa', 'ramadan', 'ramadhan'],
+    'gambling': ['agen poker', 'agen sbobet', 'bonus deposit', 'bonus refferal', 'bonus rollingan', 'cashtree', 'game', 'judi', 'minimal deposit', 'poker', 'poker online'],
+    'parenting': ['anak', 'anak artis', 'anak cerdas', 'anak dan balita', 'anak mandiri', 'anak selebritis', 'anak selebritis indonesia', 'arti nama anak', 'arti nama bayi', 'artis bercerai', 'artis hamil', 'asi anak', 'ayah', 'baby', 'baby ameena', 'baby arsy', 'baby bump', 'baby bump artis', 'baby dan balita', 'baby face', 'baby gempi', 'baby leslar', 'baby shower', 'baby shower selebritis', 'baby sitter', 'baby spa', 'baby walker', 'babymoon', 'babymoon artis', 'babyologist', 'baru lahir', 'bayi', 'bayi 6 bulan', 'bayi artis', 'bayi dan anak', 'bayi kembar', 'bayi muntah', 'bayi pilek', 'bayi seleb', 'bayi selebritis', 'bayi selebritis indonesia', 'bayi tabung', 'camilan bayi', 'cara mengeluarkan dahak pada bayi', 'child', 'children', 'family', 'father', 'gaya baby', 'ibu', 'ibu anak', 'induk', 'jadwal makan bayi', 'jam tidur bayi', 'kehamilan', 'keibuan', 'kelahiran anak', 'kelahiran bayi', 'keluarga', 'keluarga artis', 'keluarga bahagia', 'keluarga dan anak', 'keluarga harmonis', 'keluarga penjabat', 'keluarga seleb', 'kesehatan bayi', 'kesehatan bayi dan balita', 'kesehatan keluarga', 'kid', 'masalah anak', 'mendidik anak', 'menyusui', 'mother', 'mpasi', 'nama anak', 'nama anak islam', 'nama anak kristen', 'nama anak laki laki', 'nama anak perempuan', 'nama anak sansekerta', 'nama bayi', 'nama bayi islam', 'nama bayi kristen', 'nama bayi laki laki', 'nama bayi laki laki unik', 'nama bayi perempuan', 'nama bayi perempuan unik', 'nama bayi sansekerta', 'newborn', 'orang tua', 'parent', 'parenting', 'pendidikan', 'penyakit bayi', 'penyebab bayi muntah', 'perawatan bayi', 'perceraian artis', 'perkembangan janin', 'perlengkapan bayi', 'pertumbuhan anak', 'pijat bayi', 'remaja', 'resep mpasi', 'rumah tangga', 'school', 'sekolah', 'spa baby', 'tips parenting', 'ucapan kelahiran', 'youth'],
+'custom_keys':['ahed tamimi', 'aliran sesat', 'anarkis', 'anarkisme suporter sepakbola', 'begal motor', 'bentrok suporter', 'bentrokan', 'bentrokan warga', 'berita hoax', 'capres jokowi', 'capres prabowo', 'fanatik', 'ferdy sambo', 'fpi', 'g30s', 'invasi rusia', 'jemaah ansharut daulah','kediktatoran arab saudi', 'kekerasan pada wartawan', 'killing', 'kisah mualaf', 'koalisi jokowi', 'koalisi pilpres 2024', 'koalisi prabowo', 'konflik palestina israel', 'konflik palestina-israel', 'konflik rusia ukraina', 'konflik suriah','luwu timur', 'nato', 'penembakan', 'penganiayaan', 'pengawal', 'pengeroyokan', 'penistaan agama', 'perang', 'perang di ukraina', 'perang dunia', 'perang dunia 3', 'perang rusia', 'peristiwa', 'pilpres 2024', 'prabowo subianto', 'prabowo-sandiaga', 'presiden rusia', 'presiden ukraina', 'propaganda rusia', 'ratna sarumpaet', 'rusia', 'rusia dan ukraina', 'rusia serang ukraina', 'senjata rusia', 'serang ukraina', 'serangan', 'suporter tewas', 'taliban', 'tentara', 'ternyata hoax', 'ujaran kebencian', 'ukraina', 'vladimir putin','korupsi','kpk', 'kkb', 'penjajah', 'berduka', 'army', 'corpse', 'demo', 'dilempar', 'ferdi sambo','Palestina', 'israel', 'boikot', 'yahudi', 'ajudan', 'gaza', 'hamas', 'perwira', 'sianida', 'capres', 'cawapres', 'pemilu', 'ganjar pranowo', 'mahfud md', 'gibran rakabuming', 'anies baswedan', 'muhaimin iskandar', 'cak imin','mirna', 'jessica wongso', 'makam', 'ganjar', 'anies', 'gibran', 'anis', 'presiden', 'bacapres', 'prabowo', 'mahfud', 'megawati', 'mk', 'mahkamah', 'iriana', 'ham', 'hak asasi manusia', 'cpns', 'militer', 'amunisi', 'senjata', 'senpi', 'kpu', 'partai', 'caleg', 'calon legislatif', 'bawaslu', 'cacar', 'gubernur', 'wakil gubernur', 'partai politik', 'parpol', 'calon wakil presiden', 'calon presiden','amin','pemilihan umum','calon anggota dpr','calon anggota mpr','calon anggota dprd','bacaleg','genosida','genocide','kampanye','blusukan','safari politik', 'gagal ginjal akut', 'gas air mata', 'pregnancy', 'smoker', 'tragedi kanjuruhan', 'tween']
+            };
+
+            /*change this acording to the site page layout*/
+            var siteContentObject = document.querySelectorAll('.article-content-body__item'),
+                siteContentText = '';
+            for (let elm of siteContentObject) {
+                let bj = elm.querySelector('.baca-juga-collections__detail');
+                if (bj !== null)
+                    siteContentText += elm.innerText.replace(bj.innerText, '');
+                else
+                    siteContentText += elm.innerText;
+            }
+
+            siteContentText = dfp_keyword.concat(dfp_titles,' ', dfp_desc,' ', tagForAds,' ', siteContentText);
+
+            /*Iterate for all keyword list category to find match word*/
+            for (var bsKey in bsKeywordList) {
+                var subKeywordList = bsKeywordList[bsKey];
+                if (subKeywordList.length > 0) {
+                    if (matchString = new RegExp("\\b(" + subKeywordList.join("|") + ")\\b", "ig").exec(siteContentText)) {
+
+                        bsKeyword.push(bsKey);
+                    }
+                }
+            }
+
+
+            if (bsKeyword.length > 0) {
+                googletag.pubads().setTargeting("bsKeyword", bsKeyword);
+                /*Temporary preserve the previous brand safety targeting*/
+                googletag.pubads().setTargeting("brandsafety", isViolateBrandSafety);
+            }
+
+googletag.pubads().setTargeting("isMatcont", (typeof _klyObject !== 'undefined' && typeof _klyObject.article !== 'undefined' && _klyObject.article.isAdultContent === true) ? "1" : isMatcont);
+        },
+        onMessageReceivedGPTUpdateCreativeStyle: function() {
+            this.onMessageReceivedGetStyle = function(e) {
+                /** filter only correct origin and setStyle command */
+                if (!(e.origin.match(/safeframe.googlesyndication.com/ig)) ||
+                    typeof e.data !== 'object' ||
+                    typeof e.data.id !== 'string' ||
+                    e.data.cmd !== 'setStyle' ||
+                    typeof e.data.params !== 'object'
+                ) {
+                    return;
+                }
+
+                /* remove # character from id, we don't use jquery*/
+                var elementId = e.data.id.replace(/#/, "");
+
+                var wrapperEl = document.getElementById(elementId);
+                if (wrapperEl === null) {
+                    return;
+                }
+
+                var elements = [wrapperEl];
+                /*target on KLY authorized element child ( div and iframe ) */
+                if (typeof e.data.query === 'string' && e.data.query) {
+                    let el = null;
+                    if (el = e.data.query.match(/(div|iframe)/ig)) {
+                        elements = wrapperEl.querySelectorAll(el.join(", "));
+                    }
+                }
+
+                /** target on KLY authorized attribute ( display, heigth, width ) */
+                elements.forEach(function(element) {
+                    Object.keys(e.data.params).forEach(function(param) {
+                        let allowedAttr = ['display', 'height', 'width'];
+                        allowedAttr.indexOf(param) > -1 ? (element.style[param] = e.data.params[param]) : '';
+                    });
+                });
+
+            }
+            if (window.addEventListener) {
+                window.addEventListener('message', this.onMessageReceivedGetStyle, false);
+            } else {
+                if (window.attachEvent) {
+                    window.attachEvent('onmessage', this.onMessageReceivedGetStyle);
+                } else {
+                    window.onmessage = this.onMessageReceivedGetStyle;
+                }
+            }
+        },
+        YouTubePlayerManager: class {
+            constructor() {
+                this.checkCount = 0;
+                this.checkInterval = null;
+                this.player = null;
+                this.volumeButton = null;
+                this.playButton = null;
+                this.init();
+            }
+
+            init() {
+                this.checkInterval = setInterval( () => this.checkForVideo(), 100);
+            }
+
+            checkForVideo() {
+                this.checkCount++;
+
+                const videoWrapper = document.querySelector("#video-wrapper");
+                const currentVideo = document.querySelector("#ID_VIDEO");
+
+                if (currentVideo) {
+                    const videoId = currentVideo.dataset.youtubeId;
+                    currentVideo.remove();
+                    this.setupPlayer(videoWrapper, videoId);
+                    clearInterval(this.checkInterval);
+                } else if (this.checkCount > 500) {
+                    clearInterval(this.checkInterval);
+                }
+            }
+
+            setupPlayer(container, videoId) {
+                const playerDiv = document.createElement("div");
+                playerDiv.id = "youtube-player";
+                container.appendChild(playerDiv);
+
+                if (!window.YT || !YT.Player) {
+                    const tag = document.createElement("script");
+                    tag.src = "https://www.youtube.com/iframe_api";
+                    document.body.appendChild(tag);
+                }
+
+                window.onYouTubeIframeAPIReady = () => {
+                    this.player = new YT.Player("youtube-player",{
+                        width: "320",
+                        height: "180",
+                        videoId: videoId,
+                        playerVars: {
+                            autoplay: 1,
+                            mute: 1,
+                            controls: 0,
+                            playsinline: 1,
+                            enablejsapi: 1,
+                        },
+                        events: {
+                            onReady: (event) => this.onPlayerReady(event),
+                        },
+                    });
+                }
+                ;
+            }
+
+            onPlayerReady(event) {
+                this.volumeButton = parent.document.querySelector("div#player-wrapper div#btn-volume");
+                this.playButton = parent.document.querySelector("div#player-wrapper div#btn-play");
+
+                this.volumeButton.addEventListener("click", () => this.volumeAction());
+                this.playButton.addEventListener("click", () => this.playAction());
+            }
+
+            volumeAction(state) {
+                const currentState = typeof state === "string" ? state : this.volumeButton.classList.contains("mute") ? "mute" : "unmute";
+
+                if (currentState === "mute") {
+                    this.player.unMute();
+                    this.volumeButton.setAttribute("class", "unmute");
+                } else {
+                    this.player.mute();
+                    this.volumeButton.setAttribute("class", "mute");
+                }
+            }
+
+            playAction(state) {
+                const currentState = typeof state === "string" ? state : this.playButton.classList.contains("play") ? "play" : "pause";
+
+                if (currentState === "pause") {
+                    this.player.pauseVideo();
+                    this.playButton.setAttribute("class", "play");
+                } else {
+                    this.player.playVideo();
+                    this.playButton.setAttribute("class", "pause");
+                }
+            }
+        },
+
+    }
+
+    var gpt_gam_site = window.location.hostname.toUpperCase(),
+        gpt_gam_ver = 'GPT V2.4 - OBJECT ADS';
+
+    /* DMP CATEGORY LIST */
+    window.createDMPTracker = function(adsCatList, dfpTracker, macro) {
+        parent.window.open(dfpTracker, '_blank');
+    };
+    /* DMP CATEGORY LIST */
+
+    /* GOOGLE TAG CONFIG */
+    googletag.cmd.push(function() {
+        var urlPath = document.URL;
+
+        GAMLibrary.brandSafetyChecker();
+
+        /*DEFINE ALL SLOT*/
+        if (GAMLibrary.topFrameFixedSize) {
+            window.GAMLibrary.topframe = googletag.defineSlot(GAMLibrary.dfpTopFrame, [1, 1], 'div-gpt-ad-liputan6-topfrm-oop').addService(googletag.pubads()).setTargeting('pagingNum', '1');
+        } else {
+            window.GAMLibrary.topframe = googletag.defineOutOfPageSlot(GAMLibrary.dfpTopFrame, 'div-gpt-ad-liputan6-topfrm-oop').addService(googletag.pubads()).setTargeting('pagingNum', '1');
+        }
+        window.GAMLibrary.widget = googletag.defineOutOfPageSlot(GAMLibrary.dfpWidget, 'div-gpt-ad-liputan6-widget').addService(googletag.pubads());
+        /* INTERSTITIAL ADS */
+        window.GAMLibrary.interstitial = googletag.defineOutOfPageSlot(GAMLibrary.dfpInterstitial, googletag.enums.OutOfPageFormat.INTERSTITIAL);
+        window.GAMLibrary.interstitial ? window.GAMLibrary.interstitial.addService(googletag.pubads()) : '';
+        /* INTERSTITIAL ADS */
+
+        /*Bottom Frame Scrolling*/
+        GAMLibrary.scrollBottomFrame();
+
+        // topframe shirnking tweak
+        var _adsvisible_ = {
+            "topframe" : false
+        }
+        // topframe shirnking tweak
+
+    
+
+        googletag.pubads().addEventListener('slotRenderEnded', function(event) {
+            var containerId = event.slot.getSlotElementId();
+            var containerEl = document.getElementById(containerId);
+
+            GAMLibrary.exposerInterscroller(event);
+
+            if(window.GAMLibrary.dfpTopFrame  == event.slot.getAdUnitPath()){
+                if(!event.isEmpty){
+                    const mastheadWrapper = document.querySelector("#div-gpt-ad-topfrm-parallax-wrapper");
+                    mastheadWrapper.style.display = "block";
+                }
+            }
+
+            if (containerId.includes("topfrm")) {
+                if (JSON.stringify(event.size) == '[336,280]') {
+                    var parallaxEl = document.getElementById("div-gpt-ad-topfrm-parallax-wrapper");
+                    var topfrmEl = document.getElementById("div-gpt-ad-liputan6-topfrm-oop");
+                    if (parallaxEl && topfrmEl) {
+                        parallaxEl.style.display = "flex";
+                        parallaxEl.style.alignItems = "center";
+                        topfrmEl.style.position = "absolute";
+                    }
+                }
+            }
+
+            // TOPFRAME SHRINKING V2
+            if(containerId.includes("topfrm") && !_adsvisible_.topframe   ){
+                console.log(containerId)
+                window.addEventListener("scroll", _SET_STICKY_v2_SCROLL_)
+                setTimeout(() => {
+                    if(!_TOPFRAME_STICKY_){
+                        window.removeEventListener("scroll", _SET_STICKY_v2_SCROLL_)
+                    }
+                }, 2000);
+                
+            }
+            // END TOPFRAME SHRINKING V2
+
+            if (containerEl === null) return;
+
+            var iframeEl = containerEl.querySelectorAll('iframe')[0];
+
+            /* it's delayed by 10 milliseconds, because iframe is not yet fully rendered
+            and limited to max to 10 seconds to wait*/
+            var timeoutFunction = function() {
+                var src = "#" + containerId;
+                /* `src` attribute is null, when iframe is FriendlyIframe, and
+                when it's present, then it's SafeFrame */
+                if (iframeEl) {
+                    if ((iframeEl.getAttribute('src') !== null)) {
+                        src = iframeEl.getAttribute('src').replace(/#.*/, "") + src;
+                    } else {
+                        var name = iframeEl.getAttribute('name') + "#" + containerId;
+                        iframeEl.setAttribute('name', name);
+                    }
+                    iframeEl.setAttribute('src', src);
+                }
+            };
+            setTimeout(timeoutFunction, 10);
+        });
+
+        /*  START TARGETING BLOCK   */
+        googletag.pubads().setTargeting("tags", GAMLibrary.tags);
+        googletag.pubads().setTargeting("articleTitle", kmklabs.article.title);
+        googletag.pubads().setTargeting("articlePath", window.location.pathname);
+        googletag.pubads().setTargeting("platform", kmklabs.platform);
+        googletag.pubads().setTargeting("type", kmklabs.gtm.type);
+        googletag.pubads().setTargeting("pageType", kmklabs.pageType);
+        googletag.pubads().setTargeting("channel", kmklabs.gtm.subCategory);
+        googletag.pubads().setTargeting("audience", kmklabs.gtm.audience && kmklabs.gtm.audience.split("|") || "");
+        googletag.pubads().setTargeting("isAdvertorial", typeof(isAdvertorial = kmklabs.article && kmklabs.article.isAdvertorial.toString()) === "undefined" ? "false" : isAdvertorial);
+        googletag.pubads().setTargeting("isMultipage", typeof(isMultipage = kmklabs.article && kmklabs.article.isMultipage.toString()) === "undefined" ? "false" : isMultipage);
+        googletag.pubads().setTargeting("articleId", kmklabs.gtm.articleId.toString());
+        googletag.pubads().setTargeting("pagingNum", typeof(pageParam = kmklabs.gtm.pageParam && kmklabs.gtm.pageParam.toString()) === "undefined" ? "false" : pageParam);
+        googletag.pubads().setTargeting("site", kmklabs.site);
+        googletag.pubads().setTargeting("age", typeof(age = kmklabs.gtm.age) === "undefined" ? "false" : kmklabs.gtm.age.toString());
+        googletag.pubads().setTargeting("gender", typeof(gender = kmklabs.gtm.gender) === "undefined" ? "false" : kmklabs.gtm.gender.toString());
+        googletag.pubads().setTargeting("IsObjectPage", "1");
+        googletag.pubads().setTargeting("subcategory", kmklabs.gtm.subCategory);
+        /*  END TARGETING BLOCK   */
+        googletag.pubads().setCentering(true);
+        googletag.pubads().enableSingleRequest();
+        googletag.pubads().collapseEmptyDivs();
+        googletag.pubads().disableInitialLoad();
+        googletag.enableServices();
+
+        /* REFRESH ON DEMAND */
+        googletag.pubads().refresh([window.GAMLibrary.interstitial, window.GAMLibrary.topframe, window.GAMLibrary.widget]);
+    });
+
+    function showAds(adsContainer, size, adunit) {
+        if (adsContainer && size && adunit) {
+            if (adunit === "dfp-sc") {
+                adunit = "SHOWCASE";
+            } else if (adunit === "dfp-headline") {
+                adunit = "HEADLINE";
+            } else if (adunit === "dfp-exposer-slot1") {
+                adunit = "EXPOSER";
+            }
+            /*convert size attribute from string to array*/
+            var sizes = [],
+                adunitPath = '/36504930/KLY/MOBILE/LIPUTAN6.COM/' + adunit,
+                adSlot;
+
+            GAMLibrary.dfpPageNum++;
+            size.split(",").forEach(function(item, index) {
+                if (item == 'fluid') {
+                    sizes[index] = item;
+                } else {
+                    sizes[index] = item.split("x").map(Number);
+                }
+            });
+
+            /*making adrequest*/
+            googletag.cmd.push(function() {
+            /*googletag.pubads().clearTargeting('pagingNum');*/
+            adSlot = googletag.defineSlot(adunitPath, sizes, adsContainer)
+                    .addService(googletag.pubads())
+                    .setTargeting('pagingNum', GAMLibrary.dfpPageNum);
+            });
+
+            googletag.pubads().refresh([adSlot]);
+
+            /** GET MESSAGE FROM SAFEFRAME CONTAINER */
+            GAMLibrary.onMessageReceivedGPTUpdateCreativeStyle();
+            /** GET MESSAGE FROM SAFEFRAME CONTAINER */
+        }
+    }
+    
+    var GamYTPlayerManager = new GAMLibrary.YouTubePlayerManager();
+
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1089981280613575" crossorigin="anonymous"></script>
+
+<script>
+    function _SET_STICKY_v2_SCROLL_() {
+        if(_TOPFRAME_STICKY_TYPE_ != "v8"){
+            window.removeEventListener("scroll", _SET_STICKY_v2_SCROLL_)
+            return
+        }
+        
+        var _scrollTop_ = window.document.scrollingElement.scrollTop || window.document.documentElement.scrollTop
+        if(_scrollTop_ == 0 && _adsvisible_.topframeClassTweak){
+            _adsvisible_.topframeScrollBackToTop = true
+        }
+
+        if((document.documentElement.scrollTop > (document.querySelector("#div-gpt-ad-liputan6-topfrm-oop").clientHeight / 3 )) && !_adsvisible_.topframeClassTweak && _TOPFRAME_STICKY_ ){
+            _adsvisible_.topframeClassTweak = true;
+            _SET_STICKY_V2_()
+
+        }
+    }
+
+    function _SET_STICKY_V2_() {
+        document.querySelector("#div-gpt-ad-liputan6-topfrm-oop").classList.add("puller")
+        document.querySelector("#div-gpt-ad-liputan6-topfrm-oop").style = "position : fixed !important"
+        
+        var _COUNTDOWN_STICKY_V2_NUMBER = 0
+        var _COUNTDOWN_STICKY_V2 = setInterval(() => {
+            
+            if(_COUNTDOWN_STICKY_V2_NUMBER >= 75 || _adsvisible_.topframeScrollBackToTop){
+                clearInterval(_COUNTDOWN_STICKY_V2)
+                window.removeEventListener("scroll", _SET_STICKY_v2_SCROLL_)
+                _adsvisible_.topframe = true
+                _TOPFRAME_STICKY_END_ = true
+
+                document.querySelector("#div-gpt-ad-liputan6-topfrm-oop").classList.remove("puller")
+                document.querySelector("#div-gpt-ad-liputan6-topfrm-oop").style = ""
+            }
+
+            _COUNTDOWN_STICKY_V2_NUMBER++;
+        }, 100);
+
+    }
+</script>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", _INIT_STICKY_TOPFRAME_);
+
+    function _INIT_STICKY_TOPFRAME_() {
+        // _PARENT_BODY_ = document.querySelector("body");
+        _GET_TARGET_();
+        _TOPFRAME_PARENT_WRAPPER_ = document.querySelector(".layout__ads");
+        _TOPFRAME_WRAPPER_ = document.querySelector("#div-gpt-ad-topfrm-parallax-wrapper");
+        document.querySelector("#back-to-top") && (document.querySelector("#back-to-top").style = '');
+        document.addEventListener("scroll", _TOPFRAME_STICKY_SCROLL_);
+        document.addEventListener("scroll", _UPDATE_SCROLL_);
+        _TOPFRAME_STICKY_IS_READY_ = true;
+    }
+
+    window.addEventListener("orientationchange", _ORIENTATION_CHANGE_);
+
+    function _ORIENTATION_CHANGE_() {
+        _ORINETATION_ = (_IS_IOS_) ? window.orientation : screen.orientation.angle;
+        if (_ORINETATION_ == 0) {
+            return;
+        }
+        _turnOff_ = true;
+        _UNSET_TOPFRAME_STICKY_();
+    }
+
+    function _GET_TARGET_() {
+        let customContainer = document.createElement('div');
+        _LAYOUT_ADS_ = document.createElement('div');
+
+        _NAVBAR_ = document.querySelector("header");
+        _MAIN_ = document.querySelector("main");
+
+        _LAYOUT_ADS_.classList.add('layout__ads');
+
+        customContainer.classList.add('layout');
+        customContainer.id = 'back-to-top';
+
+        _NAVBAR_.insertAdjacentElement('beforebegin', customContainer);
+
+        _PARENT_BODY_TARGET_ = customContainer;
+
+    }
+
+    function _TOPFRAME_STICKY_SCROLL_() {
+        if (_TOPFRAME_STICKY_ && "v7" == _TOPFRAME_STICKY_TYPE_) {
+            var _scrolltop_ = document.documentElement.scrollTop;
+            if (_scrolltop_ >= 0) {
+                _TOPFRAME_STICKY_TWEAK_();
+
+                _TOPFRAME_STICKY_STYLE_();
+                _TOPFRAME_STICKY_ = false;
+                _TOPFRAME_PARENT_WRAPPER_.classList.add("sticky");
+                _TOPFRAME_WRAPPER_.classList.add("sticky");
+                _TOPFRAME_STICKY_COUNTDOWN_();
+                document.removeEventListener("scroll", _TOPFRAME_STICKY_SCROLL_);
+                if (document.querySelector('.topframe_is_sticky') !== null) {
+                    document.querySelector('.topframe_is_sticky').classList.add('sticky_on'); // new additional   
+                }
+                document.querySelector("#back-to-top").classList.add("topframe_is_sticky");
+            }
+        }
+    }
+
+    function _UNSET_TOPFRAME_STICKY_() {
+        document.removeEventListener("scroll", _TOPFRAME_STICKY_SCROLL_);
+        _TOPFRAME_STICKY_END_ = true;
+        _TOPFRAME_STICKY_CUSTOM_STYLE_.remove();
+        if (_TOPFRAME_PARENT_WRAPPER_ !== null) {
+            _TOPFRAME_PARENT_WRAPPER_.classList.remove("sticky");
+        }
+        if (_TOPFRAME_WRAPPER_ !== null) {
+            _TOPFRAME_WRAPPER_.classList.remove("sticky");
+        }
+        document.querySelector('#back-to-top').classList.remove('sticky_on'); // new additional
+        document.querySelector("#back-to-top").classList.remove("topframe_is_sticky");
+
+
+        setTimeout(function() {
+            document.querySelector("body").style = '';
+            document.querySelector("#back-to-top").style = '';
+            if (_TOPFRAME_PARENT_WRAPPER_ !== null) {
+                _TOPFRAME_PARENT_WRAPPER_.style = '';
+            }
+            document.documentElement.scrollTo(0, _TOPFRAME_STICKY_LAST_SCROLL_END_);
+        }, 200);
+    }
+
+    function _TOPFRAME_STICKY_COUNTDOWN_() {
+        _TOPFRAME_STICKY_LAST_SCROLL_ = document.documentElement.scrollTop;
+        var _target_ = document.querySelector(".layout__ads .topframe-sticky-counter");
+        var countdown = setInterval(function() {
+
+            _target_.textContent = 'Penawaran sponsor berakhir setelah ( ' + _TOPFRAME_STICKY_TIME_ + ' )';
+            if (_TOPFRAME_STICKY_TIME_ <= 0 || _turnOff_) {
+                _TOPFRAME_PARENT_WRAPPER_.style.top = '-100vh';
+                _TOPFRAME_PARENT_WRAPPER_.style.transition = 'top .5s ease';
+
+                setTimeout(function() {
+                    _UNSET_TOPFRAME_STICKY_();
+                }, 700);
+                clearInterval(countdown);
+                _target_.remove();
+            }
+            _TOPFRAME_STICKY_TIME_--;
+        }, 1000);
+
+    }
+
+    function _UPDATE_SCROLL_() {
+        if (!_TOPFRAME_STICKY_END_) {
+            var scrollTop = document.documentElement.scrollTop;
+            _TOPFRAME_STICKY_LAST_SCROLL_END_ = _TOPFRAME_STICKY_LAST_SCROLL_ + (scrollTop / (_TOPFRAME_STICKY_SCROLL_SPEED_ / 4));
+            document.querySelector('.topframe_is_sticky') && (document.querySelector('.topframe_is_sticky').style.transform = 'translateY(' + -(_TOPFRAME_STICKY_LAST_SCROLL_END_) + 'px)');
+            _TOPFRAME_PARENT_WRAPPER_.style.transform = 'translateY(' + (_TOPFRAME_STICKY_LAST_SCROLL_END_) + 'px)';
+        }
+    };
+
+    function _TOPFRAME_STICKY_STYLE_() {
+        var _P_ = document.createElement("p");
+        _P_.classList.add("topframe-sticky-counter");
+        _P_.textContent = "Penawaran sponsor berakhir setelah (7)";
+        _TOPFRAME_PARENT_WRAPPER_.appendChild(_P_)
+        var _H_ = document.querySelector("body").clientHeight;
+        // new additional 
+        //update layout.topframe_is_sticky to layout.topframe_is_sticky.sticky_on line 838
+        _TOPFRAME_STICKY_CUSTOM_STYLE_.textContent = `
+            body{height: ${(_H_ * 20 )}px;scroll-behavior: smooth;}
+                .layout.topframe_is_sticky.sticky_on::before {content: "";position: relative;height: 110.41666666666667vw !important;display: block;}
+                .layout.topframe_is_sticky{position:fixed ; top : 0px; left:0px;transition: all 1s ease;
+            }
+            .layout__ads{
+                transition: all 1s ease;
+            }
+            .layout__ads .topframe-sticky-counter {display : none;}
+            .layout__ads.sticky {
+                position: fixed;
+                z-index: 99;
+                height: calc(100vw *(267 / 414) + 25px );
+                background:#000;
+            }
+            .layout__ads.sticky::after ,
+            .layout__ads.sticky::before {
+                position: fixed;
+                height: 25px;
+                width: 100vw;
+                left: 0;
+            }
+            .layout__ads.sticky::after {
+                content: "";
+                top: calc(100vw *(267 / 414) );
+                background: #0072FF;
+                z-index: 100;
+                animation: progress-bar 7s forwards linear;
+            }
+            .layout__ads.sticky::before {
+                content: ""; /* nova edit */
+                background: #212121;
+                height: calc(100vw * (267 / 414) + 25px );
+            }
+            div#div-gpt-ad-topfrm-parallax-wrapper.sticky div#div-gpt-ad-liputan6-topfrm-oop div {
+                clip: unset !important; /* nova edit */
+            }
+            .layout__ads.sticky .topframe-sticky-counter {
+                display : block;
+                top: calc((100vw *(267 / 414) ) + 8px);
+                color : #fff;
+                line-height : 14px;
+                z-index: 101;
+                -webkit-animation: webkit-progress-count 7s forwards linear;
+                animation: progress-count 7s forwards linear;
+                width: 100vw; /* nova edit */
+                margin: 0px;
+                position: absolute;
+                text-align: center;
+            }
+            div#div-gpt-ad-topfrm-parallax-wrapper,
+            div#div-gpt-ad-topfrm-parallax-wrapper.sticky #div-gpt-ad-liputan6-topfrm-oop iframe {
+                transition: all .3s ease;
+            }
+            div#div-gpt-ad-topfrm-parallax-wrapper.sticky {
+                height: calc(100vw *(267 / 414)) !important;
+                position: relative !important;
+                top: 0px;
+            }
+            div#div-gpt-ad-topfrm-parallax-wrapper.sticky #div-gpt-ad-liputan6-topfrm-oop iframe {
+                transform: scale(.55);
+                top: calc((-110.41666666666667vw * .42) / 2) !important;
+            }
+            @keyframes progress-bar{
+                from {width: 0px;}
+                to{width: 100vw;}
+            }
+            `;
+        document.querySelector("#back-to-top").appendChild(_TOPFRAME_STICKY_CUSTOM_STYLE_);
+
+    }
+
+    function _TOPFRAME_STICKY_TWEAK_() {
+        // _LAYOUT_ADS_.insertAdjacentElement('afterbegin', _TOPFRAME_WRAPPER_);
+        _MAIN_ && _PARENT_BODY_TARGET_.insertAdjacentElement('afterbegin', _MAIN_);
+        _PARENT_BODY_TARGET_.insertAdjacentElement('afterbegin', _NAVBAR_);
+        _PARENT_BODY_TARGET_.insertAdjacentElement('afterbegin', _LAYOUT_ADS_);
+
+        _TOPFRAME_PARENT_WRAPPER_ = document.querySelector(".layout__ads");
+        _TOPFRAME_WRAPPER_ = document.querySelector("#div-gpt-ad-topfrm-parallax-wrapper");
+
+        // googletag.pubads().refresh([window.GAMLibrary.topframe]);
+
+    }
+</script>
+
+<style>
+    div#div-gpt-ad-topfrm-parallax-wrapper {
+        display: none;
+    }
+    div#div-gpt-ad-liputan6-topfrm-oop.puller {
+        position: fixed !important;
+        z-index: 999;
+        transform: scale(.55) translateX(38%);
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    div#div-gpt-ad-liputan6-topfrm-oop.puller::after {
+        content: "";
+        position: absolute;
+        height: 5px;
+        width: 100%;
+        background: yellow;
+        left: 0;
+        animation : tf-puller-loading 7s forwards;
+    }
+
+    @keyframes tf-puller-loading {
+        0%{width : 0px}
+        100%{width : 100%}
+    }
+</style>
+
+<style>
+    div[id^="showcase-page-"]>div {
+        width: 300px;
+    }
+    
+    div[id="div-gpt-ad-liputan6-bottomfrm"]>div {
+        width: 320px;
+    }
+    div[id^="contextual-page"]{
+        /* display: block !important; */
+        display: none !important;
+    }
+    div[id^="contextual-page"] > div{
+        width:fit-content !important;
+    }
+</style>
+
+<script>
+  let checkCount = 0;
+  let checkLS = setInterval(() => {
+    checkCount++;
+
+    let VIDEOWRAPPER = document.querySelector("#video-wrapper");
+    let CURRENTVIDEO = document.querySelector("#ID_VIVO");
+
+    if (CURRENTVIDEO !== null) {
+      CURRENTVIDEO.remove();
+
+      // console.log("== INI ==");
+      // console.log(VIDEOWRAPPER);
+
+      const now = new Date();
+
+      const nowInJakarta = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Jakarta" }));
+      const hours = nowInJakarta.getHours();
+
+      let videoId;
+
+      if (hours >= 15) {
+          videoId = "VTdvUZYWcME";
+      } else {
+          videoId = "dqoJQ3S2saE";
+      }
+
+      const playerDiv = document.createElement("div");
+      playerDiv.id = "youtube-player";
+      VIDEOWRAPPER.appendChild(playerDiv);
+
+      // Load YouTube Iframe API if not loaded
+      if (!window.YT || !YT.Player) {
+        const tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        document.body.appendChild(tag);
+      }
+
+      window.onYouTubeIframeAPIReady = function () {
+        _MAIN_VIDEO_ = new YT.Player("youtube-player", {
+          width: "320",
+          height: "180",
+          videoId: videoId,
+          playerVars: {
+            autoplay: 1,
+            mute: 1,
+            controls: 0,
+            playsinline: 1,
+            enablejsapi: 1,
+          },
+          events: {
+            onReady: function (event) {
+              _MAIN_VIDEO_VOLUME_ = parent.document.querySelector("div#player-wrapper div#btn-volume");
+              _MAIN_VIDEO_PLAY_ = parent.document.querySelector("div#player-wrapper div#btn-play");
+              _MAIN_VIDEO_VOLUME_.addEventListener("click", volume_action);
+              _MAIN_VIDEO_PLAY_.addEventListener("click", play_action);
+            },
+          },
+        });
+      };
+
+      clearInterval(checkLS);
+    } else {
+      if (checkCount > 500) {
+        clearInterval(checkLS);
+      }
+      // console.log("== CARI ==");
+    }
+  }, 100);
+
+  function volume_action(volume) {
+    var state =
+      typeof volume == "string" ? volume : _MAIN_VIDEO_VOLUME_.classList.contains("mute") ? "mute" : "unmute";
+
+    if (state == "mute") {
+      _MAIN_VIDEO_.unMute();
+      _MAIN_VIDEO_VOLUME_.setAttribute("class", "unmute");
+    } else {
+      _MAIN_VIDEO_.mute();
+      _MAIN_VIDEO_VOLUME_.setAttribute("class", "mute");
+    }
+  }
+
+  function play_action(param) {
+    var state = typeof param == "string" ? param : _MAIN_VIDEO_PLAY_.classList.contains("play") ? "play" : "pause";
+
+    if (state == "pause") {
+      _MAIN_VIDEO_.pauseVideo();
+      _MAIN_VIDEO_PLAY_.setAttribute("class", "play");
+    } else {
+      _MAIN_VIDEO_.playVideo();
+      _MAIN_VIDEO_PLAY_.setAttribute("class", "pause");
+    }
+  }
+</script>
