@@ -1,0 +1,184 @@
+<script>
+	const advertiserID = "%eadv!",
+        orderID = "%ebuy!",
+        lineItemID = "%eaid!",
+        creativeID = "%ecid!",
+        adunitID = "%epid!",
+        KLY = parent.window.kly || parent.window.kmklabs,
+        ADUNIT_TARGET_ID = window.frameElement.parentElement.parentElement.id;
+
+    const SETTING = {
+    	'liputan6' : {
+    		'desktop' : {
+    			'div-gpt-ad-liputan6-billboard-oop' : {
+    				'target' : '#div-gpt-ad-liputan6-billboard-oop',
+    				'method' : 'addClass'
+    			},
+    			'div-gpt-ad-liputan6-lb' : {
+    				'target' : '#billboard-ad',
+    				'method' : 'addClass'
+    			}
+    		},
+    		'mobile' : {
+    			'div-gpt-ad-liputan6-topfrm-oop' : {
+    				'target' : '#div-gpt-ad-topfrm-parallax-wrapper',
+    				'method' : 'displayStyle'
+    			}
+    		}
+    	},
+    	'fimela' : {
+    		'desktop' : {
+    			'div-gpt-ad-fimela-billboard-oop' : {
+    				'target' : '#billboard-ad',
+    				'method' : 'addClass'
+    			},
+    			'div-gpt-ad-fimela-lb-1' : {
+    				'target' : '#middle-ad',
+    				'method' : 'addClass'
+    			}
+    		},
+    		'mobile' : {
+    			'div-gpt-ad-fimela-topfrm' : {
+    				'target' : '#div-gpt-ad-topfrm-parallax-wrapper',
+    				'method' : 'displayStyle'
+    			}
+    		}
+    	},
+    	'kapanlagi' : {
+    		'desktop' : {
+    			'div-gpt-ad-kapanlagi-billboard-oop' : {
+    				'target' : '#v5-announcement',
+    				'method' : 'displayStyle'
+    			},
+    			'div-gpt-ad-kapanlagi-lb' : {
+    				'target' : '#v8-leaderboard',
+    				'method' : 'displayStyle'
+    			}
+    		},
+    		'mobile' : {
+    			'div-gpt-ad-kapanlagi-topfrm-oop' : {
+    				'target' : '#div-gpt-ad-topfrm-parallax-wrapper',
+    				'method' : 'displayStyle'
+    			},
+    			'div-gpt-ad-topfrm' : {
+    				'target' : '#div-gpt-ad-topfrm-parallax-wrapper',
+    				'method' : 'displayStyle'
+    			}
+    		}
+    	},
+    	'bola' : {
+    		'desktop' : {
+    			'div-gpt-ad-bola-billboard-oop' : {
+    				'target' : '#div-gpt-ad-billboard-placeholder',
+    				'method' : 'displayStyle'
+    			},
+    			'div-gpt-ad-bola-lb' : {
+    				'target' : '#div-gpt-ad-lb-placeholder',
+    				'method' : 'displayStyle'
+    			}
+    		},
+    		'mobile' : {
+    			'div-gpt-ad-bola-topfrm-oop' : {
+    				'target' : '#div-gpt-ad-topfrm-parallax-wrapper',
+    				'method' : 'displayStyle'
+    			}
+    		}
+    	},
+    	'bola.com' : {
+    		'desktop' : {
+    			'div-gpt-ad-bolacom-billboard-oop' : {
+    				'target' : '#div-gpt-ad-bolacom-billboard-oop',
+    				'method' : 'addClass'
+    			},
+    			'div-gpt-ad-bolacom-lb' : {
+    				'target' : '#billboard-ad',
+    				'method' : 'addClass'
+    			}
+    		},
+    		'mobile' : {
+    			'div-gpt-ad-bolacom-topfrm-oop' : {
+    				'target' : '#div-gpt-ad-topfrm-parallax-wrapper',
+    				'method' : 'displayStyle'
+    			}
+    		}
+    	},
+    	'merdeka.com' : {
+    		'desktop' : {
+    			'gpt-ad-div-masthead-mvk' : {
+    				'target' : '.gpt-ads.masthead',
+    				'method' : 'removeClass'
+    			},
+    			'gpt-ad-div-leaderboard-placeholder' : {
+    				'target' : 'div#gpt-ad-div-leaderboard-placeholder',
+    				'method' : 'removeClass'
+    			}
+    		},
+    		'mobile' : {
+    			'gpt-ad-div-masthead-mvk' : {
+    				'target' : '.gpt-ads.masthead',
+    				'method' : 'removeClass'
+    			}
+    		}
+    	},
+    	'otosia.com' : {
+    		'desktop' : {
+    			'gpt-ad-div-masthead-mvk' : {
+    				'target' : '.gpt-ads.masthead',
+    				'method' : 'removeClass'
+    			},
+    			'gpt-ad-div-leaderboard-placeholder' : {
+    				'target' : 'div#gpt-ad-div-leaderboard-placeholder',
+    				'method' : 'removeClass'
+    			}
+    		},
+    		'mobile' : {
+    			'gpt-ad-div-masthead-mvk' : {
+    				'target' : '.gpt-ads.masthead',
+    				'method' : 'removeClass'
+    			}
+    		}
+    	}
+    }
+
+    const TARGET_SETTING = SETTING[KLY.site.toLowerCase()][KLY.platform.toLowerCase()]
+    //ex : SETTING['liputan']['mobile'] 
+
+    function toogleShowAds() {
+    	if(IS_NO_CAMPIGN()){
+    		return;
+    	}
+
+    	const _TARGET_EL = parent.document.querySelector(TARGET_SETTING[ADUNIT_TARGET_ID]['target']);
+    	// ex : document.querySelector("#div-gpt-ad-liputan6-billboard-oop");
+    	const SHOW_METHOD = TARGET_SETTING[ADUNIT_TARGET_ID]['method'];
+
+    	if (SHOW_METHOD == 'addClass') {
+			setShowClass(_TARGET_EL);
+    	}
+
+    	if (SHOW_METHOD == 'displayStyle') {
+			setDisplayElement(_TARGET_EL);
+    	}
+
+    	if (SHOW_METHOD == 'removeClass') {
+			setRemoveHiddenClass(_TARGET_EL);
+    	}
+    }
+
+    function IS_NO_CAMPIGN() { return (lineItemID == "" || lineItemID == undefined) ? true : false }
+    function setShowClass(element) { element.classList.add("show") }
+    function setRemoveHiddenClass(element){ element.classList.remove("hidden") }
+    function setDisplayElement(element) { element.style.display = "block" }
+
+    toogleShowAds();
+</script>
+<!-- <script id="mastheadHybrid-%%CACHEBUSTER%%">
+    (function () {
+        var advertiserID = "%eadv!",
+            orderID = "%ebuy!",
+            lineItemID = "%eaid!",
+            creativeID = "%ecid!",
+            adunitID = "%epid!";
+            parent.document.querySelector("#div-gpt-ad-topfrm-parallax-wrapper").style.setProperty("display","block","important");
+  })();
+</script> -->
