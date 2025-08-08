@@ -1,0 +1,1111 @@
+<!-- GPT DESKTOP ARTICLE -->
+<style>
+    iframe[id^="newshub_ic2-from"] {
+    display: block !important;
+    }
+</style>
+<style>
+    .google-auto-placed {
+    display: none !important;
+    }
+  	/* 1. Dok. Remove Slide Up */
+    /* 5. Dok. Remove HP2 */
+    div#div-gpt-ad-mgid-inarticle-placeholder, div#div-gpt-ad-hp2-placeholder, div#div-gpt-ad-sc-paging-placeholder {
+      display: none;
+    }
+</style>
+<script>
+    var urlParams = new URLSearchParams(window.location.search);
+</script>
+<!-- START JIXIE IDSYNC -->
+<!-- START JIXIE LOGBIDS -->
+<script>
+    window.jixie_o = {
+    track: true,
+    accountID: "Bo214CWsuO",
+    external_ids: ['tdid', 'jxtoko'],
+    logbids: true,
+    };
+</script>
+<script async src="https://scripts.jixie.media/onescript/Bo214CWsuO/jx-Bo10821481ajx.min.js"></script>
+<!-- END JIXIE ID SYNC -->
+<!-- END JIXIE LOGBIDS -->
+<script async src="//adserver.kl-youniverse.com/asyncjs.php"></script>
+<script async src="//securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+<script async src="//cdns.klimg.com/d.kapanlaginetwork.com/banner/asset/prebid/loader.js"></script>
+<!-- ARTICLE -->
+<script type="text/javascript">
+    var gpt_gam_ver = 'v10-ADS';
+    gpt_gam_site = window.location.hostname.toUpperCase();
+    gpt_gam_ver = (typeof gpt_gam_site !== 'undefined') ? gpt_gam_ver.toUpperCase() : 'V.0.1';
+
+    /** LOAD PREBID - START */
+    /** START - PREBID INITIATE CLASS  */
+    class PrebidInstantiate {
+    constructor(timeout, fstimeout, hbtimeout, adunitDisplay, adunitVideo, price) {
+        this.PREBID_TIMEOUT = timeout;
+        this.FAILSAFE_TIMEOUT = fstimeout;
+        this.HB_TIMEOUT = hbtimeout;
+        this.ADUNITDISPLAY = adunitDisplay;
+        this.ADUNITVIDEO = adunitVideo;
+        this.PRICE = price;
+        this.pushBid();
+        this.failsafePrebid();
+    }
+
+    failsafePrebid() {
+        let that = this;
+        setTimeout(function() {
+        that.initAdserver();
+        }, this.FAILSAFE_TIMEOUT);
+    }
+    pushBid() {
+        pbjs.que.push(() => {
+            pbjs.addAdUnits(this.ADUNITDISPLAY);
+            pbjs.addAdUnits(this.ADUNITVIDEO);
+            pbjs.setConfig({
+                priceGranularity: this.PRICE,
+                enableSendAllBids: true,
+                cache: {
+                   url: 'https://prebid.adnxs.com/pbc/v1/cache'
+                },
+                // bidderTimeout: 2000,
+                enableTIDs: true,
+                deviceAccess: true,
+                storageAllowed: true,
+            });
+            pbjs.requestBids({
+                bidsBackHandler: this.initAdserver,
+                timeout: this.PREBID_TIMEOUT,
+            });
+        });
+    }
+    
+    initAdserver() {
+         if (pbjs.initAdserverSet) return;
+         pbjs.initAdserverSet = true;
+    
+         // Get all of the adUnit codes for the display adUnits
+         var displayAdUnitCodes = [];
+         adUnitsDisplay.forEach(function(adUnit) {
+             displayAdUnitCodes.push(adUnit.code);
+             //console.log(adUnit.code);
+         });
+    
+         googletag.cmd.push(function() {
+             pbjs.que.push(function() {
+                 /*pbjs.setTargetingForGPTAsync(displayAdUnitCodes);*/
+                 typeof pbjs.setTargetingForGPTAsync === 'function' ? pbjs.setTargetingForGPTAsync(displayAdUnitCodes) : '';
+                 googletag.pubads().refresh([window.GAMLibrary.showcase]);
+                 googletag.pubads().refresh([window.GAMLibrary.halfpage1]);
+                 googletag.pubads().refresh([window.GAMLibrary.halfpage2]);
+                 googletag.pubads().refresh([window.GAMLibrary.leaderboard]);
+             });
+         });
+    
+    }
+}
+/** START - PREBID INITIATE CLASS  */
+    
+/** START - PREBID INIT, CONFIGURATION & GOOGLE INIT   */
+const priceGranularityConfig = {
+    buckets: [{
+         precision: 2,
+         min: 0.02,
+         max: 0.99,
+         increment: 0.01
+    }, {
+         precision: 2,
+         min: 1,
+         max: 10,
+         increment: 0.1
+    }, ],
+};
+var gptadslots = [];
+var googletag = googletag || {};
+var pbjs = pbjs || {};
+var adUnitsDisplay = [{
+    code: "div-gpt-ad-bolacom-sc",
+    mediaTypes: {
+         banner: {
+             sizes: [
+                 [300, 250],
+                 [250, 250],
+                 [200, 200],
+             ],
+         },
+    
+    },
+    bids: [{
+         bidder: "teads",
+         params: {
+             pageId: 151738,
+             placementId: 167845
+         }
+    }, {
+         bidder: 'rubicon',
+         params: {
+             accountId: 12534,
+             siteId: 373786,
+             zoneId: 2046352
+         }
+    }, {
+         bidder: 'pubmatic',
+         params: {
+             publisherId: '156536',
+             adSlot: 'Prebid-Bolacom-Mobile-300x250_1'
+         }
+    }, {
+         bidder: 'unruly',
+         params: {
+             siteId: 243584
+         }
+    }, {
+         bidder: 'medianet',
+         params: {
+             cid: '8CUWX4UX4',
+             crid: '576550861'
+         }
+    }, {
+         bidder: 'smartadserver',
+         params: {
+             domain: 'https://prg-apac.smartadserver.com',
+             networkId: 4221,
+             siteId: 498329,
+             pageId: 1556521,
+             formatId: 111310
+         }
+    }, {
+         bidder: "openx",
+         params: {
+             delDomain: "emtek-d.openx.net",
+             unit: "556894062"
+         }
+    }, {
+         bidder: 'jixie',
+         params: {
+             unit: '1000214-N4GvgJ6ajv',
+             accountid: 'Bo214CWsuO'
+         }
+    }, {
+         bidder: 'ix',
+         params: {
+             siteId: '802769'
+         }
+    }, {
+         bidder: "yahoossp",
+         params: {
+             dcn: '8a96992f018383b1c311c65fad13024b',
+             pos: '8a9695bc018383b1c995c65ff3060251'
+         }
+    }, {
+         bidder: "taboola",
+         params: {
+             tagId: 'showcase_readpage_1',
+             publisherId: '1501400',
+         }
+    }, ],
+}, {
+    code: "div-gpt-ad-bolacom-halfpage1",
+    mediaTypes: {
+         banner: {
+             sizes: [
+                 [300, 250],
+                 [300, 600],
+                 [160, 600],
+             ],
+         },
+    
+    },
+    bids: [{
+         bidder: "teads",
+         params: {
+             pageId: 151738,
+             placementId: 167845
+         }
+    }, {
+         bidder: "innity",
+         params: {
+             zone: 98060,
+             pub: 536
+         }
+    }, {
+         bidder: 'rubicon',
+         params: {
+             accountId: 12534,
+             siteId: 373786,
+             zoneId: 2046352
+         }
+    }, {
+         bidder: 'pubmatic',
+         params: {
+             publisherId: '156536',
+             adSlot: 'Prebid-Bolacom-Mobile-300x600'
+         }
+    }, {
+         bidder: 'unruly',
+         params: {
+             siteId: 243584
+         }
+    }, {
+         bidder: 'medianet',
+         params: {
+             cid: '8CUWX4UX4',
+             crid: '123558562'
+         }
+    }, {
+         bidder: 'smartadserver',
+         params: {
+             domain: 'https://prg-apac.smartadserver.com',
+             networkId: 4221,
+             siteId: 498329,
+             pageId: 1556521,
+             formatId: 111311
+         }
+    }, {
+         bidder: "openx",
+         params: {
+             delDomain: "emtek-d.openx.net",
+             unit: "556894056"
+         }
+    }, {
+         bidder: 'jixie',
+         params: {
+             unit: '1000214-wJqWTkVMJH',
+             accountid: 'Bo214CWsuO'
+         }
+    }, {
+         bidder: 'ix',
+         params: {
+             siteId: '802770'
+         }
+    }, {
+         bidder: "yahoossp",
+         params: {
+             dcn: '8a96992f018383b1c311c65fad13024b',
+             pos: '8a96992f018383b1c311c6602980024d'
+         }
+    }, {
+         bidder: "taboola",
+         params: {
+             tagId: 'halfpage_readpage_1',
+             publisherId: '1501400',
+         }
+    },
+    ],
+}, {
+    code: "div-gpt-ad-bolacom-halfpage2",
+    mediaTypes: {
+         banner: {
+             sizes: [
+                 [300, 250],
+                 [300, 600],
+                 [160, 600],
+             ],
+         },
+    
+    },
+    bids: [{
+         bidder: "teads",
+         params: {
+             pageId: 151738,
+             placementId: 167845
+         }
+    }, {
+         bidder: "innity",
+         params: {
+             zone: 98060,
+             pub: 536
+         }
+    }, {
+         bidder: 'rubicon',
+         params: {
+             accountId: 12534,
+             siteId: 373786,
+             zoneId: 2046352
+         }
+    }, {
+         bidder: 'pubmatic',
+         params: {
+             publisherId: '156536',
+             adSlot: 'Prebid-Bolacom-Mobile-300x600'
+         }
+    }, {
+         bidder: 'unruly',
+         params: {
+             siteId: 243584
+         }
+    }, {
+         bidder: 'medianet',
+         params: {
+             cid: '8CUWX4UX4',
+             crid: '123558562'
+         }
+    }, {
+         bidder: 'smartadserver',
+         params: {
+             domain: 'https://prg-apac.smartadserver.com',
+             networkId: 4221,
+             siteId: 498329,
+             pageId: 1556521,
+             formatId: 111311
+         }
+    }, {
+         bidder: "openx",
+         params: {
+             delDomain: "emtek-d.openx.net",
+             unit: "556894056"
+         }
+    }, {
+         bidder: 'jixie',
+         params: {
+             unit: '1000214-iAZqCTKnIA',
+             accountid: 'Bo214CWsuO'
+         }
+    }, {
+         bidder: 'ix',
+         params: {
+             siteId: '802771'
+         }
+    }, {
+         bidder: "yahoossp",
+         params: {
+             dcn: '8a96992f018383b1c311c65fad13024b',
+             pos: '8a96992f018383b1c311c6602980024d'
+         }
+    }, {
+         bidder: "taboola",
+         params: {
+             tagId: 'halfpage_readpage_2',
+             publisherId: '1501400',
+         }
+    },
+    ],
+}, {
+    code: "div-gpt-ad-bolacom-lb",
+    mediaTypes: {
+         banner: {
+             sizes: [
+                 [728, 90],
+                 [970, 90],
+                 [970, 250],
+             ],
+         },
+    },
+    bids: [{
+         bidder: 'smartadserver',
+         params: {
+             domain: 'https://prg-apac.smartadserver.com',
+             networkId: 4221,
+             siteId: 498329,
+             pageId: 1556521,
+             formatId: 111313
+         }
+    }, {
+         bidder: 'jixie',
+         params: {
+             unit: '1000214-SMl7kIYI4B',
+             accountid: 'Bo214CWsuO'
+         }
+    }, {
+         bidder: 'ix',
+         params: {
+             siteId: '802768'
+         }
+    }, {
+         bidder: "teads",
+         params: {
+             pageId: 151738,
+             placementId: 167845
+         }
+    },{
+         bidder: "yahoossp",
+         params: {
+             dcn: '8a96992f018383b1c311c65fad13024b',
+             pos: '8a969d80018383b1b722c660ded30245'
+         }
+    }, {
+         bidder: "taboola",
+         params: {
+             tagId: 'leaderboard_readpage_1',
+             publisherId: '1501400',
+         }
+    }, ],
+}, ];
+var adUnitsVideo = [{
+    code: "div-gpt-ad-bolacom-sc",
+    mediaTypes: {
+         video: {
+             playerSize: [300, 250], // Not set so that the player can be repsonsive
+             context: "outstream",
+             protocols: [2, 3, 7]
+         },
+    
+    },
+    bids: [
+         {
+             bidder: 'ix',
+             params: {
+                 siteId: '802769'
+             }
+         },
+    ],
+}, {
+    code: "div-gpt-ad-bolacom-halfpage1",
+    mediaTypes: {
+         video: {
+             playerSize: [300, 600], // Not set so that the player can be repsonsive
+             context: "outstream",
+             protocols: [2, 3, 7]
+         },
+    
+    },
+    bids: [
+         {
+             bidder: 'ix',
+             params: {
+                 siteId: '802770'
+             }
+         },
+    ],
+}, {
+    code: "div-gpt-ad-bolacom-halfpage2",
+    mediaTypes: {
+         video: {
+             playerSize: [300, 600], // Not set so that the player can be repsonsive
+             context: "outstream",
+             protocols: [2, 3, 7]
+         },
+    
+    },
+    bids: [
+         {
+             bidder: 'ix',
+             params: {
+                 siteId: '802771'
+             }
+         },
+    
+    ],
+}, {
+    code: "div-gpt-ad-bolacom-lb",
+    mediaTypes: {
+         video: {
+             playerSize: [970, 250], // Not set so that the player can be repsonsive
+             context: "outstream",
+             protocols: [2, 3, 7]
+         },
+    },
+    bids: [{
+         bidder: 'ix',
+         params: {
+             siteId: '802768'
+         }
+    }, ],
+}, ];
+    
+
+    
+pbjs.que = pbjs.que || [];
+googletag.cmd = googletag.cmd || [];
+    
+/**START JIXIE ANALYTICS*/
+pbjs.que.push(function() {
+    window._jxbidsq = window._jxbidsq || [], pbjs.onEvent("auctionInit", function(n) {
+         _jxbidsq.push(["auctionInit", n])
+    }), pbjs.onEvent("auctionEnd", function(n) {
+         _jxbidsq.push(["auctionEnd", n])
+    }), pbjs.onEvent("bidWon", function(n) {
+         _jxbidsq.push(["bidWon", n])
+    }), pbjs.onEvent("bidTimeout", function(n) {
+         _jxbidsq.push(["bidTimeout", n])
+    }), pbjs.onEvent("bidRequested", function(n) {
+         _jxbidsq.push(["bidRequested", n])
+    }), pbjs.onEvent("setTargeting", function(n) {
+         _jxbidsq.push(["setTargeting", n])
+    }), pbjs.onEvent("bidResponse", function(n) {
+         _jxbidsq.push(["bidResponse", n])
+    })
+}), window.googletag = window.googletag || {
+    cmd: []
+}, googletag.cmd.push(function() {
+    window._jxbidsq = window._jxbidsq || [], googletag.pubads().addEventListener("slotRenderEnded", function(n) {
+         _jxbidsq.push(["slotRenderEnded", n])
+    }), googletag.pubads().addEventListener("impressionViewable", function(n) {
+         _jxbidsq.push(["impressionViewable", n])
+    })
+});
+/**END JIXIE ANALYTICS*/
+/** END - PREBID INIT, CONFIGURATION & GOOGLE INIT   */
+/** LOAD PREBID - END */
+    
+    
+    /*PROTOTYPE CUSTOM FILTERING*/
+    String.prototype.klyFiltering = function(delimiter) {
+  return this.trim().split(delimiter).map(function(t) {
+      return t.trim().toLowerCase()
+  }).filter(x => x != "");
+    };
+    
+    window.GAMLibrary = {};
+    window.GAMLibrary = {
+  gamImmersive: '/36504930/KLY/DESKTOP/BOLA.COM/IMMERSIVE',
+    // 3. Dok. Remove TF
+    // gamTopFrame: '/36504930/KLY/DESKTOP/BOLA.COM/TOP_FRAME',
+  gamBottomFrame: '/36504930/KLY/DESKTOP/BOLA.COM/BOTTOM_FRAME',
+  gamSkinad: '/36504930/KLY/DESKTOP/BOLA.COM/SKINAD',
+  gamBillboard: '/36504930/KLY/DESKTOP/BOLA.COM/MASTHEAD',
+  gamBalloon: '/36504930/KLY/DESKTOP/BOLA.COM/BALLOON',
+  gamHeadline1: '/36504930/www.bola.com/dfp-headline1',
+  gamHeadline2: '/36504930/www.bola.com/dfp-headline2',
+  gamNewsTag1: '/36504930/KLY/DESKTOP/BOLA.COM/NEWS_TAG_1',
+  gamOrganicFeedCRM1: '/36504930/KLY/DESKTOP/BOLA.COM/ORGANIC_FEED_CRM_1',
+  gamOrganicFeedCRM2: '/36504930/KLY/DESKTOP/BOLA.COM/ORGANIC_FEED_CRM_2',
+  gamOrganicFeedCRM3: '/36504930/KLY/DESKTOP/BOLA.COM/ORGANIC_FEED_CRM_3',
+    // 1. Dok. Remove Slide Up
+    // gamSlideUp: '/36504930/KLY/DESKTOP/BOLA.COM/SLIDE_UP',
+  gamShowcase: '/36504930/KLY/DESKTOP/BOLA.COM/SHOWCASE',
+  gamHalfpage1: '/36504930/KLY/DESKTOP/BOLA.COM/HALFPAGE_1',
+    // 5. Dok. Remove HP2
+    // gamHalfpage2: '/36504930/KLY/DESKTOP/BOLA.COM/HALFPAGE_2',
+    // 2. Dok. Remove LB
+    // gamLeaderboard: '/36504930/KLY/DESKTOP/BOLA.COM/LEADERBOARD',
+    // 4. Dok. Remove Interstitial
+    // gamInterstitial: '/36504930/KLY/DESKTOP/BOLA.COM/INTERSTITIAL',
+  gamInreadNative: '/36504930/KLY/DESKTOP/BOLA.COM/IN-READ_NATIVE',
+  gamInsertion: '/36504930/KLY/DESKTOP/BOLA.COM/INSERTION',
+  gamPictureFirst: '/36504930/KLY/DESKTOP/BOLA.COM/CONTENT_CAROUSEL',
+  gamWidget: '/36504930/KLY/DESKTOP/BOLA.COM/WIDGET',
+  userAgent: navigator.userAgent.toLowerCase(),
+  tags: '',
+  GAMisTablet: /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(this.userAgent),
+  documentMeta: function(metaName) {
+      var metaResult = '';
+      var metas = document.getElementsByTagName('meta');
+      if (metas) {
+           for (var x = 0, y = metas.length; x < y; x++) {
+               if (metas[x].name.toLowerCase() == metaName) {
+                   metaResult += metas[x].content;
+               }
+           }
+      }
+      return metaResult != '' ? metaResult : '';
+  },
+  initiateInfiniteSC: function() {
+         const boxes = document.querySelectorAll('.article-content-body .article-ad');
+         const slotObserver = new IntersectionObserver((entries, observer) => {
+             entries.forEach(entry => {
+                 if (entry.isIntersecting) {
+                     const id = entry.target.id;
+                     if (id.indexOf("revive") < 0) {
+                         var slot = [];
+    
+                         slot.push(googletag.defineSlot(GAMLibrary.gamShowcase, [
+                             [300, 250],
+                             [250, 250]
+                         ], id).addService(googletag.pubads()));
+                         path = 'div-gpt-ad-fimela-sc-1';
+    
+                         // bids based on adunit code
+                         pbjs.que.push(function() {
+                             pbjs.requestBids({
+                                 timeout: 1000,
+                                 adUnitCodes: [path],
+                                 bidsBackHandler: function() {
+                                     pbjs.setTargetingForGPTAsync([path]);
+                                     googletag.pubads().refresh(slot);
+                                     slotObserver.unobserve(entry.target);
+                                 }
+                             });
+                         });
+                     }
+                 }
+             });
+         }, {
+             root: null, // viewport
+             threshold: 0, // trigger when any part intersects
+             rootMargin: '700px 0px'
+         });
+    
+         boxes.forEach(box => {
+             slotObserver.observe(box);
+         });
+    
+  },
+  brandSafetyChecker: function() {
+      var _klyObject = typeof window.kly !== 'undefined' ? window.kly : window.kmklabs,
+           _articlePages = _klyObject && _klyObject.article,
+           _isAdultContent = _articlePages && _articlePages.isAdultContent,
+           isMatcont = "0",
+           isViolateBrandSafety = "0",
+    
+           /*POPULATE META DATA*/
+           bsKeyword = [],
+           dfp_pageTitle = _articlePages && _articlePages.title.klyFiltering(' '),
+           dfp_titles = (typeof dfp_pageTitle !== 'undefined') ? dfp_pageTitle : '',
+           dfp_keyword = this.documentMeta("keywords"),
+           dfp_desc = this.documentMeta("description"),
+           /*tagForAds = _klyObject.gtm.tag.replace(/[^A-Za-z0-9|\- ]/ig, "").klyFiltering("|");*/
+           dfp_tag = _klyObject.gtm.tag || _klyObject.tag && _klyObject.tag.name,
+           tagForAds = typeof dfp_tag === 'undefined' ? [] : dfp_tag.replace(/[^A-Za-z0-9|\- ]/ig, "").klyFiltering("|");
+      this.tags = tagForAds;
+    
+      const bsKeywordList = {
+           'adult': ['adegan erotis', 'adegan seks', 'aduhai', 'adult', 'affair', 'air mani', 'alat bantu seks', 'alat kelamin', 'alat kontrasepsi', 'alat vital pria', 'alergi', 'anal', 'anatomi vagina', 'anjeng', 'anjing', 'anjlng', 'anjrit', 'anus', 'anying', 'apa itu kondom', 'artis indonesia bugil', 'artis porno', 'ass', 'asu', 'ayam hitam', 'babi', 'bahaya masturbasi', 'bajingan', 'bandar ceme', 'bangsat', 'bdsm', 'bego', 'belahan', 'bentuk kelamin', 'bentuk payudara', 'bercinta', 'bercinta saat hamil', 'bergairah', 'berhubungan intim', 'berhubungan seks', 'berhubungan seksual', 'bersetubuh', 'bikini', 'bintang film porno', 'bintang porno', 'biseksual', 'bitch', 'bocah sd foto mesum', 'body shaming', 'bokne', 'bokong', 'bom surabaya 2018', 'boneka seks', 'boob', 'bra', 'bugil', 'bullshit', 'bulshit', 'bulu kemaluan', 'bunuh diri', 'cabul', 'cara berhubungan intim', 'cara membuat suami bergairah', 'cara memperbesar penis', 'cara mengatasi ejakulasi dini', 'cara seksual', 'celana', 'cemani', 'cemen', 'chat firza-rizieq', 'ciuman', 'cleavage', 'cock', 'cok', 'cukur bulu kemaluan', 'cum', 'dada', 'death', 'dewasa', 'di bawah umur', 'dick', 'dildo', 'diremas', 'disfungsi ereksi', 'doggie', 'doll', 'drunk', 'ejakulasi', 'ejakulasi dini', 'ejakulasi wanita', 'eksotik', 'elo', 'entot', 'ereksi', 'erotic', 'erotis', 'ewe', 'exotic', 'fakta seks', 'fase menstruasi', 'fenomena kelainan seksual', 'fetish', 'film dewasa', 'film porno', 'foreplay', 'foto berhubungan intim', 'foto intim', 'foto telanjang', 'fuck', 'gairah', 'gairah seks', 'gairah seksual', 'gangbang', 'gangguan jiwa', 'gangguan seks', 'ganguan jiwa', 'ganguan seksual', 'ganja', 'gay', 'gaya bercinta', 'gaya bercinta dalam islam', 'gaya bercinta yang disukai pria', 'gaya seks', 'gejala penyakit', 'gemar368', 'germo', 'goblok', 'gue', 'gwe', 'hardcore', 'hasrat seksual', 'henceut', 'hindu', 'hitam mafia', 'homoseks', 'horny', 'hot', 'hubungan', 'hubungan intim', 'hubungan seksual', 'ibu hamil', 'implan payudara', 'industri film porno', 'intim', 'itil', 'jancok', 'jancuk', 'jenis alat kontrasepsi', 'jerawat', 'jual beli sperma', 'kacau', 'kakek cabul', 'kamasutra', 'kanibal', 'kanibalisme', 'kanker payudara', 'kapalan', 'kasus asusila', 'kebencian', 'kecanduan seks', 'kehidupan seks', 'kekerasan seksual', 'kelainan seks', 'kelamin', 'kelamin wanita', 'kemaluan', 'kemaluan wanita', 'kencing', 'keperawanan', 'keriting', 'kesehatan kulit dan kelamin', 'kesehatan payudara', 'kesehatan penis', 'kesehatan reproduksi', 'kesehatan wanita', 'khusus deewasa', 'kimpet', 'kisah perselingkuhan', 'kiss', 'klitoris', 'komunitas swinger', 'kondom', 'kondom pria', 'kontol', 'kontolnya', 'kontrasepsi', 'kontroversi hukuman mati', 'kontroversi lgbt', 'kotor', 'kotoran', 'kristen', 'kumuh', 'kursi tantra seks', 'legalisasi ganja', 'lemari es', 'lendir', 'lesbian', 'lgbt', 'libido', 'lingerie', 'lolita', 'lonte', 'm3m3k', 'mabuk', 'mahasiswi', 'mainan dewasa', 'mainan perangsang gairah', 'makanan berbahaya', 'makanan sehat', 'masa subur pria', 'masturbasi', 'matcont', 'mature', 'meki', 'melakukan hubungan intim', 'memek', 'memerkosa', 'mencukur bulu kemaluan', 'menggairahkan', 'menggoda', 'mengupas', 'menstruasi', 'menyiangi', 'meraba-raba', 'mesra', 'mesum', 'mimpi seks', 'mimpi telanjang', 'miss-v', 'mitos seks', 'model hot', 'model seksi', 'monyet', 'mr-p', 'mucikari siswi smp', 'nakal', 'naked', 'naughty', 'ngentot', 'ngewe', 'nipple', 'nipples', 'nonok', 'nude', 'obat ejakulasi dini', 'obat kuat', 'obat pembesar', 'obat pembesar penis terbaik', 'onani', 'oral', 'oral seks', 'organ', 'organ intim wanita', 'orgasme', 'orgasme wanita', 'overdose', 'overdosis', 'paha', 'pakistan', 'pamer', 'pantat', 'panties', 'payudara', 'payudara kecil', 'payudara wanita', 'pelacur', 'pelecehan', 'pelecehan seksual', 'pembesar penis', 'pembunuh', 'pembunuhan', 'pemerkosaan', 'pemerkosaan anak', 'pemuda', 'pencabulan', 'penetrasi', 'penetratif', 'pengetahuan seks', 'pengobatan alternatif', 'penis', 'penis bengkok', 'penis besar', 'penis kecil', 'penis pria', 'penyakit sipilis', 'penyakit vagina', 'penyimpangan seks', 'perawan', 'perawatan vagina', 'perbudakan', 'perek', 'perguruan tinggi', 'perkosa', 'perkosaan', 'permen', 'perselingkuhan', 'piss', 'play boy', 'pole', 'porn', 'porno', 'pornoaksi', 'pornografi', 'posisi bercinta', 'posisi hubungan intim suami istri menurut islam', 'posisi seks', 'posisi seksual', 'pria dewasa', 'pria idaman', 'prostitusi', 'provokatif', 'pukang', 'puki', 'puting', 'puting payudara', 'putting', 'radikal', 'raksasa', 'rangsang payudara', 'ranjang', 'rasis', 'rasisme', 'razia pasangan mesum', 'rokok', 'rudapaksa', 'rumah bordil', 'sbobet', 'seks', 'seks bebas', 'seks dalam islam', 'seks dan agama', 'seks dan kriminal', 'seks dan pasutri', 'seks oral', 'seks pria dan wanita', 'seks toy', 'seksi', 'seksual', 'seksual lelaki dan perempuan', 'seksualitas', 'seksualitas pria', 'seksualitas wanita', 'semen', 'sensual', 'seronok', 'sex', 'sex toy', 'sexy', 'shit', 'siklus menstruasi', 'situs poker terpercaya', 'situs porno', 'skandal', 'sperma', 'stres dan depresi', 'strip', 'striptease', 'striptis', 'suicide', 'sundulan', 'swinger', 'syur', 'tai', 'taik', 'tamparan', 'tante seksi', 'taruhan online', 'telanjang', 'telentang', 'terangsang', 'teroris', 'terorisme', 'tes keperawanan', 'test pack', 'testis', 'tiduri', 'tips bercinta', 'tips seks', 'titik rangsang', 'titit', 'toket', 'tolol', 'topless', 'toys', 'ujian', 'ukuran normal penis', 'ukuran penis', 'ukuran penis normal', 'ukuran penis orang indonesia', 'ukuran vagina', 'vagina', 'vagina gatal', 'vagina wanita', 'vakum pembesar penis', 'viagra', 'vibrator', 'video bercinta dengan pasangan', 'video porno', 'video seks', 'virus corona', 'vital', 'wanita telanjang', 'waria', 'woman on top', 'xxx', 'xxxx online', 'angry', 'bastard', 'blow job', 'bordil', 'college', 'crush', 'dirty', 'education', 'escort', 'furious', 'hiburan dewasa', 'homoseksual', 'household', 'lose', 'meraung', 'pahlawan wanita', 'pedofil', 'pedofilia', 'rises', 'rush', 'Sensitive', 'sexual', 'sialan', 'situs dewasa', 'spray', 'tanah amp', 'teen'],
+           'war_politics': ['ahed tamimi', 'ahok gugat cerai veronica tan', 'aliran sesat', 'anarkis', 'anarkisme suporter sepakbola', 'begal motor', 'bentrok suporter', 'bentrokan', 'bentrokan warga', 'berita hoax', 'capres jokowi', 'capres prabowo', 'fanatik', 'ferdy sambo', 'fpi', 'g30s', 'invasi rusia', 'jemaah ansharut daulah', 'kebohongan ratna sarumpaet', 'kediktatoran arab saudi', 'kekerasan pada wartawan', 'killing', 'kisah mualaf', 'koalisi jokowi', 'koalisi pilpres 2019', 'koalisi prabowo', 'konflik palestina israel', 'konflik palestina-israel', 'konflik rusia ukraina', 'konflik suriah', 'lia eden', 'luwu timur', 'nato', 'penembakan', 'penganiayaan', 'pengawal', 'pengeroyokan', 'penistaan agama', 'perang', 'perang di ukraina', 'perang dunia', 'perang dunia 3', 'perang rusia', 'peristiwa', 'pilpres 2019', 'polisi', 'prabowo subianto', 'prabowo-sandiaga', 'presiden rusia', 'presiden ukraina', 'propaganda rusia', 'ratna sarumpaet', 'rokok elektrik', 'rusia', 'rusia dan ukraina', 'rusia serang ukraina', 'senjata rusia', 'serang ukraina', 'serangan', 'suporter tewas', 'taliban', 'tentara', 'ternyata hoax', 'ujaran kebencian', 'ukraina', 'vladimir putin', 'tni', 'jenderal', 'korupsi', 'politik', 'politikus', 'kpk', 'kkb', 'penjajah', 'berduka', 'army', 'corpse', 'demo', 'dilempar', 'ferdi sambo', 'news', 'news foto', 'news readers', 'politic', 'politics', 'polri', 'Palestina', 'israel', 'boikot', 'yahudi', 'ajudan', 'gaza', 'hamas', 'perwira', 'sianida', 'capres', 'cawapres', 'pemilu', 'ganjar pranowo', 'mahfud md', 'gibran rakabuming', 'anies baswedan', 'muhaimin iskandar', 'cak imin', 'politik', 'mirna', 'jessica wongso', 'makam', 'ganjar', 'anies', 'gibran', 'anis', 'presiden', 'bacapres', 'prabowo', 'mahfud', 'megawati', 'mk', 'mahkamah', 'iriana', 'firaun', 'mesir', 'ham', 'hak asasi manusia', 'cpns', 'militer', 'amunisi', 'senjata', 'senpi', 'kpu', 'partai', 'wapres', 'menteri', 'dpr', 'mrp', 'mpr', 'caleg', 'calon legislatif', 'anggota dpr', 'anggota mpr', 'bupati', 'wakil bupati', 'walikota', 'walkot', 'anggota dprd', 'dprd', 'bawaslu', 'komcad', 'cacar', 'gubernur', 'wakil gubernur', 'partai politik', 'parpol'],
+           'drugs_tobacco_alcohol': ['adiktif', 'akibat merokok', 'alcohol', 'alkohol', 'artis narkoba', 'asap rokok', 'bahaya berhenti merokok', 'bahaya merokok', 'bahaya narkoba', 'bahaya rokok', 'bahaya rokok elektrik', 'berhenti merokok', 'bnn', 'cancer', 'candy', 'cara berhenti merokok', 'cbd', 'ciri ciri pengguna narkoba', 'dampak merokok', 'djarum', 'drugs', 'efek berhenti merokok', 'ganja', 'hash', 'impotensi', 'jantung', 'jenis alkohol', 'jenis alkohol dalam minuman keras', 'jenis jenis narkoba', 'jenis narkotika', 'kanker', 'kartel narkoa', 'kasus narkoba', 'kecanduan', 'kesehatan paru', 'larangan merokok', 'mafia narkoba', 'manfaat berhenti merokok', 'merokok', 'minuman beralkohol', 'minuman keras', 'narkoba', 'narkoba artis', 'obat psikotropika', 'overdosis', 'pelanggaran', 'penyalahgunaan narkoba', 'penyeludupan narkoba', 'perokok', 'pot', 'pppa', 'rehabilitasi narkoba', 'remaja narkoba', 'rokok', 'rokok elektrik', 'ruu minuman beralkohol', 'sabu', 'selebriti narkoba', 'sidang narkoba', 'stroke', 'tablet', 'tembakau', 'tips berhenti merokok', 'cukai rokok', 'kokain', 'puntung'],
+           'disaster': ['10 macam pencemaran lingkungan', 'autopsi', 'bahaya pencemaran udara', 'bahaya polusi', 'belasungkawa', 'bencana', 'bencana besar', 'bola', 'bom', 'bom atom', 'bom bali', 'bom bunuh diri', 'bom gereja', 'bom meledak', 'bom nuklir', 'bom panci', 'bom sarinah', 'bom seks', 'bunuh orang', 'cara mencegah global warming', 'cara mencegah pemanasan global', 'cara mengatasi pemanasan global', 'cara mengatasi pemanasan global sebagai pelajar', 'cara mengatasi pencemaran udara', 'climate change', 'contoh pencemaran lingkungan', 'dampak pencemaran lingkungan', 'dampak pencemaran udara', 'darurat bencana', 'dilaporkan tewas', 'dimakamkan', 'dinyatakan meninggal', 'dipastikan tewas', 'ditemukan mati', 'ditemukan tewas', 'efek rumah kaca', 'efek rumah kaca adalah', 'fenomena alam', 'gas', 'gas rumah kaca', 'gempa donggala', 'gempa palu', 'gempa sulawesi tengah', 'global warming', 'global warming adalah', 'hilangkan nyawa', 'hilangnya nyawa', 'identitas korban', 'inalillahi', 'isis', 'jasad', 'jasad korban', 'jasadnya', 'jenasah wanita', 'jenazah', 'jenazah pria', 'jenazah teridentifikasi', 'jenis pencemaran lingkungan', 'kapal tenggelam', 'kapal tenggelam di danau toba', 'kasus penebangan pohon', 'kasus tabrak lari', 'keadaan kritis', 'kecelakaan', 'kecelakaan bus', 'kehilangan darah', 'kehilangan hidupnya', 'kehilangan nyawa', 'kehilangan nyawanya', 'kematian', 'korban', 'korban jiwa', 'korban meninggal', 'korban tewas', 'kota paling berpolusi', 'kota paling berpolusi didunia', 'krisis iklim', 'kualitas udara', 'ledakan bom', 'liga', 'limbah', 'limbah pabrik', 'lion air hilang kontak', 'lion air jatuh', 'lion air jatuh di karawang', 'macam pencemaran lingkungan', 'mati', 'mayat', 'mayat korban', 'meledak', 'memakan nyawa', 'membakar', 'membunuh', 'membunuh istrinya', 'membunuh mereka', 'membunuh suaminya', 'menelan nyawa', 'menemui ajal', 'menewaskan', 'menewaskan orang', 'mengalami koma', 'mengamuk', 'mengancam nyawa', 'menghembuskan nafas terakhir', 'menimbulkan korban', 'meninggal', 'meninggal akibat sakit', 'meninggal dunia', 'menyebabkan kematian', 'meregang nyawa', 'meregggut nyawa', 'merenggut jiwa', 'merenggut nyawa', 'modar', 'nyawa hilang', 'nyawa melayang', 'nyawa tak tertolong', 'orang mati', 'orang tewas', 'pelayat', 'pemakaman', 'pemanasan global', 'pemanasan global adalah', 'pembunuhan', 'pembunuhan sadis', 'pencemaran', 'pencemaran air', 'pencemaran air bersih', 'pencemaran air laut', 'pencemaran limbah', 'pencemaran lingkungan', 'pencemaran minyak', 'pencemaran sungai', 'pencemaran sungai brantas', 'pencemaran udara', 'penemuan mayat', 'pengertian efek rumah kaca', 'pengertian efek rumah kaca menurut para ahli', 'pengertian pemanasan global', 'penyakit polusi udara', 'penyakit yang disebabkan oleh polusi udara', 'penyebab efek rumah kaca', 'penyebab global warming', 'penyebab kematian', 'penyebab kerusakan lingkungan', 'penyebab pemanasan global', 'penyebab pemanasan global akibat aktivitas manusia', 'penyebab pencemaran air', 'penyebab pencemaran udara', 'penyebab perubahan iklim', 'penyebab perubahan iklim global', 'penyebab polusi udara', 'penyebab terjadinya efek rumah kaca', 'penyebab terjadinya pemanasan global', 'penyebab terjadinya pemanasan global dan efek rumah kaca', 'permintaan maaf', 'pertandingan', 'perubahan iklim', 'perubahan iklim global', 'pesawat hilang kontak', 'pesawat jatuh', 'petugas penyelamat', 'piala dunia', 'pollution', 'polusi', 'polusi jakarta', 'polusi udara', 'polusi udara di jakarta', 'polutan', 'renggut nyawa', 'sampah plastik', 'sepak', 'stadion', 'tak bernyawa', 'tak sadarkan diri', 'telah meninggal', 'telan nyawa', 'terbunuh', 'terkapar', 'teror bom', 'tewas', 'tewaskan', 'tidak bernyawa', 'timnas', 'tim penyelamat', 'trauma', 'tsunami palu', 'tutup usia', 'udara bersih', 'udara jakarta', 'wafat', 'wanita meninggal', 'won'],
+           'epidemic_desease': ['corona', 'corona di indonesia', 'covid', 'covid 19', 'covid-19', 'doctor', 'dokter', 'health', 'healthy', 'hospital', 'infeksi saluran kencing', 'insomnia dan tidur', 'kematian', 'kematian virus', 'kematian wabah', 'kesehatan', 'korban terinfeksi', 'korona', 'obesitas', 'odp', 'osteoporosis', 'pdp', 'penyakit', 'positif korona', 'rsud', 'rumah sakit', 'sakit pernapasan', 'sedih', 'sehat', 'sesak', 'terinfeksi virus corona', 'terjangkit covid-19', 'terkena', 'virus', 'virus corona', 'virus korona', 'virus menyerang', 'virus-corona', 'wabah', 'wabah corona', 'crowd', 'dead', 'die', 'fail', 'fatal', 'fire', 'flu', 'illness', 'kanjuruhan', 'kanker paru paru', 'kerusuhan', 'murder', 'pneumonia', 'pulau sampah', 'stampede', 'tembak', 'tergeletak', 'terinjak', 'tragedi', 'trigger'],
+           'religion': ['15lam', 'abu bakar al-baghdadi', 'al quran', 'al-quran', 'buda', 'budha', 'ibrahim al-hashimi al-qurayshi,', 'injil', 'isl4m', 'islam', 'ismi aisyah', 'jimat', 'kafir', 'katolik', 'muh4mmad', 'muhammad', 'muhammad saw', 'nabi', 'yesus', 'idul fitri', 'puasa', 'ramadan', 'ramadhan'],
+           'gambling': ['agen poker', 'agen sbobet', 'bonus deposit', 'bonus refferal', 'bonus rollingan', 'cashtree', 'game', 'judi', 'minimal deposit', 'poker', 'poker online'],
+           'parenting': ['anak', 'anak artis', 'anak cerdas', 'anak dan balita', 'anak mandiri', 'anak selebritis', 'anak selebritis indonesia', 'arti nama anak', 'arti nama bayi', 'artis bercerai', 'artis hamil', 'asi anak', 'ayah', 'baby', 'baby ameena', 'baby arsy', 'baby bump', 'baby bump artis', 'baby dan balita', 'baby face', 'baby gempi', 'baby leslar', 'baby shower', 'baby shower selebritis', 'baby sitter', 'baby spa', 'baby walker', 'babymoon', 'babymoon artis', 'babyologist', 'baru lahir', 'bayi', 'bayi 6 bulan', 'bayi artis', 'bayi dan anak', 'bayi kembar', 'bayi muntah', 'bayi pilek', 'bayi seleb', 'bayi selebritis', 'bayi selebritis indonesia', 'bayi tabung', 'camilan bayi', 'cara mengeluarkan dahak pada bayi', 'child', 'children', 'family', 'father', 'gaya baby', 'ibu', 'ibu anak', 'induk', 'jadwal makan bayi', 'jam tidur bayi', 'kehamilan', 'keibuan', 'kelahiran anak', 'kelahiran bayi', 'keluarga', 'keluarga artis', 'keluarga bahagia', 'keluarga dan anak', 'keluarga harmonis', 'keluarga penjabat', 'keluarga seleb', 'kesehatan bayi', 'kesehatan bayi dan balita', 'kesehatan keluarga', 'kid', 'masalah anak', 'mendidik anak', 'menyusui', 'mother', 'mpasi', 'nama anak', 'nama anak islam', 'nama anak kristen', 'nama anak laki laki', 'nama anak perempuan', 'nama anak sansekerta', 'nama bayi', 'nama bayi islam', 'nama bayi kristen', 'nama bayi laki laki', 'nama bayi laki laki unik', 'nama bayi perempuan', 'nama bayi perempuan unik', 'nama bayi sansekerta', 'newborn', 'orang tua', 'parent', 'parenting', 'pendidikan', 'penyakit bayi', 'penyebab bayi muntah', 'perawatan bayi', 'perceraian artis', 'perkembangan janin', 'perlengkapan bayi', 'pertumbuhan anak', 'pijat bayi', 'remaja', 'resep mpasi', 'rumah tangga', 'school', 'sekolah', 'spa baby', 'tips parenting', 'ucapan kelahiran', 'youth'],
+           'custom_keys': ['ahed tamimi', 'aliran sesat', 'anarkis', 'anarkisme suporter sepakbola', 'begal motor', 'bentrok suporter', 'bentrokan', 'bentrokan warga', 'berita hoax', 'capres jokowi', 'capres prabowo', 'fanatik', 'ferdy sambo', 'fpi', 'g30s', 'invasi rusia', 'jemaah ansharut daulah', 'kediktatoran arab saudi', 'kekerasan pada wartawan', 'killing', 'kisah mualaf', 'koalisi jokowi', 'koalisi pilpres 2024', 'koalisi prabowo', 'konflik palestina israel', 'konflik palestina-israel', 'konflik rusia ukraina', 'konflik suriah', 'luwu timur', 'nato', 'penembakan', 'penganiayaan', 'pengawal', 'pengeroyokan', 'penistaan agama', 'perang', 'perang di ukraina', 'perang dunia', 'perang dunia 3', 'perang rusia', 'peristiwa', 'pilpres 2024', 'prabowo subianto', 'prabowo-sandiaga', 'presiden rusia', 'presiden ukraina', 'propaganda rusia', 'ratna sarumpaet', 'rusia', 'rusia dan ukraina', 'rusia serang ukraina', 'senjata rusia', 'serang ukraina', 'serangan', 'suporter tewas', 'taliban', 'tentara', 'ternyata hoax', 'ujaran kebencian', 'ukraina', 'vladimir putin', 'korupsi', 'kpk', 'kkb', 'penjajah', 'berduka', 'army', 'corpse', 'demo', 'dilempar', 'ferdi sambo', 'Palestina', 'israel', 'boikot', 'yahudi', 'ajudan', 'gaza', 'hamas', 'perwira', 'sianida', 'capres', 'cawapres', 'pemilu', 'ganjar pranowo', 'mahfud md', 'gibran rakabuming', 'anies baswedan', 'muhaimin iskandar', 'cak imin', 'mirna', 'jessica wongso', 'makam', 'ganjar', 'anies', 'gibran', 'anis', 'presiden', 'bacapres', 'prabowo', 'mahfud', 'megawati', 'mk', 'mahkamah', 'iriana', 'ham', 'hak asasi manusia', 'cpns', 'militer', 'amunisi', 'senjata', 'senpi', 'kpu', 'partai', 'caleg', 'calon legislatif', 'bawaslu', 'cacar', 'gubernur', 'wakil gubernur', 'partai politik', 'parpol', 'calon wakil presiden', 'calon presiden', 'amin', 'pemilihan umum', 'calon anggota dpr', 'calon anggota mpr', 'calon anggota dprd', 'bacaleg', 'genosida', 'genocide', 'kampanye', 'blusukan', 'safari politik', 'gagal ginjal akut', 'gas air mata', 'pregnancy', 'smoker', 'tragedi kanjuruhan', 'tween']
+      };
+    
+    
+    
+      /*change this acording to the site page layout*/
+      var siteContentObject = document.querySelectorAll('.read-page--content'),
+           siteContentText = '',
+           headerText = document.querySelector('.read-page--header') && document.querySelector('.read-page--header').innerText;
+      for (let elm of siteContentObject) {
+           let bacaJuga = elm.querySelector('.baca-juga') && elm.querySelector('.baca-juga').innerText;
+           siteContentText += elm.innerText.replace(bacaJuga, '');
+      }
+    
+      siteContentText = dfp_keyword.concat(dfp_titles, ' ', dfp_desc, ' ', tagForAds, ' ', headerText, ' ', siteContentText);
+    
+      /*Iterate for all keyword list category to find match word*/
+      for (var bsKey in bsKeywordList) {
+           var subKeywordList = bsKeywordList[bsKey];
+           if (subKeywordList.length > 0) {
+               if (matchString = new RegExp("\\b(" + subKeywordList.join("|") + ")\\b", "ig").exec(siteContentText)) {
+    
+                   bsKeyword.push(bsKey);
+               }
+           }
+      }
+    
+      if (bsKeyword.length > 0) {
+           googletag.pubads().setTargeting("bsKeyword", bsKeyword);
+           /*Temporary preserve the previous brand safety targeting*/
+           googletag.pubads().setTargeting("brandsafety", isViolateBrandSafety);
+      }
+    
+      googletag.pubads().setTargeting("isMatcont", (typeof _klyObject !== 'undefined' && typeof _klyObject.article !== 'undefined' && _klyObject.article.isAdultContent === true) ? "1" : isMatcont);
+  },
+  onMessageReceivedGPTUpdateCreativeStyle: function() {
+      this.onMessageReceivedGetStyle = function(e) {
+           /** filter only correct origin and setStyle command */
+           if (!(e.origin.match(/safeframe.googlesyndication.com/ig)) ||
+               typeof e.data !== 'object' ||
+               typeof e.data.id !== 'string' ||
+               e.data.cmd !== 'setStyle' ||
+               typeof e.data.params !== 'object'
+           ) {
+               return;
+           }
+    
+           /* remove # character from id, we don't use jquery*/
+           var elementId = e.data.id.replace(/#/, "");
+    
+           var wrapperEl = document.getElementById(elementId);
+           if (wrapperEl === null) {
+               return;
+           }
+    
+           var elements = [wrapperEl];
+           /*target on KLY authorized element child ( div and iframe ) */
+           if (typeof e.data.query === 'string' && e.data.query) {
+               let el = null;
+               if (el = e.data.query.match(/(div|iframe)/ig)) {
+                   elements = wrapperEl.querySelectorAll(el.join(", "));
+               }
+           }
+    
+           /** target on KLY authorized attribute ( display, heigth, width ) */
+           elements.forEach(function(element) {
+               Object.keys(e.data.params).forEach(function(param) {
+                   let allowedAttr = ['display', 'height', 'width'];
+                   allowedAttr.indexOf(param) > -1 ? (element.style[param] = e.data.params[param]) : '';
+               });
+           });
+    
+      }
+      if (window.addEventListener) {
+           window.addEventListener('message', this.onMessageReceivedGetStyle, false);
+      } else {
+           if (window.attachEvent) {
+               window.attachEvent('onmessage', this.onMessageReceivedGetStyle);
+           } else {
+               window.onmessage = this.onMessageReceivedGetStyle;
+           }
+      }
+  },
+  bfInjectStyle : function () {
+      var btmfrm = document.querySelector("#div-gpt-ad-bolacom-bottomfrm-oop");
+      if (!btmfrm) return;
+    
+      var btmfrmPlaceholder = document.createElement('div');
+           btmfrmPlaceholder.id = 'div-gpt-ad-bottomfrm-placeholder';
+    
+      var btnMinimize = document.createElement("span");
+           btnMinimize.setAttribute("id", "bottomframe-toggle");
+           btnMinimize.innerHTML = `Hide Ads <img src="https://cdns.klimg.com/d.kapanlaginetwork.com/banner/asset/img/arrow-down-w.png" alt="icon" class="toggle-img">`;
+    
+      btnMinimize.addEventListener('click', function(event) {
+           if (!btmfrmPlaceholder.classList.contains('shrink')) {
+               btmfrmPlaceholder.classList.add('shrink');
+               btnMinimize.innerHTML = `Show Ads <img src="https://cdns.klimg.com/d.kapanlaginetwork.com/banner/asset/img/arrow-up-w.png" alt="icon" class="toggle-img">`;
+           } else {
+               btmfrmPlaceholder.classList.remove('shrink');
+               btnMinimize.innerHTML = `Hide Ads <img src="https://cdns.klimg.com/d.kapanlaginetwork.com/banner/asset/img/arrow-down-w.png" alt="icon" class="toggle-img">`;
+           }
+      });
+    
+      var style = document.createElement("style");
+      style.textContent = `
+            /* Dok. 14072025 */
+            #div-gpt-ad-bottomfrm-placeholder {
+                position: sticky;
+                bottom: -1000px;
+                z-index: 9999;
+                transition: bottom 0.3s ease-in-out;
+                text-align: center;
+            }
+
+            /* Dok. 14072025 */
+            /* When visible */
+            #div-gpt-ad-bottomfrm-placeholder.show {
+                bottom: 0px;
+            }
+           #div-gpt-ad-bottomfrm-placeholder.shrink {
+               bottom: 0 !important;
+           }
+           #div-gpt-ad-bolacom-bottomfrm-oop{
+               bottom: initial;
+           }   
+           #div-gpt-ad-bottomfrm-placeholder #div-gpt-ad-bolacom-bottomfrm-oop{
+               margin-top: 5px;
+           }
+           #div-gpt-ad-bottomfrm-placeholder.shrink #div-gpt-ad-bolacom-bottomfrm-oop{
+               max-height: 0;
+               min-height: 0;
+           }
+           #bottomframe-toggle {
+               background: #878787;
+               border-radius: 30px;
+               padding: 6px 10px;
+               font-size: 10px;
+               line-height: 15px;
+               color: #fff;
+               font-weight: 700;
+               cursor: pointer;
+           }
+           .toggle-img {
+               width: 10px;
+           }
+      `;
+      
+      btmfrm.parentNode.insertBefore(btmfrmPlaceholder, btmfrm);
+      btmfrmPlaceholder.appendChild(style);
+      btmfrmPlaceholder.appendChild(btnMinimize);
+      btmfrmPlaceholder.appendChild(btmfrm);
+  },
+  HeavyAdsResolver: class {
+    constructor() {
+         this.checkCount = 0;
+         this.checkInterval = null;
+         this.player = null;
+         this.volumeButton = null;
+         this.playButton = null;
+         this.init();
+    }
+    
+    init() {
+         this.checkInterval = setInterval(() => this.checkForVideo(), 100);
+    }
+    
+    checkForVideo() {
+         this.checkCount++;
+         const videoWrapper = document.querySelector("div[id^='kly-masthead-video-ouststream-'], div[id^='kly-masthead-desktop-video-ouststream-']");
+         const videoFrame =  videoWrapper && videoWrapper.querySelector("iframe");
+         if (videoWrapper && videoFrame) {
+             this.setupPlayer(videoWrapper);
+             clearInterval(this.checkInterval);
+         } else if (this.checkCount > 500) {
+             clearInterval(this.checkInterval);
+         }
+    }
+    
+    setupPlayer(videoWrapper) {
+         const container = videoWrapper.querySelector("#video-wrapper");
+         const uniqId = videoWrapper.id;
+         const currentVideo = container.querySelector("iframe");
+         const videoType = container.dataset.videoType;
+         const videoId = container.dataset.videoId;
+    
+    
+         switch (videoType) {
+             case "youtube":
+                 currentVideo.remove();
+                 const playerDiv = document.createElement("div");
+                 playerDiv.id = "youtube-player";
+                 container.appendChild(playerDiv);
+                 if (!window.YT || !YT.Player) {
+                     const tag = document.createElement("script");
+                     tag.src = "https://www.youtube.com/iframe_api";
+                     document.body.appendChild(tag);
+                 }
+    
+                 window.onYouTubeIframeAPIReady = () => {
+                     this.player = new YT.Player("youtube-player", {
+                         width: "320",
+                         height: "180",
+                         videoId: videoId,
+                         playerVars: {
+                             autoplay: 1,
+                             mute: 1,
+                             controls: 0,
+                             playsinline: 1,
+                             enablejsapi: 1,
+                         },
+                         events: {
+                             onReady: (event) => this.onPlayerReady(event),
+                         },
+                     });
+                 };
+                 break;
+             case "vidiocom":
+                 const cloneIframe = currentVideo.cloneNode(true);
+                 Object.entries({
+                     src: videoId,
+                     scrolling: 'no',
+                     frameborder: '0',
+                     width: '320',
+                     height: '180',
+                     id: 'embed-' + uniqId,
+                     class: 'embed-vidiocom',
+                     name: 'embed-' + uniqId
+                 }).forEach(([k, v]) => cloneIframe.setAttribute(k, v));
+                 currentVideo.remove();
+                 container.querySelector("#player-wrapper").remove();
+                 this.player = cloneIframe;
+                 container.appendChild(cloneIframe);
+                 break;
+         }
+    
+    }
+    
+    onPlayerReady(event) {
+         this.volumeButton = parent.document.querySelector("div#player-wrapper div#btn-volume");
+         this.playButton = parent.document.querySelector("div#player-wrapper div#btn-play");
+    
+         this.volumeButton.addEventListener("click", () => this.volumeAction());
+         this.playButton.addEventListener("click", () => this.playAction());
+    }
+    
+    volumeAction(state) {
+         const currentState = typeof state === "string" ?
+             state :
+             this.volumeButton.classList.contains("mute") ? "mute" : "unmute";
+    
+         if (currentState === "mute") {
+             this.player.unMute();
+             this.volumeButton.setAttribute("class", "unmute");
+         } else {
+             this.player.mute();
+             this.volumeButton.setAttribute("class", "mute");
+         }
+    }
+    
+    playAction(state) {
+         const currentState = typeof state === "string" ?
+             state :
+             this.playButton.classList.contains("play") ? "play" : "pause";
+    
+         if (currentState === "pause") {
+             this.player.pauseVideo();
+             this.playButton.setAttribute("class", "play");
+         } else {
+             this.player.playVideo();
+             this.playButton.setAttribute("class", "pause");
+         }
+    }
+  },
+    }
+    
+    /* DMP CATEGORY LIST */
+    window.widgetBLV02 = true;
+    window.createDMPTracker = function(adsCatList, dfpTracker, macro) {
+  parent.window.open(dfpTracker, '_blank');
+    };
+    
+    googletag.cmd.push(function() {
+  var urlPath = document.URL;
+    
+  GAMLibrary.brandSafetyChecker();
+    
+  /* DEFINE IMMERSIVE TAG - DO NOT CHANGE THE SLOT ORDER, IMMERSIVE ALWAYS ON THE 1st POSITION - */
+  window.GAMLibrary.immersive = googletag.defineOutOfPageSlot(GAMLibrary.gamImmersive, 'div-gpt-ad-bolacom-immersive-oop').addService(googletag.pubads());
+    
+  window.GAMLibrary.showcase = googletag.defineSlot(GAMLibrary.gamShowcase, [
+      [300, 250],
+      [250, 250]
+  ], 'div-gpt-ad-bolacom-sc').addService(googletag.pubads());
+  window.GAMLibrary.halfpage1 = googletag.defineSlot(GAMLibrary.gamHalfpage1, [
+      [300, 600],
+      [160, 600]
+  ], 'div-gpt-ad-bolacom-halfpage1').addService(googletag.pubads());
+    // 5. Dok. Remove HP2
+    // window.GAMLibrary.halfpage2 = googletag.defineSlot(GAMLibrary.gamHalfpage2, [[300, 600], [160, 600]], 'div-gpt-ad-bolacom-halfpage2').addService(googletag.pubads());
+
+    // 2. Dok. Remove LB
+    //window.GAMLibrary.leaderboard = googletag.defineSlot(GAMLibrary.gamLeaderboard, [[970, 90], [728, 90]], 'div-gpt-ad-bolacom-lb').addService(googletag.pubads()).setTargeting("leaderboard_type", ['direct']);
+     
+   // 1. Dok. Remove Slide Up
+   // window.GAMLibrary.slideup = googletag.defineSlot(GAMLibrary.gamSlideUp, [1, 1], 'div-gpt-ad-bolacom-mgid-inarticle').addService(googletag.pubads());
+   /* Dok. 01082025 - Remove insertion */
+   // window.GAMLibrary.insertion = googletag.defineSlot(GAMLibrary.gamInsertion, [1, 1], 'div-gpt-ad-bolacom-mgid-underarticle').addService(googletag.pubads());
+    
+  /*OUT OF PAGE SLOT*/
+  window.GAMLibrary.ballon = googletag.defineOutOfPageSlot(GAMLibrary.gamBalloon, 'div-gpt-ad-bolacom-balloon-oop').addService(googletag.pubads());
+  window.GAMLibrary.headline1 = googletag.defineOutOfPageSlot(GAMLibrary.gamHeadline1, 'div-gpt-ad-bolacom-dfp-headline1-oop').addService(googletag.pubads());
+  window.GAMLibrary.headline2 = googletag.defineOutOfPageSlot(GAMLibrary.gamHeadline2, 'div-gpt-ad-bolacom-dfp-headline2-oop').addService(googletag.pubads());
+  window.GAMLibrary.newstag1 = googletag.defineOutOfPageSlot(GAMLibrary.gamNewsTag1, 'div-gpt-ad-bolacom-newsTag1-oop').addService(googletag.pubads());
+  window.GAMLibrary.organicFeedCRM1 = googletag.defineOutOfPageSlot(GAMLibrary.gamOrganicFeedCRM1, 'div-gpt-ad-bolacom-crm1-oop').addService(googletag.pubads());
+  window.GAMLibrary.organicFeedCRM2 = googletag.defineOutOfPageSlot(GAMLibrary.gamOrganicFeedCRM2, 'div-gpt-ad-bolacom-crm2-oop').addService(googletag.pubads());
+  window.GAMLibrary.organicFeedCRM3 = googletag.defineOutOfPageSlot(GAMLibrary.gamOrganicFeedCRM3, 'div-gpt-ad-bolacom-crm3-oop').addService(googletag.pubads());
+  window.GAMLibrary.pictureFirst = googletag.defineOutOfPageSlot(GAMLibrary.gamPictureFirst, 'div-gpt-ad-bolacom-picturefirst').addService(googletag.pubads());
+  window.GAMLibrary.widget = googletag.defineOutOfPageSlot(GAMLibrary.gamWidget, 'div-gpt-ad-bolacom-widget').addService(googletag.pubads());
+    
+    // 4. Dok. Remove Interstitial
+    /* INTERSTITIAL ADS */
+    // window.GAMLibrary.interstitial = googletag.defineOutOfPageSlot(GAMLibrary.gamInterstitial, googletag.enums.OutOfPageFormat.INTERSTITIAL);
+    // window.GAMLibrary.interstitial ? window.GAMLibrary.interstitial.addService(googletag.pubads()) : '';
+    /* INTERSTITIAL ADS */
+  window.GAMLibrary.inreadnative = googletag.defineOutOfPageSlot(GAMLibrary.gamInreadNative, 'div-gpt-ad-bolacom-in-read-native').addService(googletag.pubads());
+    
+  googletag.pubads().addEventListener('slotRenderEnded', function(event) {
+      var dfp_slotElementId = event.slot.getSlotId().getDomId(),
+           dfp_lb_keyTargetting = [],
+           containerId = event.slot.getSlotElementId(),
+           containerEl = document.getElementById(containerId);
+    
+      if (event.slot == window.GAMLibrary.immersive) {
+           if (event.isEmpty) {
+               gam_billboard = googletag.defineOutOfPageSlot(GAMLibrary.gamBillboard, 'div-gpt-ad-bolacom-billboard-oop').addService(googletag.pubads());
+            // 3. Dok. Remove TF
+            // gam_topfrm = googletag.defineOutOfPageSlot(GAMLibrary.gamTopFrame, 'div-gpt-ad-bolacom-topfrm-oop').addService(googletag.pubads());
+
+            gam_bottomfrm = kmklabs.gtm.type !== "PhotoGallery" ? googletag.defineSlot(GAMLibrary.gamBottomFrame, [[970, 90], [728, 90], [468, 60]], 'div-gpt-ad-bolacom-bottomfrm-oop').addService(googletag.pubads()) : "";
+    
+            if (!GAMLibrary.GAMisTablet) {
+            gam_skinad = googletag.defineOutOfPageSlot(GAMLibrary.gamSkinad, 'div-gpt-ad-bolacom-skinad-oop').addService(googletag.pubads());
+            // 3. Dok. Remove TF
+            // kmklabs.gtm.type !== "PhotoGallery" ? googletag.pubads().refresh([gam_billboard, gam_topfrm, gam_bottomfrm, gam_skinad]) : googletag.pubads().refresh([gam_billboard, gam_topfrm, gam_skinad]);
+            kmklabs.gtm.type !== "PhotoGallery" ? googletag.pubads().refresh([gam_billboard, gam_bottomfrm, gam_skinad]) : googletag.pubads().refresh([gam_billboard, gam_skinad]);
+            } else {
+            // 3. Dok. Remove TF
+            // kmklabs.gtm.type !== "PhotoGallery" ? googletag.pubads().refresh([gam_billboard, gam_topfrm, gam_bottomfrm]) : googletag.pubads().refresh([gam_billboard, gam_topfrm]);
+            kmklabs.gtm.type !== "PhotoGallery" ? googletag.pubads().refresh([gam_billboard, gam_bottomfrm]) : googletag.pubads().refresh([gam_billboard]);
+            }
+
+            /* STICKY BOTTOM FRAME TWEAK */
+            document.querySelector("#div-gpt-ad-bolacom-bottomfrm-oop").style = "position: sticky; bottom: 0; z-index: 9999;";
+        }
+        }
+    
+      if(window.GAMLibrary.gamBillboard  == event.slot.getAdUnitPath()){
+         if(!event.isEmpty){
+           var _targetWrapper_  = document.querySelector("#div-gpt-ad-bolacom-billboard-oop");
+           if(_targetWrapper_){
+             _targetWrapper_.classList.add("show");
+           }
+         }
+      }
+    
+       // 2. Dok. Remove LB
+       /*
+          if (window.GAMLibrary.gamLeaderboard == event.slot.getAdUnitPath()) {
+          if (!event.isEmpty) {
+              var _targetWrapper_ = document.querySelector("#billboard-ad");
+              if (_targetWrapper_) {
+              _targetWrapper_.classList.add("show");
+              }
+          }
+          }
+          */
+    
+      if (containerEl !== null) {
+           var iframeEl = containerEl.querySelectorAll('iframe')[0];
+    
+           /* it's delayed by 10 milliseconds, because iframe is not yet fully rendered
+           and limited to max to 10 seconds to wait*/
+           var timeoutFunction = function() {
+               var src = "#" + containerId;
+               /* `src` attribute is null, when iframe is FriendlyIframe, and
+                when it's present, then it's SafeFrame */
+               if (iframeEl) {
+                   if ((iframeEl.getAttribute('src') !== null)) {
+                       src = iframeEl.getAttribute('src').replace(/#.*/, "") + src;
+                   } else {
+                       var name = iframeEl.getAttribute('name') + "#" + containerId;
+                       iframeEl.setAttribute('name', name);
+                   }
+                   iframeEl.setAttribute('src', src);
+               }
+           };
+           setTimeout(timeoutFunction, 10);
+      }
+  });
+    
+  /* INITIATE INFINITE SC */
+  // GAMLibrary.initiateInfiniteSC();
+    
+  /*  START TARGETING BLOCK   */
+  googletag.pubads().setTargeting("tags", GAMLibrary.tags);
+  googletag.pubads().setTargeting("articleTitle", kmklabs.article.title);
+  googletag.pubads().setTargeting("articlePath", window.location.pathname);
+  googletag.pubads().setTargeting("platform", kmklabs.platform);
+  googletag.pubads().setTargeting("type", kmklabs.gtm.type);
+  googletag.pubads().setTargeting("pageType", kmklabs.pageType);
+  googletag.pubads().setTargeting("channel", kmklabs.gtm.subCategory);
+  googletag.pubads().setTargeting("audience", kmklabs.gtm.audience && kmklabs.gtm.audience.split("|") || "");
+  googletag.pubads().setTargeting("isAdvertorial", typeof(isAdvertorial = kmklabs.article && kmklabs.article.isAdvertorial.toString()) === "undefined" ? "false" : isAdvertorial);
+  googletag.pubads().setTargeting("isMultipage", typeof(isMultipage = kmklabs.article && kmklabs.article.isMultipage.toString()) === "undefined" ? "false" : isMultipage);
+  googletag.pubads().setTargeting("articleId", kmklabs.gtm.articleId.toString());
+  googletag.pubads().setTargeting("site", kmklabs.site);
+  googletag.pubads().setTargeting("age", typeof(age = kmklabs.gtm.age) === "undefined" ? "false" : kmklabs.gtm.age.toString());
+  googletag.pubads().setTargeting("gender", typeof(gender = kmklabs.gtm.gender) === "undefined" ? "false" : kmklabs.gtm.gender.toString());
+  googletag.pubads().setTargeting("subcategory", kmklabs.gtm.subCategory);
+  /*  END TARGETING BLOCK   */
+  googletag.pubads().setCentering(true);
+  googletag.pubads().enableSingleRequest();
+  googletag.pubads().collapseEmptyDivs();
+  googletag.pubads().disableInitialLoad();
+  googletag.enableServices();
+    
+  if(kmklabs.gtm.type !== "PhotoGallery"){
+      GAMLibrary.bfInjectStyle();
+  }
+    
+     // googletag.pubads().refresh([window.GAMLibrary.interstitial, window.GAMLibrary.inreadnative, window.GAMLibrary.insertion, window.GAMLibrary.immersive, window.GAMLibrary.ballon, window.GAMLibrary.headline1, window.GAMLibrary.headline2, window.GAMLibrary.newstag1, window.GAMLibrary.organicFeedCRM1, window.GAMLibrary.organicFeedCRM2, window.GAMLibrary.organicFeedCRM3, window.GAMLibrary.slideup, window.GAMLibrary.pictureFirst, window.GAMLibrary.widget]);
+    
+   // 1. Dok. Remove Slide Up
+   // 4. Dok. Remove Interstitial
+   /* Dok. 01082025 - Remove insertion */
+   //googletag.pubads().refresh([window.GAMLibrary.inreadnative, window.GAMLibrary.insertion, window.GAMLibrary.immersive, window.GAMLibrary.ballon, window.GAMLibrary.headline1, window.GAMLibrary.headline2, window.GAMLibrary.newstag1, window.GAMLibrary.organicFeedCRM1, window.GAMLibrary.organicFeedCRM2, window.GAMLibrary.organicFeedCRM3, window.GAMLibrary.pictureFirst, window.GAMLibrary.widget]);
+   googletag.pubads().refresh([window.GAMLibrary.inreadnative, window.GAMLibrary.immersive, window.GAMLibrary.ballon, window.GAMLibrary.headline1, window.GAMLibrary.headline2, window.GAMLibrary.newstag1, window.GAMLibrary.organicFeedCRM1, window.GAMLibrary.organicFeedCRM2, window.GAMLibrary.organicFeedCRM3, window.GAMLibrary.pictureFirst, window.GAMLibrary.widget]);
+
+   });
+    
+/* INITIATE PREBID */
+var prebidObject = new PrebidInstantiate(1000, 3000, 1000, adUnitsDisplay, adUnitsVideo, priceGranularityConfig);
+    
+    /** GET MESSAGE FROM SAFEFRAME CONTAINER */
+    GAMLibrary.onMessageReceivedGPTUpdateCreativeStyle();
+    /** GET MESSAGE FROM SAFEFRAME CONTAINER */
+    var HeavyAdsResolver = new GAMLibrary.HeavyAdsResolver();
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8413700652631137" crossorigin="anonymous"></script>
